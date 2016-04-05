@@ -1,0 +1,19 @@
+{
+  "extends": "mwl",
+  "rules": {
+    "angular/controller-name": [2, "/[A-Z].*Ctrl/"],
+    "angular/deferred": 2,
+    "angular/directive-name": [2, "mwl"],
+    "angular/empty-controller": 2,
+    "angular/di-unused": 2
+  },
+  "env": {
+    "node": true
+  },
+  "plugins": [
+    "angular"
+  ],
+  "globals": {
+    "EXCLUDE_TEMPLATES": true
+  }
+}

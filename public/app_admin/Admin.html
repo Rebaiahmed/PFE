@@ -1,0 +1,160 @@
+
+<head>
+
+
+
+    <style>
+
+        #main {
+            padding-left: 240px;
+        }
+        .m-box{
+            padding-top:12px;
+        }
+        .sidebar-collapse {
+            position: absolute;
+            top: -47px;
+            left: -155px;
+        }
+        #left-sidebar-nav {
+            position: fixed;
+            width: 100px;
+            left: 180px;
+            z-index: 999;
+            height: auto;
+        }
+        ul.side-nav.leftside-navigation {
+            top: 64px;
+            overflow: hidden;
+        }
+        .collapsible-header:after {
+            font-family: "Material-Design-Icons";
+            content: "\e7c3";
+            float: right;
+            color: #9e9e9e;
+            font-size: 18px;
+        }
+        .side-nav a {
+            line-height: 43px;
+            height: 43px;
+        }
+        ul.side-nav.leftside-navigation li a {
+            font-size: 14px;
+            font-weight: 400;
+            height: 43px;
+            line-height: 43px;
+        }
+        ul.side-nav.leftside-navigation li a {
+            font-size: 14px;
+            font-weight: 400;
+        }
+        @media screen and (min-width: 992px) {
+            a.brand-logo {
+                margin-left: 30px;
+            }
+        }
+        @media only screen and (max-width: 993px){
+            #main {
+                padding-left: 0;
+            }
+        }
+
+        footer {
+            background: #ee6e73;
+            padding :25px 0px 5px;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!--div class="container"-->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- Navbar goes here -->
+<div class="navbar-fixed indigo accent-3">
+    <nav class="teal lighten-2">
+        <div class="nav-wrapper ">
+            <a href="#!" class="brand-logo">Admin</a>
+            <!--a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light cyan"><i class="mdi-navigation-menu"></i></a-->
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#"></a></li>
+                <li>
+                    <a class='dropdown-button btn' ui-sref="Reservations" >Réservations <span class="new badge">4</span></a>
+
+                </li>
+                <li><a ui-sref="Messages">Messages <span class="new badge">4</span></a></li>
+                <li><a ui-sref="Profile">Profile  <i class="material-icons">person_pin</i></a></li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+<!-- start main -->
+
+<div id="main">
+    <div class="wrapper">
+        <!--start left side bar-->
+        <aside id="left-sidebar-nav">
+            <ul id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y" >
+                <li><a ui-sref="locations" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> locations</a></li>
+                <li><a ui-sref="voitures" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i>Voitures</a></li>
+                <li><a ui-sref="entretients" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Entretients</a></li>
+                <li><a ui-sref="contrats" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Contrats</a></li>
+                <li><a ui-sref="factures" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Factures</a></li>
+                <li><a ui-sref="clients" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Clients</a></li>
+                <li><a ui-sref="conducteurs" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Conducteurs</a></li>
+                <li><a ui-sref="statistiques" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Statistiques</a></li>
+
+
+            </ul>
+            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+        </aside>
+        <!--end left side bar-->
+        <!--//////////////////-->
+
+
+    </div>
+
+</div>
+
+<!---the content-->
+
+
+
+
+
+
+
+<div ui-view></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

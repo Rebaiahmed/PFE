@@ -1,0 +1,172 @@
+<section class="content" ng-controller="locationsController" >
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Locations <i class="material-icons">perm_contact_calendar</i></h3>
+
+                    <a class="btn-floating btn-large waves-effect waves-light red"
+                            ui-sref=".add"><i class="material-icons">add</i></a>
+
+
+     <div ui-view></div>
+
+
+
+
+
+
+
+
+                </div>
+                <hr>
+                <hr>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+
+
+
+
+            <div class="row">
+                <label>Trier Par : </label>
+                <div class="input-field col s12">
+
+                <select class="browser-default" ng-model="date">
+
+                    <option value="dateDebut">Date Début</option>
+                    <option value="dateFin">Date Fin</option>
+                </select>
+
+                    {{ date }}
+
+            </div>
+                </div>
+            <!----------------------------------->
+
+
+
+
+
+            <div class="row">
+
+
+
+                <div class="col s12">
+
+
+
+
+
+                    <table class="centered highlight">
+                        <thead>
+                        <tr>
+                            <th data-field="id">
+                                <p><i class="small material-icons">perm_identity</i> Client</p>
+                            </th>
+
+                            <th data-field="name">
+                                <p>
+                                <i class="material-icons">drive_eta</i>
+                                    Voiture
+                                </p>
+                            </th>
+                            <th data-field="name">
+                                <p>
+                                    <i class="material-icons">date_range</i>
+                                    Date début
+                                </p>
+
+                            </th>
+                            <th data-field="name">
+                                <p>
+                                    <i class="material-icons">date_range</i>
+                                Date Fin
+                                </p>
+                            </th>
+
+                            <th data-field="name">
+                                <p>
+
+                                    lieu prise
+                                </p>
+                            </th>
+
+                            <th data-field="name">
+                                <p>
+
+                                   lieu Retour
+                                </p>
+                            </th>
+
+
+                            <th data-field="name">
+                                <p>
+                                Etat
+                                </p>
+                            </th>
+                            <th data-field="name" >
+                                Editer
+                            </th>
+                            <th data-field="name" >
+                               Supprimer
+                            </th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="loc in locations | filter:date">
+                          <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
+                            <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
+                            <td>{{ loc.dateDebut | date:'medium' }}</td>
+                            <td>{{ loc.dateFin  | date:'medium'  }}</td>
+                            <td>{{  loc.lieuPrise  }}</td>
+                            <td>{{  loc.lieuRetour }} </td>
+
+
+
+                            <td ng-if="evaluate(loc)">
+                                <i class="small material-icons">done</i>
+                                {{ loc.etat + " " + etat }}
+                            </td>
+
+                            <td ng-if="!evaluate(loc)">
+                                <i class="small material-icons">warning</i>
+                                {{ loc.etat + " " + etat }}
+                            </td>
+                            <td>
+                                <a ng-click="editlocation(loc.idReservation)">  <i class="material-icons">mode_edit</i></a>
+                            </td>
+                            <td>
+                                <a ng-click="supprimlocation(loc.idReservation)"><i class="material-icons">delete</i></a>
+                            </td>
+                         <td><a ng-click="calculPrix(loc.idReservation)">cliquez</a> </td>
+                        </tr>
+
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </div><!--end of row-->
+
+
+
+
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->
+
+

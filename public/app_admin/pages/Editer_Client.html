@@ -1,0 +1,170 @@
+<section class="content">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+
+
+                    {{  $scope.client }}
+
+                    <i class="material-icons prefix">account_circle</i>
+                    <form ng-submit="updateClient()" name="ClientForm" novalidate>
+
+
+                        <div class="row">
+
+                            <div class="input-field col s12">
+                                <input id="num_cin" type="text" class="validate" name="Num_Cin"
+                                       ng-model="client.numCin" >
+                                <label for="Num_Cin">Num Cin</label>
+
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="nom" type="text" class="validate"
+                                       ng-model="client.nom"   name="nom">
+                                <label for="last_name">Nom</label>
+
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input id="prenom" type="text" class="validate"
+                                       ng-model="client.prenom"  name="Prenom">
+                                <label for="last_name">Prenom</label>
+
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input id="email" type="text" class="validate"
+                                       ng-model="client.email"   name="email">
+                                <label for="email">email</label>
+
+                            </div>
+
+
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="Num_tel1" type="text" class="validate"
+                                       ng-model="client.numTel1"   name="Prenom">
+                                <label for="last_name">Num tel1</label>
+
+                            </div>
+
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="num_tel" type="text" class="validate"
+                                       ng-model="client.numTel2"  name="num_tel">
+                                <label for="last_name">Num tel2</label>
+
+                            </div>
+
+
+
+
+                            <div class="input-field col s6">
+                                <input id="num_permis" type="text" class="validate"
+                                       ng-model="client.numPermis"   name="num_permis">
+                                <label for="last_name">Num Permis</label>
+
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input id="date" type="date" class="validate"
+                                       ng-model="client.datePermis"   name="num_permis">
+
+
+                            </div>
+
+
+                            <p>
+                                <input name="group1" type="radio" id="test1" value="1" ng-model="client.statut" />
+                                <label for="test1">Particulier</label>{{ particulier }}
+
+                            </p>
+                            <p>
+                                <input name="group1" type="radio" id="test2" value="0" ng-model="client.statut" />
+                                <label for="test2">Professionnel</label>
+                                {{ professionel }}
+                            </p>
+
+
+
+
+
+
+                            <button class="btn waves-effect waves-light" type="submit" name="action"
+                                    ng-disabled="ClientForm.$invalid">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+
+                        </div>
+
+
+
+
+                        {{ client }}
+
+
+
+
+                        <p ng-show="ResForm.dateDebut.$invalid && !ResForm.dateDebut.$pristine" class="help-block">
+                            vous devez choisr une date de début
+                        </p>
+
+                        <p ng-show="ResForm.dateFin.$invalid && !ResForm.dateFin.$pristine" class="help-block">
+                            vous devez choisr une date de fin
+                        </p>
+
+                        <p ng-show="newReservation.dateDebut>=newReservation.dateFin" class="help-block">
+                            date debut , date fin invalides
+                        </p>
+
+                        <p ng-show="ResForm.heureDebut.$invalid && !ResForm.heureDebut.$pristine" class="help-block">
+                            heure Debut obligatoire !
+                        </p>
+
+                        <p ng-show="ResForm.heureFin.$invalid && !ResForm.heureFin.$pristine" class="help-block">
+                            heure fin obligatoire!
+                        </p>
+
+                        <p ng-show="ResForm.lieuPrise.$invalid && !ResForm.lieuPrise.$pristine" class="help-block">
+                            lieu de Prise obligatoire !
+                        </p>
+
+                        <p ng-show="ResForm.lieuRetour.$invalid && !ResForm.lieuRetour.$pristine" class="help-block">
+                            lieu Retour obligatoire!
+                        </p>
+
+
+
+                    </form>
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->
+
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+</script>

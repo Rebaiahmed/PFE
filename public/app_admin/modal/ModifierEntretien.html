@@ -1,0 +1,70 @@
+
+
+<div class="container" ng-controller="EntretientsCtrl">
+    <div class="row">
+
+
+        <div class="col-md-6">
+
+
+
+
+
+
+
+
+
+<form novalidate ng-submit="addEntretien()" name="myForm">
+
+
+
+
+    <div class="form-group">
+        <label >Nom d'entretien</label>
+        <input type="int" class="form-control input-sm"  placeholder="Nom d'entretien"  ng-model="entretien.nom"
+               required>
+    </div><!--end of form-group-->
+
+    <div class="form-group">
+        choisir un type d'entretien
+        <select class="selectpicker" ng-model="entretien.type" required>
+            <option value="Ponto">Ponto</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="Kojo" >Kojo</option>
+        </select>
+    </div><!--end of form-group-->
+
+
+
+    <div class="form-group">
+        <label >caution</label>
+        <input type="int" class="form-control input-sm"  placeholder="caution $"  ng-model="entretien.caution"
+                >
+    </div><!--end of form-group-->
+
+
+
+
+
+    <div class="form-group">
+        <label >Date d'entretien</label>
+        <input type="text" class="form-control input-sm"  placeholder=""  ng-model="entretien.date"
+               required>
+    </div><!--end of form-group-->
+    <div class="form-group">
+        <label >Description</label>
+                       <textarea class="form-control input-sm" ng-model="entretien.description">
+
+                       </textarea>
+    </div><!--end of form-group-->
+
+
+    <button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid">Sauvegarder modifications</button>
+</form>
+
+
+        </div>
+
+    </div>
+</div>
+

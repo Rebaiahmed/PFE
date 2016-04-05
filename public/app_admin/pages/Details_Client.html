@@ -1,0 +1,83 @@
+
+<section class="content"  >
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+
+                    ici details clients
+
+
+                    <ul class="collection">
+                        <li class="collection-item">
+                            Num Cin : {{ client.numCin }}
+                        </li>
+                        <li class="collection-item">
+                            <p>  <i class="material-icons prefix">account_circle</i>Nom Complet : {{ client.nom + " " + client.prenom }}  </p>
+                            <p> <i class="material-icons">email</i> email :  {{ client.email }} </p>
+                            <p>Age :  ! a terminer</p>
+
+                        </li>
+
+
+                        <li class="collection-item">
+                           <p> <i class="material-icons">perm_identity</i> Numéro de permis :  {{ client.numPermis }}</p>
+                            <p> <i class="material-icons">date_range</i> Date d'obtention de permis :  {{ client.datePermis | date:'medium' }} </p>
+
+                        </li>
+
+
+                        <li class="collection-item">
+                           Client depuis : date ! adeterminer
+
+                        </li>
+                        <li class="collection-item">
+                            <i class="material-icons prefix">phone</i>
+                           <p>Num tel1 :  {{ client.numTel1 }} </p>
+                            <p>Num tel2 : {{ client.numTel2 }}</p>
+
+                        </li>
+
+                        <li class="collection-item">
+                            <i class="material-icons">location_city</i>
+                            <p>Ville : {{ client.adresset }} </p>
+                            <p>Rue : {{ client.adresset }}</p>
+                            <p>Code postale : {{ client.adresset }}</p>
+
+                        </li>
+
+                        <li class="collection-item">
+                            <i class="material-icons">attach_money</i>
+                            <p>Chiffre d'affaire réalisée  :</p>
+                            <p>Nombre totale de réservations : {{ Nbr_Reservations_Totale ( client) }}:</p>
+                            <p>Réservation en cours  : {{ Reservation_En_Cours(client) }}</p>
+
+                        </li>
+
+                        <li class="collection-item">
+
+                            <p>ici statut {{ client.statut }}</p>
+
+                        </li>
+                    </ul>
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

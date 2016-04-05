@@ -1,0 +1,259 @@
+<section class="content">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+
+
+
+
+                    <form ng-submit="addCar()" name="CarForm" novalidate>
+
+
+                        <div class="row">
+
+                          <label>date visite tecknique</label>
+                            <div class="input-field col s12">
+                                <input placeholder="date" id="first_name" type="date" name="date_visite_tecknique"
+                                       class="datepicker" ng-model="newCar.date_visite_tecknique" required>
+                            </div>
+
+
+
+                            <label>date vignette</label>
+                            <div class="input-field col s12">
+                                <input id="Date vignette" type="date" class="datepicker" name="date vignette"
+                                       ng-model="newCar.date_vignette" required>
+
+                            </div>
+
+
+
+
+
+                            <label>date assurance</label>
+
+                            <div class="input-field col s12">
+                                <input id="Date assurance" type="date" class="datepicker" name="date Asurance"
+                                       ng-model="newCar.date_assurance" required>
+
+                            </div>
+
+
+                            <div class="input-field col s4">
+                                <input id="Heure fin" type="text" class="validate"
+                                       ng-model="newCar.kilometrage"  required name="kilometrage">
+                                <label for="kilometrage">kilometrage</label>
+
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="lieu_Prise" type="text" class="validate" name="nbPlaces"
+                                       ng-model="newCar.nbPlaces" required>
+                                <label for="nbPlaces">nb places</label>
+
+                            </div>
+
+
+                            <div class="input-field col s4">
+                                <input id="categorie" type="text" class="validate" name="categorie"
+                                       ng-model="newCar.categorie" required>
+                                <label for="categorie">categorie</label>
+
+                            </div>
+
+
+                            <div class="input-field col s6">
+                                <input id="num chassee" type="text" class="validate" name="categorie"
+                                       ng-model="newCar.numChassee" required>
+                                <label for="categorie">num chassee</label>
+
+                            </div>
+
+
+                            <div class="input-field col s6">
+                                <input id="num immatricule" type="text" class="validate" name="categorie"
+                                       ng-model="newCar.numImmatricule" required>
+                                <label for="categorie">num immatricule</label>
+
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input id="prix" type="text" class="validate" name="categorie"
+                                       ng-model="newCar.prixLocation" required>
+                                <label for="categorie">Prix de location <i class="material-icons">attach_money</i></label>
+
+                            </div>
+
+
+
+
+
+
+
+
+                            <div class="col s12">
+                            <label>Modele </label>
+                            <select class="browser-default" ng-model="newCar.Modele_idModele" required>
+
+                                <option value="{{m.idModele }}" ng-repeat=" m in models"
+                                       >
+                                 {{  m.nom + ' ' + m.marque   }}
+
+                                </option>
+
+
+                            </select>
+                            </div>
+
+
+                            <div class="file-field input-field col s12">
+                                <div class="btn">
+                                    <span>photo</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <button class="btn waves-effect waves-light" type="submit" name="action"
+                                    ng-disabled="CarForm.$invalid">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+
+                        </div>
+
+
+                         {{ newCar }}
+
+
+                        <p ng-show="CarForm.dateDebut.$invalid && !CarForm.dateDebut.$pristine" class="help-block">
+                            vous devez choisr une date de début
+                        </p>
+
+                        <p ng-show="CarForm.dateDebut.$invalid && !CarForm.dateDebut.$pristine" class="help-block">
+                            vous devez choisr une date de début
+                        </p>
+
+                        <p ng-show="CarForm.dateDebut.$invalid && !CarForm.dateDebut.$pristine" class="help-block">
+                            vous devez saisir une kilométrage
+                        </p>
+
+                        <p ng-show="CarForm.dateDebut.$invalid && !CarForm.dateDebut.$pristine" class="help-block">
+                            vous devez choisr une date de début
+                        </p>
+
+
+
+                    </form>
+
+
+
+
+
+
+
+
+
+
+                    <label>Ajouter un nouveau modéle <a class="btn-floating btn-large waves-effect "
+                            ng-click="change()"><i class="material-icons">add</i></a></label>
+
+
+
+
+                    <form ng-submit="addModele()" name="ModeleForm" novalidate ng-show="show">
+
+
+                        <div class="row">
+
+                            <div class="input-field col s6">
+                                <input id="Nom" type="text" class="validate" name="heureDebut"
+                                       ng-model="newModele.nom" required>
+                                <label for="Nom">Nom</label>
+
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="marque" type="text" class="validate"
+                                       ng-model="newModele.marque"  required name="heureFin">
+                                <label for="marque">Marque</label>
+
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input id="puissance" type="text" class="validate"
+                                       ng-model="newModele.puissance"  required name="heureFin">
+                                <label>puissance</label>
+
+                            </div>
+
+
+                            <div class="col s12">
+                                <label>Modele </label>
+                                <select class="browser-default" ng-model="newModele.carburant" required>
+
+                                       <option value="essence">Essence</option>
+                                    <option value="diesel">Diesel</option>
+
+                                </select>
+                            </div>
+
+
+
+                            <div class="input-field col s4">
+                                <input id="gps" type="text" class="validate"
+                                       ng-model="newModele.prixGPS"  required name="heureFin">
+                                <label>Prix GPS</label>
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <input id="chair" type="text" class="validate"
+                                       ng-model="newModele.prixChaisse"  required name="heureFin">
+                                <label>Prix chaisse</label>
+
+                            </div>
+
+
+                            <div class="input-field col s4">
+                                <input id="chauffeur" type="text" class="validate"
+                                       ng-model="newModele.prixChauffeur"  required name="heureFin">
+                                <label>Prix chauffeur</label>
+
+                            </div>
+
+
+                            <button class="btn waves-effect waves-light" type="submit" name="action"
+                                    ng-disabled="ModeleForm.$invalid">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+
+
+                           </div><!--end of row-->
+                    </form><!--end of form-->
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

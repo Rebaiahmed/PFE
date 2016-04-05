@@ -1,0 +1,115 @@
+
+<section class="content" ng-controller="clientsController">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Clients <i class="material-icons">account_box</i></h3>
+
+
+                </div>
+                <!--end of col-s12-->
+                <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+                    <a class="btn-floating btn-large red">
+                        <i class="large mdi-navigation-menu"></i>
+                    </a>
+                    <ul>
+
+                        <li><a class="btn-floating red" ui-sref=".mail"><i class="material-icons">email</i></a> </li>
+
+                    </ul>
+                </div>
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+
+
+
+        <div ui-view></div>
+
+
+
+
+
+
+
+<div class="row">
+
+
+    <div class="input-field col s6">
+        <input placeholder="Search" id="first_name" type="text" class="validate" ng-model="name">
+
+    </div>
+
+
+        <table class="bordered striped">
+            <thead>
+            <tr>
+                <th>
+                    <a ng-click="order('numCin')">Num Cin</a>
+
+                </th>
+                <th>
+
+                    <a ng-click="order('email')">Nom Prenom</a>
+                </th>
+                <th>
+                    <a ng-click="order('email')">email</a>
+                </th>
+                <th>
+                    <a ng-click="order('numTel1')">numTel1</a>
+                </th>
+                <th>
+                    <a ng-click="order('adresse')">adresse</a>
+                </th>
+                <th>
+                    <a ng-click="order('statut')">Statut</a>
+                </th>
+                <th></th>
+                <th></th>
+                <th>Détails</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="cl in clients | filter : name |orderBy:predicate:reverse">
+                <td>{{cl.numCin }}</td>
+                <td>{{ cl.nom + " " + cl.prenom }}</td>
+                <td>{{  cl.email }}</td>
+                <td>{{ cl.numTel1 }}</td>
+                <td>{{ cl.adresse }}</td>
+                <td ng-if="cl.statut==true">
+                    particulier
+                </td>
+                <td ng-if="cl.statut!=true">
+                    entreprise
+                </td>
+
+                <td>
+                    <a class="btn-floating btn waves-effect waves-light " ng-click="editClient(cl.idClient)"> <i class="large material-icons">mode_edit</i></a>
+
+                </td>
+                <td>
+                    <a class="btn-floating  waves-effect waves-light " ng-click="deleteClient(cl.idClient)"><i class="material-icons">delete</i></a>
+                </td>
+                <td><a ui-sref=".details" ng-click="detailsClient(cl.idClient)"> <i class="material-icons">details</i> </a></td>
+            </tr>
+
+            </tbody>
+        </table>
+</div><!--end of row-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->
