@@ -1,5 +1,5 @@
 <section class="content">
-    <div class="container" style="width: 50%; padding: 0 0.5rem;" ng-controller="" >
+    <div class="container" style="width: 50%; padding: 0 0.5rem;" ng-controller="PreReservationCtrl" >
         <div class="m-box">
             <div class="row">
 
@@ -11,10 +11,10 @@
 
 
 
-                    <div class="card blue-grey darken-1">
+                    <div class="card blue-grey darken-1" ng-repeat="pre in prereservations ">
                         <div class="card-content white-text">
 
-                            <span class="card-title">Réservation n°1</span>
+                            <span class="card-title">Réservation n° {{ pre.idReservation }}</span>
                             <table>
                                 <thead>
                                 <th>Client</th>
@@ -27,32 +27,29 @@
                                 <tbody>
                                   <tr>
                                       <td>
-                                       Ahmed Rebai
+                                          {{ pre.Client.nom + " " + pre.Client.prenom}}
                                           <br>
-                                        ahmed.bouhmid94@gmail.com
+                                      {{ pre.Client.email }}
                                           <br>
-                                          20140428
+                                      num tel1 {{ pre.Client.numTel1 }}
                                       </td>
 
                                       <td>
-                                          modele
-                                          <br>
-                                          marque
-                                          <br>
-                                          num immatricule
+                                          {{ pre.Modele.nom + " " + pre.Modele.marque + " " + pre.Voiture.numImmatricule   }}
+
                                       </td>
 
 
                                       <td>
-                                          12/06/2016
+                                        {{ pre.dateDebut | date:'MM/dd/yyyy'  + " " + pre.heureDebut }} h
                                           <br>
-                                          19/06/2016
+                                        {{ pre.dateFin | date:'MM/dd/yyyy' +" " + pre.heureFin  }} h
                                       </td>
 
                                       <td>
-                                          Tunis
+                                         {{ pre.lieuPrise }}
                                           <br>
-                                          Sfax
+                                         {{ pre.lieuRetour }}
                                       </td>
 
                                   </tr>
@@ -60,12 +57,16 @@
                             </table>
 
                             <div class="card-action">
-                                <a href="#">Confimer</a>
-                                <a href="#">Rejeter</a>
+                                <a ng-click="confirmer(pre.idReservation)">Confimer</a>
+                                <a ng-click="delete(pre.idReservation)">Rejeter</a>
                             </div>
 
                             </div><!--end of card content-->
                         </div><!--end oc card blue-->
+
+
+
+
 
 
 

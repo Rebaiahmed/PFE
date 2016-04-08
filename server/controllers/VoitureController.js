@@ -1,22 +1,28 @@
-var models  = require('../models/index.js');
+//require all the necessary modules
 
+
+var models  = require('../models/index.js');
 var Voiture = models.Voiture ;
 var Entretient = models.Entretient ;
 var Modele = models.Modele ;
 var Reservation = models.Reservation;
 
 
+
+
 /*
- we will export the CRUD OPERATIONS
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
-exports.postCar = function(req,res){
 
 
-    // get the data from the req object
-    // a modifier !!
-    // a mdofier pour la voiture
+exports.addCar = function(req,res){
+
+
+//get the data to create a car
     var  numChassee  = req.body.numChassee ;
     var numImmatricule = req.body.numImmatricule ;
     var kilometrage = req.body.kilometrage ;
@@ -30,9 +36,9 @@ exports.postCar = function(req,res){
     var date_vignette = req.body.date_vignette ;
     var date_visite_tecknique = req.body.date_visite_tecknique ;
     var Modele_idModele = req.body.Modele_idModele ;
-    console.log('the id modele is ' + Modele_idModele);
 
-   //save the new Car in teh databae
+
+   //save the new Car in teh database
 
     Voiture.create({
         num_chassee :numChassee,
@@ -58,20 +64,18 @@ exports.postCar = function(req,res){
         {
             res.json(result);
         }
-        })//end of then
+        })//end of create
 
 
 }
 
 
 
-
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
-
 
 
 
@@ -89,14 +93,21 @@ exports.getModels = function(req,res)
 
 
 }
+
+
+
+
+
+
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
-exports.postModele = function(req,res)
+
+exports.addModele = function(req,res)
 {
 
     var marque = req.body.marque;
@@ -127,8 +138,14 @@ exports.postModele = function(req,res)
 
 
 
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
 
-exports.getCars = function(req,res)
+
+exports.findCars = function(req,res)
 {
 
     Voiture.findAndCountAll({
@@ -152,17 +169,62 @@ exports.getCars = function(req,res)
 
 
 
+
+
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
+
+
+
+
+exports.getCars_Client = function(req,res)
+{
+
+    Voiture.findAndCountAll({
+        include:[
+            {model:Modele,  attributes:['nom','marque','puissance','prixGPS','prixChaisse','prixChauffeur']}
+        ],
+        attributes: ['idVoiture','numImmatricule','photo','nbPlaces','categorie','prixLocation','Modele_idModele']
+
+    }).then(function(result){
+        if(!result)
+        {
+            res.send('error in getting cars!')
+        }
+        else{
+            res.json(result.rows);
+        }
+
+
+    })
+
+}
+
+
+
+
+
+
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
 
 
 exports.getCar = function(req,res)
 {
-    // get the id
-    //sécursier the paramater
+
+
+    //get the id
     var id = req.params.idVoiture ;
 
     Voiture.findById(id,
@@ -179,8 +241,8 @@ exports.getCar = function(req,res)
                    }
                  res.json(car);
           })
-        .catch(function(){
-            console.log('err ! ctach in car !')
+        .catch(function(err){
+            console.log('err ! ctach in car !' + err)
 
         })
 
@@ -189,14 +251,17 @@ exports.getCar = function(req,res)
 
 
 
+
+
+
+
+
+
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
-
-
-
 
 
 exports.deleteCar = function(req,res)
@@ -233,21 +298,18 @@ exports.deleteCar = function(req,res)
 
 
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
-
-exports.putCar = function(req,res)
+exports.updateCar = function(req,res)
 {
 
-    // we must get the new Object
+    // get the id
     var id = req.params.idVoiture;
-    // we must check the id
 
-    console.log('we will update data from server !')
 
 
     //we must find the User whre the id like id
@@ -274,7 +336,7 @@ exports.putCar = function(req,res)
             var Modele_idModele = req.body. Modele_idModele ;
 
 
-            console.log('the price willl be from' + car.prixLocation + ' ' + prixLocation );
+
             Voiture.update({
                 numChassee :numChassee,
                 numImmatricule :numImmatricule,
@@ -322,10 +384,11 @@ exports.putCar = function(req,res)
 
 
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
+
 
 
 

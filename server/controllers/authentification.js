@@ -1,54 +1,74 @@
+
+
+//require all the necessary modules
 var passport = require('../config/passport.js');
 var models  = require('../models/index.js');
-
 var Client = models.Client ;
 
-/*
-export the function
 
+/*
+-_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+---------------THE SIGNUP METHOD---------------------------
+-_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
-//register autnetication
 
-module.exports.register = function(req,res)
+
+
+
+module.exports.signup = function(req,res)
 {
-    //récupérer les donénes
+    //get the data necessary for the signup
     var email = req.body.email ;
-     var name = req.body.name ;
+     var nom = req.body.nom ;
     var password = req.body.password ;
+    var prenom = req.body.prenom ;
 
-  //console.log('data it s' + email + '__' + name + '_' + password);
+    /*
+    check if Client saved before in the database
+     */
 
-    var client = Client.build({nom :name, email:email});
-
-    // set the passwoed
-    client.setPassword(password);
-
-
-    //save it in the database
-    client.save()
-        .then(function(){
-
-            var token ;
-            token = client.generateJwt();
+    Client.findOne({where :{email :email}}).then(function(client)
+    {
+ if(client){   res.json({"err_create":"CREATE_ALREADY_HAVE_ACCOUNT"});}
 
 
-            res.status(200).json({
-                "token" : token
-            })
+        else{
 
-        })
-        .catch(function(err){
-            console.log('error :' + err);
-        })
+     //build our first non persistant data
+            var client = Client.build({nom :nom,prenom:prenom, email:email});
 
+     //set the password to genreate the jwt
+            client.setPassword(password);
+//save it in the database
+            client.save()
+                .then(function(){
+                    var token ;
+                    token = client.generateJwt();
 
+                    //send the tokne to the front-end system
+                    res.status(200).json({
+                        "token" : token
+                    })
 
+                })
+                .catch(function(err){
+                    console.log('error :' + err);
+                })
 
+        }
 
+    })
 
 }
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE LOGIN METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
 
 
 module.exports.login = function(req,res)
@@ -57,22 +77,21 @@ module.exports.login = function(req,res)
     // call the passport authentication
     passport.authenticate('client-login', function(err,client,info){
 
-        console.log('client is:' + client);
-
  var token ;
 
         // if err
 
         if(err) {
             res.status(404).json(err);
-            //return;
+            return;
 
         }
 
-        // if lcient found
+       //if the client found !
 
         if(client)
         {
+            //generate the jwt
           token = client.generateJwt();  /// ???? i hope the work
             res.status(200).json({
                 "token" : token
@@ -80,24 +99,23 @@ module.exports.login = function(req,res)
 
 
         }
+        //client not found
         else{
             res.status(401).json(info);
 
         }
 
-
-
-
-
-    })(req,res)
-
-
-
-
-
+    })(req,res)//end of passport authenticate call
 
 }
 
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE LOGIN METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
 
 
 

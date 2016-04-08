@@ -67,7 +67,7 @@ var Manager = models.Manager ;
                 Client.findOne({ where : {email : email}}).then(function(client)
                 {
 
-                    console.log('the client found is :' + client);
+                    console.log('the client found is :' + JSON.stringify(client));
 
                     if(!client)
                     {

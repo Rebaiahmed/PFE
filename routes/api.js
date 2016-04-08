@@ -8,10 +8,11 @@ var accessCtrl = require('../server/controllers/accessController.js');
 var voitureCtrl = require('../server/controllers/VoitureController.js');
 var ReservationonCtrl = require('../server/controllers/ReservationController.js');
 var ClientCtrl = require('../server/controllers/ClientController.js');
-var ConducteurCtrl = require('../server/controllers/ConducteurController.js');
+var ConducteurCtrl = require('../server/controllers/DriverController.js');
 var ContratCtrl = require('../server/controllers/ContratController.js');
 var FactureCtrl = require('../server/controllers/FactureController.js');
-var EntretientCtrl = require('../server/controllers/EntretientController.js');
+var EntretientCtrl = require('../server/controllers/MaintenanceController.js');
+var mailController  = require('../server/controllers/mailController.js');
 
 
 var jwt = require('express-jwt');
@@ -42,12 +43,15 @@ Router.get('/auth/profile',auth,accessCtrl.viewProfile);
 Router.post('/auth/login',authCtrl.login)
 
 
-Router.post('/auth/register',authCtrl.register);
+Router.post('/auth/register',authCtrl.signup);
 
 /*Router.post('/auth/reserver')
 
 
 Router.get('/auth/voitures',);*/
+
+
+Router.get('/client/voitures', voitureCtrl.getCars_Client);
 
 
 
@@ -73,17 +77,30 @@ Router.post('/auth/admin/admin',authCtrl.login_admin)
 
 // _-_-_-_-____-_-_-___-the LOCATIONS-_-__-_-_-_-__-
 
+Router.route('/auth/admin/admin/PreReservations')
+    .get(ReservationonCtrl.getPreReservation)
+      .post(ReservationonCtrl.addPreReservation)
+
+Router.route('/auth/admin/admin/PreReservations/:idPreReservation')
+    .delete(ReservationonCtrl.deletePreservation);
+
+Router.route('/auth/admin/admin/locations')
+    .get(ReservationonCtrl.findReservations)
+    .post(ReservationonCtrl.addReservation)
 
 
+//-_-_-_-__ for the pre reservation
 
-Router.route('/auth/admin/admin/locations',auth,accessCtrl.accessAdmin)
-    .get(ReservationonCtrl.getReservations)
-    .post(ReservationonCtrl.postReservation)
+
+Router.route('/auth/admin/admin/Prelocations')
+    .post(ReservationonCtrl.saveReservation)
+
+
 
 
 Router.route('/auth/admin/admin/locations/:idReservation')
     .get(ReservationonCtrl.getReservation)
-    .put(ReservationonCtrl.putReservation)
+    .put(ReservationonCtrl.updateReservation)
     .delete(ReservationonCtrl.deleteReservation)
 
 
@@ -92,19 +109,19 @@ Router.route('/auth/admin/admin/locations/:idReservation')
 
 
 Router.route('/auth/admin/admin/voitures')
-    .get(voitureCtrl.getCars)
-    .post(voitureCtrl.postCar)
+    .get(voitureCtrl.findCars)
+    .post(voitureCtrl.addCar)
 
 
 Router.route('/auth/admin/admin/voitures/:idVoiture')
     .get(voitureCtrl.getCar)
-    .put(voitureCtrl.putCar)
+    .put(voitureCtrl.updateCar)
     .delete(voitureCtrl.deleteCar)
 
 
 Router.route('/auth/admin/admin/modele')
     .get(voitureCtrl.getModels)
-    .post(voitureCtrl.postModele)
+    .post(voitureCtrl.addModele)
 
 
 
@@ -114,12 +131,12 @@ Router.route('/auth/admin/admin/modele')
 
 Router.route('/auth/admin/admin/entretients')
     .get(EntretientCtrl.getEntretients)
-    .post(EntretientCtrl.postEntretient)
+    .post(EntretientCtrl.addMaintenance)
 
 
 Router.route('/auth/admin/admin/entretients/:idEntretient')
     .get(EntretientCtrl.getEntretient)
-    .put(EntretientCtrl.putEntretient)
+    .put(EntretientCtrl.updateEntretient)
     .delete(EntretientCtrl.deleteEntretient)
 
 
@@ -164,12 +181,12 @@ Router.route('/auth/admin/admin/Factures/:id_contrat')
 
 Router.route('/auth/admin/admin/clients')
     .get(ClientCtrl.getClients)
-    .post(ClientCtrl.postClient)
+    .post(ClientCtrl.addClient)
 
 
 Router.route('/auth/admin/admin/clients/:idClient')
     .get(ClientCtrl.getClient)
-    .put(ClientCtrl.putClient)
+    .put(ClientCtrl.updateClient)
     .delete(ClientCtrl.deleteClient)
 
 
@@ -181,18 +198,21 @@ Router.route('/auth/admin/admin/clients/:idClient')
 
 
 Router.route('/auth/admin/admin/conducteurs')
-    .get(ConducteurCtrl.getConducteurs)
-    .post(ConducteurCtrl.postConducteur)
+    .get(ConducteurCtrl.getDrivers)
+    .post(ConducteurCtrl.addDriver)
 
 
-Router.route('/auth/admin/admin/conducteurs/:conducteur_id')
-    .get(ConducteurCtrl.getConducteur)
-    .put(ConducteurCtrl.putConducteur)
-    .delete(ConducteurCtrl.deleteConducteur)
+Router.route('/auth/admin/admin/conducteurs/:idDriver')
+    .get(ConducteurCtrl.getDriver)
+    .put(ConducteurCtrl.updateDRiver)
+    .delete(ConducteurCtrl.deleteDriver)
 
 
 
+//_-_-_-_-_-___-_-_-_MAILING _-_-_-_-_-_-__-_-_-_-_-_-_-_
 
+Router.route('/auth/admin/sendMail')
+    .post(mailController.sendMail);
 
 
 module.exports = Router;

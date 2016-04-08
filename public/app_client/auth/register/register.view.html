@@ -1,15 +1,46 @@
-<form ng-submit="vm.onSubmit()">
+
+<div class="container" ng-controller="registerCtrl">
+    <div class="row">
+
+
+
+        <div class="col-md-6 col-sm-12">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                   <h3>   <i class="material-icons">account_box</i>       Créer Votre compte </h3>
+                </div>
+
+
+                <div class="panel-body">
+<form ng-submit="onSubmit()">
     <div class="form-group">
-        <label for="name">Full name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="newClient.nom">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Prénom</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="newClient.prenom">
     </div>
     <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+        <label for="email"><i class="material-icons">email</i>Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="newClient.email">
+
+        <div class="alert alert-danger" role="alert" ng-show="show">
+            Un compte avec cet e-mail existe déjà !
+            Connectez-vous pour continuer
+        </div>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="newClient.password">
     </div>
-    <button type="submit" class="btn btn-default">Register!</button>
+    <button type="submit" class="btn btn-success">Register!</button>
+    {{ newClient }}
 </form>
+                    </div>
+</div>
+        </div><!--end of col md-6-->
+    </div><!--end of row-->
+</div><!--end of container-->

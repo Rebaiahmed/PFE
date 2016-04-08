@@ -1,48 +1,76 @@
-var app = angular.module('meanApp',['ngRoute']);
+var app = angular.module('meanApp',['ui.router']);
 
 /*
 define the config function
  */
 
-function config($routeProvider,$locationProvider)
-{
-
-    $routeProvider
-
-        .when('/', {
-            templateUrl: '/app_client/home/home.html',
-            controller: 'registerCtrl',
-            controllerAs: 'vm'
-        })
-    .when('/register', {
-        templateUrl: '/app_client/auth/register/register.view.html',
-        controller: 'registerCtrl',
-        controllerAs: 'vm'
-    })
-    .when('/login', {
-        templateUrl: '/app_client/auth/login/login.view.html',
-        controller: 'loginCtrl',
-        controllerAs: 'vm'
-    })
-    .when('/profile', {
-        templateUrl: '/app_client/profile/profile.view.html',
-        controller: 'profileCtrl',
-        controllerAs: 'vm'
-    })
-
-
-
-    .otherwise({redirectTo: '/'});
-
-    // use the HTML5 History API
-    $locationProvider.html5Mode(true);
-
-}
-
 /*
-define the route function
+ the config for touing
  */
 
+function config($stateProvider, $urlRouterProvider) {
+
+
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+
+        //  ========================================
+
+
+        //  =================================
+
+        .state('index', {
+            url: '/',
+            templateUrl: '/app_client/home/home.html',
+
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: '/app_client/auth/login/login.view.html',
+
+        })
+
+        .state('Profile', {
+            url :'/Profile',
+            templateUrl: '/app_client/profile/profile.view.html',
+
+
+        })
+
+        .state('Register', {
+            url :'/Register',
+            templateUrl: '/app_client/auth/register/register.view.html',
+
+
+        })
+
+        .state('Voitures', {
+            url :'/Voitures',
+            templateUrl: '/app_client/voitures/voitures.html',
+
+
+        })
+
+        .state('Confirm', {
+            url :'/Confirmer_Reservation',
+            templateUrl: '/app_client/confirm/confirm.html',
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+}
 function run($rootScope,$location,Authentication)
 {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
@@ -57,5 +85,5 @@ function run($rootScope,$location,Authentication)
 
 
 
-app.config(['$routeProvider','$locationProvider',config]);
+app.config(['$stateProvider', '$urlRouterProvider',config]);
 app.run(['$rootScope','$location','Authentication',run]);

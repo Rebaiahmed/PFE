@@ -25,6 +25,10 @@ angular
             $window.localStorage.removeItem('client-token');
 
         }
+
+
+
+
          var isloggedIn = function()
          {
              // get teh token and check it
@@ -34,12 +38,12 @@ angular
 
              if(token)
              {
-                 console.log('token exist ' + token);
+                 //console.log('token exist ' + token);
                  payload = token.split('.')[1];
                  payload =$window.atob(payload);
                  payload = JSON.parse(payload);
 
-                  console.log((payload.exp >Date.now() /1000))
+                  //console.log((payload.exp >Date.now() /1000))
                  //return payload.exp >Date.now() /10000;  // a expliquer
                  return true;
 
@@ -51,6 +55,11 @@ angular
          }
 
 
+        /*
+
+         */
+
+
                var currentUser = function()
                {
                    // we must chekf it
@@ -59,12 +68,16 @@ angular
                    {
 
                        var token = getToken();
+                       var payload = token.split('.')[1] // !!!!!!
                        payload =$window.atob(payload);
                        payload = JSON.parse(payload);
-                       console.log('currentUser the payload is :' +payload);
+
+                       console.log('thd payload object is :' + JSON.stringify(payload));
+
 
                        // we will return an object
                        return{
+                           id :payload._id,
                            email : payload.email,
                            name : payload.name
                        }
@@ -79,8 +92,17 @@ angular
 
            var register = function(user)
           {
+              console.log('user reggister ' + JSON.stringify(user));
                return $http.post('/auth/register', user).success(function(data){
-                   saveToken(data.token);
+
+                   if(data=="err_create")
+                   {
+                       console.log('data exist !' + data);
+                   }
+                   else {
+                       console.log('data token is ' + JSON.stringify(data));
+                       saveToken(data.token);
+                   }
                })
 
           }
@@ -93,6 +115,7 @@ angular
            {
                return $http.post('/auth/login', user)
                    .success(function(data){
+                       //console.log(JSON.stringify(user));
                    saveToken(data.token);
                                   })
                    .error(function(){

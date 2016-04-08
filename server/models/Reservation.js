@@ -97,4 +97,3 @@ module.exports = function(sequelize, DataTypes) {
 };
 
 
-console.log('hello !')

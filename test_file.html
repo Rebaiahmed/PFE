@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html data-ng-app='myApp'>
+<head>
+    <meta charset='utf-8'>
+    <title>Index</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js'></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src='https://rawgit.com/ghostbar/angular-file-model/master/angular-file-model.js'></script>
+
+    <script src="bower_components/interact/dist/interact.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="bower_components/Materialize/dist/js/materialize.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        var app = angular.module('myApp', ['file-model']);
+
+        app.controller('DemoCtrl', function ($scope) {
+            $scope.file = null;
+
+            $scope.$watch('file', function (newVal) {
+                if (newVal)
+                    console.log(newVal);
+            })
+        });
+    </script>
+</head>
+<body data-ng-controller='DemoCtrl'>
+
+<h1>angular-file-model</h1>
+<p>Here you can test <code>angular-file-model</code>.</p>
+
+<p>If you like it, go grab the code at <a href='https://github.com/ghostbar/angular-file-model'>github</a> or bower (with <code>bower install angular-file-model</code>)!</p>
+
+<form>
+    <input type='file' file-model='file'>
+</form>
+
+<p ng-if='file'>
+    The name of your file is {{ file.name }} and the size is of {{ file.size }} bytes.
+</p>
+
+<p ng-if='file'>
+    If you want to have something like ngChange the best way ATM is to use a $scope.$watch over the variable you pass to file-model just like in this code.
+</p>
+
+</body>
+</html>

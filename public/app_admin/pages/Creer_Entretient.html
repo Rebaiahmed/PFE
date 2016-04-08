@@ -1,0 +1,56 @@
+
+<section class="content" >
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <form class="col s12" ng-submit="addEntretient(c.idVoiture)">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Nom" id="first_name" type="text" class="validate" ng-model="newEntretient.nom">
+                            <label for="first_name">nom</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="kiloemtrage prevu" type="text" class="validate" ng-model="newEntretient.kilometrage_prevu">
+                            <label for="last_name">kiloemtrage prévu</label>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label for="last_name">date</label>
+                                <input id="last_name" type="date" class="validate" ng-model="newEntretient.date">
+
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input id="caution" type="text" class="validate" ng-model="newEntretient.caution">
+                                <label for="last_name">caution</label>
+                            </div>
+
+                        </div>
+
+
+                        <button class="waves-effect waves-light btn">Enregistrer</button>
+
+
+
+                    </div><!--end fo row-->
+
+
+
+
+                </form>
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

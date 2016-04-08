@@ -76,28 +76,35 @@
                             <th data-field="name">
                                 <p>
                                     <i class="material-icons">date_range</i>
+                                    <a ng-click="order('dateDebut')">
                                     Date début
+                                        </a>
                                 </p>
 
                             </th>
                             <th data-field="name">
                                 <p>
                                     <i class="material-icons">date_range</i>
+                                    <a ng-click="order('dateFin')">
                                 Date Fin
+                                        </a>
                                 </p>
                             </th>
 
                             <th data-field="name">
                                 <p>
-
+                                    <a ng-click="order('lieuPrise')">
                                     lieu prise
+                                        </a>
                                 </p>
                             </th>
 
                             <th data-field="name">
                                 <p>
+                                    <a ng-click="order('lieuRetour')">
 
                                    lieu Retour
+                                        </a>
                                 </p>
                             </th>
 
@@ -113,16 +120,18 @@
                             <th data-field="name" >
                                Supprimer
                             </th>
+                            <th></th>
+                            <th>Détails</th>
 
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr ng-repeat="loc in locations | filter:date">
+                        <tr ng-repeat="loc in locations  |orderBy:date">
                           <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
                             <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
-                            <td>{{ loc.dateDebut | date:'medium' }}</td>
-                            <td>{{ loc.dateFin  | date:'medium'  }}</td>
+                            <td>{{ loc.dateDebut | date:'MM/dd/yyyy'  + " " + loc.heureDebut    }}h</td>
+                            <td>{{ loc.dateFin  | date:'MM/dd/yyyy' +" " + loc.heureFin   }}h</td>
                             <td>{{  loc.lieuPrise  }}</td>
                             <td>{{  loc.lieuRetour }} </td>
 
@@ -143,7 +152,9 @@
                             <td>
                                 <a ng-click="supprimlocation(loc.idReservation)"><i class="material-icons">delete</i></a>
                             </td>
-                         <td><a ng-click="calculPrix(loc.idReservation)">cliquez</a> </td>
+
+                            <td>Contrat <i class="material-icons">archive</i></td>
+                            <td><a ui-sref=".details" ng-click="detailslocation(loc.idReservation)"> <i class="material-icons">details</i> </a></td>
                         </tr>
 
 

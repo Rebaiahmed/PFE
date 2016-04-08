@@ -1,0 +1,20 @@
+node_mailer changelog:
+
+0.6.4
+- Don't sent plaintext body for templates, only send html, this should help w/ some confusion of email clients that are getting confused
+
+0.6.3
+- Fix for logging
+
+0.6.2
+- Fix for template logic
+- Templates now default to html emails
+
+0.6.1
+- All Nodemailer arguments should now be merged in
+
+0.6.0 [Breaking]
+- Plaintext username/password
+
+0.5.0
+- NodeMailer as backing SmtpClient

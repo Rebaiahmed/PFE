@@ -1,0 +1,58 @@
+<section class="content" ng-controller="emailClientsController">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h4>envoyer email <i class="material-icons">contact_mail</i></h4>
+                    <form class="col s12" ng-submit="sendMail()" ng-show="show">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="email" class="validate" name="mail" ng-model="data.mail">
+                                <label for="name">email</label>
+                            </div>
+                        </div><!--end of row-->
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" class="validate" name="object" ng-model="data.object">
+                                <label for="name">Object</label>
+                            </div>
+                        </div><!--end of row-->
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea" name="text" ng-model="data.text"></textarea>
+                                <label for="textarea1"></label>
+                            </div>
+                        </div><!--end of row-->
+
+
+
+
+
+
+
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+                            <i class="material-icons right">send</i>
+                        </button>
+
+
+
+                    </form>
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

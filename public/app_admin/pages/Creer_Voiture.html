@@ -8,7 +8,7 @@
 
 
 
-                    <form ng-submit="addCar()" name="CarForm" novalidate>
+                    <form  name="CarForm" novalidate>
 
 
                         <div class="row">
@@ -16,7 +16,7 @@
                           <label>date visite tecknique</label>
                             <div class="input-field col s12">
                                 <input placeholder="date" id="first_name" type="date" name="date_visite_tecknique"
-                                       class="datepicker" ng-model="newCar.date_visite_tecknique" required>
+                                       class="datepicker" ng-model="newCar.date_visite_tecknique" >
                             </div>
 
 
@@ -24,7 +24,7 @@
                             <label>date vignette</label>
                             <div class="input-field col s12">
                                 <input id="Date vignette" type="date" class="datepicker" name="date vignette"
-                                       ng-model="newCar.date_vignette" required>
+                                       ng-model="newCar.date_vignette" >
 
                             </div>
 
@@ -36,20 +36,20 @@
 
                             <div class="input-field col s12">
                                 <input id="Date assurance" type="date" class="datepicker" name="date Asurance"
-                                       ng-model="newCar.date_assurance" required>
+                                       ng-model="newCar.date_assurance" >
 
                             </div>
 
 
                             <div class="input-field col s4">
                                 <input id="Heure fin" type="text" class="validate"
-                                       ng-model="newCar.kilometrage"  required name="kilometrage">
+                                       ng-model="newCar.kilometrage"   name="kilometrage">
                                 <label for="kilometrage">kilometrage</label>
 
                             </div>
                             <div class="input-field col s4">
                                 <input id="lieu_Prise" type="text" class="validate" name="nbPlaces"
-                                       ng-model="newCar.nbPlaces" required>
+                                       ng-model="newCar.nbPlaces" >
                                 <label for="nbPlaces">nb places</label>
 
                             </div>
@@ -57,7 +57,7 @@
 
                             <div class="input-field col s4">
                                 <input id="categorie" type="text" class="validate" name="categorie"
-                                       ng-model="newCar.categorie" required>
+                                       ng-model="newCar.categorie" >
                                 <label for="categorie">categorie</label>
 
                             </div>
@@ -65,7 +65,7 @@
 
                             <div class="input-field col s6">
                                 <input id="num chassee" type="text" class="validate" name="categorie"
-                                       ng-model="newCar.numChassee" required>
+                                       ng-model="newCar.numChassee" >
                                 <label for="categorie">num chassee</label>
 
                             </div>
@@ -73,14 +73,14 @@
 
                             <div class="input-field col s6">
                                 <input id="num immatricule" type="text" class="validate" name="categorie"
-                                       ng-model="newCar.numImmatricule" required>
+                                       ng-model="newCar.numImmatricule" >
                                 <label for="categorie">num immatricule</label>
 
                             </div>
 
                             <div class="input-field col s12">
                                 <input id="prix" type="text" class="validate" name="categorie"
-                                       ng-model="newCar.prixLocation" required>
+                                       ng-model="newCar.prixLocation" >
                                 <label for="categorie">Prix de location <i class="material-icons">attach_money</i></label>
 
                             </div>
@@ -106,30 +106,15 @@
                             </select>
                             </div>
 
-
-                            <div class="file-field input-field col s12">
-                                <div class="btn">
-                                    <span>photo</span>
-                                    <input type="file">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                                </div>
-                            </div>
-
-
-
-
-
-                            <button class="btn waves-effect waves-light" type="submit" name="action"
-                                    ng-disabled="CarForm.$invalid">Submit
+                            <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addCar()"
+                                   >Submit
                                 <i class="material-icons right">send</i>
                             </button>
 
                         </div>
 
 
-                         {{ newCar }}
+                         {{ $scope.content }}
 
 
                         <p ng-show="CarForm.dateDebut.$invalid && !CarForm.dateDebut.$pristine" class="help-block">

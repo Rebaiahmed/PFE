@@ -1,15 +1,20 @@
+//require all the necessary modules
 var models  = require('../models/index.js');
-
 var Client = models.Client ;
 var Reservation = models.Reservation ;
 var Voiture = models.Voiture ;
 
+
+
 /*
- we will export the CRUD OPERATIONS
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
-exports.postClient = function(req,res){
+
+exports.addClient = function(req,res){
 
 
     // get the data from the req object
@@ -24,11 +29,6 @@ exports.postClient = function(req,res){
     var numPermis = req.body.numPermis ;
     var datePermis = req.body.datePermis ;
     var numTel1 = req.body.numTel1 ;
-
-    console.log(req.body);
-
-    res.json(password);
-
 
     //save the new Data in teh database
 
@@ -64,10 +64,21 @@ exports.postClient = function(req,res){
 
 
 
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE getAll METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
 exports.getClients = function(req,res)
 {
 
 
+
+    //findAndCountAll the Client
+    //include : to get teh Reservation associated with the client
     Client.findAndCountAll(
         {
             include: [{model:Reservation}]
@@ -75,18 +86,21 @@ exports.getClients = function(req,res)
     )
         .then(function(result){
 
-
+            //send the rows found
             res.json(result.rows);
-
-
         })
         .catch(function(err){
             console.log('err client ' + err);
         })
-
-
 }
 
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE GET SINGLE CLIENT---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
 
 
 
@@ -94,18 +108,14 @@ exports.getClient = function(req,res)
 {
     // get the id
     var id = req.params.idClient;
-
-
-
+    //find Client By Id
     Client.findById(id, {
         include: [{model:Reservation}]
     })
         .then(function(client){
 
-
-
+            //send the result
             res.json(client);
-
 
        }).catch(function(err){
             console.log('errin geting client' + err);
@@ -115,6 +125,11 @@ exports.getClient = function(req,res)
 }
 
 
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------DELETE CLIENT---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
 
 
 
@@ -124,8 +139,8 @@ exports.deleteClient= function(req,res)
 {
     // get the id
     var id = req.params.idClient ;
-    console.log('ths id is ' + id);
 
+//we must first check fi the client exist !!
     Client.findById(id)
         .then(function(client){
         if(!client){res.json({'msg': 'Client  Not Found !'});}
@@ -150,6 +165,11 @@ exports.deleteClient= function(req,res)
 
 
 
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------DELETE CLIENT---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
 
 
 
@@ -158,11 +178,13 @@ exports.deleteClient= function(req,res)
 
 
 
-exports.putClient = function(req,res)
+exports.updateClient = function(req,res)
 {
 
-var id = req.params.idClient ;
-    console.log('the id is ' + id);
+
+    //get the id from the params
+           var id = req.params.idClient ;
+
             // get the data from the req object
             var numCin = req.body.numCin ;
             var email = req.body.email ;
@@ -176,11 +198,8 @@ var id = req.params.idClient ;
             var datePermis = req.body.datePermis ;
             var numTel1 = req.body.numTel1 ;
 
-    console.log(numCin);
 
-
-
-
+    //update the client
             Client.update({
                 email :email,
                 nom :nom,
@@ -206,24 +225,10 @@ var id = req.params.idClient ;
                     res.json(client);
                 }
 
-            })
-
-
-
-
-
-
-
+            })//end of update method
 
 
 }
-
-
-
-
-
-
-
 
 
 

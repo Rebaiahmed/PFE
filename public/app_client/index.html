@@ -2,18 +2,42 @@
 <head>
     <meta charset="UTF-8">
     <title>PFE APP</title>
-    <base href="/">
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.1/bootstrap-material-design.css">
+
+    <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.1/bootstrap-material-design.es.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/arrive/src/arrive.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <script type="text/javascript">
+        $.material.init();
+    </script>
+
+
+
 
 
 </head>
 <body>
 
 
+<div ng-include src="'/app_client/partials/header.html'"></div>
+
+
+
+
+
+<div ui-view></div>
 
 
 
@@ -23,28 +47,20 @@
 
 
 
-<h1>ici page d'aceeuil </h1>
-
-
-
-<div ui-view>
-
-</div>
-
-
+<div ng-include src="'/app_client/partials/footer.html'"></div>
 </body>
 
 
-<script src="/bower_components/angular/angular.min.js"></script>
-<script src="/bower_components/angular-route/angular-route.min.js"></script>
 
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
 
 <script src="./app_client/main.js"></script>
 <script src="./app_client/auth/AuthenticationService.js"></script>
+<script src="./app_client/ReservationService.js"></script>
+<script src="./app_client/home/home.controller.js"></script>
 <script src=".//app_client/auth/login/login.controller.js"></script>
 <script src="./app_client/auth/register/register.controller.js"></script>
 <script src="./app_client/profile/profile.controller.js"></script>
+<script src="./app_client/voitures/voitureController.js"></script>
+<script src="./app_client/confirm/confirm.controller.js"></script>
 
 </html>

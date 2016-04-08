@@ -1,4 +1,4 @@
-<section class="content" ng-controller="voituresController">
+<section class="content" ng-controller="EntretientsCtrl">
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
 
@@ -12,9 +12,9 @@
 
 
 
-            <div class="row">
+            <div class="row" ng-repeat="c in cars">
 
-                <h5>Voiture : marque modéle num série</h5>
+                <h5>Voiture : <span>{{ c.Modele.nom + " " + c.Modele.marque  + " " + c.numImmatricule }}</span></h5>
 
                     <table>
                         <thead>
@@ -22,55 +22,113 @@
                             <th data-field="id">Date Assurance</th>
                             <th data-field="name">Date visite tecknique</th>
                             <th data-field="price">Date vignette</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td>aaa</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                        </tr>
-
-                        </tbody>
-
-
-
-                        <!-------------------------->
-
-
-                        <thead>
-                        <tr>
-                            <th data-field="id">Nom Entretient</th>
-                            <th>Effectué</th>
-                            <th data-field="name">Prévu</th>
-                            <th data-field="price">Date</th>
                             <th></th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                            <td>aaa</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                            <td>aaa</td>
-                            <th>update</th>
+                            <td><input type="text" ng-model="c.date_assurance"> </td>
+                            <td> <input type="text" ng-model="c.date_visite_tecknique"> </td>
+                            <td> <input type="text" ng-model=" c.date_vignette"></td>
+                            <td><a ng-click="save(c)"><i class="material-icons">save</i></a> </td>
                         </tr>
 
                         </tbody>
+                    </table>
+
+                <hr>
+                <hr>
+
+                        <!-------------------------->
 
 
+                        <div ng-repeat="en in c.Entretients">
+
+                            <table class="striped">
+                            <thead>
+                            <tr>
+                                <th data-field="id">Nom</th>
+                                <th data-field="name">kilometrage prévu</th>
+                                <th data-field="price">kilometrage effectuée</th>
+                                <th>Date</th>
+                                <th>caution</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                            <td><input ng-model="en.nom"> </td>
+                                <td><input ng-model="en.kilometrage_prevu"> </td>
+                                <td>{{ c.kilometrage }}</td>
+                                <td><input type="text" ng-model="en.date" ></td>
+                                <td><input type="text" ng-model="en.caution" ></td>
+                                <td><a ng-click="update(en.idEntretient,en)"><i class="material-icons">update</i></a> </td>
+                            </tr>
+
+
+                            </tbody>
+
+                            </table>
+                        </div>
+
+                <a class="btn-floating btn-large waves-effect waves-light red" ng-click="show=!show"><i class="material-icons">add</i></a>
+
+
+
+                <form class="col s12" ng-submit="addEntretient(c.idVoiture)" ng-show="show">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Nom" id="first_name" type="text" class="validate" ng-model="newEntretient.nom">
+                            <label for="first_name">nom</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="kiloemtrage prevu" type="text" class="validate" ng-model="newEntretient.kilometrage_prevu">
+                            <label for="last_name">kiloemtrage prévu</label>
+                        </div>
+
+
+
+                        <div class="row">
+                        <div class="input-field col s6">
+                            <label for="last_name">date</label>
+                            <input id="last_name" type="date" class="validate" ng-model="newEntretient.date">
+
+                        </div>
+
+                            <div class="input-field col s6">
+                                <input id="caution" type="text" class="validate" ng-model="newEntretient.caution">
+                                <label for="last_name">caution</label>
+                            </div>
+
+                            </div>
+
+
+                        <button class="waves-effect waves-light btn" ng-click="show=!show">Enregistrer</button>
+
+
+
+                            </div><!--end fo row-->
+
+
+
+
+                </form>
                         <!--------------->
 
 
 
-                    </table>
+
+
+
+
+
+
+
+
 
             </div><!--end fo row-->
-            <hr>
-            <hr>
-            <hr>
 
 
 
@@ -84,7 +142,8 @@
 
 
 
-                </table>
+
+
 
             </div><!--end fo row-->
 

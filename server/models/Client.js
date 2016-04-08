@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true,
+          autoIncrement:true
 
     },
     nom: {

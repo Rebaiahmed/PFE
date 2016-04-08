@@ -1,11 +1,73 @@
 
-<div class="container">
+
+<div class="container" ng-controller="homeCtrl">
+    <div class="row">
+
+
+<div class="col-md-6 col-sm-12">
 
 
 
-<h1>ici the home page</h1>
 
-<a href="#register">Register</a>
-<a href="#login">login</a>
-<a href="#profile">Profile</a>
+        <form ng-submit="Create()">
+
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date début</label>
+                <input type="date" class="form-control" ng-model="newReservation.dateDebut">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">heure debut</label>
+                <input type="text" class="form-control" ng-model="newReservation.heureDebut">
+            </div>
+
+
+           <p>Lieu de Prise</p>
+            <select class="selectpicker"  ng-model="newReservation.lieuPrise">
+
+                <optgroup label="Picnic">
+                    <option value="tunisie">Tunisie</option>
+                    <option value="sfax">Sfax</option>
+                    <option value="jerba">jerba</option>
+                </optgroup>
+
+            </select>
+
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date Retour</label>
+                <input type="date" class="form-control" id="exampleInputEmail1"  ng-model="newReservation.dateFin">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">heure Retour</label>
+                <input type="text" class="form-control" id="exampleInputPassword1"  ng-model="newReservation.heureFin" >
+            </div>
+
+
+            <p>Lieu de Retour</p>
+            <select class="selectpicker"  ng-model="newReservation.lieuRetour">
+
+                <optgroup label="Picnic">
+                    <option value="tunisie">Tunisie</option>
+                    <option value="sfax">Sfax</option>
+                    <option value="jerba">jerba</option>
+                </optgroup>
+
+            </select>
+
+
+            <div class="form-group">
+
+            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+            </div>
+        </form>
+
+
+    {{ newReservation }}
+
+
+
+</div>
+
+    </div>
 </div>

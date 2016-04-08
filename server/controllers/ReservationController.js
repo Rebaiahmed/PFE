@@ -1,16 +1,24 @@
-var models  = require('../models/index.js');
+//require all the necessary modules
 
+var models  = require('../models/index.js');
 var Reservation = models.Reservation ;
 var Voiture = models.Voiture ;
 var Client = models.Client ;
 var Modele = models.Modele ;
+var PreReservation = models.PreReservation ;
+
+
 
 /*
- we will export the CRUD OPERATIONS
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------THE ADD METHOD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
-exports.postReservation = function(req,res){
+
+
+exports.addReservation = function(req,res){
 
 
     //get the data
@@ -26,17 +34,7 @@ exports.postReservation = function(req,res){
     var idClient = req.body.idClient ;
     var idVoiture = req.body.idVoiture ;
 
-
-    console.log('we reciebed this data' +
-    'dat debut' + date_debut + 'date fin' +
-    date_fin + ' ' + lieu_prise + ' ' + lieu_retour
-    + ' ' + heure_debut + ' ' + heure_retour + ' ' +
-    description + ' ' + idModele + ' ' + idClient + ' ' +
-    idVoiture);
-
-
-
-//les attributs
+//create it !
     Reservation.create({
 
         dateDebut :date_debut,
@@ -63,7 +61,7 @@ exports.postReservation = function(req,res){
 
 
 
-    })
+    })//end of create !!
 
 
 }
@@ -71,10 +69,22 @@ exports.postReservation = function(req,res){
 
 
 
-exports.getReservations = function(req,res)
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------FIND ALL RESERVATIONS---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
+
+
+exports.findReservations = function(req,res)
 {
 
 
+
+    //get AlL TEH RESERVATION include the other models
     Reservation.findAll(
         {
             include :[
@@ -103,26 +113,226 @@ exports.getReservations = function(req,res)
 
 
 
-
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
- -_-_-_-_-_-_-_-_*-_-_-_*-__-_-*-_-__-*_-_-*-__-*-__-*
- -_-__-_-*-__-_-*_-_-_-*-__-*_-_-*_-_-*_-_-*_-_-*_-_-*_-_-*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------FIND ALL PRERESERVATIONS---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ----------!!PRERESERVATION  IS a reservation maked by a client and not validated by the manager
  */
 
 
 
 
+exports.getPreReservation = function(req,res)
+{
+
+
+    PreReservation.findAndCountAll(  {
+        include :[
+            {model :Client},
+            {model:Voiture},
+            {model:Modele}
+
+        ]
+    }).then(function(result){
+
+        res.json(result.rows);
+
+    })
+
+
+
+}
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------DELETE A  PRERESERVATION---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
+
+exports.deletePreservation = function(req,res)
+{
+
+
+
+
+    var idPre = req.params.idPreReservation ;
+
+    console.log('the id of preservatons is :' + idPre);
+
+
+    PreReservation.findById(idPre)
+        .then(function(location){
+            if(!location)
+            { res.json({'msg': 'Réservation inconnue !'});}
+
+            // a bien améliorer cette code !
+            PreReservation.destroy({
+                where :{
+                    'idReservation' : idPre
+                }
+            })
+
+            res.json({"message":"Reservation supprimée!"})
+        })
+        .catch(function(){
+            console.log('erreur dans le supprim !')
+        })
+
+
+}
+
+
+
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------ADD A PRESERVATION---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
+exports.addPreReservation = function(req,res)
+{
+    // we msut get the data
+var newReservation = req.body;
+    console.log('the newReservation is ' + JSON.stringify(newReservation));
+    var dateDebut  = newReservation.dateDebut;
+    var heureDebut = newReservation.heureDebut;
+    var lieuPrise  =newReservation.lieuPrise;
+        var dateFin =newReservation.dateFin;
+    var  heureFin = newReservation.heureFin;
+        var lieuRetour = newReservation.lieuRetour;
+    var Voiture_idVoiture = newReservation.Voiture_idVoiture;
+        var Voiture_Modele_idModele = newReservation.Voiture_Modele_idModele;
+    var Client_idClient = newReservation.Client_idClient;
+
+    console.log('data recived is :' + dateDebut + ' ' + heureDebut + ' ' + lieuPrise + ' ' + dateFin
+    + ' ' + heureFin + '' + lieuRetour + ' id voiture :' + Voiture_idVoiture + 'id modele ' + Voiture_Modele_idModele + 'id client : ' + Client_idClient)
+
+    PreReservation.create({
+        dateDebut  : newReservation.dateDebut,
+        heureDebut : newReservation.heureDebut,
+        lieuPrise :newReservation.lieuPrise,
+        dateFin : newReservation.dateFin,
+        heureFin : newReservation.heureFin,
+        lieuRetour : newReservation.lieuRetour,
+        Voiture_idVoiture : newReservation.Voiture_idVoiture,
+        Voiture_Modele_idModele : newReservation.Voiture_Modele_idModele,
+        Client_idClient : newReservation.Client_idClient,
+
+
+
+
+    }).then(function(reservation) {
+
+        if (!reservation) {
+            res.send("erreur dans les données  du Reservation")
+        }
+        else {
+            res.json({message: 'succes de création de reservation', data: reservation})
+        }
+
+    })//end of create
+
+
+}
+
+
+
+
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------GET A PRESERVATION---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
+
+
+exports.saveReservation = function(req,res){
+
+
+    var newReservation = req.body;
+    console.log('the newReservation is ' + JSON.stringify(newReservation));
+    var dateDebut  = newReservation.dateDebut;
+    var heureDebut = newReservation.heureDebut;
+    var lieuPrise  =newReservation.lieuPrise;
+    var dateFin =newReservation.dateFin;
+    var  heureFin = newReservation.heureFin;
+    var lieuRetour = newReservation.lieuRetour;
+    var Voiture_idVoiture = newReservation.Voiture_idVoiture;
+    var Voiture_Modele_idModele = newReservation.Voiture_Modele_idModele;
+    var Client_idClient = newReservation.Client_idClient;
+
+    console.log('data recived is :' + dateDebut + ' ' + heureDebut + ' ' + lieuPrise + ' ' + dateFin
+        + ' ' + heureFin + '' + lieuRetour + ' id voiture :' + Voiture_idVoiture + 'id modele ' + Voiture_Modele_idModele + 'id client : ' + Client_idClient)
+
+
+
+//les attributs
+    Reservation.create({
+
+        dateDebut :dateDebut,
+        dateFin :dateFin,
+        lieuPrise :lieuPrise,
+        lieuRetour :lieuRetour,
+        heureDebut :heureDebut,
+        heureFin :heureFin,
+
+        Voiture_Modele_idModele :Voiture_Modele_idModele,
+        Client_idClient :Client_idClient ,
+        Voiture_idVoiture :Voiture_idVoiture
+
+
+    }).then(function(reservation){
+
+        if(!reservation)
+        {
+            res.send("erreur dans les données  du Reservation")
+        }
+        else{
+            res.json({message :'succes de création de reservation',data :reservation})
+        }
+
+
+
+    })
+
+
+}
+
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------GET A PRESERVATION---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
 exports.getReservation = function(req,res)
 {
-    // get the id
-    //sécursier le paramétre
+
+
+
+
+    //get the id
     var id = req.params.idReservation ;
 
-    // de meme on va include client et voiture
 
+
+    //find By Id to find it
     Reservation.findById(id,
         {
             include :[
@@ -133,13 +343,13 @@ exports.getReservation = function(req,res)
             ]
         })
         .then(function(location){
-        if(!location){res.send('erreur dans les réservations')};
+        if(!location){res.send('not found')};
 
 
         res.json(location);
        })
-        .catch(function(){
-            console.log('erreur dans findById Reservation !')
+        .catch(function(err){
+            console.log('err !'+err);
         })
 
 
@@ -151,9 +361,9 @@ exports.getReservation = function(req,res)
 
 
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------DELETE A PRESERVATION---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
@@ -167,7 +377,7 @@ exports.deleteReservation= function(req,res)
     Reservation.findById(id)
         .then(function(location){
         if(!location)
-        { res.json({'msg': 'Réservation inconnue !'});}
+        { res.json({'msg': 'Reservation not found !'});}
 
         // a bien améliorer cette code !
             Reservation.destroy({
@@ -176,10 +386,10 @@ exports.deleteReservation= function(req,res)
             }
                           })
 
-        res.json({"message":"Reservation supprimée!"})
+        res.json({"message":"Reservation deleted!"})
            })
-        .catch(function(){
-            console.log('erreur dans le supprim !')
+        .catch(function(err){
+            console.log('err'+err);
         })
 
 
@@ -189,28 +399,25 @@ exports.deleteReservation= function(req,res)
 
 
 
+
 /*
- -_-_-_-_-_-_-__-_-__-_-_-_-_-_-_-_-__-_-
- ___________---------_________--------_-_-_-_-_-_
- -_-_-_-_-_-_-_-*-_-*_-_-_-_*_-_-_-_*_-_-_*_-_-_*_-_-
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------UPDATE A PRESERVATION---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
 
 
-exports.putReservation = function(req,res)
+exports.updateReservation = function(req,res)
 {
 
-    // we must get the new Object
+    // get the id
     var id = req.params.idReservation;
-    // we must check the id
 
 
-    //we must find the User wehre the id like id
+    Reservation.findById(id).then(function (reservation) {
 
-
-    Reservation.findById(id).then(function (location) {
-
-        if (location) {
+        if (reservation) {
 
             //get the data
 
@@ -246,7 +453,7 @@ exports.putReservation = function(req,res)
 
             }).then(function (location) {
                 res.json(true);
-                    })
+                    })//end of update method
 
 
         }//end if location

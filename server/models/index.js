@@ -43,14 +43,21 @@ var Reservation = db["Reservation"];
 var Entretient = db["Entretient"];
 var Contrat = db["Contrat"];
 var Facture = db["Facture"];
-var Modele = db["Modele"]
+var Modele = db["Modele"];
+
+var Preservation = db["PreReservation"];
+
+
 
 
 
 
 
 Reservation.belongsTo(Client,{foreignKey: 'Client_idClient'});
+
+Preservation.belongsTo(Client,{foreignKey: 'Client_idClient'});
 Client.hasMany(Reservation,{constraints: true,foreignKey: 'Client_idClient'});
+Client.hasMany(Preservation,{constraints: true,foreignKey: 'Client_idClient'});
 
 /*
 
@@ -59,9 +66,18 @@ Client.hasMany(Reservation,{constraints: true,foreignKey: 'Client_idClient'});
 Reservation.belongsTo(Voiture,{foreignKey: 'Voiture_idVoiture'});
 Voiture.hasMany(Reservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
 
+Preservation.belongsTo(Voiture,{foreignKey: 'Voiture_idVoiture'});
+Voiture.hasMany(Preservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
+
 
 Reservation.belongsTo(Modele,{foreignKey: 'Voiture_Modele_idModele'});
+Preservation.belongsTo(Modele,{foreignKey: 'Voiture_Modele_idModele'});
 Voiture.belongsTo(Modele ,{foreignKey: 'Modele_idModele'});
+
+
+
+Preservation.belongsTo(Voiture,{foreignKey: 'Voiture_idVoiture'});
+Voiture.hasMany(Preservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
 
 
 Contrat.belongsTo(Facture,{foreignKey: 'Facture_idFacture'});

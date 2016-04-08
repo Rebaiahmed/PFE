@@ -1,8 +1,48 @@
 
 var App = angular.module('adminApp',['ui.router','ngResource']);
 
+
 /*
-the config for touing
+directive
+ */
+
+
+App.directive('onReadFile', function ($parse) {
+    return {
+        restrict: 'A',
+        scope: false,
+        link: function(scope, element, attrs) {
+            var fn = $parse(attrs.onReadFile);
+
+            element.on('change', function(onChangeEvent) {
+                var reader = new FileReader();
+
+                reader.onload = function(onLoadEvent) {
+                    scope.$apply(function() {
+                        fn(scope, {$fileContent:onLoadEvent.target.result});
+                    });
+                };
+
+                reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
+            });
+        }
+    };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+the config for the ROUTING
  */
 
 function config($stateProvider, $urlRouterProvider) {
@@ -27,6 +67,8 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+
+        //  =================================
         .state('Profile', {
             url :'/Profile',
             templateUrl: '/app_admin/pages/Profile.html',
@@ -34,12 +76,16 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+
+        //  =================================
         .state('Messages', {
             url :'/Messages',
             templateUrl: '/app_admin/pages/Messages.html',
             parent: "admin_access",
 
         })
+
+        //  =================================
 
         .state('locations', {
                url :'/locations',
@@ -48,12 +94,25 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+        //  =================================
+
         .state('locations.add', {
             url :'/addReservation',
             templateUrl: '/app_admin/pages/Creer_location.html',
             parent: "locations",
 
         })
+
+        //  =================================
+
+        .state('locations.details', {
+            url :'/locationDetails',
+            templateUrl: '/app_admin/pages/Details_location.html',
+            parent: "locations",
+
+        })
+
+        //  =================================
 
         .state('Reservations', {
             url :'/reservations',
@@ -62,12 +121,16 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+        //  =================================
+
         .state('voitures', {
             url :'/voitures',
             templateUrl: '/app_admin/pages/voitures2.html',
             parent: "admin_access",
 
         })
+
+        //  =================================
 
         .state('voitures.add', {
             url :'/addCar',
@@ -76,6 +139,16 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+        //  =================================
+
+        .state('voitures.add.add', {
+            url :'/addCar',
+            templateUrl: '/app_admin/pages/Creer_Voiture.html',
+            parent: "voitures.add",
+
+        })
+        //  =================================
+
         .state('voitures.add.add2', {
             url :'/addModele',
             templateUrl: '/app_admin/pages/Creer_Modele.html',
@@ -83,8 +156,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
-
-
+        //  =================================
 
         .state('entretients', {
             url :'/entretients',
@@ -93,6 +165,8 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+
+        //  =================================
         .state('contrats', {
             url :'/contrats',
             templateUrl: '/app_admin/pages/contrats2.html',
@@ -100,12 +174,16 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+
+        //  =================================
         .state('factures', {
             url :'/factures',
             templateUrl: '/app_admin/pages/factures2.html',
             parent: "admin_access",
 
         })
+
+        //  =================================
 
         .state('clients', {
             url :'/clients',
@@ -114,8 +192,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
-
-
+        //  =================================
         .state('clients.edit', {
             url :'/addClient',
             templateUrl: '/app_admin/pages/Editer_Client.html',
@@ -124,6 +201,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
 
 
+        //  =================================
         .state('clients.details', {
             url :'/detailsClient',
             templateUrl: '/app_admin/pages/Details_Client.html',
@@ -131,6 +209,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+        //  =================================
         .state('clients.details.edit', {
             url :'/addClient',
             templateUrl: '/app_admin/pages/Editer_Client.html',
@@ -138,19 +217,23 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+        //  =================================
         .state('clients.edit.details', {
             url :'/addClient',
             templateUrl: '/app_admin/pages/Details_Client.html',
             parent: "clients",
 
         })
+        //  =================================
 
         .state('clients.mail', {
             url :'/sendMail',
-            templateUrl: '/app_admin/pages/Envoyer_email.html',
+            templateUrl: '/app_admin/pages/Envoyer_Email_2.html',
             parent: "clients",
 
         })
+
+        //  =================================
 
 
         .state('conducteurs', {
@@ -160,13 +243,14 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
-
+        //  =================================
         .state('conducteurs.mail', {
             url :'/conducteursMail',
             templateUrl: '/app_admin/pages/Envoyer_email.html',
             parent: "conducteurs",
 
         })
+        //  =================================
 
         .state('conducteurs.add', {
             url :'/conducteursAdd',
@@ -175,7 +259,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
-
+        //  =================================
 
         .state('statistiques', {
             url :'/statistiques',
@@ -189,6 +273,8 @@ function config($stateProvider, $urlRouterProvider) {
 }
 
 
+
+//function run to check routing
 
 function run($rootScope,$location,Authentication)
 {
@@ -207,12 +293,25 @@ function run($rootScope,$location,Authentication)
 
 
 
+//call the functions
 App.config(['$stateProvider', '$urlRouterProvider',config]);
 App .run(['$rootScope','$location','Authentication',run]);
+
+
+
 /*
--_-_-_-__-_-_-_-_-_-_-_-_
--_-_-__-_-_-__-_-_-_-_-_-_-_-_
-_-_-_-_-_-__-_-_-_-__-
+-_-_-_-_-_-_-_-_-_--__-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_--__-_-_-__--_-__-_-
+---------------------DEFINE OUR SERVICES------------------------------------------------
+ -_-_-_-_-_-_-_-_-_--__-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_--__-_-_-__--_-__-_-
+
+ */
+
+
+
+
+
+/*
+_-_-_-_-_-_-_-_-_-_-_-SERVICE FOR AUTHENTICATION-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
 
 App.service('Authentication',['$http','$window', function($http,$window){
@@ -343,8 +442,52 @@ App.service('Authentication',['$http','$window', function($http,$window){
 
 
 
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR PRERESERVATIONS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
 
-//-_-_-__-_-_--_-_les services
+
+
+App.factory('PreReservationFactory',['$http', function($http){
+
+    var urlbase = "/auth/admin/admin/PreReservations";
+    var url2 = "/auth/admin/admin/Prelocations";
+    var PreReservationFactory ={} ;
+
+
+
+
+    PreReservationFactory.getPreReservations = function()
+    {
+        return $http.get(urlbase);
+
+    }
+
+
+    PreReservationFactory.deletePrereservation = function(id)
+    {
+        return $http.delete(urlbase + '/' + id);
+    }
+
+    PreReservationFactory.saveReservation = function(data)
+    {
+        return $http.post(url2, data);
+    }
+
+
+
+    return PreReservationFactory ;
+
+
+}]);
+
+
+
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR RESERVATIONS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
 App.factory('locationsFactory',['$resource', function($resource){
 
     return $resource('/auth/admin/admin/locations/:idReservation'
@@ -361,7 +504,12 @@ App.factory('locationsFactory',['$resource', function($resource){
 
 
 
-//-_-_-__-_-_--_-_les services
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR CARS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
 App.factory('VoitureFactory',['$http', function($http){
 
     var urlbase = "/auth/admin/admin/voitures";
@@ -405,7 +553,12 @@ App.factory('VoitureFactory',['$http', function($http){
 
 
 
-//-_-_-__-_-_--_-_les services
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR models-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
 App.factory('modeleFactory',['$http', function($http){
 
     var urlbase = "/auth/admin/admin/modele";
@@ -436,7 +589,12 @@ App.factory('modeleFactory',['$http', function($http){
 
 
 
-//-_-_-__-_-_--_-_les services
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR MAINTENANCE OPERATIONS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
 App.factory('EntretientFactory',['$http', function($http){
 
     var urlbase = "/auth/admin/admin/entretients";
@@ -461,9 +619,9 @@ App.factory('EntretientFactory',['$http', function($http){
         return $http.post(urlbase,entretient);
     }
 
-    entretientFactory.updateEntretient = function(entretient)
+    entretientFactory.updateEntretient = function(id,entretient)
     {
-        return $http.put(urlbase+'/' + entretient.id,entretient)//a vérfier !!
+        return $http.put(urlbase+'/' + id,entretient)//a vérfier !!
     }
     entretientFactory.deleteEntretient = function(id)
     {
@@ -480,7 +638,13 @@ App.factory('EntretientFactory',['$http', function($http){
 
 
 
-//-_-_-__-_-_--_-_les services
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR MAINTENANCE OPERATIONS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
+
 App.factory('EntretientCarFactory',['$http', function($http){
 
     var urlbase = "/auth/admin/admin/entretientCar";
@@ -501,7 +665,13 @@ App.factory('EntretientCarFactory',['$http', function($http){
 
 
 
-//-_-_-__-_-_--_-_les services-__-_-_-_-_-_-__-_
+
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR CLIENTS -_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
 App.factory('ClientsFactory',['$http', function($http){
     var urlbase = "/auth/admin/admin/clients";
     var clientFactory ={} ;
@@ -545,7 +715,17 @@ return clientFactory;
 
 
 
-//-_-_-__-_-_--_-_les services
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR DRIVERS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
+
+
+
+
+
 App.factory('ConducteursFactory',['$http', function($http){
 
 
@@ -586,7 +766,21 @@ App.factory('ConducteursFactory',['$http', function($http){
 }]);
 
 
-//-_-_-__-_-_--_-_les services-_-__-_-_-_-_-_-_-__-
+
+
+
+
+
+
+
+
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR contrats-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
+
 
 
 App.factory('GenerateContrat', ['$http', function($http){
@@ -604,11 +798,15 @@ App.factory('GenerateContrat', ['$http', function($http){
 
 
 
+    /*
+     _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR MAINTENANCE OPERATIONS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+     */
 
 
 
 
-//-_-_-__-_-_--_-_les services-_-__-_-_-_-_-_-_-__-
+
+-
 App.factory('Contrastfactory',['$resource', function($resource){
 
     return $resource('/auth/admin/admin/contrats'
@@ -622,7 +820,13 @@ App.factory('Contrastfactory',['$resource', function($resource){
 
 
 
-//-_-_-__-_-_--_-_les services
+/*
+ _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR BILLS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+
+
 App.factory('factureFactory',['$http', function($http){
 
     var urlbase = "/auth/admin/admin/Factures";
@@ -655,10 +859,24 @@ App.factory('factureFactory',['$http', function($http){
 
 
 
+/*
+-_-_-_-_-_-__-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-__--_-__-_-
+------------DEFINE OUR CONTROLLERS-_-_-_-_-_--_-_-_-_-_-_-__-_-_-
+--_-_-_-__-_----------__-_-_-_-_-_-_-_-__-_--_-__-_-_-_-_-_-_-__-_-_-
+
+
+ */
+
+
+
+
+
+
 
 /*
- define our controlllers
+ _-_-_-_-_-_-_-_-_-_-_-LOGIN CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
+
 
 
 App.controller('loginCtrl', function($scope,$location,Authentication){
@@ -694,7 +912,9 @@ App.controller('loginCtrl', function($scope,$location,Authentication){
 
 
 
-
+/*
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
 
 
 App.controller('voituresController', function($scope,VoitureFactory,modeleFactory,$state) {
@@ -709,6 +929,9 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     $scope.newModele.prixGPS = 25;
     $scope.newModele.prixChaisse =25;
     $scope.newModele.prixChauffeur = 25;
+    $scope.models = [];
+
+
 
 
 
@@ -719,7 +942,7 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
         console.log('change will be' + $scope.show);
     }
 
-    $scope.models = [];
+
 
 
         modeleFactory.getModeles()
@@ -727,6 +950,10 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
                 $scope.models = data;
 
             })
+
+
+
+
 
 
 
@@ -743,12 +970,19 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     }
 
 
+
+
+
+
     getCars(); // load the cars
 
+
+
+
+
     /*
-
+     _-_-_-_-_-_-_-_-_-_-_-__--_-_
      */
-
 
     $scope.updateCar = function(id,car)
     {
@@ -769,14 +1003,17 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     }
 
 
-
     /*
-
+     _-_-_-_-_-_-_-_-_-_-_-__--_-_
      */
+
 
     $scope.addCar = function()
     {
-        // check if the new car having an id then will be updated
+
+
+
+
 
         if($scope.newCar.idVoiture!=null)
         {
@@ -809,20 +1046,14 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     }
 
 
-
-
-
-
     /*
-
+     _-_-_-_-_-_-_-_-_-_-_-add MODELE-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
      */
+
+
 
     $scope.addModele = function()
     {
-
-
-
-
 
         console.log('we will add this modele' + JSON.stringify($scope.newModele) );
 
@@ -843,12 +1074,11 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     }
 
 
-
-
-
     /*
-
+     _-_-_-_-_-_-_-_-_-_-_-__--_-_
      */
+
+
     $scope.deleteCar = function(id)
     {
 
@@ -868,7 +1098,7 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     }
 
     /*
-
+     _-_-_-_-_-_-_-_-_-_-_-__--_-_
      */
 
 
@@ -898,58 +1128,29 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
         $state.go('.add');
     }
 
-
-
-
-
-
 })
 
 
+
+
+
+
 /*
--_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-
-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_
-_-_-_-_-_-_-_-_-___-_-_-_-_-_-_-__--__-_-_-
-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-__--_
-_-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-
+ _-_-_-_-_-_-_-_-_-_-_-ENTRETIENSTS CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
 
 
+App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFactory,$state){
 
-
-App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFactory,EntretientCarFactory){
-    $scope.entretients=[];
-    $scope.entretient ={};
 
 
     $scope.cars = [];
-    $scope.bougie = 85000;
-    $scope.frein = 85000;
-
-    //
-    $scope.courroie = 100000
-    $scope.vidange = 77980;
+    $scope.newEntretient = {};
+    $scope.show = false ;
 
 
 
-
-    function getEntretients()
-    {
-        EntretientFactory.getEntretients()
-            .then(function(data){
-                console.log(JSON.stringify(data.data));
-                $scope.entretients = data.data;
-
-            })
-
-
-    }
-
-    getEntretients();
-
-
-
-    /*function getCars()
+    function getCars()
     {
         VoitureFactory.getCars()
             .then(function(data){
@@ -961,7 +1162,9 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
                 $scope.message ="enable to load data !" + err;
             })
     }
-               getCars();*/
+
+
+               getCars();
 
 
 
@@ -969,45 +1172,130 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
 
 
 
+    $scope.update = function(idEntretient,entretient)
+    {
+        console.log(JSON.stringify(entretient));
+        alert('we will update this entretient ' + entretient);
+        EntretientFactory.updateEntretient(idEntretient,entretient)
+            .then(function(result)
+            {
+                console.log('updated suuccesfuly !');
+
+            }, function(err){
+                console.log('enable to update data !' + err);
+            })
+    }
+
+
+    /*
+
+     */
 
 
 
+    $scope.addEntretient = function(idVoiture)
+    {
+       $scope.newEntretient.Voiture_idVoiture = idVoiture;
+        //save it !
+
+        $scope.show=false;
+        EntretientFactory.postEntretient($scope.newEntretient)
+            .then(function(res){
+                console.log('added succesfuly !');
+                $state.show=false;
 
 
+            }, function(err){
+                console.log('err !');
+            })
+        getCars();
 
 
+    }
 
+    /*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     */
 
 
 })
 
 
 
+/*
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ */
+
+
+App.controller('PreReservationCtrl', function($scope,$state,PreReservationFactory, locationsFactory){
+
+
+    //méthode pour récuprer toutes les Preservations
+    $scope.prereservations =[];
+
+    $scope.prereservation ={};
+
+    $scope.getPreReservations = function()
+    {
+        PreReservationFactory.getPreReservations()
+            .then(function(result){
+                console.log(JSON.stringify(result.data));
+                $scope.prereservations = result.data;
+
+            }, function(err){
+                console.log('err' + err);
+            })
+    }
+
+
+    $scope.getPreReservations();
+
+
+    $scope.delete = function(id)
+    {
+        PreReservationFactory.deletePrereservation(id)
+            .then(function(result){
+                $scope.status ="deleted preservation!";
+                console.log($scope.status);
+            }, function(err){
+                console.log('err' + err);
+            })
+
+    }
+
+
+    $scope.confirmer = function(id)
+    {
+        //get the Preservation
+        for(var i=0;i<$scope.prereservations.length;i++)
+        {
+            if($scope.prereservations[i].idReservation==id)
+            {
+                $scope.prereservation= $scope.prereservations[i] ;
+                break ;
+            }
+        }
+
+        console.log('we willadd this to the database' + JSON.stringify($scope.prereservation));
+
+  PreReservationFactory.saveReservation($scope.prereservation)
+      .then(function(status){
+          console.log('saved sucuesfuly !' + status);
+      }, function(err){
+          console.log('err :' + err);
+      })
+
+
+    }
+
+
+});
+
+
 
 
 /*
- -_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-
- _-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_
- _-_-_-_-_-_-_-_-___-_-_-_-_-_-_-__--__-_-_-
- _-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-__--_
- _-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
 
 
@@ -1017,9 +1305,6 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
     $scope.clients=[];
     $scope.client ={};
-
-
-
 
     $scope.predicate = 'numCin';
     $scope.reverse = true;
@@ -1149,11 +1434,16 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
 
 
+
+
     $scope.Nbr_Reservations_Totale = function(client)
     {
 
  return client.Reservations.length ;
     }//end of NBr_Reservations
+
+
+
 
 
 
@@ -1213,14 +1503,13 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
 
 
+
+
 })
 
 
-
 /*
--_-_-_-_-_-__-_-_-_-_-_-_-
-_-_-_-_-_-_-_-_-__-_-_-_--_-
-_-_-_-_-_-_-__-_-_-_-_-_-_-_
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
 
 
@@ -1284,6 +1573,45 @@ $scope.locations =[];
 
 
     init();
+
+    /*
+
+     */
+
+
+    $scope.detailslocation =function(id)
+    {
+        // serahc the client
+        for(var i=0;i<$scope.locations.length;i++)
+        {
+            if($scope.locations[i].idReservation==id)
+            {
+                $scope.location = $scope.locations[i];
+
+
+                break;
+            }
+        }
+
+
+
+        console.log(JSON.stringify( $scope.location));
+
+        $state.go('.details')
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     $scope.evaluate = function(loc)
@@ -1417,21 +1745,6 @@ calcul prix totale
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*
 
      */
@@ -1501,11 +1814,7 @@ calcul prix totale
 
 
 /*
- -_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-
- _-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_
- _-_-_-_-_-_-_-_-___-_-_-_-_-_-_-__--__-_-_-
- _-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-__--_
- _-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
 
 
@@ -1568,12 +1877,10 @@ App.controller('FacturesController', function($scope,factureFactory){
 
 
 /*
- -_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-
- _-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_
- _-_-_-_-_-_-_-_-___-_-_-_-_-_-_-__--__-_-_-
- _-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-__--_
- _-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
+
+
 
 
 App.controller('ContratsController', function($scope,Contrastfactory){
@@ -1594,12 +1901,12 @@ App.controller('ContratsController', function($scope,Contrastfactory){
 
 
 /*
- -_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-
- _-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_
- _-_-_-_-_-_-_-_-___-_-_-_-_-_-_-__--__-_-_-
- _-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-__--_
- _-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
+
+
+
+
 
 
 
@@ -1635,19 +1942,18 @@ App.controller('CreateContrat', ['$scope','GenerateContrat', function($scope,Gen
 
 
 /*
- -_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-
- _-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_
- _-_-_-_-_-_-_-_-___-_-_-_-_-_-_-__--__-_-_-
- _-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-__--_
- _-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-
+ _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
+
+
+
 
 
 App.controller('conducteursController', function($scope,ConducteursFactory,$state){
     $scope.drivers=[];
     $scope.driver ={};
-
     $scope.newDriver = {};
+
 
 
     function getDrivers()
@@ -1767,6 +2073,72 @@ App.controller('conducteursController', function($scope,ConducteursFactory,$stat
 
 
 })
+
+
+
+
+/*
+-__-_-_-_-_-_-_-_-_-_-_-_-_-THE CONTROLLER FOR THE MAIL-_-_-_-_-_-_-_-_-__--_-_-_
+ */
+
+App.controller('emailConducteursController', function($scope,$http, $state){
+    $scope.show = true ;
+
+    $scope.data ={};
+
+    $scope.sendMail = function()
+    {
+
+        console.log(JSON.stringify($scope.data));
+
+        $http.post('/auth/admin/sendMail',$scope.data)
+            .then(function(res){
+                console.log('success !' + JSON.stringify(res));
+               $state.go('conducteurs');
+
+
+            }, function(err){
+                console.log('err' + err);
+            })
+
+    }
+
+
+})
+
+
+
+
+
+/*
+ -__-_-_-_-_-_-_-_-_-_-_-_-_-THE CONTROLLER FOR THE MAIL
+ */
+
+App.controller('emailClientsController', function($scope,$http, $state){
+    $scope.show = true ;
+
+    $scope.data ={};
+
+    $scope.sendMail = function()
+    {
+
+        console.log(JSON.stringify($scope.data));
+
+        $http.post('/auth/admin/sendMail',$scope.data)
+            .then(function(res){
+                console.log('success !' + JSON.stringify(res));
+                $state.go('clients');
+
+
+            }, function(err){
+                console.log('err' + err);
+            })
+
+    }
+
+
+})
+
 
 
 

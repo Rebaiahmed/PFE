@@ -5,28 +5,48 @@ define our controlller
 
 angular
     .module('meanApp')
-    .controller('registerCtrl', function($location,Authentication){
+    .controller('registerCtrl', function($scope,$location,Authentication){
 
-// get the controller with this
-        var vm = this;
-        // initialize the
-        vm.credentials={
-            name :"",
-            email :"",
-            password :""
-        }
+
+        $scope.show = false ;
+
+        $scope.newClient = {};
 
         // define teh functions
 
-        vm.onSubmit = function()
+        $scope.onSubmit = function()
         {
-            Authentication.register(vm.credentials)
+
+
+            Authentication.register( $scope.newClient)
                 .error(function(err){
                     alert(err);
                 })
-                .then(function(){
-                    console.log('redirect him to the prfile page !');
-                    $location.path('/profile'); // redirect him to the profile page
+                .then(function(data){
+                    console.log(JSON.stringify(data.data));
+                    var obj = {"err_create":"CREATE_ALREADY_HAVE_ACCOUNT"};
+
+
+                    console.log(JSON.stringify(data.data)===JSON.stringify(obj));
+
+                    if(JSON.stringify(data.data)===JSON.stringify(obj))
+
+                    {
+
+                        console.log('email exist !');
+
+                        $scope.show= true;
+
+                    }
+                    else{
+                        console.log('redirect him to the prfile page !');
+                        $location.path('/Profile'); // redirect him to the profile page
+
+                    }
+
+
+
+
                 })
         }
 
