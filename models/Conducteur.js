@@ -2,45 +2,45 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Conducteur', {
-    numCin: {
-      type: DataTypes.BIGINT,
+    idConducteur: {
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     numTel: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     nom: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     prenom: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     adresse: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     numPermis: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     datePermis: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    numCin: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     }
   }, {
-    tableName: 'Conducteur',
-    freezeTableName: true
+    tableName: 'Conducteur'
   });
 };

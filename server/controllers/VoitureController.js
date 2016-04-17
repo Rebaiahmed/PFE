@@ -6,6 +6,7 @@ var Voiture = models.Voiture ;
 var Entretient = models.Entretient ;
 var Modele = models.Modele ;
 var Reservation = models.Reservation;
+var moment = require('moment');
 
 
 
@@ -159,7 +160,62 @@ exports.findCars = function(req,res)
             res.send('error in getting cars!')
         }
         else{
-            res.json(result.rows);
+
+
+
+            console.log( JSON.stringify(result.rows.length));
+            var tableChiffres=[];
+            var  chiffrTotale = 0;
+            var car ;
+            for(var i=0;i<result.rows.length;i++)
+            {
+                car = result.rows[i];
+                console.log(JSON.stringify(car.Reservations.length));
+
+
+                for(var j=0;j<car.Reservations.length;j++) {
+
+
+
+
+
+                    var dDdebut = moment(JSON.stringify(car.Reservations[j].dateDebut), 'YYYY-MM-DD HH:mm');
+                    var dFin = moment(JSON.stringify(car.Reservations[j].dateFin), 'YYYY-MM-DD HH:mm');
+                    var diff =dFin.diff(dDdebut, 'days')
+                    console.log('Difference is ', dFin.diff(dDdebut, 'days'), 'days' );
+                    chiffrTotale+= car.prixLocation *(diff);
+                    console.log('chiffer affaire will be ' + chiffrTotale + ' fo car' + JSON.stringify(car.idVoiture));
+
+                }
+                //add it to the table
+                tableChiffres.push(chiffrTotale);
+
+                chiffrTotale=0;
+
+            }
+
+
+
+
+
+
+
+
+     console.log('' + tableChiffres)
+
+
+
+
+
+
+
+
+
+
+
+
+
+            res.json([result.rows,tableChiffres]);
         }
 
 
@@ -224,8 +280,17 @@ exports.getCar = function(req,res)
 {
 
 
+
+
+
+
+
+
+
     //get the id
+
     var id = req.params.idVoiture ;
+
 
     Voiture.findById(id,
         {
@@ -239,7 +304,26 @@ exports.getCar = function(req,res)
             res.send('error in getting car with this id ! !')
 
                    }
-                 res.json(car);
+
+            else {
+                   var tableChiffres=[];
+                   var  chiffrTotale = 0;
+                   for(var i=0;i<car.Reservations.length;i++) {
+
+                       var dDdebut = moment(JSON.stringify(car.Reservations[i].dateDebut), 'YYYY-MM-DD HH:mm');
+                       var dFin = moment(JSON.stringify(car.Reservations[i].dateFin), 'YYYY-MM-DD HH:mm');
+                       var diff =dFin.diff(dDdebut, 'days')
+                       console.log(i +'Difference is ',typeof dFin.diff(dDdebut, 'days'), 'days' );
+                       chiffrTotale+= car.prixLocation *(diff);
+                       console.log('chiffer affaire will be ' + chiffrTotale);
+                       tableChiffres[0]=chiffrTotale;
+                   }
+
+        console.log(tableChiffres)
+                 res.json([car,{"chiffr":12}]);
+
+
+               }
           })
         .catch(function(err){
             console.log('err ! ctach in car !' + err)

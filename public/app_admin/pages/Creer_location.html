@@ -59,24 +59,29 @@
 
 
 
-                            <label><h5>Voiture </h5></label>
-                        <select class="browser-default" ng-model="newReservation.idVoiture" required>
+                            <label><h5>Voiture</h5></label>
+                        <select class="browser-default" ng-model="newReservation.Voiture_idVoiture" required >
 
-                            <option value="{{c.idVoiture }}" ng-repeat="c in cars"
+                            <option value="{{c.idVoiture }}" ng-repeat="c in cars" ng-selected="c.idVoiture==newReservation.Voiture_idVoiture"
                                     ng-disabled="!c.disponibilite">
                                     {{ c.Modele.nom + " " +  c.Modele.marque + " " + c.numImmatricule
                               }}
+                                      {{  c.idVoiture==newReservation.Voiture_idVoiture }}
 
                             </option>
+
+
 
 
                         </select>
 
                             <label><h5>Client </h5></label>
-                            <select class="browser-default" ng-model="newReservation.idClient" required>
+                            <select class="browser-default" ng-model="newReservation.Client_idClient" required>
 
-                                <option value="{{cl.idClient}}" ng-repeat="cl in clients">
+                                <option value="{{cl.idClient}}" ng-repeat="cl in clients"
+                                        ng-selected="cl.idClient==newReservation.Client_idClient">
                                     {{ cl.nom + " " + cl.prenom + " " + cl.idClient  }}
+                                    {{ cl.idClient==newReservation.Client_idClient }}
                                 </option>
 
                             </select>
@@ -87,6 +92,8 @@
                                 ng-disabled="ResForm.$invalid">Submit
                             <i class="material-icons right">send</i>
                         </button>
+
+                           Reservationn : {{ newReservation }}
 
 </div>
 

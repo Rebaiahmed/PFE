@@ -6,10 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     dateDebut: {
       type: DataTypes.DATE,
@@ -39,6 +36,26 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    cloture: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    Client_idClient: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'Client',
+        key: 'idClient'
+      }
+    },
+    Voiture_idVoiture: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'Voiture',
+        key: 'idVoiture'
+      }
+    },
     Voiture_Modele_idModele: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -46,33 +63,8 @@ module.exports = function(sequelize, DataTypes) {
         model: 'Voiture',
         key: 'Modele_idModele'
       }
-    },
-    Client_numCin: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-        model: 'Client',
-        key: 'numCin'
-      }
-    },
-    Contrat_idContrat: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      references: {
-        model: 'Contrat',
-        key: 'idContrat'
-      }
-    },
-    Conducteur_numCin: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-        model: 'Conducteur',
-        key: 'numCin'
-      }
     }
   }, {
-    tableName: 'Reservation',
-    freezeTableName: true
+    tableName: 'Reservation'
   });
 };

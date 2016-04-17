@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    date_: {
+    date: {
       type: DataTypes.DATE,
       allowNull: true
     },
@@ -37,7 +37,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Entretient',
-    freezeTableName: true
+    tableName: 'Entretient'
   });
 };

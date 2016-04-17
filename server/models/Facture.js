@@ -22,8 +22,19 @@ module.exports = function(sequelize, DataTypes) {
     montantTT: {
       type: DataTypes.FLOAT,
       allowNull: true
-    }
-  }, {
+    },
+
+        Contrat_idContrat: {
+          type: DataTypes.INTEGER(11),
+          allowNull: false,
+          references: {
+            model: 'Contrat',
+            key: 'idContrat'
+          }
+        },
+
+  },
+      {
     tableName: 'Facture',
     freezeTableName: true,
     timestamps : false

@@ -2,14 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Client', {
-    numCin: {
-      type: DataTypes.BIGINT,
+    idClient: {
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     nom: {
       type: DataTypes.STRING,
@@ -36,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     datePermis: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,
       allowNull: true
     },
     numTel1: {
@@ -50,9 +47,20 @@ module.exports = function(sequelize, DataTypes) {
     statut: {
       type: DataTypes.BOOLEAN,
       allowNull: true
+    },
+    numCin: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    hash: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    salt: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
-    tableName: 'Client',
-    freezeTableName: true
+    tableName: 'Client'
   });
 };

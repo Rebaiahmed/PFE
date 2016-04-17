@@ -40,7 +40,7 @@
                     <option value="dateFin">Date Fin</option>
                 </select>
 
-                    {{ date }}
+
 
             </div>
                 </div>
@@ -122,12 +122,13 @@
                             </th>
                             <th></th>
                             <th>Détails</th>
+                            <th></th>
 
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr ng-repeat="loc in locations  |orderBy:date">
+                        <tr ng-repeat="loc in locations     ">
                           <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
                             <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
                             <td>{{ loc.dateDebut | date:'MM/dd/yyyy'  + " " + loc.heureDebut    }}h</td>
@@ -153,8 +154,10 @@
                                 <a ng-click="supprimlocation(loc.idReservation)"><i class="material-icons">delete</i></a>
                             </td>
 
-                            <td>Contrat <i class="material-icons">archive</i></td>
+                            <td><a ng-click="contrat(loc.idReservation)"> Contrat </a><i class="material-icons">archive</i></td>
                             <td><a ui-sref=".details" ng-click="detailslocation(loc.idReservation)"> <i class="material-icons">details</i> </a></td>
+
+
                         </tr>
 
 
@@ -166,7 +169,6 @@
                 </div>
 
             </div><!--end of row-->
-
 
 
 

@@ -1,0 +1,48 @@
+{
+  "name": "ng-materialize",
+  "version": "0.1.2",
+  "description": "Custom build of the Materialize framework with native AngularJS components.",
+  "main": [
+    "dist/ng-materialize.js",
+    "dist/ng-materialize.css"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "waves": "0.7.2"
+  },
+  "devDependencies": {
+    "materialize": "~0.97.0",
+    "ui-router": "~0.2.15",
+    "angular-messages": "~1.4.2",
+    "prism": "~1.0.0",
+    "ngSmoothScroll": "~1.7.1"
+  },
+  "keywords": [
+    "Angular",
+    "Materialize",
+    "components"
+  ],
+  "ignore": [
+    "**/.*",
+    "docs",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "docsPath": "docs",
+  "moduleName": "ngMaterializeDocs",
+  "resolutions": {
+    "angular": "1.4.0"
+  },
+  "homepage": "https://github.com/wthomsen/ng-materialize",
+  "_release": "0.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.2",
+    "commit": "4e0cd68d5e09c2333fe2a0eb4365aaaa5c471f56"
+  },
+  "_source": "https://github.com/wthomsen/ng-materialize.git",
+  "_target": "^0.1.2",
+  "_originalSource": "ng-materialize",
+  "_direct": true
+}

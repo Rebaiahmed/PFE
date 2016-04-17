@@ -61,7 +61,7 @@ app.use('/', routes);
 
 
 app.use(passport.initialize());
-
+app.use(require('express-promise')());
 
 
 
@@ -76,6 +76,15 @@ require('./server/config/passport');
 
 
 
+//catch the 401 aunothorized
+app.use(function(err,req,res,next){
+  if(err.name="UnauthorizedError")
+  {
+    res.status(401);
+    //res.json({"message" :err.name + " :" +  err.message});
+    res.redirect('/');
+  }
+})
 
 
 

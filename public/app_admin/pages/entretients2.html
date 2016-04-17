@@ -2,7 +2,12 @@
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
 
-
+            <style>
+                .has-error
+                {
+                    color: #a94442;
+                }
+            </style>
 
             <div class="row">
                 <div class="col s12">
@@ -77,14 +82,16 @@
 
 
 
-                <form class="col s12" ng-submit="addEntretient(c.idVoiture)" ng-show="show">
+                <form class="col s12" ng-submit="addEntretient(c.idVoiture)" ng-show="show" name="formEntretient" novalidate>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Nom" id="first_name" type="text" class="validate" ng-model="newEntretient.nom">
+                            <input placeholder="Nom" id="first_name" type="text" class="validate" ng-model="newEntretient.nom"
+                                   name="nom" required>
                             <label for="first_name">nom</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="kiloemtrage prevu" type="text" class="validate" ng-model="newEntretient.kilometrage_prevu">
+                            <input id="kiloemtrage prevu" type="text" class="validate" ng-model="newEntretient.kilometrage_prevu"
+                                   name="kilometrage_prevu" required>
                             <label for="last_name">kiloemtrage prévu</label>
                         </div>
 
@@ -105,7 +112,8 @@
                             </div>
 
 
-                        <button class="waves-effect waves-light btn" ng-click="show=!show">Enregistrer</button>
+                        <button class="waves-effect waves-light btn" ng-click="show=!show"
+                                ng-disabled="formEntretient.$invalid">Enregistrer</button>
 
 
 
@@ -115,6 +123,19 @@
 
 
                 </form>
+
+                <div ng-messages="formEntretient.nom.$error" ng-if="formEntretient.nom.$touched" ng-class=" 'has-error' ">
+
+                    <p data-error="wrong" ng-message="required">Nom entretient obligatoire
+                        <i class="material-icons">error</i></p>
+                </div>
+
+
+                <div ng-messages="formEntretient.kilometrage_prevu.$error" ng-if="formEntretient.kilometrage_prevu.$touched" ng-class=" 'has-error' ">
+
+                    <p data-error="wrong" ng-message="required">kilométrage prévu obligatoire
+                        <i class="material-icons">error</i></p>
+                </div>
                         <!--------------->
 
 

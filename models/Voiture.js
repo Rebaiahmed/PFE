@@ -65,7 +65,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Voiture',
-    freezeTableName: true
+    tableName: 'Voiture'
   });
 };

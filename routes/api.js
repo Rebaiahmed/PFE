@@ -75,7 +75,8 @@ Router.post('/auth/admin/admin',authCtrl.login_admin)
 
 
 
-// _-_-_-_-____-_-_-___-the LOCATIONS-_-__-_-_-_-__-
+
+//-_-_-_-__ for the pre reservation
 
 Router.route('/auth/admin/admin/PreReservations')
     .get(ReservationonCtrl.getPreReservation)
@@ -84,12 +85,13 @@ Router.route('/auth/admin/admin/PreReservations')
 Router.route('/auth/admin/admin/PreReservations/:idPreReservation')
     .delete(ReservationonCtrl.deletePreservation);
 
+
+// _-_-_-_-____-_-_-___-the LOCATIONS-_-__-_-_-_-__-
 Router.route('/auth/admin/admin/locations')
     .get(ReservationonCtrl.findReservations)
     .post(ReservationonCtrl.addReservation)
 
 
-//-_-_-_-__ for the pre reservation
 
 
 Router.route('/auth/admin/admin/Prelocations')
@@ -148,11 +150,15 @@ Router.route('/auth/admin/admin/entretientCar/:idVoiture')
 
 // _-_-_-_-____-_-_-___-the contracts -_-__-_-_-_-__-
 
+
+
+
 Router.route('/auth/admin/admin/contrats')
     .get(ContratCtrl.getContrats)
-
-Router.route('/auth/admin/admin/contrats/:id_reservation')
     .post(ContratCtrl.generateContrat);
+
+Router.route('/auth/admin/admin/contrats/:idContrat')
+    .get(ContratCtrl.getContrat)
 
 
 
@@ -173,8 +179,6 @@ Router.route('/auth/admin/admin/Factures/:id_facture')
     .put(FactureCtrl.put);
 
 
-Router.route('/auth/admin/admin/Factures/:id_contrat')
-    .post(FactureCtrl.generateFacture);
 
 
 // _-_-_-_-____-_-_-___-the Clients-_-__-_-_-_-__-

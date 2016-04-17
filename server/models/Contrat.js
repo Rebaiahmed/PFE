@@ -6,10 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     kilometrageDebut: {
       type: DataTypes.INTEGER(11),
@@ -47,6 +44,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    penaliteJour: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
     date_debut_prolngation: {
       type: DataTypes.DATE,
       allowNull: true
@@ -54,14 +55,6 @@ module.exports = function(sequelize, DataTypes) {
     date_fin_prolngation: {
       type: DataTypes.DATE,
       allowNull: true
-    },
-    Facture_idFacture: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      references: {
-        model: 'Facture',
-        key: 'idFacture'
-      }
     },
 
     Reservation_idReservation: {
@@ -72,18 +65,18 @@ module.exports = function(sequelize, DataTypes) {
         key: 'idReservation'
       }
     },
-
+    Reservation_Voiture_Modele_idModele: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false
+    },
     Reservation_Client_idClient: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       references: {
-        model: 'Client',
-        key: 'idClient'
+        model: 'Reservation',
+        key: 'Client_idClient'
       }
     }
-
-
-
   }, {
     tableName: 'Contrat',
     freezeTableName: true,

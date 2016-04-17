@@ -6,6 +6,7 @@ var Voiture = models.Voiture ;
 var Client = models.Client ;
 var Modele = models.Modele ;
 var PreReservation = models.PreReservation ;
+var moment = require('moment');
 
 
 
@@ -31,8 +32,10 @@ exports.addReservation = function(req,res){
     var heure_retour = req.body.heureFin ;
     var description = req.body.description ;
     var idModele = req.body.idModele ;
-    var idClient = req.body.idClient ;
-    var idVoiture = req.body.idVoiture ;
+    var idClient = req.body.Client_idClient ;
+    var idVoiture = req.body.Voiture_idVoiture ;
+
+    console.log('the date recived are :' + date_debut + ' ' + date_fin)
 
 //create it !
     Reservation.create({
@@ -82,7 +85,8 @@ exports.addReservation = function(req,res){
 exports.findReservations = function(req,res)
 {
 
-
+    var prixTotale = 0;
+    var Table_Prix_locations = [];
 
     //get AlL TEH RESERVATION include the other models
     Reservation.findAll(
@@ -93,18 +97,47 @@ exports.findReservations = function(req,res)
                 {model:Modele}
 
             ]
+
         }
+
     )
         .then(function(locations){
               if(!locations)
                  { res.send('error in getting locations !')}
               else
-                   {res.json(locations);}
+
+
+
+              console.log(locations.length);
+
+                   {
+
+                      for(var i=0;i<locations.length;i++) {
+
+                           var dDdebut = moment(JSON.stringify(locations[i].dateDebut), 'YYYY-MM-DD HH:mm');
+                           var dFin = moment(JSON.stringify(locations[i].dateFin), 'YYYY-MM-DD HH:mm');
+                           var diff = dFin.diff(dDdebut, 'days')
+                           console.log('Difference is ', dFin.diff(dDdebut, 'days'), 'days');
+                           prixTotale = diff * locations[i].Voiture.prixLocation;
+                           console.log('prix toatle est :' + prixTotale);
+                           Table_Prix_locations.push({ "idLocation" :locations[i].idReservation,"prixTotale" :prixTotale});
+                           prixTotale=0;
+                           console.log('-------');
+                       }
+
+
+
+
+                       res.json([locations,Table_Prix_locations]);
+
+
+
+                   }
 
 
          })
-        .catch(function(){
-            console.log('error !')
+        .catch(function(err){
+            console.log('error !'+err)
 
         })
 
@@ -402,7 +435,7 @@ exports.deleteReservation= function(req,res)
 
 /*
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------UPDATE A PRESERVATION---------------------------
+ ---------------UPDATE A RESERVATION---------------------------
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
@@ -413,6 +446,7 @@ exports.updateReservation = function(req,res)
 
     // get the id
     var id = req.params.idReservation;
+    console.log('the id send is ' + id);
 
 
     Reservation.findById(id).then(function (reservation) {
@@ -429,8 +463,11 @@ exports.updateReservation = function(req,res)
             var heure_retour = req.body.heureFin ;
             var description = req.body.description ;
             var idModele = req.body.idModele ;
-            var idClient = req.body.idClient ;
-            var idVoiture = req.body.idVoiture ;
+            var idClient = req.body.Client_idClient ;
+            var idVoiture = req.body.Voiture_idVoiture ;
+            var cloture = req.body.cloture ;
+
+            console.log('id voiture' + idVoiture + ' idClient' + idClient);
 
 
             Reservation.update({
@@ -442,6 +479,7 @@ exports.updateReservation = function(req,res)
                 heureDebut :heure_debut,
                 heureFin :heure_retour,
                 description :description,
+                cloture :cloture,
                 Voiture_Modele_idModele :idModele,
                 Client_idClient :idClient ,
                 Voiture_idVoiture :idVoiture
@@ -453,7 +491,7 @@ exports.updateReservation = function(req,res)
 
             }).then(function (location) {
                 res.json(true);
-                    })//end of update method
+                    })//end of update method*/
 
 
         }//end if location

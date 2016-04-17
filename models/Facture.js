@@ -5,11 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     idFacture: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      primaryKey: true
     },
     tva: {
       type: DataTypes.INTEGER(11),
@@ -22,9 +18,12 @@ module.exports = function(sequelize, DataTypes) {
     montantTT: {
       type: DataTypes.FLOAT,
       allowNull: true
+    },
+    Contrat_idContrat: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false
     }
   }, {
-    tableName: 'Facture',
-    freezeTableName: true
+    tableName: 'Facture'
   });
 };

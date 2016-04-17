@@ -1,15 +1,144 @@
 
-<section class="content" ng-controller="FacturesController" >
+<section class="content" ng-controller="ManagerController" >
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
             <div class="row">
 
                 <div class="col s12">
-                    <h3>Profile</h3>
+                   <h5>Profile Manager
+                       <a class="btn-floating btn-large waves-effect waves-light " ng-click="show3=!show3"><i class="material-icons">update</i></a></h5>
                 </div>
                 <!--end of col-s12-->
 
             </div><!--end of row-->
+
+
+            <div class="row" ng-show="show3">
+
+                <ul class="collection">
+                    <i class="material-icons">account_circle</i>
+                    <li class="collection-item">Nom </li>
+                    <i class="material-icons">email</i>
+                    <li class="collection-item">login</li>
+                    <i class="material-icons">security</i>
+                    <li class="collection-item">password</li>
+
+
+                </ul>
+
+
+
+
+            </div>
+
+
+            <div class="row">
+                <h5 ng-show="!show3">Modifier le profile</h5>
+                <form class="col s12" ng-show="!show3" ng-submit="updateManager()">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input  id="first_name" type="text" class="validate" ng-model="newManager.nom">
+                            <label for="first_name">Nom</label>
+                        </div>
+                    </div><!--end of row-->
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate" ng-model="newManager.login">
+                            <label for="last_name">login</label>
+                        </div>
+                    </div><!--end of row-->
+
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate" ng-model="newManager.password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <a class="waves-effect waves-light btn">Enregistrer</a>
+
+                </form>
+
+            </div>
+
+
+
+
+
+
+            <div class="row">
+                <h5>Ajouter un Manager</h5>
+                <a class="btn-floating btn-large waves-effect waves-light " ng-click="show=!show"><i class="material-icons">add</i></a>
+
+
+                <form class="col s12" ng-show="show" ng-submit="addManager()">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input  id="first_name" type="text" class="validate">
+                            <label for="first_name">Nom</label>
+                        </div>
+                        </div><!--end of row-->
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">login</label>
+                        </div>
+                    </div><!--end of row-->
+
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <a class="waves-effect waves-light btn">Enregistrer</a>
+
+                </form>
+            </div><!--end of row---->
+
+
+            <div class="row">
+                <h5>Voire les Adminstrateurs</h5>
+                <a class="btn-floating btn-large waves-effect waves-light " ng-click="show2=!show2"><i class="material-icons">view_array</i></a>
+
+
+
+                <table ng-show="show2">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Nom</th>
+                        <th data-field="name">login</th>
+                        <th data-field="price">password</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
 
         </div><!--end of m-box-->
 

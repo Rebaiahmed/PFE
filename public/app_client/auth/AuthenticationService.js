@@ -64,6 +64,7 @@ angular
                {
                    // we must chekf it
 
+
                    if(isloggedIn())
                    {
 

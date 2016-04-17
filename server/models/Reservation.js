@@ -39,6 +39,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    cloture: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
     Voiture_Modele_idModele: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -71,22 +75,7 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
     timestamps : false,
 
-    instanceMethods: {
 
-      calculPrixTotal : function(car)
-      {
-
-
-
-              var prix = car.prixLocation;
-              console.log('prix location' + prix);
-        console.log('total number of days is ' + (this.dateFin.getDay()-this.dateDebut.getDay()));
-              var totale = (this.dateFin.getDay()-this.dateDebut.getDay())*prix;
-
-
-        return totale;
-      }
-    }
 
 
 

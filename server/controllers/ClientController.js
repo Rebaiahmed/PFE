@@ -86,6 +86,7 @@ exports.getClients = function(req,res)
     )
         .then(function(result){
 
+
             //send the rows found
             res.json(result.rows);
         })

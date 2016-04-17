@@ -1,5 +1,33 @@
 
-var App = angular.module('adminApp',['ui.router','ngResource']);
+var App = angular.module('adminApp',['ui.router','ngResource','ngMessages']);
+
+
+
+
+/*
+define our factory interceptor
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -259,6 +287,34 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+
+        //  =================================
+
+        .state('Contrats',{
+            url :'/Create_Contrat',
+            templateUrl: '/app_admin/pages/Create_Contrat.html',
+            params:{
+                'Reservation' :new Object()
+
+            }
+
+
+        })
+
+        .state('Create_Facture',{
+            url :'/Creer_Facture',
+            templateUrl: '/app_admin/pages/Create_Facture.html',
+            params:{
+                'contrat' :null
+
+            }
+
+
+        })
+
+
+
+
         //  =================================
 
         .state('statistiques', {
@@ -280,7 +336,7 @@ function run($rootScope,$location,Authentication)
 {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
         console.log('logged or not logged ' + Authentication.isloggedIn());
-        if ($location.path() === '/auth/admin/admin' && !Authentication.isloggedIn()) {
+        if ($location.path() === 'admin_access' && !Authentication.isloggedIn()) {
             $location.path('/');
         }
         if ($location.path() === '/auth/admin/admin/locations' && !Authentication.isloggedIn()) {
@@ -292,10 +348,61 @@ function run($rootScope,$location,Authentication)
 }
 
 
+App.factory('AuthInterceptor',['$q','$location','$injector', function($q,$location){
+    return function (promise) {
+        var success = function (response) {
+            return response;
+        };
+
+        var error = function (response) {
+            if (response.status === 401) {
+                $location.path('/');
+            }
+
+            return $q.reject(response);
+        };
+
+        return promise.then(success, error);
+    };
+
+
+}]);
+
+
 
 //call the functions
 App.config(['$stateProvider', '$urlRouterProvider',config]);
 App .run(['$rootScope','$location','Authentication',run]);
+
+
+App.config(['$httpProvider', function($httpProvider){
+
+
+    $httpProvider.interceptors.push('AuthInterceptor');
+
+}]);
+
+
+
+/*
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_FACTORU FOR -_-_-_-__-_-_-_-_-_-_-_-_-_
+_--__-_-_-_-_-_-___-__-__________________________--------------
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -305,6 +412,7 @@ App .run(['$rootScope','$location','Authentication',run]);
  -_-_-_-_-_-_-_-_-_--__-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_--__-_-_-__--_-__-_-
 
  */
+
 
 
 
@@ -349,10 +457,10 @@ App.service('Authentication',['$http','$window', function($http,$window){
                 payload =$window.atob(payload);
                 payload = JSON.parse(payload);
 
-                console.log((payload.exp >Date.now() /1000))
-                //return payload.exp >Date.now() /10000;  // a expliquer
-                return true;
+                console.log('exp :' +payload.exp  );
 
+                console.log('resul is ' + (payload.exp > Date.now() / 1000));
+                return payload.exp > Date.now() / 1000;
             }
             else{
                 return false;
@@ -365,18 +473,20 @@ App.service('Authentication',['$http','$window', function($http,$window){
         {
             // we must chekf it
 
+
             if(isloggedIn())
             {
 
                 var token = getToken();
+                var payload = token.split('.')[1] // !!!!!!
                 payload =$window.atob(payload);
                 payload = JSON.parse(payload);
-                console.log('currentUser the payload is :' +payload);
+                console.log('currentUser the payload is :' + JSON.stringify(payload));
 
-                // we will return an object
+                // we will return an objectangular-permission
                 return{
                     email : payload.email,
-                    name : payload.name
+                    nom : payload.nom
                 }
             }
 
@@ -781,20 +891,31 @@ App.factory('ConducteursFactory',['$http', function($http){
 
 
 
+App.factory('ContratService', ['$http', function($http){
 
+ContratService = {};
 
-App.factory('GenerateContrat', ['$http', function($http){
-
-    generateContrat = {};
-
-    generateContrat.createContrat = function(idReservation,contrat)
+    ContratService.createContrat = function(contrat)
     {
-        return $http.post('/auth/admin/admin/contrats/' + idReservation,contrat);
+        return $http.post('/auth/admin/admin/contrats' , contrat);
 
     }
 
-    return generateContrat;
+
+    ContratService.getContrats = function()
+    {
+        return $http.get('/auth/admin/admin/contrats');
+    }
+
+    ContratService.getContrat = function(id)
+    {
+        return $http.get('/auth/admin/admin/contrats/'+ id);
+    }
+
+    return ContratService ;
 }])
+
+
 
 
 
@@ -859,6 +980,50 @@ App.factory('factureFactory',['$http', function($http){
 
 
 
+
+
+
+
+/*
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_POUR LES MANGERS SERVICE-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+ */
+App.factory('ManagerFactory',['$http', function($http){
+
+    var urlbase = "/auth/admin/admin/Managers";
+
+    var ManagerFactory ={} ;
+
+    ManagerFactory.getManagers = function()
+    {
+        return $http.get(urlbase);
+    }
+    ManagerFactory.updateManager(manager)
+    {
+        return $http.put(urlbase+ '/',manager.id,manager);
+    }
+
+    ManagerFactory.addManager = function(manager)
+    {
+        return $http.post(urlbase,manager);
+    }
+
+
+
+
+
+
+
+
+
+    return ManagerFactory  ;
+
+
+}]);
+
+
+
+
+
 /*
 -_-_-_-_-_-__-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-__--_-__-_-
 ------------DEFINE OUR CONTROLLERS-_-_-_-_-_--_-_-_-_-_-_-__-_-_-
@@ -871,6 +1036,52 @@ App.factory('factureFactory',['$http', function($http){
 
 
 
+/*
+_-_-_--_-_-_-_-_-_-_-_-__-_-_-_-_-_ADMIN CTRL-_-_-_-_-__-_-_--_-_-_
+ */
+
+
+App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication,$location){
+
+
+    $scope.preservationsNbr = 0;
+
+    $scope.test = "test";
+
+    console.log(JSON.stringify(Authentication.currentUser()));
+
+     function getPreservations()
+    {
+
+    PreReservationFactory.getPreReservations().then(function(res){
+
+         console.log(JSON.stringify(res.data.length));
+         $scope.preservationsNbr =res.data.length ;
+         console.log($scope.preservationsNbr);
+
+    })
+    }
+
+
+    getPreservations()
+
+    $scope.user = Authentication.isloggedIn();
+
+    console.log($scope.preservationsNbr);
+
+    $scope.logOut = function()
+    {
+        alert('we will dsiconenct');
+        console.log('token before deleted :' + JSON.stringify(Authentication.getToken()));
+        Authentication.logout();
+
+        console.log('not token found' + JSON.stringify(Authentication.getToken()));
+        $location.path('admin');
+
+    }
+
+
+})
 
 
 /*
@@ -885,7 +1096,7 @@ App.controller('loginCtrl', function($scope,$location,Authentication){
 
         // initialize the
     $scope.credentials={
-            name :"",
+
             email :"",
             password :""
         }
@@ -898,7 +1109,9 @@ App.controller('loginCtrl', function($scope,$location,Authentication){
                 .error(function(err){
                     alert(err);
                 })
-                .then(function(){
+                .then(function(result){
+
+                    console.log('' + JSON.stringify(result));
                     $location.path('/auth/admin/admin'); // redirect him to the profile page
                 })
 
@@ -930,6 +1143,7 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     $scope.newModele.prixChaisse =25;
     $scope.newModele.prixChauffeur = 25;
     $scope.models = [];
+    $scope.chiffreAffaire =[];
 
 
 
@@ -961,7 +1175,10 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     {
         VoitureFactory.getCars()
             .then(function(data){
-                $scope.cars=data.data ;
+               console.log(JSON.stringify((data.data[1])));
+                $scope.cars=data.data[0] ;
+                $scope.chiffreAffaire=data.data[1];
+
 
 
             }, function(err){
@@ -1107,7 +1324,10 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
         VoitureFactory.getCar(id)
             .then(function(data){
 
-               $scope.car = data.data;
+                console.log(JSON.stringify(data.data[1]));
+
+               $scope.car = data.data[0];
+
 
                 //trasnfrom the date
 
@@ -1154,7 +1374,9 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
     {
         VoitureFactory.getCars()
             .then(function(data){
-                $scope.cars=data.data ;
+
+                console.log('data in cars entreteints' + JSON.stringify(data.data[0]));
+                $scope.cars=data.data[0] ;
 
 
 
@@ -1234,12 +1456,15 @@ App.controller('PreReservationCtrl', function($scope,$state,PreReservationFactor
     $scope.prereservations =[];
 
     $scope.prereservation ={};
+    $scope.nbr = 0;
 
     $scope.getPreReservations = function()
     {
         PreReservationFactory.getPreReservations()
             .then(function(result){
-                console.log(JSON.stringify(result.data));
+                console.log(result.data.length);
+                $scope.nbr = result.data.length ;
+
                 $scope.prereservations = result.data;
 
             }, function(err){
@@ -1256,10 +1481,14 @@ App.controller('PreReservationCtrl', function($scope,$state,PreReservationFactor
         PreReservationFactory.deletePrereservation(id)
             .then(function(result){
                 $scope.status ="deleted preservation!";
+                alert('this preservation will be deletd !');
+                $scope.getPreReservations();
                 console.log($scope.status);
             }, function(err){
                 console.log('err' + err);
             })
+
+        //$state.go('locations');
 
     }
 
@@ -1276,11 +1505,16 @@ App.controller('PreReservationCtrl', function($scope,$state,PreReservationFactor
             }
         }
 
-        console.log('we willadd this to the database' + JSON.stringify($scope.prereservation));
+        console.log('we willadd this to the database');
 
   PreReservationFactory.saveReservation($scope.prereservation)
       .then(function(status){
           console.log('saved sucuesfuly !' + status);
+
+
+          $scope.delete($scope.prereservation.idReservation);
+          $scope.getPreReservations();
+          $state.go('locations');
       }, function(err){
           console.log('err :' + err);
       })
@@ -1436,26 +1670,7 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
 
 
-    $scope.Nbr_Reservations_Totale = function(client)
-    {
 
- return client.Reservations.length ;
-    }//end of NBr_Reservations
-
-
-
-
-
-
-
-    $scope.chiffre_Affaires = function(client)
-    {
-        var somme = 0;
-        for(var i=0;i<client.Reservations.length;i++)
-        {
-
-        }
-    }
 
 
 
@@ -1514,7 +1729,7 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
 
 App.controller('locationsController', function($scope,$http,locationsFactory,ClientsFactory,
-                                               VoitureFactory,$state){
+                                               VoitureFactory,$state,$location){
 
 
 
@@ -1526,7 +1741,11 @@ $scope.locations =[];
     $scope.newReservation ={};
     $scope.value = false;
 
+    //tableua pour les valuers du Prix Totale
+    $scope.Table_Prix_Totale = [];
+
     $scope.etat = "" ;
+    $scope.shwoCloture = false ; // une variable pour rendre le button rendre cloture une réservation disabeld
 
 
 
@@ -1540,7 +1759,7 @@ $scope.locations =[];
 
     VoitureFactory.getCars()
         .success(function(res){
-            $scope.cars = res ;
+            $scope.cars = res[0] ;
 
         })
 
@@ -1549,7 +1768,11 @@ $scope.locations =[];
 
     function init() {
         var locations = locationsFactory.query(function () {
-            $scope.locations = locations;
+            $scope.locations = locations[0];
+
+            console.log('table chiffre affire' + JSON.stringify(locations[1]));
+            $scope.Table_Prix_Totale = locations[1] ;
+            console.log('value 0 :' +  $scope.Table_Prix_Totale[0].idLocation );
 
             for (var i = 0; i < $scope.locations.length; i++) {
                 $scope.locations[i].dateDebut = new Date($scope.locations[i].dateDebut);
@@ -1557,11 +1780,6 @@ $scope.locations =[];
                 //
                 $scope.locations[i].dateDebut.setHours(Number($scope.locations[i].heureDebut));
                 $scope.locations[i].dateFin.setHours(Number($scope.locations[i].heureFin));
-
-
-
-
-
 
             }
 
@@ -1581,21 +1799,28 @@ $scope.locations =[];
 
     $scope.detailslocation =function(id)
     {
-        // serahc the client
-        for(var i=0;i<$scope.locations.length;i++)
-        {
-            if($scope.locations[i].idReservation==id)
-            {
-                $scope.location = $scope.locations[i];
+        $scope.location=locationsFactory.get({
+            idReservation:id
+
+        }, function() {
 
 
-                break;
+
+            //trasnfrom the date of begin adn the end
+
+            $scope.location.dateDebut = new Date($scope.location.dateDebut);
+            $scope.location.dateFin = new Date($scope.location.dateFin);
+
+            var idVoiture = $scope.location.Voiture_idVoiture;
+            //search the idModele
+            for (var i = 0; i < $scope.cars.length; i++) {
+                if ($scope.cars[i].idVoiture == idVoiture) {
+                    $scope.location.idModele = $scope.cars[i].Modele_idModele;
+                    break;
+                }
             }
-        }
 
-
-
-        console.log(JSON.stringify( $scope.location));
+        })
 
         $state.go('.details')
 
@@ -1616,13 +1841,35 @@ $scope.locations =[];
 
     $scope.evaluate = function(loc)
     {
-        if(loc.dateFin>new Date())
+        if( !loc.cloture && loc.dateFin<new Date())
         {
-            return true;
-        }
-        else{
             return false;
         }
+        else{
+            return true;
+        }
+
+    }
+
+
+
+    /*
+    function to set Reservation is ended !
+     */
+
+    $scope.cloture = function(loc)
+    {
+
+        loc.cloture = !  loc.cloture ;
+        $scope.shwoCloture =! $scope.shwoCloture;
+        loc.$update(function(){
+            console.log('data updated succesfuly !');
+        });
+
+
+
+        $state.go('locations');
+        init();
 
     }
 
@@ -1631,9 +1878,6 @@ $scope.locations =[];
 
     $scope.supprimlocation = function(id)
     {
-        console.log('the id will be deleted is :' + id);
-        // we must serch this reservation
-
         $scope.location=locationsFactory.get({
             idReservation:id
 
@@ -1660,10 +1904,6 @@ $scope.locations =[];
     $scope.editlocation = function(id)
     {
 
-
-
-
-
         $scope.location=locationsFactory.get({
             idReservation:id
 
@@ -1689,60 +1929,6 @@ $scope.locations =[];
 
     }
 
-/*
-calcul prix totale
- */
-
-    $scope.calculPrix = function(id)
-    {
-
-  var prixTotale =0;
-
-
-
-        $scope.location=locationsFactory.get({
-            idReservation:id
-
-        }, function(){
-
-
-
-
-
-            //trasnfrom the date of begin adn the end
-
-            $scope.location.dateDebut = new Date($scope.location.dateDebut);
-            $scope.location.dateFin = new Date($scope.location.dateFin);
-
-
-          console.log('data1 ' + $scope.location.dateFin.getDate());
-            console.log('date2' + $scope.location.dateDebut.getDate());
-
-             prixTotale = ($scope.location.dateFin.getDate()- $scope.location.dateDebut.getDate());
-            VoitureFactory.getCar($scope.location.Voiture_idVoiture)
-                .then(function(res){
-
-                    console.log('car is ' + JSON.stringify(res.data));
-                    prixTotale=res.data.prixLocation*prixTotale;
-                    console.log('prix totale est :' + prixTotale);
-
-                    return prixTotale;
-                })
-
-
-
-
-
-
-        })
-
-
-
-
-
-
-
-    }
 
 
     /*
@@ -1753,19 +1939,17 @@ calcul prix totale
     $scope.addReservation = function()
     {
 
-        var idVoiture = $scope.newReservation.idVoiture;
-        console.log(idVoiture + 'is');
+        var idVoiture = $scope.newReservation.Voiture_idVoiture;
+
 
         //search the idModele
         for (var i = 0; i < $scope.cars.length; i++) {
             if ($scope.cars[i].idVoiture == idVoiture) {
                 $scope.newReservation.idModele = $scope.cars[i].Modele_idModele;
-                console.log('the idModele is ' + $scope.newReservation.idModele);
+
                 break;
             }
         }
-
-         console.log("reservation before updating " +$scope.newReservation );
 
         if($scope.newReservation.idReservation!=null)
         {
@@ -1783,7 +1967,10 @@ calcul prix totale
 
           $scope.newReservation.$update(function(){
               console.log('data updated succesfuly !');
+              //initialize les valuers
+              $scope.newReservation ={};
           });
+
             init();
             $state.go('locations');
 
@@ -1793,9 +1980,15 @@ calcul prix totale
 
 
 
-            console.log("we willa dd this reservation" + JSON.stringify($scope.newReservation));
+            console.log( typeof $scope.newReservation.dateDebut)
+
             locationsFactory.save($scope.newReservation, function () {
                 console.log("saved in the database !");
+
+
+                //initializer les valeurs
+                $scope.newReservation ={};
+                init();
                 $state.go('locations');
 
 
@@ -1808,9 +2001,47 @@ calcul prix totale
 
 
 
+    /*
+    uen fonction pour faire la redirection vers une autre page
+     */
+
+    $scope.contrat = function(id)
+    {
+       // we mus  get this Reservation
+        $scope.location=locationsFactory.get({
+            idReservation:id
+
+        }, function(){
+
+
+
+            //trasnfrom the date of begin adn the end
+
+            $scope.location.dateDebut = new Date($scope.location.dateDebut);
+            $scope.location.dateFin = new Date($scope.location.dateFin);
+
+
+        })
+
+        $state.go('Contrats',{'Reservation':$scope.location});
+    }
+
+
+
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -1883,21 +2114,6 @@ App.controller('FacturesController', function($scope,factureFactory){
 
 
 
-App.controller('ContratsController', function($scope,Contrastfactory){
-
-
-      $scope.contrats =[] ;
-    $scope.contrat = {};
-    Contrastfactory.query(function(data){
-        $scope.contrats = data;
-    });
-
-
-
-
-
-})
-
 
 
 /*
@@ -1910,26 +2126,91 @@ App.controller('ContratsController', function($scope,Contrastfactory){
 
 
 
-App.controller('CreateContrat', ['$scope','GenerateContrat', function($scope,GenerateContrat){
+App.controller('ContratsController', ['$scope','$http','$stateParams','$state','ContratService', function($scope,$http,$stateParams,$state,
+                                                                                                          ContratService){
 
 
-    var newContrat ={};
 
-    $scope.generateContrat = function(idReservation)
+
+
+
+
+    $scope.Reservation ={}
+
+
+    $scope.Reservation  =$stateParams.Reservation;
+    console.log(JSON.stringify($scope.Reservation ));
+
+
+
+    $scope.newContrat ={};
+    $scope.contrats = [];
+    $scope.contrat ={};
+
+   /* $scope.newContrat.Reservation_Client_idClient = $scope.Reservation.Client_idClient;
+    $scope.newContrat.Reservation_Voiture_Modele_idModele = $scope.Reservation.Voiture_Modele_idModele
+    $scope.newContrat.Reservation_idReservation = $scope.Reservation.idReservation ;*/
+
+    $scope.generateContrat = function()
     {
         // we will ge the data from tehj form
         // and save it in the database !
-        GenerateContrat.generateContrat(idReservation,newContrat)
+
+
+        alert('we willa dd ths is to databe' + $scope.newContrat);
+
+        //after we wil calculate prix totale ;prix hors taxe , set tva to 18% ,totale retard , nombre de jiurs de location
+
+        $scope.newContrat.prixTT ;
+        $scope.newContrat.prixHt ;
+        $scope.newContrat.totaleRetard ;
+
+
+
+        ContratService.createContrat($scope.newContrat)
             .success(function(){
+                console.log('addes succesfuly !');
 
             })
             .error(function(err){
+                console.log('err' + err);
 
             })
 
 
 
     }
+
+
+    function getContrast()
+    {
+        ContratService.getContrats().then(function(result){
+
+            $scope.contrats = result.data ;
+        })
+    }
+
+
+    getContrast();
+
+
+    //Create_Facture
+
+    $scope.go_Facture = function(idContrat)
+    {
+        ContratService.getContrat(idContrat)
+            .success(function(result){
+                console.log('the result is ' + JSON.stringify(result));
+                $scope.contrat = result;
+            })
+
+        $state.go('Create_Facture',{'contrat':$scope.contrat});
+
+    }
+
+
+
+
 
 
 
@@ -1953,6 +2234,8 @@ App.controller('conducteursController', function($scope,ConducteursFactory,$stat
     $scope.drivers=[];
     $scope.driver ={};
     $scope.newDriver = {};
+
+    console.log($state);
 
 
 
@@ -2078,7 +2361,16 @@ App.controller('conducteursController', function($scope,ConducteursFactory,$stat
 
 
 /*
--__-_-_-_-_-_-_-_-_-_-_-_-_-THE CONTROLLER FOR THE MAIL-_-_-_-_-_-_-_-_-__--_-_-_
+-__-_-_-_-_-_-_-_-_-_-_-_-_-THE CONTROLLER FOR THE MAIL-_-_-_-_-_-_-_-_-__--_-_-_ Reservation.findById(id_reservation)
+        .then(function(reservation){
+            //get the data from the reservation table
+
+            var Reservation_Voiture_Modele_idModele = reservation.Voiture_Modele_idModele;
+            var Reservation_Client_idClient = reservation.Reservation_Client_idClient ;
+
+
+        })
+
  */
 
 App.controller('emailConducteursController', function($scope,$http, $state){
@@ -2140,7 +2432,40 @@ App.controller('emailClientsController', function($scope,$http, $state){
 })
 
 
+App.controller('ManagerController', function($scope){
 
+    $scope.show = false ;
+    $scope.show2 = false ;
+    $scope.show3  = true;
+
+    $scope.newManager ={};
+    $scope.Maanager ={};
+    $scope.managers =[];
+
+
+    getManagers = function()
+    {
+
+    }
+
+    getManagers();
+
+
+    $scope.addManager = function()
+    {
+        //we will add this Manager to database of Manager
+
+    }
+
+    $scope.updateManager = function()
+    {
+
+    }
+
+
+
+
+})
 
 
 

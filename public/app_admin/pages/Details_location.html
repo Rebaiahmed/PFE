@@ -34,12 +34,19 @@
 
                         <li class="collection-item">
                             <i class="material-icons">money_off</i>
-                           <p>-Prix totale : </p>
+                           <p>-Prix totale : {{ Table_Prix_Totale[$index] }}</p>
                         </li>
                         <li class="collection-item">
-                            statut reservation (cloture , non cloture , en retard)
+                           <p ng-if="location.cloture">statut Réservation : <span>Clôturé <i class="material-icons">closed_caption</i> </span> </p>
+                            <p ng-if="!location.cloture">statut Réservation : <psan>En cours</psan> </p>
 
                         </li>
+
+                        <button class="btn btn-default" ng-click="cloture(location)" ng-disabled="location.cloture">
+                            Fermer
+                        </button>
+
+
 
 
                     </ul>

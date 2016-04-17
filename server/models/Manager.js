@@ -36,8 +36,10 @@ module.exports = function(sequelize, DataTypes) {
         instanceMethods: {
 
             setPassword : function(password){
-                this.salt = crypto.randomBytes(16).toString('hex');
-                this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+                this.salt =  crypto.randomBytes(16).toString('hex');
+                this.hash =crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+
+
             },
 
             validPassword: function(password) {
@@ -48,13 +50,13 @@ module.exports = function(sequelize, DataTypes) {
 
             generateJwt : function(){
                 var expiry = new Date();
-                //set the date of sesisin to 7 days
-                expiry.setDate(expiry.getDate+ 7);
+                expiry.setDate(expiry.getDate()+7);
 
                 return jwt.sign({
                         _id  :this.idManager,
                         email :this.email,
-                        nom : this.nom
+                        nom : this.nom,
+                        exp :parseInt(expiry.getTime()/1000)
                     },
                     "secret_admin");
             }

@@ -136,13 +136,15 @@ ____________-------------____________---------------____________--------
             {
 
                 //check if user exist in the databse
+                console.log('we are in passport :' + email+ ' password :' + password)
 
 
                 Manager.findOne({ where : {email : email}}).then(function(admin)
                 {
 
-                   /* if(!admin)
+                   if(!admin)
                     {
+                        console.log('admin not found !')
 
                         return done(null,false,{"message" :"Verfier vos cordonnées !"});
 
@@ -156,15 +158,19 @@ ____________-------------____________---------------____________--------
 
                         if(! admin.validPassword(password))
                         {
+                            console.log('th password is :' + password);
+                            console.log('not valid password !');
                             return done(null,false,{"message" :"Mot de passe incorrecte"})
-                        }*/
+                        }
 
 
                         // tout est correcte retourner le client
 
+                        console.log('mrigél :' + admin);
+
                         return done(null,admin);
 
-                   // }// end of else
+                    }// end of else
 
 
 

@@ -4,6 +4,7 @@
 var passport = require('../config/passport.js');
 var models  = require('../models/index.js');
 var Client = models.Client ;
+var Manager = models.Manager ;
 
 
 /*
@@ -122,42 +123,74 @@ module.exports.login = function(req,res)
 
 module.exports.login_admin = function(req,res)
 {
-    // call the passport authentication
-    passport.authenticate('admin-login', function(err,manager,info){
 
-        console.log('the manager is :' + manager);
 
-        var token ;
+var email = req.body.email ;
+    var password = req.body.password ;
 
-        // if err
+    console.log('we recived data ' + email + ' ' + password);
 
-        if(err) {
-            res.status(404).json(err);
-            //return;
+
+    Manager.findOne({ where : {email : email}}).then(function(admin)
+    {
+
+        if(!admin)
+        {
+            console.log('admin not found !')
+            res.status(404).json({
+                "statut ": "404"
+            });
+
 
         }
+        else
+        {
+
+
+            // we mustc check password
+
+
+            if(admin.validPassword(password)!=true)
+            {
+                console.log('result is:' + admin.validPassword(password));
+                console.log('not valid password !');
+                res.status(401).json({
+                    "statut" :"401"
+                });
+
+            }
+            else {
+
+                console.log('mrigél :' + admin);
+
+                // tout est correcte retourner le manager
+                token = admin.generateJwt();  /// ???? i hope the work
+                console.log('token' + JSON.stringify(token));
+                res.status(200).json({
+                    "token": token
+                })
+
+            }
+
+
+        }// end of else
+
+
+
+
+    })//end findOne
+
+
 
         //
 
-        if(manager)
-        {
-            token = manager.generateJwt();  /// ???? i hope the work
-            res.status(200).json({
-                "token" : token
-            })
-
-
-        }
-        else{
-            res.status(401).json(info);
-
-        }
 
 
 
 
 
-    })(req,res)
+
+
 
 
 

@@ -5,11 +5,61 @@
 
                 <div class="col s12">
                     <h3> Contrats <i class="material-icons">insert_drive_file</i> </h3>
-                    {{ contrats }}
+
                 </div>
                 <!--end of col-s12-->
 
             </div><!--end of row-->
+
+
+
+
+
+
+
+
+
+            <table>
+                <thead>
+                <tr>
+                    <th data-field="id">Numéro contrat</th>
+                    <th data-field="name">Etat</th>
+                    <th data-field="price">Détails</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="ctrl in contrats">
+                    <td>{{ ctrl.idContrat }}</td>
+                    <td ng-if="ctrl.Reservation.cloture==1">
+                        Cloturé
+                    </td>
+
+                    <td ng-if="ctrl.Reservation.cloture==0">
+                        Non Cloturé
+                    </td>
+                    <td><a>Dtéails <i class="material-icons">description</i></a></td>
+                    <td><a>Modifier Contrat</a><i class="material-icons">update</i></td>
+                    <td><a ng-click="go_Facture(ctrl.idContrat)"> Facture </a><i class="material-icons">archive</i></td>
+
+                </tr>
+
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div><!--end of m-box-->
 
