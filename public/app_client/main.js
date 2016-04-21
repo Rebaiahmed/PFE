@@ -1,4 +1,4 @@
-var app = angular.module('meanApp',['ui.router']);
+var app = angular.module('meanApp',['ui.router','ui.materialize','angularMoment']);
 
 /*
 define the config function
@@ -56,6 +56,27 @@ function config($stateProvider, $urlRouterProvider) {
         .state('Confirm', {
             url :'/Confirmer_Reservation',
             templateUrl: '/app_client/confirm/confirm.html',
+
+
+        })
+
+        .state('Nous', {
+            url :'/Qui_Sommes_Nous',
+            templateUrl: '/app_client/partials/qui_sommes_nous.html',
+
+
+        })
+
+        .state('Contact', {
+            url :'/Qui_Sommes_Nous',
+            templateUrl: '/app_client/partials/Contact.html',
+
+
+        })
+
+        .state('Options', {
+            url :'/Options',
+            templateUrl: '/app_client/voitures/Options.html',
 
 
         })

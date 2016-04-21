@@ -85,12 +85,13 @@ module.exports = function(sequelize, DataTypes) {
       generateJwt : function(){
         var expiry = new Date();
         //set the date of sesisin to 7 days
-        expiry.setDate(expiry.getDate+ 7);
+        expiry.setDate(expiry.getDate()+ 7);
 
         return jwt.sign({
               _id  :this.idClient,
               email :this.email,
-              nom : this.nom
+              nom : this.nom,
+                exp :parseInt(expiry.getTime()/1000)
             },
             "secret_client");
       }

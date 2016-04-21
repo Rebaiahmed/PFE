@@ -3,6 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
     var crypto = require('crypto');
     var jwt = require('jsonwebtoken');
+    var moment = require('moment');
     return sequelize.define('Manager', {
 
 
@@ -50,7 +51,8 @@ module.exports = function(sequelize, DataTypes) {
 
             generateJwt : function(){
                 var expiry = new Date();
-                expiry.setDate(expiry.getDate()+7);
+                //set the date of sesisin to 7 days
+                expiry.setDate(expiry.getDate()+ 7);
 
                 return jwt.sign({
                         _id  :this.idManager,

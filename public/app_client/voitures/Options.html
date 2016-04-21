@@ -1,0 +1,226 @@
+<div class="container" ng-controller="optionsCtrl">
+
+
+
+
+<div class="row" style="height: 10px">
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="col s12">
+                <a href="#!" class="breadcrumb">First</a>
+                <a href="#!" class="breadcrumb">Second</a>
+                <a href="#!" class="breadcrumb">Third</a>
+            </div>
+        </div>
+    </nav>
+
+</div><!--end of row--->
+    <hr>
+
+
+
+
+
+
+
+
+
+    <div class="row">
+        <div class="col m6 s12">
+
+
+
+            <!------------------------>
+
+
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/mercedes.jpg">
+                            <span class="card-title">{{ voiture.Modele.nom + ' ' + voiture.Modele.nom.marque    }}</span>
+                        </div>
+                        <div class="card-content">
+                           <ul>
+                               <li style="color: red" class="collection">Prix location {{ voiture.prixLocation  }}</li>
+                               <li class="collection">Categorie :{{ voiture.categorie }}</li>
+                               <li class="collection"><span class="new badge">4</span></li>
+                           </ul>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+<h5>Options</h5><hr>
+
+
+
+
+
+            <!---------------------------------->
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card g teal darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">2 éme Chauffeurr <i class="material-icons">perm_identity</i></span>
+                    <p>Conducteur supplémentaire</p>
+                    <p>{{ voiture.Modele.prixChauffeur}} Dt/jour</p>
+                </div>
+                <div class="card-action">
+                    <p>
+                        <input type="checkbox" id="test4" ng-model=" newReservation.Chauffeur" />
+                        <label for="test4">Sélectionner  {{ newReservation.Chauffeur }}</label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------->
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card  teal darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">GPS <i class="material-icons">gps_fixed</i></span>
+                    <p>Demandez le périphérique Garmin Nuvi 650 Navigation Peu importe où vous êtes,
+                        obtenir les directions tour-par-tour où vous êtes censé être. Il est simple, facile et abordable!</p>
+                    <p>{{ voiture.Modele.prixGPS }} Dt/jour</p>
+                </div>
+                <div class="card-action">
+                    <p>
+                        <input type="checkbox" id="test5" ng-model=" newReservation.GPS" />
+                        <label for="test5">Sélectionner</label>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------->
+
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card  teal darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Chaise Baby <i class="material-icons">child_care</i></span>
+                    <p>	Siège bébé.</p>
+
+                    <p>{{ voiture.Modele.prixChaisse}} Dt/jour</p>
+                </div>
+                <div class="card-action">
+                    <p>
+                        <input type="checkbox" id="test6" ng-model="newReservation.chaiseBaBy"/>
+                        <label for="test6">Sélectionner</label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <a class="waves-effect waves-light btn" ng-click="Create3()">L'étape suivante <i class="material-icons">skip_next</i></a>
+
+        </div><!-----end of col m6------->
+
+
+
+
+
+
+
+        <!------------------>
+        <div class="col m6">
+
+
+         <h5>Réservation</h5>
+            <table class="striped ">
+                <thead>
+                <tr>
+                    <th data-field="id">Date Début <i class="material-icons">date_range</i> </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{  newReservation.dateDebut  | date:'MM/dd/yyyy' }}</td>
+                </tr>
+                </tbody>
+
+
+                <!-------------->
+
+
+                <thead>
+                <tr>
+                    <th data-field="id">Date Fin <i class="material-icons">date_range</i></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ newReservation.dateFin  | date:'MM/dd/yyyy' }}</td>
+                </tr>
+                </tbody>
+
+                <!------------------->
+
+
+                <thead>
+                <tr>
+                    <th data-field="id">Tarif <i class="material-icons">monetization_on</i></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Prix par jour  {{ voiture.prixLocation |  currency:"Dt" }}</td>
+                    <td>Prix totale {{ prixTotale  |  currency:"Dt"  }} Dt  </td>
+                </tr>
+                </tbody>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</div><!--end of row--------->
+</div><!--end of container--->

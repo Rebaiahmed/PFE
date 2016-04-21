@@ -43,11 +43,11 @@ angular
          first function
          */
 
-        $scope.SetCar = function()
+        $scope.SetCar = function(id)
         {
             for(var i=0;i<$scope.voitures.length;i++)
             {
-                if(i==0)
+                if($scope.voitures[i].idVoiture==id)
                 {
                     $scope.voiture = $scope.voitures[i];
                     break ;
@@ -68,8 +68,23 @@ angular
 
 
 
-        $scope.Create2 = function()
+        $scope.Create2 = function(id)
         {
+
+
+            for(var i=0;i<$scope.voitures.length;i++)
+            {
+                if($scope.voitures[i].idVoiture==id)
+                {
+                    $scope.voiture = $scope.voitures[i];
+                    break ;
+                }
+            }
+
+           console.log('our car is ' + JSON.stringify($scope.voiture));
+
+
+
 
 
 
@@ -91,7 +106,7 @@ angular
 
             ReservationService.saveReservation(JSON.stringify($scope.newReservation));
 
-            $location.path('login');
+            $location.path('Options');
 
         }
 

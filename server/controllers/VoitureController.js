@@ -241,7 +241,7 @@ exports.getCars_Client = function(req,res)
 
     Voiture.findAndCountAll({
         include:[
-            {model:Modele,  attributes:['nom','marque','puissance','prixGPS','prixChaisse','prixChauffeur']}
+            {model:Modele,  attributes:['nom','marque','puissance','prixGPS','prixChaisse','prixChauffeur','carburant']}
         ],
         attributes: ['idVoiture','numImmatricule','photo','nbPlaces','categorie','prixLocation','Modele_idModele']
 

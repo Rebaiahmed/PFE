@@ -1,0 +1,325 @@
+     <div class="card">
+
+                            <div class="card-content">
+                                <h4 class="card-title">location<i class="material-icons">save</i></h4>
+
+                                <div class="row">
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="col s2">
+                                                <label for="date_debut">Date Début</label>
+                                                </div>
+                                            <div class="input-field col s10">
+                                                <input  id="date_debut" type="date" class="validate">
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input  type="text" class="validate" id="heure_debut">
+                                                <label for="heure_debut">Heure Début</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12 ">
+                                                <select class="icons">
+                                                    <option value="" disabled selected>Choisir lieu de Retour</option>
+                                                    <option value="" data-icon="images/sample-1.jpg" class="left circle">Tunis</option>
+                                                    <option value="" data-icon="images/office.jpg" class="left circle">Sfax</option>
+                                                    <option value="" data-icon="images/yuna.jpg" class="left circle">jerba</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="divider"></div>
+
+
+                                        <div class="col s2">
+                                            <label for="date_fin">Date Fin</label>
+                                            </div>
+                                        <div class="input-field col s10">
+                                            <input  type="date" class="validate" id="date_fin">
+
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input  type="text" class="validate" id="heure_fin">
+                                            <label for="heure_fin">Heure Fin</label>
+                                        </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12 ">
+                                        <select class="icons">
+                                            <option value="" disabled selected>Choisir lieu de Retour</option>
+                                            <option value="" data-icon="images/sample-1.jpg" class="left circle">example 1</option>
+                                            <option value="" data-icon="images/office.jpg" class="left circle">example 2</option>
+                                            <option value="" data-icon="images/yuna.jpg" class="left circle">example 3</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <a class="waves-effect waves-light btn">Réserver</a>
+                                    </form>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="row">
+
+
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="public/images/tunis.jpg">
+
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Tunis</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="public/images/sfax2.jpg">
+
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Sfax</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="public/images/gafsa.jpg">
+
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Gafsa</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+  <!-------------footer----------------------->
+
+        <footer class="page-footer">
+            <div class="row">
+                <div class="col s6">
+                    <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                    <h6 class="mdl-mega-footer--heading">Details</h6>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="#">A Propos de Nous</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Conditions génrales </a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="col s6">
+                    <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                    <h6 class="mdl-mega-footer--heading">Réseaux sociaux</h6>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Google+</a></li>
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="footer-copyright">
+                    <div class="">
+                        © 2014 Copyright Text
+                        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                </div>
+
+
+        </footer>
+
+
+                    <div class="row">
+
+
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="public/images/tunis.jpg">
+
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Tunis</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="public/images/sfax2.jpg">
+
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Sfax</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="public/images/gafsa.jpg">
+
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Gafsa</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+        <!-------------footer----------------------->
+
+        <a href="" target="_blank" id="view-source" class="btn">Chat with us <i class="material-icons">chat</i>  </a>
+
+        <script>
+            $(document).ready(function() {
+                $('select').material_select();
+            });
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/tunis.jpg">
+
+            </div><!--end of card-->
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div><!--end of card content-->
+            <div class="card-action">
+                <a href="#">Tunis</a>
+            </div><!--end of card action--->
+        </div><!--end of card->
+    </div><!--end of col s12 m4--->
+
+        <!------------------------------------------------->
+
+
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/sfax2.jpg">
+
+            </div><!--end of card image-->
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div><!--end of card content-->
+            <div class="card-action">
+                <a href="#">Sfax</a>
+            </div><!--end of card action--->
+        </div><!--end of card ----------->
+    </div><!--end of col s12--------->
+
+
+
+
+
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/gafsa.jpg">
+
+            </div><!--end of card image--->
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div><!--end of crad content--->
+            <div class="card-action">
+                <a href="#">Gafsa</a>
+            </div><!--end of card image--->
+        </div><!--end of card------>
+    </div><!--end of col s12--------------->

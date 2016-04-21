@@ -9,6 +9,9 @@ angular
 
 
 
+  console.log(Authentication.isloggedIn());
+
+
 
         $scope.newReservation ={};
 
@@ -29,12 +32,14 @@ angular
 
                     $scope.client =Authentication.currentUser();
 
+                    console.log('th client returene dis ' + JSON.stringify($scope.client));
+
 
                     // get the Reservation
                     $scope.newReservation = ReservationService.getReservation();
-                    //console.log('our reservation geted is :' +  $scope.newReservation)
+                    console.log('our reservation geted is :' +  JSON.stringify($scope.newReservation))
                     //transform it
-                    $scope.newReservation = JSON.parse($scope.newReservation);
+                    //$scope.newReservation = JSON.parse($scope.newReservation);
                     //console.log('parse it to be  :' +  $scope.newReservation)
                     //modify it
                     $scope.newReservation.Client_idClient =$scope.client.id;
@@ -45,7 +50,7 @@ angular
                    console.log( "saved in the login ctrl :" + ReservationService.getReservation());
 
                    // console.log("succces d'authentication !");
-                    $location.path('Confirmer_Reservation');
+                   // $location.path('Confirmer_Reservation');
                 })
         }
 

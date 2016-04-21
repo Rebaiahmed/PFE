@@ -39,6 +39,24 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+
+    Chauffeur: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    chaiseBaBy: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    GPS: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+
+
     Voiture_Modele_idModele: {
       type: DataTypes.INTEGER(11),
       allowNull: false,

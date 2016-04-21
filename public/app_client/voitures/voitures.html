@@ -1,15 +1,105 @@
 
-<div ng-controller="voituresCtrl">
+<div class="container" ng-controller="voituresCtrl">
 
 
-{{ newReservation }}
 
-<h1>Ici les voitures a choisir avec le button select</h1>
-    {{ voitures[0] }}
+    <div ng-repeat="c in voitures" ng-if="$index % 3 == 0" class="row">
 
-    <hr>
-    {{ voiture }}
 
-    <a ng-click="Create2()">Termier la réservation</a>
 
-</div>
+
+
+
+
+
+    <div class="col s12 m4" >
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/voiture3.jpg">
+                <span class="card-title">{{ voitures[($index )].Modele.marque + ' ' + voitures[($index )].Modele.nom }} </span>
+            </div>
+            <div class="card-content">
+                <ul class="collection">
+                    <li class="chip"><a>nbPlaces</a> : {{ voitures[($index )].nbPlaces }} <i class="material-icons">place</i></li>
+                    <br>
+                    <li class="chip"><a>catégorie</a> : {{ voitures[($index )].categorie }}</li>
+                    <li class="chip"><a>carburant </a>: {{ voitures[($index )].Modele.carburant }} </li>
+                    <li><a>Prix location :{{ voitures[($index )].prixLocation }} <i class="material-icons">attach_money</i></span></a> </li>
+                </ul>
+            </div>
+            <div class="card-action">
+                <a class="waves-effect waves-light btn" ng-click="Create2(voitures[($index )].idVoiture)">Réserver</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!---->
+
+    <div class="col s12 m4" ng-if="voitures.length > ($index + 1)">
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/voiture3.jpg">
+                <span class="card-title">{{ voitures[($index + 1)].Modele.marque + ' ' + voitures[($index + 1)].Modele.nom }}</span>
+            </div>
+            <div class="card-content">
+                <ul class="collection">
+                    <li class="chip"><a>nbPlaces</a> : {{ voitures[($index+1 )].nbPlaces }}</li>
+                    <li class="chip"><a>catégorie</a> : {{ voitures[($index+1 )].categorie }}</li>
+                    <li class="chip"><a>carburant </a>: {{ voitures[($index +1)].Modele.carburant }} </li>
+                    <li class="chip"><a>Prix location :</a> {{ voitures[($index+1 )].prixLocation }} </li>
+                </ul>
+            </div>
+            <div class="card-action">
+                <a class="waves-effect waves-light btn" ng-click="Create2(voitures[($index+1 )].idVoiture)">Réserver</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--->
+    <div class="col s12 m4" ng-if="voitures.length > ($index + 2)">
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/voiture3.jpg">
+                <span class="card-title"> {{ voitures[($index + 2)].Modele.marque + ' ' + voitures[($index + 2)].Modele.nom }}</span>
+            </div>
+            <div class="card-content">
+                <ul class="collection">
+                    <li class="chip"><a>nbPlaces</a> : {{ voitures[($index+2 )].nbPlaces }}</li>
+                    <li class="chip"><a>catégorie</a> : {{ voitures[($index+2 )].categorie }}</li>
+                    <li class="chip"><a>carburant </a>: {{ voitures[($index +2)].Modele.carburant }} </li>
+                    <li class="chip"><a>Prix location :</a> {{ voitures[($index +2 )].prixLocation }} </li>
+                </ul>
+            </div>
+            <div class="card-action">
+                <a class="waves-effect waves-light btn" ng-click="Create2(voitures[($index+2 )].idVoiture)">Réserver</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div><!--end of class row------>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!--end of ng-conrtroller---->

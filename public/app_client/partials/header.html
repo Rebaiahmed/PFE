@@ -1,35 +1,11 @@
-<div class="container-fluid">
-    <div class="row">
+
+<div class="tab-bar  grey darken-2">
+    <ul class="right hide-on-med-and-down">
+    <a href="#overview" class="layout__tab ">Acceuil</a>
+    <a ui-sref="Voitures" class="layout__tab">Voitures</a>
+    <a ui-sref="Nous" class="layout__tab">Qui sommes Nous</a>
+    <a ui-sref="Contact" class="layout__tab">Contact</a>
+    </ul>
 
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" ui-sref="index">Brand</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a ui-sref="login">login <span class="sr-only">(current)</span></a></li>
-                        <li><a ui-sref="Register">s'inscrire</a></li>
-
-                    </ul>
-
-                    <li><a href="">Nom :{{ user.nom }}</a> </li>
-                    <li><a href="/logout">log out </a> </li>
-
-
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-    </div><!--end of class row-->
-</div><!--end of class container-->
+</div>

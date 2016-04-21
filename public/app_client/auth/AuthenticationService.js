@@ -43,9 +43,10 @@ angular
                  payload =$window.atob(payload);
                  payload = JSON.parse(payload);
 
-                  //console.log((payload.exp >Date.now() /1000))
-                 //return payload.exp >Date.now() /10000;  // a expliquer
-                 return true;
+                 console.log('payload exp :' + payload.exp);
+
+                  console.log((payload.exp >Date.now() /10000))
+                 return payload.exp >Date.now() /10000;  // a expliquer
 
              }
              else{
@@ -80,7 +81,7 @@ angular
                        return{
                            id :payload._id,
                            email : payload.email,
-                           name : payload.name
+                           nom : payload.nom
                        }
                    }
 

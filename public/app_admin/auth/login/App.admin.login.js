@@ -349,7 +349,7 @@ function run($rootScope,$location,Authentication)
 
 
 App.factory('AuthInterceptor',['$q','$location','$injector', function($q,$location){
-    return function (promise) {
+    return function (promise) {auth/admin/admin/locations
         var success = function (response) {
             return response;
         };

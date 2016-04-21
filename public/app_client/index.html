@@ -1,26 +1,87 @@
-<html lang="en" ng-app="meanApp">
+<html lang="en" ng-app="meanApp" >
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Materialize CSS text only template</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
     <title>PFE APP</title>
 
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Materialize CSS">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
 
 
-    <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="/bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="/bower_components/ng-materialize/dist/ng-materialize.min.css">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/arrive/src/arrive.js"></script>
-    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/angular-carousel/dist/angular-carousel.min.css">
+    <link rel="stylesheet" href="/app_client/style.css">
+    <!--scripts loaded-->
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/bower_components/angular-route/angular-route.min.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="/bower_components/moment/min/moment.min.js"></script>
+    <script src="/bower_components/angular-moment/angular-moment.min.js"></script>
+    <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+    <script src="/bower_components/angular-carousel/src/angular-carousel.js"></script>
+    <script src="/bower_components/angular-materialize/src/angular-materialize.js"></script>
 
-    <script type="text/javascript">
-        $.material.init();
+    <script src="/bower_components/interact/dist/interact.min.js"></script>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="/bower_components/ng-materialize/dist/ng-materialize.min.js"></script>
+
+
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+
+
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+
     </script>
 
 
@@ -31,7 +92,36 @@
 <body>
 
 
+
 <div ng-include src="'/app_client/partials/header.html'"></div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal Trigger -->
+<div class="col">
+    <a class='btn' href='#demoModal' modal>Show Modal</a>
+</div>
+<!-- Modal Structure -->
+<div id="demoModal" class="modal">
+    <div class="modal-content">
+        <h4>Modal header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+
+
+
 
 
 
@@ -47,7 +137,45 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>
+
+
+
+
+
+
+
+
+
+
+
+<a href="" target="_blank" id="view-source" class="btn">Chat with us <i class="material-icons">chat</i>  </a>
+
+
 <div ng-include src="'/app_client/partials/footer.html'"></div>
+
 </body>
 
 
@@ -61,6 +189,7 @@
 <script src="./app_client/auth/register/register.controller.js"></script>
 <script src="./app_client/profile/profile.controller.js"></script>
 <script src="./app_client/voitures/voitureController.js"></script>
+<script src="./app_client/voitures/optionsController.js"></script>
 <script src="./app_client/confirm/confirm.controller.js"></script>
 
 </html>

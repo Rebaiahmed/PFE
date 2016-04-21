@@ -75,38 +75,71 @@ module.exports.signup = function(req,res)
 module.exports.login = function(req,res)
 {
 
-    // call the passport authentication
-    passport.authenticate('client-login', function(err,client,info){
 
- var token ;
+    var token ;
 
-        // if err
 
-        if(err) {
-            res.status(404).json(err);
-            return;
+    var email = req.body.email ;
+    var password = req.body.password ;
 
-        }
+    console.log('we recived data ' + email + ' ' + password);
 
-       //if the client found !
 
-        if(client)
+   Client.findOne({ where : {email : email}}).then(function(client)
+    {
+
+        if(!client)
         {
-            //generate the jwt
-          token = client.generateJwt();  /// ???? i hope the work
-            res.status(200).json({
-                "token" : token
-            })
+            console.log('client not found !')
+            res.status(404).json({
+                "statut ": "404"
+            });
 
 
         }
-        //client not found
-        else{
-            res.status(401).json(info);
+        else
+        {
 
-        }
 
-    })(req,res)//end of passport authenticate call
+            // we mustc check password
+
+
+            if(client.validPassword(password)!=true)
+            {
+                console.log('result is:' + client.validPassword(password));
+                console.log('not valid password !');
+                res.status(401).json({
+                    "statut" :"401"
+                });
+
+            }
+            else {
+
+                console.log('mrigél :' + client);
+
+                // tout est correcte retourner le manager
+                token = client.generateJwt();  /// ???? i hope the work
+                console.log('token' + JSON.stringify(token));
+                res.status(200).json({
+                    "token": token
+                })
+
+            }
+
+
+        }// end of else
+
+
+
+
+    })//end findOne
+
+
+
+    //
+
+
+
 
 }
 
