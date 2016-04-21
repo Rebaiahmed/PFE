@@ -177,7 +177,15 @@ mng.save().then(function(res){
     })*/
 
 
+var dDebut = "16/04/2016";
+var dfin = dDebut.split('/').join('-');
+console.log('date debut dDebut ' + dfin);
 
+var from = dfin.split("-");
+var f = new Date(from[2], from[1] - 1, from[0]);
+
+console.log('f is ' + f);
+console.log('new Dte' + new Date(f));
 
 
 module.exports = db;

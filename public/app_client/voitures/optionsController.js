@@ -2,7 +2,7 @@
 
 angular
     .module('meanApp')
-    .controller('optionsCtrl', function($scope,$location,ReservationService,$http,moment){
+    .controller('optionsCtrl', function($scope,$location,ReservationService,$http,moment,Authentication){
 
         $scope.voitures=[];
         $scope.voiture = {};
@@ -11,6 +11,10 @@ angular
 
         // get the Reservation
         $scope.newReservation = ReservationService.getReservation();
+
+        $scope.currentUser = Authentication.currentUser();
+
+        console.log('we are in options  current User is :' + JSON.stringify($scope.currentUser) );
 
         console.log('type of Resevrtaion is ' + typeof $scope.newReservation);
 
@@ -94,7 +98,7 @@ angular
 
 
 
-        $scope.user = {};
+
 
         $scope.Create3 = function()
         {
@@ -103,7 +107,16 @@ angular
 
             console.log('the Reservation after saving it in the service is ' +JSON.stringify( ReservationService.getReservation()));
 
-               $location.path('login');
+            if($scope.currentUser)
+            {
+                console.log('currentUser exist ');
+                $location.path('Confirm');
+            }
+            else{
+                $location.path('login');
+            }
+
+
 
         }
 

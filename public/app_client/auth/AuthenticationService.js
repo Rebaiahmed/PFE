@@ -35,6 +35,15 @@ angular
              var token = getToken();
 
              var payload ; // the data is stored here
+             console.log('the tokne getd is :' + JSON.stringify(token) + ' ' + token);
+
+
+
+             if(token=="undefined")
+             {
+                 console.log('undefined token' + token)
+                 return false ;
+             }
 
              if(token)
              {

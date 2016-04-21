@@ -49,21 +49,15 @@ angular
 
 
 
-        $scope.user = {};
+
 
         $scope.newReservation = {};
 
-        Authentication.getProfile()
-            .success(function(data) {
-                console.log('data is' + data);
-                $scope.user = data;
-            })
-            .error(function (e) {
-                console.log('error in profile ' + e);
-            });
         $scope.isloggedIn = Authentication.isloggedIn();
+        console.log('is logged in ' +  $scope.isloggedIn);
         $scope.currentUser = Authentication.currentUser();
-        console.log($scope.currentUser);
+        console.log('teh current User is :' + JSON.stringify($scope.currentUser));
+
 
         /*
         first function
@@ -77,6 +71,15 @@ angular
             $scope.newReservation.Voiture_Modele_idModele = 0;
             $scope.newReservation.Client_idClient = 0 ;
 
+            if( $scope.currentUser!=null)
+            {
+                $scope.newReservation.Client_idClient=$scope.currentUser.id;
+                console.log('the id is :' +$scope.currentUser.id )
+            }
+
+
+
+
             console.log('Our Reservation is :' + $scope.newReservation);
 
             ReservationService.saveReservation($scope.newReservation);
@@ -86,6 +89,14 @@ angular
 
 
         }
+
+
+        $scope.logOut = function()
+        {
+            Authentication.logout();
+            console.log('the current user wille be ' + Authentication.currentUser());
+        }
+
 
 
     })

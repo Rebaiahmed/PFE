@@ -5,7 +5,7 @@
 
 angular
     .module('meanApp')
-    .controller('loginCtrl', function($scope,$location,Authentication,ReservationService){
+    .controller('loginCtrl', function($scope,$location,Authentication,ReservationService,$state){
 
 
 
@@ -16,6 +16,7 @@ angular
         $scope.newReservation ={};
 
         $scope.client ={};
+        $scope.error = false;
 
         // define teh functions
 
@@ -23,7 +24,8 @@ angular
         {
             Authentication.login($scope.client)
                 .error(function(err){
-                    alert(err);
+                    console.log('err :' + JSON.stringify(err));
+                    $scope.error = true;
                 })
                 .then(function(data){
                     // get the Reservation
@@ -38,19 +40,40 @@ angular
                     // get the Reservation
                     $scope.newReservation = ReservationService.getReservation();
                     console.log('our reservation geted is :' +  JSON.stringify($scope.newReservation))
-                    //transform it
-                    //$scope.newReservation = JSON.parse($scope.newReservation);
-                    //console.log('parse it to be  :' +  $scope.newReservation)
-                    //modify it
-                    $scope.newReservation.Client_idClient =$scope.client.id;
-                    //console.log('modify it to be ::' +  $scope.newReservation)
-                    //saved it
-                    ReservationService.saveReservation(JSON.stringify($scope.newReservation));
-                    //display it
-                   console.log( "saved in the login ctrl :" + ReservationService.getReservation());
 
-                   // console.log("succces d'authentication !");
-                   // $location.path('Confirmer_Reservation');
+                    if(angular.equals({}, $scope.newReservation))
+                    {
+                        alert('we will login to profile !');
+
+                        $location.path('Profile');
+
+                    }
+
+                    else {
+
+
+
+
+
+
+
+
+                        //transform it
+                        //$scope.newReservation = JSON.parse($scope.newReservation);
+                        //console.log('parse it to be  :' +  $scope.newReservation)
+                        //modify it
+                        $scope.newReservation.Client_idClient = $scope.client.id;
+                        //console.log('modify it to be ::' +  $scope.newReservation)
+                        //saved it
+                        ReservationService.saveReservation(JSON.stringify($scope.newReservation));
+                        //display it
+                        console.log("saved in the login ctrl :" + ReservationService.getReservation());
+
+                        console.log("succces d'authentication !");
+
+                        $state.go('Confirm');
+
+                    }
                 })
         }
 

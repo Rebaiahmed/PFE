@@ -5,6 +5,9 @@
     <a ui-sref="Voitures" class="layout__tab">Voitures</a>
     <a ui-sref="Nous" class="layout__tab">Qui sommes Nous</a>
     <a ui-sref="Contact" class="layout__tab">Contact</a>
+        <a ui-sref="login" ng-if="isloggedIn==true">welcome</a>
+        <a ui-sref="login" ng-if="isloggedIn!=true">s'authentfiier {{ isloggedIn}}</a>
+
     </ul>
 
 

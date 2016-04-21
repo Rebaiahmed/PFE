@@ -1,8 +1,21 @@
+
+<style>
+    .error
+    {
+        color: #b71c1c;
+    ;
+
+    }
+</style>
+
 <div class="container" ng-controller="loginCtrl">
     <div class="row">
 
 
         <div class="col-md-6 col-sm-12">
+
+
+
             <div class="panel panel-default">
 
                 <div class="panel-heading">
@@ -10,24 +23,50 @@
                 </div>
 
 
+
+
+
+
                 <div class="panel-body">
 
 
-<form ng-submit="onSubmit()">
+<form ng-submit="onSubmit()" novalidate name="loginForm">
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="client.email">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="client.email" required name="email">
+        <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="error">Enter a valid email.</p>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="client.password">
+        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="client.password" required
+                name="password">
+        <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="error">Mot de pase demandée </p>
     </div>
-    <button type="submit" class="btn btn-default">Sign in!</button>
+    <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">Sign in!</button>
 
     {{ client }}
 
 </form>
-                    </div>
+
+
+                    <div class="row" ng-show="error">
+                        <div class="col s12 m6">
+                            <div class="card red darken-4">
+                                <div class="card-content white-text">
+
+                                    <p>Il y a 1 erreur dans votre saisie, veuillez vérifier les informations.</p>
+                                </div><!--end of card content-->
+
+                            </div><!--end of card-->
+                        </div><!--end of col -->
+                    </div><!-----end of row--->
+
+
+                    <p>Vous n'avez pas de compte ?<a ui-sref="Register"> Inscrivez-vous dès maintenant </a> !</p>
+
+
+
+                </div>
                 </div>
             </div>
 

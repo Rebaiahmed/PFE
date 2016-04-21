@@ -92,7 +92,7 @@ module.exports.login = function(req,res)
         {
             console.log('client not found !')
             res.status(404).json({
-                "statut ": "404"
+                "msg ": "email not found"
             });
 
 

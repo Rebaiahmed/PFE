@@ -25,7 +25,7 @@ angular
              ReservationService.getCars().then(function(data){
 
                  $scope.voitures = data.data ;
-                 $scope.voiture = $scope.voitures[0];
+
 
 
              }, function(err){
