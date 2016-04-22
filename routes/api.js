@@ -13,6 +13,7 @@ var ContratCtrl = require('../server/controllers/ContratController.js');
 var FactureCtrl = require('../server/controllers/FactureController.js');
 var EntretientCtrl = require('../server/controllers/MaintenanceController.js');
 var mailController  = require('../server/controllers/mailController.js');
+var MangerCtrl = require('../server/controllers/ManagerController.js');
 
 
 var jwt = require('express-jwt');
@@ -217,6 +218,21 @@ Router.route('/auth/admin/admin/conducteurs/:idDriver')
 
 Router.route('/auth/admin/sendMail')
     .post(mailController.sendMail);
+
+
+
+
+
+//-__-_-_-_-_-_-_-_-_-__MANGERS-_-_-__-_-_--_-_-_-_-_-_-_-_-_-_-__-
+
+Router.route('/auth/admin/admin/Managers')
+    .get(MangerCtrl.getManagers)
+    .post(MangerCtrl.addManager)
+
+
+Router.route('/auth/admin/admin/Managers/:idManager')
+    .put(MangerCtrl.updateManager)
+    .delete(MangerCtrl.deleteManager)
 
 
 module.exports = Router;

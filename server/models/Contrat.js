@@ -40,7 +40,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    dureeRetard: {
+    Nbr_Jours:{
+      type :DataTypes.INTEGER
+
+    }
+,    dureeRetard: {
       type: DataTypes.STRING,
       allowNull: true
     },

@@ -176,16 +176,24 @@ mng.save().then(function(res){
 
     })*/
 
+/*var fs = require('fs');
+var pdf = require('html-pdf');
+var html = fs.readFileSync('/home/ahmed/WebstormProjects/login_pfe/test_file.html', 'utf8');
+var options = { format: 'Letter' };
 
-var dDebut = "16/04/2016";
-var dfin = dDebut.split('/').join('-');
-console.log('date debut dDebut ' + dfin);
+pdf.create(html, options).toFile('home/ahmed/businesscard.pdf', function(err, res) {
+    if (err) return console.log(err);
+    console.log(res); // { filename: '/app/businesscard.pdf' }
+});*/
 
-var from = dfin.split("-");
-var f = new Date(from[2], from[1] - 1, from[0]);
 
-console.log('f is ' + f);
-console.log('new Dte' + new Date(f));
+
+
+
+
+
+
+
 
 
 module.exports = db;

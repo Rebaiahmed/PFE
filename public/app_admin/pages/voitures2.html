@@ -20,11 +20,11 @@
 
 
 
-                    <div class="card small" ng-repeat="c in cars" ng-init="i=0">
+                    <div class="card Medium" ng-repeat="c in cars" ng-init="i=0">
 
 
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="/images/mercedes.jpg">
+                            <img class="activator" ng-src="/images/{{c.photo}}.jpg" width="250px" height="300px">
                         </div><!--end of images-->
 
 
@@ -45,7 +45,8 @@
 
                             <table>
                                 <thead>
-                                <th>Num chassee</th>
+                                <th><u>Num chassee</u></th>
+                                <th><u>Num immatrocule </u></th>
                                 <th>Prix location</th>
                                 <th>catégorie</th>
                                 <th>carburant</th>
@@ -55,7 +56,8 @@
                                 <tbody>
                                 <tr>
                                     <td>{{ c.numChassee }}</td>
-                                    <td>{{  c.prixLocation }}</td>
+                                    <td>{{ c.numImmatricule }}</td>
+                                    <td>{{  c.prixLocation | currency:"DT" }}</td>
                                     <td> {{ c.categorie }}</td>
                                     <td> {{  c.Modele.carburant }}</td>
                                     <td> {{  c.Modele.puissance  }}</td>
@@ -73,7 +75,7 @@
                                 {{ chiffreAffaire[$index] + ' '
                                 | currency:" DT" }} </h5>  </li>
 
-                            <li>Réservation en cours :</li>
+                            <li><h5>Réservation en cours ....</h5> :</li>
 
                             </ul>
 

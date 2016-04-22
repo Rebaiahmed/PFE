@@ -19,7 +19,11 @@
 
             <div class="row" ng-repeat="c in cars">
 
-                <h5>Voiture : <span>{{ c.Modele.nom + " " + c.Modele.marque  + " " + c.numImmatricule }}</span></h5>
+                <h5>Voiture : <span>{{ c.Modele.nom + " " + c.Modele.marque  + " " + c.numImmatricule
+                   }}</span></h5>
+
+                <a class="waves-effect waves-light btn" ng-click="voirNotifcations(c)">Voir Notifications
+                    <i class="material-icons">add_alert</i></a>
 
                     <table>
                         <thead>
@@ -28,14 +32,15 @@
                             <th data-field="name">Date visite tecknique</th>
                             <th data-field="price">Date vignette</th>
                             <th></th>
+
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                            <td><input type="text" ng-model="c.date_assurance"> </td>
-                            <td> <input type="text" ng-model="c.date_visite_tecknique"> </td>
-                            <td> <input type="text" ng-model=" c.date_vignette"></td>
+                            <td><input type="date" ng-model="c.date_assurance"> </td>
+                            <td> <input type="date" ng-model="c.date_visite_tecknique"> </td>
+                            <td> <input type="date" ng-model=" c.date_vignette"></td>
                             <td><a ng-click="save(c)"><i class="material-icons">save</i></a> </td>
                         </tr>
 
@@ -59,6 +64,7 @@
                                 <th>Date</th>
                                 <th>caution</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             </thead>
 
@@ -70,9 +76,12 @@
                                 <td><input type="text" ng-model="en.date" ></td>
                                 <td><input type="text" ng-model="en.caution" ></td>
                                 <td><a ng-click="update(en.idEntretient,en)"><i class="material-icons">update</i></a> </td>
+                                <td><a ng-click="delete(en.idEntretient,en)"><i class="material-icons">delete</i></a> </td>
                             </tr>
 
-
+                       <tr>
+                           <td ng-show="shwoUpdate" style="color: #00bfa5">L'entretient a éte bien mise a jour</td>
+                       </tr>
                             </tbody>
 
                             </table>
@@ -88,11 +97,27 @@
                             <input placeholder="Nom" id="first_name" type="text" class="validate" ng-model="newEntretient.nom"
                                    name="nom" required>
                             <label for="first_name">nom</label>
+
+
+                            <p ng-show=" formEntretient.nom.$invalid &&
+                                formEntretient.nom.$dirty"
+                               class="has-error">
+                               nom entretient obligatoire
+                                <i class="material-icons">error</i></p>
+
+
                         </div>
                         <div class="input-field col s6">
                             <input id="kiloemtrage prevu" type="text" class="validate" ng-model="newEntretient.kilometrage_prevu"
                                    name="kilometrage_prevu" required>
-                            <label for="last_name">kiloemtrage prévu</label>
+                            <label for="last_name">kiloemtrage prévu
+                           </label>
+
+                            <p ng-show=" formEntretient.kilometrage_prevu.$invalid &&
+                                formEntretient.kilometrage_prevu.$dirty"
+                                    class="has-error">
+                                Kilometrage prévu obliagtoire
+                                <i class="material-icons">error</i></p>
                         </div>
 
 
@@ -100,7 +125,7 @@
                         <div class="row">
                         <div class="input-field col s6">
                             <label for="last_name">date</label>
-                            <input id="last_name" type="date" class="validate" ng-model="newEntretient.date">
+                            <input id="last_name" type="date" class="validate" ng-model="newEntretient.date" required>
 
                         </div>
 
@@ -124,18 +149,9 @@
 
                 </form>
 
-                <div ng-messages="formEntretient.nom.$error" ng-if="formEntretient.nom.$touched" ng-class=" 'has-error' ">
-
-                    <p data-error="wrong" ng-message="required">Nom entretient obligatoire
-                        <i class="material-icons">error</i></p>
-                </div>
 
 
-                <div ng-messages="formEntretient.kilometrage_prevu.$error" ng-if="formEntretient.kilometrage_prevu.$touched" ng-class=" 'has-error' ">
 
-                    <p data-error="wrong" ng-message="required">kilométrage prévu obligatoire
-                        <i class="material-icons">error</i></p>
-                </div>
                         <!--------------->
 
 

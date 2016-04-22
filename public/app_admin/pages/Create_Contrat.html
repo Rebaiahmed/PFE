@@ -13,7 +13,6 @@
 
 
 <div ng-controller="ContratsController">
-    {{ Reservation }}
 
 
 
@@ -22,6 +21,7 @@
     <div class="col s6">
 
 
+        {{ Reservation }}
 
 
 
@@ -125,10 +125,10 @@
     <!---------------------------->
 
     <div class="row">
-        <div class="col s1">
+        <div class="col s2">
         <p>Date d'obtention du permis </p>
             </div>
-        <div class="input-field col s3">
+        <div class="input-field col s2">
             <input  type="text" class="validate" ng-model="Reservation.Client.datePermis">
 
         </div>
@@ -283,6 +283,17 @@
 
         </div>
     </div><!--end of row------->
+
+
+        <div class="row">
+            <div class="col s1">
+                <p>kilometrage Retour</p>
+            </div>
+            <div class="input-field col s3">
+                <input class="validate" ng-model="newcontrat.kilometrageRetour">
+
+            </div>
+        </div><!--end of row------->
 
 
 
@@ -480,7 +491,7 @@
                 <p>Montant totale</p>
             </div>
             <div class="input-field col s3">
-                <input  type="text" class="validate" ng-model="newContrat.prixtt">
+                <input  type="text" class="validate" ng-model="newContrat.prixTT">
 
             </div>
         </div><!--end of row--------------->

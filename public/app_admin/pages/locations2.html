@@ -131,8 +131,8 @@
                         <tr ng-repeat="loc in locations     ">
                           <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
                             <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
-                            <td>{{ loc.dateDebut | date:'MM/dd/yyyy'  + " " + loc.heureDebut    }}h</td>
-                            <td>{{ loc.dateFin  | date:'MM/dd/yyyy' +" " + loc.heureFin   }}h</td>
+                            <td>{{ loc.dateDebut | date:'dd/MM/yyyy'  + " " + loc.heureDebut    }}h</td>
+                            <td>{{ loc.dateFin  | date:'dd/MM/yyyy' +" " + loc.heureFin   }}h</td>
                             <td>{{  loc.lieuPrise  }}</td>
                             <td>{{  loc.lieuRetour }} </td>
 
@@ -143,7 +143,7 @@
                                 {{ loc.etat + " " + etat }}
                             </td>
 
-                            <td ng-if="!evaluate(loc)">
+                            <td ng-if="!evaluate(loc)" style="background-color: red">
                                 <i class="small material-icons">warning</i>
                                 {{ loc.etat + " " + etat }}
                             </td>

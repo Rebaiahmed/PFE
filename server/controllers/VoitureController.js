@@ -439,15 +439,17 @@ exports.updateCar = function(req,res)
                 where: {
                     'idVoiture': id
                 }
-            }).then(function (car, err) {
+            }).then(function (idcar, err) {
                 if (err) {
                     console.log(err)
                     res.json(err);
                 }
                 else {
-                    console.log('the new car is' + car);
 
-                    res.json(car);
+
+                    res.json({
+                        "idNewCar" :id
+                    });
                 }
 
             })
@@ -476,15 +478,7 @@ exports.updateCar = function(req,res)
 
 
 
-exports.historyCar = function(req,res)
-{
-    // in this method we will select all the locations for this car
 
-
-
-
-
-}
 
 
 

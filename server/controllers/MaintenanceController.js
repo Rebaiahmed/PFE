@@ -33,6 +33,10 @@ exports.addMaintenance= function(req,res){
         date:date,
         kilometrage_prevu:kilometrage_prevu,
         Voiture_idVoiture:Voiture_idVoiture
+    }).then(function(result){
+        res.json(result)
+    }).catch(function(err){
+        res.json(err);
     })
 
 }
@@ -67,6 +71,7 @@ exports.getEntretients = function(req,res)
         })
         .catch(function(err){
             console.log('err entretients ' + err);
+            res.json(err);
         })
 
 
@@ -92,7 +97,7 @@ exports.getEntretient = function(req,res)
 
                 res.json(entretient);
         }).catch(function(err){
-            console.log('err' + err);
+            res.json(err);
         })
 
 
@@ -119,7 +124,7 @@ exports.deleteEntretient= function(req,res)
 
             Entretient.destroy({
                     where: {
-                        ' idEntretient': id
+                        'idEntretient': id
                     }
                 })
 

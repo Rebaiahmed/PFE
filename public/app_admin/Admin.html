@@ -78,8 +78,15 @@
 </div>
 <!-- Navbar goes here -->
 <div class="navbar-fixed indigo accent-3">
-    <nav class="teal lighten-2">
+    <nav class="teal lighten-2" ng-controller="AdminCtrl">
         <div class="nav-wrapper ">
+
+
+
+
+
+
+
             <a href="#!" class="brand-logo">Admin </a>
             <!--a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light cyan"><i class="mdi-navigation-menu"></i></a-->
             <ul class="right hide-on-med-and-down">
@@ -89,10 +96,20 @@
 
                 </li>
                 <li><a ui-sref="Messages">Messages <span class="new badge">4</span></a></li>
-                <li><a ui-sref="Profile">Profile  <i class="material-icons">person_pin</i></a></li>
-                <li ng-controller="AdminCtrl"><a  ng-click="logOut()">Log out {{ user }}</a></li>
+            <li>
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
+                    Profile  <i class="material-icons">person_pin</i>
+                </a>
+            </li>
 
+                <!-- Dropdown Structure -->
+                <ul id='demoDropdown' class='dropdown-content'>
+                    <li><a href="javascript:void(0);" ng-click="profile()">Profile</a></li>
+                    <li><a href="javascript:void(0);">Paramétres</a></li>
+                    <li><a href="javascript:void(0);" ng-click="logOut()">log out</a></li>
 
+                </ul>
 
 
             </ul>

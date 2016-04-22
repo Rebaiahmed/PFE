@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-
+var moment = require('moment');
 
   return sequelize.define('Reservation', {
     idReservation: {
@@ -39,6 +39,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    PrixTotale:
+    {
+      type:DataTypes.FLOAT,
+
+
+    },
     cloture: {
       type: DataTypes.BOOLEAN,
       allowNull: true
@@ -74,6 +80,20 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'Reservation',
     freezeTableName: true,
     timestamps : false,
+    instanceMethods: {
+
+      calculPrixTotale :function(prixVoiture)
+      {
+        var dateA = new moment(this.dateDebut);
+        var dateB = new moment(this.dateFin);
+        var diff = dateB.diff(dateA,'days');
+        console.log('the diff is ' + diff);
+       return diff*prixVoiture;
+
+
+      }
+
+    }
 
 
 

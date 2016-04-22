@@ -38,7 +38,7 @@ exports.addReservation = function(req,res){
     console.log('the date recived are :' + date_debut + ' ' + date_fin)
 
 //create it !
-    Reservation.create({
+   var reservation =  Reservation.build({
 
         dateDebut :date_debut,
         dateFin :date_fin,
@@ -52,19 +52,25 @@ exports.addReservation = function(req,res){
         Voiture_idVoiture :idVoiture
 
 
-     }).then(function(reservation){
+     })
 
-        if(!reservation)
-        {
-            res.send("erreur dans les données  du Reservation")
-        }
-        else{
-            res.json({message :'succes de création de reservation',data :reservation})
-        }
+    //calcul Prix Totale
+    Voiture.findById(reservation.Voiture_idVoiture)
+        .then(function(car){
+
+console.log('prix totale est : ' +reservation.calculPrixTotale(car.prixLocation) );
+            reservation.PrixTotale =reservation.calculPrixTotale(car.prixLocation)
+                  reservation.save()
+                      .then(function(ss){
+                          res.json(ss);
+                      })
+                      .error(function(err){
+                          res.json(err);
+                      })
+        })
 
 
 
-    })//end of create !!
 
 
 }
@@ -85,8 +91,6 @@ exports.addReservation = function(req,res){
 exports.findReservations = function(req,res)
 {
 
-    var prixTotale = 0;
-    var Table_Prix_locations = [];
 
     //get AlL TEH RESERVATION include the other models
     Reservation.findAll(
@@ -108,27 +112,10 @@ exports.findReservations = function(req,res)
 
 
 
-              console.log(locations.length);
 
-                   {
+{
 
-                      for(var i=0;i<locations.length;i++) {
-
-                           var dDdebut = moment(JSON.stringify(locations[i].dateDebut), 'YYYY-MM-DD HH:mm');
-                           var dFin = moment(JSON.stringify(locations[i].dateFin), 'YYYY-MM-DD HH:mm');
-                           var diff = dFin.diff(dDdebut, 'days')
-                           console.log('Difference is ', dFin.diff(dDdebut, 'days'), 'days');
-                           prixTotale = diff * locations[i].Voiture.prixLocation;
-                           console.log('prix toatle est :' + prixTotale);
-                           Table_Prix_locations.push({ "idLocation" :locations[i].idReservation,"prixTotale" :prixTotale});
-                           prixTotale=0;
-                           console.log('-------');
-                       }
-
-
-
-
-                       res.json([locations,Table_Prix_locations]);
+                       res.json(locations);
 
 
 
@@ -137,7 +124,8 @@ exports.findReservations = function(req,res)
 
          })
         .catch(function(err){
-            console.log('error !'+err)
+            console.log('error !'+err);
+            res.json(err);
 
         })
 

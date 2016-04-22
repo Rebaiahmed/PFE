@@ -1,5 +1,5 @@
 
-var App = angular.module('adminApp',['ui.router','ngResource','ngMessages']);
+var App = angular.module('adminApp',['ui.router','ngResource','ngMessages','ui.materialize','cgNotify','angularMoment']);
 
 
 
@@ -550,6 +550,88 @@ App.service('Authentication',['$http','$window', function($http,$window){
 
 
 
+/*
+ -_-_-_-_-_-__-_--_-__SERVICES POUR PERSISTER UNE RÉSERVATION POR UN CONTRAT-_-_-_-_-__-_-_--__--_-__-_-_-_-_-_-_-_-_
+ */
+
+
+
+App.service('Reservation_Contrat_Service',['$http', function($http){
+
+
+    this.Reservation ={};
+
+    this.saveReservation = function(reservation)
+    {
+        this.Reservation = reservation;
+
+    }
+
+    this.getReservation = function()
+    {
+        return this.Reservation;
+    }
+
+    this.removeReservation = function()
+    {
+        this.Reservation ={};
+    }
+
+
+
+
+
+}]);
+
+
+/*
+-_-_-_-_-_-__-_--_-__SERVICES POUR LES MANAGERS-_-_-_-_-__-_-_--__--_-__-_-_-_-_-_-_-_-_
+ */
+
+
+
+
+
+App.factory('ManagerFactory',['$http', function($http){
+
+    var urlbase = "/auth/admin/admin/Managers";
+
+    var ManagerFactory ={} ;
+
+
+
+    ManagerFactory.getManagers = function()
+    {
+        return $http.get(urlbase)
+    }
+
+    ManagerFactory.updateManager = function(id,Manager)
+    {
+        return $http.put(urlbase+'/'+id,Manager);
+
+    }
+
+    ManagerFactory.addManager = function(manager)
+    {
+        return $http.post(urlbase,manager);
+    }
+
+    ManagerFactory.deleteManager = function(id)
+    {
+        console.log('th id ' + id)
+        return $http.delete(urlbase + '/' +id)
+    }
+
+    return ManagerFactory
+
+
+
+
+
+
+}]);
+
+
 
 
 /*
@@ -984,42 +1066,6 @@ App.factory('factureFactory',['$http', function($http){
 
 
 
-/*
--_-_-_-_-_-_-_-_-_-_-_-_-_-_-_POUR LES MANGERS SERVICE-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
- */
-App.factory('ManagerFactory',['$http', function($http){
-
-    var urlbase = "/auth/admin/admin/Managers";
-
-    var ManagerFactory ={} ;
-
-    ManagerFactory.getManagers = function()
-    {
-        return $http.get(urlbase);
-    }
-    ManagerFactory.updateManager(manager)
-    {
-        return $http.put(urlbase+ '/',manager.id,manager);
-    }
-
-    ManagerFactory.addManager = function(manager)
-    {
-        return $http.post(urlbase,manager);
-    }
-
-
-
-
-
-
-
-
-
-    return ManagerFactory  ;
-
-
-}]);
-
 
 
 
@@ -1041,33 +1087,20 @@ _-_-_--_-_-_-_-_-_-_-_-__-_-_-_-_-_ADMIN CTRL-_-_-_-_-__-_-_--_-_-_
  */
 
 
-App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication,$location){
+App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication,$location,$state){
 
 
-    $scope.preservationsNbr = 0;
-
-    $scope.test = "test";
 
     console.log(JSON.stringify(Authentication.currentUser()));
 
-     function getPreservations()
-    {
-
-    PreReservationFactory.getPreReservations().then(function(res){
-
-         console.log(JSON.stringify(res.data.length));
-         $scope.preservationsNbr =res.data.length ;
-         console.log($scope.preservationsNbr);
-
-    })
-    }
-
-
-    getPreservations()
 
     $scope.user = Authentication.isloggedIn();
 
-    console.log($scope.preservationsNbr);
+
+
+
+
+
 
     $scope.logOut = function()
     {
@@ -1079,6 +1112,17 @@ App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication
         $location.path('admin');
 
     }
+
+
+
+
+    $scope.profile = function()
+    {
+        console.log('we ill got to the Profile')
+        $state.go('Profile');
+    }
+
+
 
 
 })
@@ -1204,7 +1248,7 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
     $scope.updateCar = function(id,car)
     {
 
-        //update the client
+        //update the car
 
         VoitureFactory.updateCar(id,car)
             .then(function(data){
@@ -1348,6 +1392,16 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
         $state.go('.add');
     }
 
+
+
+    $scope.Reservation_En_Cours = function(car)
+    {
+        for(var i=0;i<car.Reservations.length;i++)
+        {
+
+        }
+    }
+
 })
 
 
@@ -1360,13 +1414,15 @@ App.controller('voituresController', function($scope,VoitureFactory,modeleFactor
  */
 
 
-App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFactory,$state){
+App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFactory,$state,notify){
 
 
 
     $scope.cars = [];
     $scope.newEntretient = {};
     $scope.show = false ;
+
+    $scope.shwoUpdate = false ;
 
 
 
@@ -1375,8 +1431,15 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
         VoitureFactory.getCars()
             .then(function(data){
 
-                console.log('data in cars entreteints' + JSON.stringify(data.data[0]));
+
                 $scope.cars=data.data[0] ;
+                for (var i = 0; i < $scope.cars.length; i++) {
+                    $scope.cars[i].date_assurance = new Date($scope.cars[i].date_assurance);
+                    $scope.cars[i].date_visite_tecknique = new Date($scope.cars[i].date_visite_tecknique);
+                    $scope.cars[i].date_vignette = new Date($scope.cars[i].date_vignette);
+
+
+                }
 
 
 
@@ -1396,15 +1459,36 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
 
     $scope.update = function(idEntretient,entretient)
     {
-        console.log(JSON.stringify(entretient));
-        alert('we will update this entretient ' + entretient);
+
+
         EntretientFactory.updateEntretient(idEntretient,entretient)
             .then(function(result)
             {
                 console.log('updated suuccesfuly !');
+                $scope.shwoUpdate=true;
+                getCars();
 
             }, function(err){
                 console.log('enable to update data !' + err);
+            })
+    }
+
+/*
+delee entretient
+ */
+
+    $scope.delete = function(idEntretient,entretient)
+    {
+        console.log(JSON.stringify(entretient));
+
+        EntretientFactory.deleteEntretient(idEntretient)
+            .then(function(result)
+            {
+                console.log('deleted succesfuly !');
+                getCars();
+
+            }, function(err){
+                console.log('enable to delete data !' + err);
             })
     }
 
@@ -1423,13 +1507,16 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
         $scope.show=false;
         EntretientFactory.postEntretient($scope.newEntretient)
             .then(function(res){
-                console.log('added succesfuly !');
+
                 $state.show=false;
 
 
+
             }, function(err){
-                console.log('err !');
+                console.log('err !'+err);
             })
+
+        $scope.newEntretient={};
         getCars();
 
 
@@ -1439,6 +1526,66 @@ App.controller('EntretientsCtrl', function($scope,EntretientFactory, VoitureFact
 
      */
 
+
+    $scope.voirNotifcations = function(c)
+    {
+
+        //faire notification avant 1 jour
+        var msgAssurance = "Vous avez demain Assurance du voiture";
+        var msgVisitetecknique = "Vous avez demain visite tecknique";
+            var msgVignette = "Vous avez demain visitte Pour la vignette";
+        var msgBougie = "";
+
+var test = new Date()
+
+        console.log(typeof c.date_assurance );
+        console.log(c.date_assurance.getDate()-1);
+
+        console.log(test.getDate())
+        if(c.date_assurance.getDate()-1===test.getDate())
+        {
+            notify(msgAssurance);
+
+        }
+
+        if(c.date_visite_tecknique.getDay()-1===test.getDay())
+        {
+            notify(msgVisitetecknique);
+
+        }
+
+        if(c.date_vignette.getDay()-1===test.getDay())
+        {
+            notify(msgVignette);
+
+        }
+
+        notify("Vous n'avez pour le moment aucun notifcation");
+
+        /*notify(msgAssurance);
+        notify(msgAssurance);*/
+
+        //il reste notfication pour le kilometrage
+
+    }
+
+
+
+
+    $scope.save = function(car)
+    {
+        //update the car
+
+        VoitureFactory.updateCar(car.idVoiture,car)
+            .then(function(data){
+                console.log('we will update this data')
+
+
+            }, function(err){
+                console.log('err in updating data !');
+            })
+
+    }
 
 })
 
@@ -1729,7 +1876,8 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
 
 App.controller('locationsController', function($scope,$http,locationsFactory,ClientsFactory,
-                                               VoitureFactory,$state,$location){
+                                               VoitureFactory,$state,$location
+,Reservation_Contrat_Service){
 
 
 
@@ -1768,11 +1916,11 @@ $scope.locations =[];
 
     function init() {
         var locations = locationsFactory.query(function () {
-            $scope.locations = locations[0];
+            $scope.locations = locations;
 
             console.log('table chiffre affire' + JSON.stringify(locations[1]));
             $scope.Table_Prix_Totale = locations[1] ;
-            console.log('value 0 :' +  $scope.Table_Prix_Totale[0].idLocation );
+            console.log('value 0 :' +  $scope.Table_Prix_Totale[0] );
 
             for (var i = 0; i < $scope.locations.length; i++) {
                 $scope.locations[i].dateDebut = new Date($scope.locations[i].dateDebut);
@@ -1780,6 +1928,7 @@ $scope.locations =[];
                 //
                 $scope.locations[i].dateDebut.setHours(Number($scope.locations[i].heureDebut));
                 $scope.locations[i].dateFin.setHours(Number($scope.locations[i].heureFin));
+
 
             }
 
@@ -1989,6 +2138,7 @@ $scope.locations =[];
                 //initializer les valeurs
                 $scope.newReservation ={};
                 init();
+
                 $state.go('locations');
 
 
@@ -2019,11 +2169,12 @@ $scope.locations =[];
 
             $scope.location.dateDebut = new Date($scope.location.dateDebut);
             $scope.location.dateFin = new Date($scope.location.dateFin);
+            Reservation_Contrat_Service.saveReservation( $scope.location);
 
 
         })
 
-        $state.go('Contrats',{'Reservation':$scope.location});
+        $state.go('Contrats');
     }
 
 
@@ -2126,8 +2277,12 @@ App.controller('FacturesController', function($scope,factureFactory){
 
 
 
-App.controller('ContratsController', ['$scope','$http','$stateParams','$state','ContratService', function($scope,$http,$stateParams,$state,
-                                                                                                          ContratService){
+App.controller('ContratsController', ['$scope','$http','$filter','$stateParams','$state','ContratService','moment','Reservation_Contrat_Service' ,function($scope,$http,
+                                                                                                                    $filter,$stateParams,$state,
+                                                                                                          ContratService,
+moment,Reservation_Contrat_Service){
+
+
 
 
 
@@ -2138,7 +2293,7 @@ App.controller('ContratsController', ['$scope','$http','$stateParams','$state','
     $scope.Reservation ={}
 
 
-    $scope.Reservation  =$stateParams.Reservation;
+    $scope.Reservation  =Reservation_Contrat_Service.getReservation();
     console.log(JSON.stringify($scope.Reservation ));
 
 
@@ -2147,9 +2302,58 @@ App.controller('ContratsController', ['$scope','$http','$stateParams','$state','
     $scope.contrats = [];
     $scope.contrat ={};
 
-   /* $scope.newContrat.Reservation_Client_idClient = $scope.Reservation.Client_idClient;
+
+
+
+
+
+
+
+
+    //appliquer filter pour chnager la date
+    $scope.$watch('Reservation.Client.datePermis ',function(){
+
+        $scope.Reservation.Client.datePermis = $filter('date')( $scope.Reservation.Client.datePermis,'dd-MM-yyyy');
+        $scope.Reservation.dateDebut = $filter('date')( $scope.Reservation.Client.datePermis,'dd-MM-yyyy');
+        $scope.Reservation.dateFin = $filter('date')( $scope.Reservation.Client.datePermis,'dd-MM-yyyy');
+
+    });
+
+
+
+
+
+
+
+
+    $scope.Nbr_Jours=parseInt(
+        moment.duration(
+            moment( $scope.Reservation.dateFin).diff(
+                moment( $scope.Reservation.dateDebut)
+            )
+        ).asDays()
+    );
+
+    console.log('ddd ' + $scope.Nbr_Jours);
+
+
+
+
+
+
+
+
+
+
+    $scope.newContrat.totaleRetard ;
+    $scope.newContrat.kilometrageRetour=0;
+    $scope.newContrat.tva = 18;
+    $scope.newContrat.prixTT =  $scope.Reservation.PrixTotale ;
+    $scope.newContrat.prixHt =  $scope.newContrat.prixTT -( $scope.newContrat.tva/100)* $scope.newContrat.prixTT ;
+   $scope.newContrat.Reservation_Client_idClient = $scope.Reservation.Client_idClient;
     $scope.newContrat.Reservation_Voiture_Modele_idModele = $scope.Reservation.Voiture_Modele_idModele
-    $scope.newContrat.Reservation_idReservation = $scope.Reservation.idReservation ;*/
+    $scope.newContrat.Reservation_idReservation = $scope.Reservation.idReservation ;
+
 
     $scope.generateContrat = function()
     {
@@ -2157,13 +2361,11 @@ App.controller('ContratsController', ['$scope','$http','$stateParams','$state','
         // and save it in the database !
 
 
-        alert('we willa dd ths is to databe' + $scope.newContrat);
+        alert('we willa add ths is to databe' + $scope.newContrat);
 
-        //after we wil calculate prix totale ;prix hors taxe , set tva to 18% ,totale retard , nombre de jiurs de location
 
-        $scope.newContrat.prixTT ;
-        $scope.newContrat.prixHt ;
-        $scope.newContrat.totaleRetard ;
+
+
 
 
 
@@ -2432,19 +2634,29 @@ App.controller('emailClientsController', function($scope,$http, $state){
 })
 
 
-App.controller('ManagerController', function($scope){
+App.controller('ManagerController', function($scope,Authentication,ManagerFactory){
 
     $scope.show = false ;
     $scope.show2 = false ;
     $scope.show3  = true;
 
     $scope.newManager ={};
-    $scope.Maanager ={};
+    $scope.Manager ={};
     $scope.managers =[];
+
+
+    console.log('the current User is :' + JSON.stringify(Authentication.currentUser()));
+
+    $scope.user = Authentication.currentUser();
+
 
 
     getManagers = function()
     {
+        ManagerFactory.getManagers().then(function(result){
+            console.log('esult of managers are :' + JSON.stringify(result.data));
+            $scope.managers = result.data;
+        })
 
     }
 
@@ -2453,12 +2665,41 @@ App.controller('ManagerController', function($scope){
 
     $scope.addManager = function()
     {
-        //we will add this Manager to database of Manager
+        ManagerFactory.addManager($scope.newManager)
+            .then(function(result){
+              getManagers();
+                $scope.show = false;
+                $scope.show2= true;
+            }, function(err){
+
+            })
+
+
 
     }
 
     $scope.updateManager = function()
     {
+
+        console.log('we ill upda this user')
+        ManagerFactory.updateManager( $scope.user.idManager, $scope.user)
+            .then(function(result){
+                console.log('update succcesfuly :' + result);
+                $scope.show3= true;
+
+            }, function(err){
+                console.log('err :' + err);
+            })
+
+    }
+
+    $scope.deleteManager = function(id)
+    {
+        ManagerFactory.deleteManager(id)
+            .then(function(result){
+                console.log('deletd succes');
+                getManagers();
+            })
 
     }
 
@@ -2466,6 +2707,8 @@ App.controller('ManagerController', function($scope){
 
 
 })
+
+
 
 
 
