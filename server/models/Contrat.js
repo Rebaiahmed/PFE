@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     kilometrageRetour: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: false
     },
     prixHt: {
       type: DataTypes.FLOAT,
@@ -50,7 +50,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     penaliteJour: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: true
+
     },
     date_debut_prolngation: {
       type: DataTypes.DATE,

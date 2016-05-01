@@ -12,7 +12,7 @@
 
 
 
-<div ng-controller="ContratsController">
+<div ng-controller="CreateContratsController">
 
 
 
@@ -21,7 +21,6 @@
     <div class="col s6">
 
 
-        {{ Reservation }}
 
 
 
@@ -29,8 +28,8 @@
 
 
 
-<div class="section">
-    <h5>Client</h5>
+<div class="section" ng-hide="success">
+    <h5>Client {{ success }}</h5>
 
 
     <div class="row">
@@ -527,6 +526,24 @@
         </div><!--end of col s3-->
     </div><!--end of row-->
 </div>
+
+
+
+
+
+
+
+<div class="card green lighten-1" ng-show="success">
+    <div class="card-content white-text">
+
+      <p class="center-align">Le Contrat est sauvegardé avec succées <i class="material-icons">done</i></p>
+    </div>
+
+</div>
+
+
+
+
 
 
 </div><!--end of div for ng-controller-->

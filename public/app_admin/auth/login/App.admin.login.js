@@ -1,5 +1,6 @@
 
-var App = angular.module('adminApp',['ui.router','ngResource','ngMessages','ui.materialize','cgNotify','angularMoment']);
+var App = angular.module('adminApp',['ui.router','ngResource','ngMessages','ui.materialize','cgNotify','angularMoment','googlechart'
+,'ui.calendar','ngStorage']);
 
 
 
@@ -10,7 +11,37 @@ define our factory interceptor
 
 
 
+App.service('authInterceptor', function($q) {
+    var service = this;
 
+    service.responseError = function(response) {
+        if (response.status == 401){
+            window.location = "/login";
+        }
+        return $q.reject(response);
+    };
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    App.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
+    }])
 
 
 
@@ -96,6 +127,18 @@ function config($stateProvider, $urlRouterProvider) {
         })
 
 
+
+
+
+        .state('Calendrier', {
+            url :'/Profile',
+            templateUrl: '/app_admin/pages/calendrier.html',
+            parent: "admin_access"
+
+
+        })
+
+
         //  =================================
         .state('Profile', {
             url :'/Profile',
@@ -103,6 +146,17 @@ function config($stateProvider, $urlRouterProvider) {
             parent: "admin_access",
 
         })
+
+
+        //  =================================
+        .state('Paramétres', {
+            url :'/Paramétres',
+            templateUrl: '/app_admin/pages/Paramétres.html',
+            parent: "admin_access"
+
+
+        })
+
 
 
         //  =================================
@@ -290,7 +344,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         //  =================================
 
-        .state('Contrats',{
+        .state('CreateContrat',{
             url :'/Create_Contrat',
             templateUrl: '/app_admin/pages/Create_Contrat.html',
             params:{
@@ -349,7 +403,7 @@ function run($rootScope,$location,Authentication)
 
 
 App.factory('AuthInterceptor',['$q','$location','$injector', function($q,$location){
-    return function (promise) {auth/admin/admin/locations
+    return function (promise) {
         var success = function (response) {
             return response;
         };
@@ -414,6 +468,63 @@ _--__-_-_-_-_-_-___-__-__________________________--------------
  */
 
 
+
+
+App.service('Parametres', function($q) {
+
+    /*
+    initializer les variables
+     */
+
+    //les locations
+
+    /*
+    les attributs
+     */
+    this.locationAdd = true;
+    this.locationUpdate = true;
+    this.locationDelete = true;
+    /*
+    les méthodes
+     */
+
+    this.SetlocationAdd = function(locationAdd )
+    {
+        this.locationAdd=locationAdd;
+
+    }
+
+    this.GetlocationAdd = function(locationAdd )
+    {
+        return this.locationAdd;
+
+    }
+
+
+
+
+
+    //les voitures
+    this.voitureAdd = true;
+    this.voitureUpdate = true;
+    this.voitureDelete = true;
+
+    //les entretients
+    this.entretientAdd = true;
+    this.entretientUpdate = true;
+    this.entretientDelete = true;
+
+    //les clients
+    this.clientAdd = true;
+    this.clientUpdate = true;
+    this.clientDelete = true;
+
+    //les conducteurs
+    this.conducteurAdd = true;
+    this.conducteurUpdate = true;
+    this.conducteureDelete = true;
+
+})
 
 
 
@@ -547,6 +658,56 @@ App.service('Authentication',['$http','$window', function($http,$window){
 
 
     ])//end of service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+_-_-_-_-_-__-__-_-_-_-_--_-__-_-_-_-_service pour les locations et les clanedriers-__-_-_-_-_-_
+
+ */
+
+App.service('CalendrierService',['$http','$localStorage','$window','$sessionStorage' ,function($http,$localStorage,$window
+,$sessionStorage){
+
+
+    this.Save = function () {
+
+        $http.get('/auth/admin/admin/locations')
+            .then(function(result){
+
+                $localStorage.LOCATIONS= result.data;
+
+            })
+
+    }
+
+
+
+    this.Get = function () {
+        return  $localStorage.LOCATIONS ;
+    }
+
+
+}])
+
 
 
 
@@ -994,6 +1155,12 @@ ContratService = {};
         return $http.get('/auth/admin/admin/contrats/'+ id);
     }
 
+
+    ContratService.updateContrat = function(id,contrat)
+    {
+        return $http.put('/auth/admin/admin/contrats/'+ id,contrat);
+    }
+
     return ContratService ;
 }])
 
@@ -1009,13 +1176,10 @@ ContratService = {};
 
 
 
--
-App.factory('Contrastfactory',['$resource', function($resource){
 
-    return $resource('/auth/admin/admin/contrats'
-    );
 
-}]);
+
+
 
 
 
@@ -1097,6 +1261,10 @@ App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication
     $scope.user = Authentication.isloggedIn();
 
 
+    //inclure le variable $state dans uiRouterStatepour utiliser dans le routing pour pouvoir afficher le calendar
+    $scope.uiRouterState = $state;
+
+
 
 
 
@@ -1121,7 +1289,12 @@ App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication
         console.log('we ill got to the Profile')
         $state.go('Profile');
     }
+  $scope.Parametre = function()
+  {
+      console.log('we ill got to the Paramétres')
+      $state.go('Paramétres');
 
+  }
 
 
 
@@ -1877,7 +2050,11 @@ App.controller('clientsController', function($scope,ClientsFactory,$state,locati
 
 App.controller('locationsController', function($scope,$http,locationsFactory,ClientsFactory,
                                                VoitureFactory,$state,$location
-,Reservation_Contrat_Service){
+,Reservation_Contrat_Service,Parametres){
+
+
+
+    console.log('paramtres :' + JSON.stringify(Parametres.GetlocationAdd()))
 
 
 
@@ -2174,7 +2351,7 @@ $scope.locations =[];
 
         })
 
-        $state.go('Contrats');
+        $state.go('CreateContrat');
     }
 
 
@@ -2268,23 +2445,19 @@ App.controller('FacturesController', function($scope,factureFactory){
 
 
 /*
- _-_-_-_-_-_-_-_-_-_-_-CAR CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
+ _-_-_-_-_-_-_-_-_-_-_-Contrat Create CTRL-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
  */
 
 
 
+App.controller('CreateContratsController', ['$scope','$http','$filter','$stateParams','$state','ContratService','moment','Reservation_Contrat_Service' ,function($scope,$http,
+                                                                                                                                                           $filter,$stateParams,$state,
+                                                                                                                                                           ContratService,
+                                                                                                                                                           moment,Reservation_Contrat_Service){
 
 
-
-
-App.controller('ContratsController', ['$scope','$http','$filter','$stateParams','$state','ContratService','moment','Reservation_Contrat_Service' ,function($scope,$http,
-                                                                                                                    $filter,$stateParams,$state,
-                                                                                                          ContratService,
-moment,Reservation_Contrat_Service){
-
-
-
-
+// c une variable pour affciher un message de succes d'authentfication
+    $scope.success = false ;
 
 
 
@@ -2309,15 +2482,17 @@ moment,Reservation_Contrat_Service){
 
 
 
+    if($scope.Reservation !=null) {
+        //appliquer filter pour chnager la date
+        $scope.$watch('Reservation.Client.datePermis ', function () {
 
-    //appliquer filter pour chnager la date
-    $scope.$watch('Reservation.Client.datePermis ',function(){
+            $scope.Reservation.Client.datePermis = $filter('date')($scope.Reservation.Client.datePermis, 'dd-MM-yyyy');
+            $scope.Reservation.dateDebut = $filter('date')($scope.Reservation.dateDebut, 'dd-MM-yyyy');
+            $scope.Reservation.dateFin = $filter('date')($scope.Reservation.dateFin, 'dd-MM-yyyy');
 
-        $scope.Reservation.Client.datePermis = $filter('date')( $scope.Reservation.Client.datePermis,'dd-MM-yyyy');
-        $scope.Reservation.dateDebut = $filter('date')( $scope.Reservation.Client.datePermis,'dd-MM-yyyy');
-        $scope.Reservation.dateFin = $filter('date')( $scope.Reservation.Client.datePermis,'dd-MM-yyyy');
+        });
 
-    });
+    }//end if
 
 
 
@@ -2346,13 +2521,25 @@ moment,Reservation_Contrat_Service){
 
 
     $scope.newContrat.totaleRetard ;
+    $scope.newContrat.kilometrageDebut =$scope.Reservation.Voiture.kilometrage;
     $scope.newContrat.kilometrageRetour=0;
+
+
+    $scope.newContrat.Nbr_Jours = $scope.Nbr_Jours;
+
+
+
     $scope.newContrat.tva = 18;
     $scope.newContrat.prixTT =  $scope.Reservation.PrixTotale ;
     $scope.newContrat.prixHt =  $scope.newContrat.prixTT -( $scope.newContrat.tva/100)* $scope.newContrat.prixTT ;
-   $scope.newContrat.Reservation_Client_idClient = $scope.Reservation.Client_idClient;
+
+
+
+
+    $scope.newContrat.Reservation_Client_idClient = $scope.Reservation.Client_idClient;
     $scope.newContrat.Reservation_Voiture_Modele_idModele = $scope.Reservation.Voiture_Modele_idModele
     $scope.newContrat.Reservation_idReservation = $scope.Reservation.idReservation ;
+
 
 
     $scope.generateContrat = function()
@@ -2361,17 +2548,17 @@ moment,Reservation_Contrat_Service){
         // and save it in the database !
 
 
-        alert('we willa add ths is to databe' + $scope.newContrat);
+        alert('we willa add ths is to databe' + JSON.stringify($scope.newContrat));
 
 
-
-
-
+//test si les autres attributs sont nulls$
 
 
         ContratService.createContrat($scope.newContrat)
             .success(function(){
                 console.log('addes succesfuly !');
+                $scope.success=true;
+                $state.go('contrats');
 
             })
             .error(function(err){
@@ -2384,16 +2571,98 @@ moment,Reservation_Contrat_Service){
     }
 
 
+
+
+
+
+
+
+
+
+}]);
+
+
+
+
+
+
+
+
+/*
+_-_--__-_--__-_-_-_CONTRAT GET ALL_-_-_-_-_-_-_-_-_-_-_-_-__-_--_-__-_-_-
+ */
+
+
+
+App.controller('ContratsController', ['$scope','$http','$filter','$stateParams','$state','ContratService','moment' ,function($scope,$http,
+                                                                                                                    $filter,$stateParams,$state,
+                                                                                                          ContratService,
+moment){
+
+
+    $scope.contrats = [];
+    $scope.contrat ={};
+    $scope.detailsshow = false;
+
+    $scope.edit = false ;
+
+
+
+
+
+
     function getContrast()
     {
         ContratService.getContrats().then(function(result){
 
             $scope.contrats = result.data ;
+        }, function(err){
+            console.log('err' + err);
         })
     }
 
 
     getContrast();
+
+
+
+    //fonction DétailsContrat
+
+    $scope.detailsContrat = function(ctrl)
+    {
+        alert('we will hsow the details !');
+        $scope.detailsshow = true;
+        $scope.contrat = ctrl;
+
+    }
+
+
+    $scope.editerContrat = function(ctrl)
+    {
+        alert('we will update this contrat !');
+        $scope.edit=true;
+        $scope.contrat = ctrl;
+
+    }
+
+
+
+    $scope.update = function(contrat)
+    {
+
+        ContratService.updateContrat(contrat.idContrat,contrat)
+            .then(function(result)
+            {
+                console.log('updated succesfuly ' + result);
+            },function(err){
+                console.log('err in updateing ' + err);
+            })
+    }
+
+
+
+
+
 
 
     //Create_Facture
@@ -2708,6 +2977,322 @@ App.controller('ManagerController', function($scope,Authentication,ManagerFactor
 
 })
 
+
+
+/*
+_-_--__-_--__-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-
+_-_-_-_-_-_-__-_-_-_-_-_-_-_-__-_-_-
+ */
+
+App.controller('statistciCtrl', function ($scope,$http,Parametres) {
+
+$scope.carsChiffreAffairs = [];
+    $scope.clientsStatus =[];
+
+
+    console.log('location add :' +Parametres.GetlocationAdd());
+
+
+
+    $scope.myChartObject = {};
+
+
+    $scope.myChartObject.type = "ColumnChart";
+
+
+   $scope.data = [1500,1500,4500,2600]
+
+
+    //service1 for cars
+    $http.get('/auth/admin/statiscCars')
+        .then(function(data){
+            console.log(JSON.stringify(data.data));
+            $scope.carsChiffreAffairs = data.data;
+
+console.log('modele nom :' +JSON.stringify($scope.carsChiffreAffairs.length))
+            var rowsCar =[];
+
+            //remplir les ligne sici
+
+
+
+               var rows1 =[];
+
+
+
+
+
+            rows= [
+
+                {c: [
+                    {v: $scope.carsChiffreAffairs[0].car.Modele.nom + " " + $scope.carsChiffreAffairs[0].car.Modele.marque },
+                    {v:  $scope.carsChiffreAffairs[0].chiffre_affaire},
+                ]},
+
+                {c: [
+                    {v: $scope.carsChiffreAffairs[1].car.Modele.nom + " " + $scope.carsChiffreAffairs[1].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[1].chiffre_affaire}
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[2].car.Modele.nom + " " + $scope.carsChiffreAffairs[2].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[2].chiffre_affaire},
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[3].car.Modele.nom + " " + $scope.carsChiffreAffairs[3].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[3].chiffre_affaire},
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[4].car.Modele.nom + " " + $scope.carsChiffreAffairs[4].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[4].chiffre_affaire},
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[5].car.Modele.nom + " " + $scope.carsChiffreAffairs[5].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[5].chiffre_affaire},
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[6].car.Modele.nom + " " + $scope.carsChiffreAffairs[6].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[6].chiffre_affaire},
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[7].car.Modele.nom + " " + $scope.carsChiffreAffairs[7].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[7].chiffre_affaire},
+                ]},
+                {c: [
+                    {v:$scope.carsChiffreAffairs[8].car.Modele.nom + " " + $scope.carsChiffreAffairs[8].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[8].chiffre_affaire},
+                ]},
+                {c: [
+                    {v: $scope.carsChiffreAffairs[9].car.Modele.nom + " " + $scope.carsChiffreAffairs[9].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[9].chiffre_affaire},
+                ]},
+
+                {c: [
+                    {v: $scope.carsChiffreAffairs[10].car.Modele.nom + " " + $scope.carsChiffreAffairs[10].car.Modele.marque},
+                    {v: $scope.carsChiffreAffairs[10].chiffre_affaire},
+                ]},
+            ]
+
+
+
+
+
+
+
+            console.log(rows);
+
+
+    $scope.myChartObject.data = {"cols": [
+        {id: "t", label: "Topping", type: "string"},
+        {id: "s", label: "Recette", type: "number"}
+    ], "rows": rows
+    };
+
+
+
+
+            //function err
+
+        }, function(err){
+            console.log('err' + err);
+        })
+
+    $scope.myChartObject.options = {
+        'title': "Chiffre d'affaires"
+    };
+
+
+    //-__--_-_-_-_-__-_--_-_-_-_-_--_-_-_-_-_-_-__
+/*
+_-_-_-_-_-_-_-_-_-_--__-_-_-_-_-_-_
+_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+ */
+
+
+
+
+
+    $scope.myChartObject2 = {};
+
+    $scope.myChartObject2.type = "ColumnChart";
+
+    $http.get('/auth/admin/statiscClient')
+        .then(function (data) {
+
+            $scope.clientsStatus = data.data
+
+
+
+            /*
+            get the data
+             */
+            $scope.myChartObject2.data = {"cols": [
+                {id: "t", label: "Topping", type: "string"},
+                {id: "s", label: "Professionnel", type: "number"},
+                {id: "s", label: "Particulier", type: "number"}
+            ], "rows": [
+                {c: [
+                    {v: "Particuiler"},
+                    {v:  0},
+                    {v: $scope.clientsStatus["particulier"]},
+
+                ]},
+
+                {c: [
+                    {v: "Professionnel"},
+                    {v:  $scope.clientsStatus["professionel"]},
+                    {v: 0}
+                ]},
+
+
+
+
+
+
+
+
+
+            ]};
+
+            $scope.myChartObject2.options = {
+                'title': "Clients"
+            };
+
+
+
+
+        }, function (err) {
+            console.log('err' + err);
+        })
+
+
+
+
+
+
+});
+
+
+App.controller('ParametresController', function ($scope,$rootScope,Parametres) {
+
+
+
+    $scope.Access = {};
+
+
+    $scope.save = function()
+    {
+        console.log('saved ' +JSON.stringify($scope.Access) );
+        alert('saved ' + $scope.Access);
+    }
+
+
+
+
+
+
+
+})
+
+
+
+
+
+App.controller('calendrierCtrl', function($scope,locationsFactory,CalendrierService){
+
+
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+    /* config object */
+    $scope.uiConfig = {
+        calendar:{
+            height: 450,
+            editable: true,
+            header:{
+                left: 'month basicWeek basicDay agendaWeek agendaDay',
+                center: 'title',
+                right: 'today prev,next'
+            },
+            dayClick: $scope.alertEventOnClick,
+            eventDrop: $scope.alertOnDrop,
+            eventResize: $scope.alertOnResize
+        }
+    };
+
+
+
+
+    $scope.locations =[];
+
+
+
+    //get ALl the locations
+
+
+
+    $scope.eventSources = [
+        [
+
+        ]
+    ];
+
+
+
+
+
+    var locations = locationsFactory.query(function(){
+        console.log("locatison are :"  +JSON.stringify(locations));
+
+        for (var i = 0; i < locations.length; i++) {
+
+            console.log('dat debut' +  locations[i].dateDebut)
+            locations[i].dateDebut = new Date(locations[i].dateDebut);
+            locations[i].dateFin = new Date(locations[i].dateFin);
+            //
+            locations[i].dateDebut.setHours(Number(locations[i].heureDebut));
+            locations[i].dateFin.setHours(Number(locations[i].heureFin));
+
+
+            var event = {
+             "title": locations[i].Client.nom + ' ' +locations[i].Client.prenom,
+             "start": locations[i].dateFin,
+             "end":  new Date(y, m, d)
+             }
+            //pour la peristant des evenemtns
+            event.stick = true;
+
+
+            $scope.eventSources[0].push(event);
+            console.log('event length' + $scope.eventSources[0].length );
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
 
 
 

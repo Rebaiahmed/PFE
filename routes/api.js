@@ -14,6 +14,7 @@ var FactureCtrl = require('../server/controllers/FactureController.js');
 var EntretientCtrl = require('../server/controllers/MaintenanceController.js');
 var mailController  = require('../server/controllers/mailController.js');
 var MangerCtrl = require('../server/controllers/ManagerController.js');
+var statistcCtrl = require('../server/controllers/statisticCtrl.js');
 
 
 var jwt = require('express-jwt');
@@ -53,6 +54,11 @@ Router.get('/auth/voitures',);*/
 
 
 Router.get('/client/voitures', voitureCtrl.getCars_Client);
+
+//_-_-_-_-_-___-_-_-_MAILING CLIENT TO AGENCY _-_-_-_-_-_-__-_-_-_-_-_-_-_
+
+Router.route('/auth/client/sendMail')
+    .post(mailController.sendMailClient_Agence);
 
 
 
@@ -160,6 +166,7 @@ Router.route('/auth/admin/admin/contrats')
 
 Router.route('/auth/admin/admin/contrats/:idContrat')
     .get(ContratCtrl.getContrat)
+    .put(ContratCtrl.updateContrat)
 
 
 
@@ -234,5 +241,13 @@ Router.route('/auth/admin/admin/Managers/:idManager')
     .put(MangerCtrl.updateManager)
     .delete(MangerCtrl.deleteManager)
 
+
+//-__-_-_-_-_-_-_-_-_-__STATISTIC-_-_-__-_-_--_-_-_-_-_-_-_-_-_-_-__-
+
+Router.route('/auth/admin/statiscCars')
+    .get(statistcCtrl.getCarsChiffreAffaire)
+
+Router.route('/auth/admin/statiscClient')
+    .get(statistcCtrl.getStatistciClients)
 
 module.exports = Router;

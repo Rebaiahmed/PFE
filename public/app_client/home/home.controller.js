@@ -65,7 +65,7 @@ angular
 
         $scope.Create = function()
         {
-
+       console.log('is clicked !');
 
             $scope.newReservation.Voiture_idVoiture = 0;
             $scope.newReservation.Voiture_Modele_idModele = 0;

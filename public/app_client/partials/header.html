@@ -1,14 +1,27 @@
 
-<div class="tab-bar  grey darken-2">
-    <ul class="right hide-on-med-and-down">
-    <a href="#overview" class="layout__tab ">Acceuil</a>
-    <a ui-sref="Voitures" class="layout__tab">Voitures</a>
-    <a ui-sref="Nous" class="layout__tab">Qui sommes Nous</a>
-    <a ui-sref="Contact" class="layout__tab">Contact</a>
-        <a ui-sref="login" ng-if="isloggedIn==true">welcome</a>
-        <a ui-sref="login" ng-if="isloggedIn!=true">s'authentfiier {{ isloggedIn}}</a>
+    <div id="navbar" class="navbar-fixed scrollspy">
+        <nav  class="white">
+            <div class="nav-wrapper container">
+                <div class="container"> <a href="#navbar" class="brand-logo">Logo</a></div>
 
-    </ul>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                <ul class="right hide-on-med-and-down">
 
+                    <li><a class="head-link" href="#projects">Projects</a></li>
+                    <li><a class="head-link" href="#aboutus">About Us</a></li>
+                    <li><a class="head-link" href="#contactus">Contact Us</a></li>
 
-</div>
+                </ul>
+                <ul class="right side-nav" id="mobile-demo">
+                    <li><a class="head-link" href="#projects">Projects</a></li>
+                    <li><a class="head-link" href="#aboutus">About Us</a></li>
+
+                    <li><a class="head-link" href="#contactus">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+<script>
+    $(".button-collapse").sideNav();
+</script>

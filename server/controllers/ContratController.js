@@ -25,6 +25,7 @@ exports.generateContrat = function(req,res)
     var Reservation_idReservation = req.body.Reservation_idReservation ;
 
     var kilometrageDebut = req.body.kilometrageDebut;
+    var kilometrageRetour = req.body.kilometrageRetour ;
 
 
     var tva = req.body.tva ;
@@ -35,6 +36,10 @@ exports.generateContrat = function(req,res)
     var Acompte = req.body.Acompte ;
     var Reste = req.body.Reste ;
     var modePayement = req.body.modePayement ;
+
+    var Nbr_Jours = req.body.Nbr_Jours;
+
+
     var penaliteJour = req.body.penaliteJour ;
     var dureeRetard = req.body.dureeRetard ;
     var totaleRetard = req.body.totaleRetard ;
@@ -45,11 +50,17 @@ exports.generateContrat = function(req,res)
     var date_debut_prolngation = req.body.date_debut_prolngation ;
 
 
-
+console.log('data are :' + 'kilometrageDebut  ' + kilometrageDebut + ' '+ 'kilometrageRetour'
++ kilometrageRetour + ' tva ' + tva + ' ' + prixHt + ' prixTT' + prixTT + ' Acompte'
++ Acompte + ' Reste ' + Reste + ' modePayement' + modePayement + ' Nbr_Jours' + Nbr_Jours + ' ' + ' penaliteJour ' +penaliteJour
++ 'dureeRetard' + dureeRetard + ' totaleRetard' + totaleRetard + ' ' + date_fin_prolngation
++ ' ' + date_debut_prolngation)
 
     Contrat.create({
-        "idContrat":1,
+
         "tva" :tva,
+        "kilometrageDebut":	kilometrageDebut,
+        "kilometrageRetour ":kilometrageRetour,
         "prixHt" :prixHt,
         "prixTT":prixTT,
         "Acompte" :Acompte,
@@ -58,6 +69,7 @@ exports.generateContrat = function(req,res)
         "penaliteJour" :penaliteJour,
         "dureeRetard" :dureeRetard,
         "totaleRetard" :totaleRetard,
+        "Nbr_Jours":Nbr_Jours,
         "date_fin_prolngation" :date_fin_prolngation,
         "totaleRetard" :totaleRetard,
         "date_fin_prolngation" :date_fin_prolngation,
@@ -68,8 +80,10 @@ exports.generateContrat = function(req,res)
 
     }).then(function(response){
         console.log('saved suucefuly !');
+        res.json("saved succesfuly !")
     }).catch(function(err){
         console.log('err' + err);
+        res.json(err);
     })
 
 
@@ -77,6 +91,12 @@ exports.generateContrat = function(req,res)
 
 }
 
+
+
+/*
+_-_-_-_-__-_-_-_-_-_-_-_-----------------_-_-_-_-
+_-_-_-_-_-_-_-_--_-_-__
+ */
 
 
 
@@ -110,3 +130,174 @@ exports.getContrat = function(req,res)
     })
 
 }
+
+/*
+_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-__-_-_
+_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-__-_-_-
+_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-__-_-__-
+ */
+
+
+exports.updateContrat = function(req,res)
+{
+
+var idContrat = req.params.idContrat ;
+
+
+
+
+
+
+
+
+
+
+
+    Contrat.findById(idContrat)
+        .then(function(contrat)
+        {
+
+
+            if(contrat)
+            {
+
+                var Reservation_Client_idClient = req.body.Reservation_Client_idClient;
+                var Reservation_Voiture_Modele_idModele = req.body.Reservation_Voiture_Modele_idModele ;
+                var Reservation_idReservation = req.body.Reservation_idReservation ;
+
+                var kilometrageDebut = req.body.kilometrageDebut;
+                var kilometrageRetour = req.body.kilometrageRetour ;
+
+
+                var tva = req.body.tva ;
+                var prixHt = req.body.prixHt ;
+                var prixTT = req.body.prixTT ;
+
+
+                var Acompte = req.body.Acompte ;
+                var Reste = req.body.Reste ;
+                var modePayement = req.body.modePayement ;
+
+                var Nbr_Jours = req.body.Nbr_Jours;
+
+
+                var penaliteJour = req.body.penaliteJour ;
+                var dureeRetard = req.body.dureeRetard ;
+                var totaleRetard = req.body.totaleRetard ;
+
+
+                //prolongation
+                var date_fin_prolngation = req.body.date_fin_prolngation ;
+                var date_debut_prolngation = req.body.date_debut_prolngation ;
+
+
+                console.log('data are :' + 'kilometrageDebut  ' + kilometrageDebut + ' '+ 'kilometrageRetour'
+                    + kilometrageRetour + ' tva ' + tva + ' ' + prixHt + ' prixTT' + prixTT + ' Acompte'
+                    + Acompte + ' Reste ' + Reste + ' modePayement' + modePayement + ' Nbr_Jours' + Nbr_Jours + ' ' + ' penaliteJour ' +penaliteJour
+                    + 'dureeRetard' + dureeRetard + ' totaleRetard' + totaleRetard + ' ' + date_fin_prolngation
+                    + ' ' + date_debut_prolngation)
+
+                /*
+                update it
+                 */
+                Contrat.update({
+
+                    "tva" :tva,
+                    "kilometrageDebut":	kilometrageDebut,
+                    "kilometrageRetour ":kilometrageRetour,
+                    "prixHt" :prixHt,
+                    "prixTT":prixTT,
+                    "Acompte" :Acompte,
+                    "Reste":Reste,
+                    "modePayement":modePayement,
+                    "penaliteJour" :penaliteJour,
+                    "dureeRetard" :dureeRetard,
+                    "totaleRetard" :totaleRetard,
+                    "Nbr_Jours":Nbr_Jours,
+                    "date_fin_prolngation" :date_fin_prolngation,
+                    "totaleRetard" :totaleRetard,
+                    "date_fin_prolngation" :date_fin_prolngation,
+                    "date_debut_prolngation" :date_debut_prolngation,
+                    "Reservation_Client_idClient" :Reservation_Client_idClient,
+                    "Reservation_Voiture_Modele_idModele" :Reservation_Voiture_Modele_idModele,
+                    "Reservation_idReservation" :Reservation_idReservation
+
+                },{
+                where: {
+                    'idContrat': idContrat
+                }
+                }).then(function(response){
+                    console.log('saved suucefuly !');
+                    res.json("update succesfuly !")
+                }).catch(function(err){
+                    console.log('err' + err);
+                    res.json(err);
+                })
+
+
+
+
+
+
+
+            }
+            else{
+
+                res.json("no contrat foudn with this id !");
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        })
+        .catch(function(err){
+
+            res.json(err);
+        })
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

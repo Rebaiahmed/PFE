@@ -77,7 +77,7 @@
     <div class="loader-section section-right"></div>
 </div>
 <!-- Navbar goes here -->
-<div class="navbar-fixed indigo accent-3">
+<div class="navbar-fixed  deep-purple darken-4">
     <nav class="teal lighten-2" ng-controller="AdminCtrl">
         <div class="nav-wrapper ">
 
@@ -87,7 +87,7 @@
 
 
 
-            <a href="#!" class="brand-logo">Admin </a>
+            <a href="#!" class="brand-logo" >Admin {{ uiRouterState.current.name }} </a>
             <!--a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light cyan"><i class="mdi-navigation-menu"></i></a-->
             <ul class="right hide-on-med-and-down">
                 <li><a href="#"></a></li>
@@ -106,7 +106,7 @@
                 <!-- Dropdown Structure -->
                 <ul id='demoDropdown' class='dropdown-content'>
                     <li><a href="javascript:void(0);" ng-click="profile()">Profile</a></li>
-                    <li><a href="javascript:void(0);">Paramétres</a></li>
+                    <li><a href="javascript:void(0);" ng-click="Parametre()">Paramétres</a></li>
                     <li><a href="javascript:void(0);" ng-click="logOut()">log out</a></li>
 
                 </ul>
@@ -125,7 +125,8 @@
         <!--start left side bar-->
         <aside id="left-sidebar-nav">
             <ul id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y" >
-                <li><a ui-sref="locations" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> locations</a></li>
+                <li ><a ui-sref="Calendrier" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Calendrier</a></li>
+                <li ><a ui-sref="locations" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> locations</a></li>
                 <li><a ui-sref="voitures" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i>Voitures</a></li>
                 <li><a ui-sref="entretients" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Entretients</a></li>
                 <li><a ui-sref="contrats" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Contrats</a></li>

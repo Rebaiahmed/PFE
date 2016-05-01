@@ -1,39 +1,111 @@
-<html lang="en" ng-app="meanApp" >
+<!DOCTYPE html>
+<html lang="fr" ng-app="meanApp">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Materialize CSS text only template</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Parallax Template</title>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>PFE APP</title>
+    <!-- CSS  -->
+    <link href="/bower_components/materialize/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <link rel="shortcut icon" href="images/favicon (8).ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon (8).ico" type="image/x-icon">
+    <style>
+        nav ul a,
+        nav .brand-logo {
+            color: #444;
+        }
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Materialize CSS">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+        p {
+            line-height: 2rem;
+        }
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
+        .button-collapse {
+            color: #ee6e73;
+        }
 
-    <link rel="shortcut icon" href="images/favicon.png">
+        .parallax-container {
+            min-height: 380px;
+            line-height: 0;
+            height: auto;
+            color: rgba(255,255,255,.9);
+        }
+        .parallax-container .section {
+            width: 100%;
+        }
+
+        @media only screen and (max-width : 992px) {
+            .parallax-container .section {
+                position: absolute;
+                top: 40%;
+            }
+            #index-banner .section {
+                top: 10%;
+            }
+        }
+
+        @media only screen and (max-width : 600px) {
+            #index-banner .section {
+                top: 0;
+            }
+        }
 
 
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+        .icon-block {
+            padding: 0 15px;
+        }
 
-    <link rel="stylesheet" href="/bower_components/Materialize/dist/css/materialize.min.css">
-    <link rel="stylesheet" href="/bower_components/ng-materialize/dist/ng-materialize.min.css">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/bower_components/angular-carousel/dist/angular-carousel.min.css">
-    <link rel="stylesheet" href="/app_client/style.css">
+        footer.page-footer {
+            margin: 0;
+        }
+
+
+
+
+        .parallax img
+        {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .parallax-container
+        {
+            color: black;
+        }
+        @media only screen and (max-width : 600px) {
+            .parallax-container
+            {
+                color: white;
+            }
+        }
+        nav a.button-collapse
+        {
+            color:black;
+        }
+        .purple.lighten-1 {
+            background-color: #CC0066 !important;
+        }
+        .teal-text.text-lighten-2 {
+            color: #CC0066 !important;
+        }
+        .share-buttons{
+            list-style: none;
+        }
+
+        .share-buttons li{
+            display: inline;
+        }
+        nav
+        {
+            overflow: visible;
+        }
+        nav li a {
+            -webkit-transition: background .3s ease-in-out;
+            -moz-transition: background .3s ease-in-out;
+            transition: background .3s ease-in-out;
+        }
+
+    </style>
+
     <!--scripts loaded-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -64,18 +136,6 @@
     <script src="/bower_components/ng-materialize/dist/ng-materialize.min.js"></script>
 
 
-    <style>
-        #view-source {
-            position: fixed;
-            display: block;
-            right: 0;
-            bottom: 0;
-            margin-right: 40px;
-            margin-bottom: 40px;
-            z-index: 900;
-        }
-    </style>
-
 
     <script>
         $(document).ready(function() {
@@ -84,40 +144,31 @@
 
     </script>
 
-
-
-
-
 </head>
 <body>
+<div id="navbar" class="navbar-fixed scrollspy">
+    <nav  class="white">
+        <div class="nav-wrapper container">
+            <div class="container"> <a href="#navbar" class="brand-logo">Logo</a></div>
 
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu">Menu</i></a>
+            <ul class="right hide-on-med-and-down">
 
+                <li><a class="head-link" href="#projects">Voitures</a></li>
+                <li><a class="head-link" href="#aboutus">A propos de Nous</a></li>
+                <li><a class="head-link" href="#contactus">Nous Contactez</a></li>
+                <li><a class="head-link" href="#contactus">Espace Client
+                   </a></li>
 
-<div ng-include src="'/app_client/partials/header.html'"></div>
+            </ul>
+            <ul class="right side-nav" id="mobile-demo">
+                <li><a class="head-link" href="#projects">Voitures</a></li>
+                <li><a class="head-link" href="#aboutus">A propos de Nous</a></li>
 
-
-
-
-
-
-
-
-
-
-
-<!-- Modal Trigger -->
-<div class="col">
-    <a class='btn' href='#demoModal' modal>Show Modal</a>
-</div>
-<!-- Modal Structure -->
-<div id="demoModal" class="modal">
-    <div class="modal-content">
-        <h4>Modal header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
+                <li><a class="head-link" href="#contactus">Nous Contactez</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
 
 
@@ -126,19 +177,133 @@
 
 
 
-
-<div ui-view></div>
-
-
+<div class="row">
+    <div class="col s6">
 
 
 
-
-
+        <form ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl">
+            <h5>Réservez maintenat {{ newReservation }}</h5>
 
 
 
 
+            <div class="col s2">
+                <label for="date_debut">Date Début</label>
+            </div><!--end of col s2--->
+
+
+            <div class="input-field col s10">
+                <input input-date
+                       type="text"
+                       name="created"
+                       id="inputCreated"
+                       ng-model="newReservation.dateDebut"
+                       container="body"
+                       format="dd/mm/yyyy"
+                       months-full="{{ month }}"
+                       months-short="{{ monthShort }}"
+                       weekdays-full="{{ weekdaysFull }}">
+            </div><!--end of col s0--->
+
+
+            <div class="col s2">
+                <label for="heure_fin">Heure Début</label>
+            </div><!--end of col s2--->
+            <div class="input-field col s10">
+                <input  type="text" class="validate" ng-model="newReservation.heureDebut"
+                        required>
+
+            </div><!--end of col s12--->
+
+
+
+            <div class="row">
+
+                <div class="input-field col s12 ">
+                    <select class=""  material-select watch ng-model="newReservation.lieuPrise">
+                        <option value="" disabled selected>Lieu de Prise</option>
+                        <option value="Tunis">Tunis</option>
+                        <option value="Sfax">Sfax</option>
+                        <option value="Jerba">Jerba</option>
+                    </select>
+                    </select>
+
+                </div><!--end of col s12-->
+            </div><!--end of row---->
+
+            <div class="divider"></div>
+
+
+            <div class="col s2">
+                <label for="date_fin">Date Fin</label>
+            </div><!--end of col 12-->
+
+
+            <div class="input-field col s10">
+                <input input-date
+                       type="text"
+                       name="created"
+                       id="dateFin"
+                       ng-model="newReservation.dateFin"
+                       container="body"
+                       format="dd/mm/yyyy"
+                       months-full="{{ month }}"
+                       months-short="{{ monthShort }}"
+                       weekdays-full="{{ weekdaysFull }}">
+
+            </div><!--end of col s10-->
+
+
+
+            <div class="col s2">
+                <label for="heure_fin">Heure Fin</label>
+            </div><!--end of col 2-->
+
+            <div class="input-field col s10">
+                <input  type="text" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
+                        required>
+
+            </div><!--end of col s10--->
+
+
+            <div class="row">
+                <div class="input-field col s12 ">
+                    <select class=""  material-select watch ng-model="newReservation.lieuRetour">
+                        <option value="" disabled selected>Lieu de Retour</option>
+                        <option value="Tunis">Tunis</option>
+                        <option value="Sfax">Sfax</option>
+                        <option value="Jerba">Jerba</option>
+                    </select>
+
+                </div><!--end of col s12-->
+            </div><!--end of row--->
+            <a class=" modal-action modal-close waves-effect waves-light btn" >button</a>
+            </form>
+
+
+
+
+
+
+    </div><!--end of col s6---->
+
+
+    <div class="col s6">
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+</div>
 
 
 
@@ -154,12 +319,199 @@
 
 
 
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <h5 class="center-align">Nos Offfres</h5>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center" style="color:#333"><i class="mdi-av-new-releases"></i></h2>
+                    <h5 class="center">Mercedes E200</h5>
+                    <p class="light center">A partir de
+                        250DT </p>
+
+
+
+                    <div class="card">
+                        <div class="card-content white-text">
+                            <span class="card-title">Card Title</span>
+                            <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/MercesdesE200.jpg">
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center" style="color:#333"><i class="mdi-hardware-cast"></i></h2>
+                    <h5 class="center">Audi A4</h5>
+
+                    <p class="light center">A partir de
+                        250DT </p>
+
+
+
+                    <div class="card ">
+                        <div class="card-content white-text">
+                            <span class="card-title">Card Title</span>
+                            <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/AudiA4.jpg">
+
+                        </div>
+
+                    </div>
 
 
 
 
 
-<a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>
+
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center" style="color:#333"><i class="mdi-hardware-keyboard-alt"></i></h2>
+                    <h5 class="center">Punto</h5>
+                    <p class="light center">A partir de
+                        250DT </p>
+
+
+                    <div class="card ">
+                        <div class="card-content white-text">
+
+                            <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/polo7.jpg">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12" style="color: #333;">Vertically centered text</h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="/images/1412019519aax7e.jpg" alt="img"></div>
+</div>
+
+<div class="container section scrollspy" id="projects">
+    <div class="section">
+        <br>
+        <br>
+        <h4 class="center">Nos Voitures</h4>
+        <br>
+        <div class="row">
+            <div class="col s6">
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/polo7.jpg">
+            </div>
+            <div class="col s6">
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/peugeot301.jpg">
+            </div>
+        </div><!--row-->
+
+        <div class="row">
+            <div class="col s6">
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project" src="images/peugeot508.jpg">
+            </div>
+            <div class="col s6">
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project" src="images/1399827845b0i1k.jpg">
+            </div>
+        </div><!--row-->
+
+        <div class="center">
+            <a class="waves-effect waves-light btn purple lighten-1">View more</a>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper section scrollspy" id="aboutus">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="center row col s3">
+
+                <h3>A propos de Nous</h3>
+            </div>
+            <div class="center row col s12">
+                <h5>King Rent A Car,</h5>
+             <p>66, Avenue Taieb Mhiri,. 2080, Ariana, Tunisie,.</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="/images/mazda6.jpg" alt="img"></div>
+</div>
+
+
+
+<div class="container section scrollspy" id="contactus">
+    <div class="section">
+        <br>
+        <br>
+        <h2>Contact</h2>
+
+        <div class="row" ng-controller="ContactCtrl">
+
+            <form class="col s8" ng-submit="sendMail()">
+
+                <div class="row"> {{ data }}
+                    <div class="input-field col s6">
+                        <input id="name" type="text" class="validate" ng-model="data.nom">
+                        <label for="name">Nom</label>
+                    </div>
+
+
+                    <div class="input-field col s6">
+                        <input id="email" type="email" class="validate" ng-model="data.email">
+                        <label for="email"> Email</label>
+                    </div>
+                </div><!--row-->
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="message-sub" type="text" class="validate" ng-model="data.sujet">
+                        <label for="message-sub">Sujet</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="text_area" class="materialize-textarea" ng-model="data.message"></textarea>
+                        <label for="text_area"> Message</label>
+                    </div>
+                </div>
+
+
+                <div>
+                    <button class="waves-effect waves-light btn purple lighten-1">Envoyez Message<i class="mdi-content-send right"></i></button>
+                </div>
+            </form>
+
+
+
+
+        </div>
+    </div>
+</div>
 
 
 
@@ -167,19 +519,10 @@
 
 
 
-
-
-
-
-<a href="" target="_blank" id="view-source" class="btn">Chat with us <i class="material-icons">chat</i>  </a>
+<a href="" target="_blank" id="view-source" class="btn fixed">Chat with us <i class="material-icons">chat</i>  </a>
 
 
 <div ng-include src="'/app_client/partials/footer.html'"></div>
-
-</body>
-
-
-
 
 <script src="./app_client/main.js"></script>
 <script src="./app_client/auth/AuthenticationService.js"></script>
@@ -191,5 +534,44 @@
 <script src="./app_client/voitures/voitureController.js"></script>
 <script src="./app_client/voitures/optionsController.js"></script>
 <script src="./app_client/confirm/confirm.controller.js"></script>
+<script src="./app_client/partials/ContactController.js"></script>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src=/bower_components/materialize/dist/js/materialize.min.js></script>
+<script>
+    (function($){
+        $(function(){
 
+            $('.button-collapse').sideNav();
+            $('.parallax').parallax();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+
+
+</script>
+<script>
+
+    $(document).ready(function(){
+        $('.materialboxed').materialbox();
+        $('.button-collapse').sideNav();
+        $('.head-link').click(function(e) {
+            e.preventDefault();
+
+            var goto = $(this).attr('href');
+
+            $('html, body').animate({
+                scrollTop: $(goto).offset().top
+            }, 800);
+        });
+
+    });
+</script>
+<script>
+
+
+
+</script>
+
+</body>
 </html>

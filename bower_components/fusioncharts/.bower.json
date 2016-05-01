@@ -1,0 +1,38 @@
+{
+  "name": "fusioncharts",
+  "description": "FusionCharts Technologies  <support@fusioncharts.com>",
+  "main": "fusioncharts.js",
+  "authors": [
+    "FusionCharts Technologies <support@fusioncharts.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "fusioncharts",
+    "charts",
+    "gauges",
+    "maps"
+  ],
+  "homepage": "https://github.com/fusioncharts/fusioncharts-trial",
+  "moduleType": [
+    "es6"
+  ],
+  "ignore": [
+    ".git",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "3.10.1",
+  "_release": "3.10.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.10.1",
+    "commit": "e2e04f40c16c074d756fbd430b462596268916ad"
+  },
+  "_source": "https://github.com/fusioncharts/fusioncharts-trial.git",
+  "_target": "^3.10.1",
+  "_originalSource": "fusioncharts",
+  "_direct": true
+}

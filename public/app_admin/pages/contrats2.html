@@ -4,7 +4,7 @@
             <div class="row">
 
                 <div class="col s12">
-                    <h3> Contrats <i class="material-icons">insert_drive_file</i> </h3>
+                    <h3><i class="material-icons">assignment_return</i> Contrats <i class="material-icons">insert_drive_file</i> </h3>
 
                 </div>
                 <!--end of col-s12-->
@@ -19,7 +19,7 @@
 
 
 
-            <table>
+            <table ng-hide="detailsshow">
                 <thead>
                 <tr>
                     <th data-field="id">Numéro contrat</th>
@@ -39,8 +39,8 @@
                     <td ng-if="ctrl.Reservation.cloture==0">
                         Non Cloturé
                     </td>
-                    <td><a>Dtéails <i class="material-icons">description</i></a></td>
-                    <td><a>Modifier Contrat</a><i class="material-icons">update</i></td>
+                    <td><a ng-click="detailsContrat(ctrl)">Dtéails <i class="material-icons">description</i></a></td>
+                    <td><a ng-click="editerContrat(ctrl)">Modifier Contrat</a><i class="material-icons">update</i></td>
                     <td><a ng-click="go_Facture(ctrl.idContrat)"> Facture </a><i class="material-icons">archive</i></td>
 
                 </tr>
@@ -62,6 +62,148 @@
 
 
         </div><!--end of m-box-->
+
+        <div class="row" ng-show="detailsshow">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title" style="color: black">Contrat Détails</span>
+
+                        <h5>Détails location <i class="material-icons">date_range</i> </h5>
+                        <ul>
+                            <li>Date début : {{ contrat.Reservation.dateDebut | date:'yyyy-MM-dd' }}</li>
+                            <li>lieu de Prise :{{ contrat.Reservation.lieuPrise }}</li>
+                            <li>Kilometrage Début : {{  contrat.kilometrageDebut }}</li>
+                            <li>Date Fin :{{ contrat.Reservation.dateFin | date:'yyyy-MM-dd' }}</li>
+
+
+                            <li>Lieu de Retour {{ contrat.Reservation.lieuRetour }} </li>
+                            <li>Kilometrage Retour : {{  contrat.kilometrageRetour }}</li>
+                        </ul>
+
+                        <hr>
+                        <h5>Détails Client <i class="material-icons">supervisor_account</i></h5>
+                        <p>Nom Complet</p>
+                        <p>NumCin</p>
+                        <p>email</p>
+
+                        <hr>
+                        <h5>Détails Voiture <i class="material-icons">directions_bus</i></h5>
+                        <p>Model marque idimatricule</p>
+                        <hr>
+
+
+
+                        <h5>Détails Payement <i class="material-icons">money_off</i></h5>
+                        <p>Prixt totale {{ contrat.prixTT }}</p>
+                        <p>Prix ht {{ contrat.prixHt }}</p>
+                        <p>TVA {{ contrat.Reservation.tva  }}</p>
+                        <p>Mode payement {{ contrat.modePayement }}</p>
+                        <p>Acompte :</p>
+                        <p>Reste :</p>
+                        <hr>
+
+
+                        <h5>Détails Pronlgation <i class="material-icons">alarm_add</i></h5>
+                        <p>Date début Prolngation {{ contrat.date_debut_prolngation  | date:'yyyy-MM-dd' }}</p>
+                        <p>Date Fin prolongation {{ contrat.date_fin_prolngation | date:'yyyy-MM-dd' }}</p>
+                        <hr>
+                        <h5>Détails Retard <i class="material-icons">warning</i></h5>
+                            <p>Durée Retard {{ contrat.dureeRetard }}</p>
+                            <p>Montant Retard a payer {{ contrat.dureeRetard * contrat.penaliteJour }}</p>
+
+
+                    </div>
+                    <div class="card-action">
+                        <a ng-click="update(contrat)">Modifier</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!----------------EDITER CONTRAT----------------------------->
+        <div class="row" ng-show="edit">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title" style="color: black">Editer Contrat</span>
+
+                        <h5>Détails location <i class="material-icons">date_range</i> </h5>
+                        <ul>
+                            <li>Date début :<input type="text" ng-model="contrat.Reservation.dateDebut"> </li>
+                            <li>lieu de Prise : <input type="text" ng-model="contrat.Reservation.lieuPrise "></li>
+                            <li>Kilometrage Début : <input type="text" ng-model="contrat.kilometrageDebut"> </li>
+                            <li>Date Fin : <input type="text" ng-model="contrat.Reservation.dateFin"></li>
+
+
+                            <li>Lieu de Retour <input type="text" ng-model="contrat.Reservation.lieuRetour">  </li>
+                            <li>Kilometrage Retour :
+                                <input type="text" ng-model="contrat.kilometrageRetour"> </li>
+                        </ul>
+
+                        <hr>
+                        <h5>Détails Client <i class="material-icons">supervisor_account</i></h5>
+                        <p>Nom Complet</p>
+                        <p>NumCin</p>
+                        <p>email</p>
+
+                        <hr>
+                        <h5>Détails Voiture <i class="material-icons">directions_bus</i></h5>
+                        <p>Model marque idimatricule</p>
+                        <hr>
+
+
+
+                        <h5>Détails Payement <i class="material-icons">money_off</i></h5>
+                        <p>Prixt totale  <input type="text" ng-model="contrat.prixTT"> </p>
+                        <p>Prix ht <input type="text" ng-model="contrat.prixHt"> </p>
+                        <p>TVA  <input type="text" ng-model="contrat.Reservation.tva"> </p>
+                        <p>Mode payement <input type="text" ng-model="contrat.modePayement"></p>
+                        <p>Acompte :</p>
+                        <p>Reste :</p>
+                        <hr>
+
+
+                        <h5>Détails Pronlgation <i class="material-icons">alarm_add</i></h5>
+                        <p>Date début Prolngation <input type="text" ng-model="contrat.date_debut_prolngation"></p>
+                        <p>Date Fin prolongation <input type="text" ng-model="contrat.date_fin_prolngation"> </p>
+                        <hr>
+                        <h5>Détails Retard <i class="material-icons">warning</i></h5>
+                        <p>Durée Retard  <input type="text" ng-model="contrat.dureeRetard"> </p>
+                        <p>Montant Retard a payer
+                            {{ contrat.dureeRetard * contrat.penaliteJour }}</p>
+
+
+                    </div>
+                    <div class="card-action">
+                        <a ng-click="update(contrat)">Update</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

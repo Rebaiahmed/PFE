@@ -1,0 +1,27 @@
+{
+  "name": "zingchart-angularjs",
+  "version": "1.0.6",
+  "description": "A ZingChart AngularJS directive",
+  "main": "index.js",
+  "author": "ZingChart",
+  "homepage": "www.zingchart.com",
+  "devDependencies": {
+    "karma" : "latest",
+    "karma-jasmine" : "latest",
+    "angular-mocks": "^1.3.14",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-chrome-launcher": "^0.1.7",
+    "jquery": "^2.1.3",
+    "chai": "^2.1.0",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.10",
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.3.14"
+    },
+    "scripts":{
+        "test" : "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+    }
+
+}

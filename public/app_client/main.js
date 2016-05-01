@@ -61,14 +61,14 @@ function config($stateProvider, $urlRouterProvider) {
         })
 
         .state('Nous', {
-            url :'/Qui_Sommes_Nous',
-            templateUrl: '/app_client/partials/qui_sommes_nous.html',
+            url :'/Conditions&Infos',
+            templateUrl: '/app_client/conditions&infos/Conditions.html',
 
 
         })
 
         .state('Contact', {
-            url :'/Qui_Sommes_Nous',
+            url :'/Contact',
             templateUrl: '/app_client/partials/Contact.html',
 
 
