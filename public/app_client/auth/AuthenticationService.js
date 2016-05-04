@@ -52,10 +52,10 @@ angular
                  payload =$window.atob(payload);
                  payload = JSON.parse(payload);
 
-                 console.log('payload exp :' + payload.exp);
+                 console.log('payload exp :' + payload.exp/1000);
 
-                  console.log((payload.exp >Date.now() /10000))
-                 return payload.exp >Date.now() /10000;  // a expliquer
+                  console.log((payload.exp >Date.now() /1000))
+                 return payload.exp >Date.now() /1000;  // a expliquer
 
              }
              else{
@@ -126,7 +126,7 @@ angular
            {
                return $http.post('/auth/login', user)
                    .success(function(data){
-                       //console.log(JSON.stringify(user));
+
                    saveToken(data.token);
                                   })
                    .error(function(){
@@ -142,6 +142,8 @@ angular
                 headers: {
                     Authorization: 'Bearer '+ getToken()
                 }//end of headers
+
+
             }); // end of return
 
 

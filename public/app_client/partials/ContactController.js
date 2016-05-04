@@ -5,7 +5,7 @@
 
 angular
     .module('meanApp')
-    .controller('ContactCtrl', function($scope,$http){
+    .controller('ContactCtrl', function($scope,$http,notify){
 
 
         $scope.data ={};
@@ -14,11 +14,17 @@ angular
         {
 
 
+
+
             console.log(JSON.stringify($scope.data));
 
-            $http.post('/auth/client/sendMail',$scope.data)
+           $http.post('/auth/client/sendMail',$scope.data)
                 .then(function(res){
-                    console.log('success !' + JSON.stringify(res));
+
+
+
+                   notify("Votre Message a éte envoyée aves Succes");
+                    $scope.data ={};
 
 
 

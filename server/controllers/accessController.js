@@ -3,6 +3,7 @@ var models  = require('../models/index.js');
 
 var Client = models.Client ;
 var Manager = models.Manager ;
+var Reservation = models.Reservation ;
 
 module.exports.viewProfile = function(req,res)
 {
@@ -61,6 +62,50 @@ module.exports.accessAdmin = function(req,res)
 
 
 
+module.exports.updateProfile = function(req,res)
+{
+
+    //get the id from the params
+
+
+    var idClient = req.body.idClient ;
+    var nom = req.body.nom ;
+    var prenom = req.body.prenom  ;
+    var adresse = req.body.adresse ;
+
+   // var statut = req.body.statut ; avérifier
+    var adresse = req.body.adresse ;
+ 
+
+    var numTel1 = req.body.numTel1 ;
+    var numTel2 = req.body.numTel1 ;
+
+    //update the client
+    Client.update({
+
+        nom :nom,
+        prenom :prenom,
+        numTel1 :numTel1,
+        adresse :adresse,
+        numTel2:numTel2
+
+
+
+    }, {
+        where: {
+            'idClient': idClient
+        }
+    }).then(function (client, err) {
+        if (err) {
+            console.log(err)
+            res.json(err);
+        }
+        else {
+
+            res.json(client);
+        }
+
+    })//end of update Profile
 
 
 
@@ -69,3 +114,33 @@ module.exports.accessAdmin = function(req,res)
 
 
 
+}
+
+
+
+
+
+
+
+module.exports.getReservations = function(req,res)
+{
+    var idClient = req.params.idClient ;
+
+
+
+    Client.findById(
+        idClient,
+        {
+            include: [{model:Reservation}]
+        }
+    ).then(function(result){
+            res.json(result);
+        })
+        .catch(function(err){
+            res.json(err);
+        })
+
+
+
+
+}

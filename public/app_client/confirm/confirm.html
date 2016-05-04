@@ -1,9 +1,64 @@
+<div class="container" ng-controller="confirmCtrl">
 
-<div ng-controller="confirmCtrl">
 
 
-<h1>la confirmation du réservation</h1>
+    <div class="parallax-container valign-wrapper" style="width: 100%">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class=" card-panel row center">
+                    <h5 class="header col s12" style="color: #333;">
+                        <i class="material-icons">done_all</i>
+                        Confimer Votre Réservation <i class="material-icons">done_all</i></h5>
 
-    <a ng-click="Create3()">Termier la réservation</a>
 
-</div>
+                         <div class="col s12">
+                        <div class="row">
+<hr>
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">cloud_done</i>
+                            Confirm</a>
+                        </div><!--end of row--->
+                             </div><!--end of col s12---->
+
+
+
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Merci Pour Votre canfiance</h4>
+                            <h6><i class="material-icons">face</i></h6>
+                            <p>un email de confirmation vous sera envoyé</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</div><!--end of container--------->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+
+</script>

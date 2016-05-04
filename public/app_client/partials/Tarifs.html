@@ -1,0 +1,33 @@
+<div class="container" ng-controller="tarifCtrl">
+    <div class="row">
+
+
+
+
+        <h4 class=" center-align truncate">Nos Tarifs</h4>
+
+        <table class="bordered highlight centered responsive-tabl">
+            <thead>
+            <tr>
+
+                <th data-field="name">Voiture</th>
+                <th data-field="price">6jours/Prix par jour $</th>
+                <th data-field="price">Prix par jour</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="car in voitures">
+                <td>{{ car.Modele.marque + ' ' + car.Modele.nom }}</td>
+                <td>{{ car.prixLocation }}</td>
+                <td>{{ car.prixLocation}}</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>

@@ -23,6 +23,11 @@ var auth = jwt({
 
 });
 
+var authAdmin = jwt({
+    secret: 'secret_admin'
+
+});
+
 
 
 /*
@@ -42,10 +47,15 @@ _-_-_-_-_-_--_THE CLIENT SIDE -_-__-_-_-_-_-
 Router.get('/auth/profile',auth,accessCtrl.viewProfile);
 
 
+
 Router.post('/auth/login',authCtrl.login)
 
 
 Router.post('/auth/register',authCtrl.signup);
+
+
+Router.post('/auth/updateProfile',auth,accessCtrl.updateProfile )
+Router.get('/auth/ClientReservations/:idClient',accessCtrl.getReservations )
 
 /*Router.post('/auth/reserver')
 
@@ -85,9 +95,9 @@ Router.post('/auth/admin/admin',authCtrl.login_admin)
 
 //-_-_-_-__ for the pre reservation
 
-Router.route('/auth/admin/admin/PreReservations')
-    .get(ReservationonCtrl.getPreReservation)
-      .post(ReservationonCtrl.addPreReservation)
+Router.get('/auth/admin/admin/PreReservations',authAdmin,ReservationonCtrl.getPreReservation )
+
+      //.post(ReservationonCtrl.addPreReservation)
 
 Router.route('/auth/admin/admin/PreReservations/:idPreReservation')
     .delete(ReservationonCtrl.deletePreservation);

@@ -1,0 +1,177 @@
+<h6>ICI form de réservation</h6>
+
+<div class="row">
+    <div class="col s6">
+        <div class="card">
+            <div class="card-content black-text">
+
+
+
+                <form ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl">
+                    <h5>Réservez maintenat {{ newReservation }}</h5>
+
+
+
+
+
+                    <div class="row">
+
+
+                        <div class="col s6">
+
+
+
+                            <div class="col s2">
+                                <label for="date_debut">Date Début</label>
+                            </div><!--end of col s2--->
+
+
+                            <div class="input-field col s10">
+                                <input input-date
+                                       type="text"
+                                       name="created"
+                                       id="inputCreated"
+                                       ng-model="newReservation.dateDebut"
+                                       container="body"
+                                       format="dd/mm/yyyy"
+                                       months-full="{{ month }}"
+                                       months-short="{{ monthShort }}"
+                                       weekdays-full="{{ weekdaysFull }}">
+                            </div><!--end of col s0--->
+                        </div><!--end of col s6---->
+
+
+                        <div class="col s6">
+
+
+
+                            <div class="col s2">
+                                <label for="date_fin">Date Fin</label>
+                            </div><!--end of col 12-->
+
+
+                            <div class="input-field col s10">
+                                <input input-date
+                                       type="text"
+                                       name="created"
+                                       id="dateFin"
+                                       ng-model="newReservation.dateFin"
+                                       container="body"
+                                       format="dd/mm/yyyy"
+                                       months-full="{{ month }}"
+                                       months-short="{{ monthShort }}"
+                                       weekdays-full="{{ weekdaysFull }}">
+
+                            </div><!--end of col s10-->
+
+
+                        </div><!--end of col s6--->
+
+
+
+
+                    </div><!--end of row----->
+
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col s6">
+
+
+
+                            <div class="col s2">
+                                <label for="heure_fin">Heure Début</label>
+                            </div><!--end of col s2--->
+                            <div class="input-field col s10">
+                                <input  type="text" class="validate" ng-model="newReservation.heureDebut"
+                                        required>
+
+                            </div><!--end of col s10--->
+
+
+                        </div><!--end of col s6---------->
+
+                        <div class="col s6">
+
+                            <div class="col s2">
+                                <label for="heure_fin">Heure Fin</label>
+                            </div><!--end of col 2-->
+
+                            <div class="input-field col s10">
+                                <input  type="text" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
+                                        required>
+
+                            </div><!--end of col s10--->
+
+                        </div><!--end of col s6-->
+
+                    </div><!--end of row-->
+
+
+
+
+
+                    <div class="row">
+
+
+
+
+                        <div class="col s6">
+                            <select class="material-select watch" ng-model="newReservation.lieuRetour">
+                                <option value="" disabled selected>Lieu de Retour</option>
+                                <option value="Tunis">Tunis</option>
+                                <option value="Sfax">Sfax</option>
+                                <option value="Jerba">Jerba</option>
+                            </select>
+                        </div><!--end of col s6--->
+
+
+                        <div class="col s6">
+                            <select class="material-select watch" ng-model="newReservation.lieuRetour">
+                                <option value="" disabled selected>Lieu de Retour</option>
+                                <option value="Tunis">Tunis</option>
+                                <option value="Sfax">Sfax</option>
+                                <option value="Jerba">Jerba</option>
+                            </select>
+                        </div><!--end of col s6--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div><!--end of row---->
+
+
+                    <button class=" modal-action modal-close waves-effect waves-light btn" >Réservez</button>
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div><!--end of col s6---->
+
+
+    <div class="col s6">
+        <div class="parallax"><img src="/images/hundai20.jpg" alt="img"></div>
+    </div>
+
+
+
+
+</div>

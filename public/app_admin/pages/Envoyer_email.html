@@ -7,6 +7,7 @@
                   <h4>envoyer email <i class="material-icons">contact_mail</i></h4>
                     <form class="col s12" ng-submit="sendMail()" ng-show="show">
                         <div class="row">
+                            {{ data }}
                             <div class="input-field col s12">
                                 <input type="email" class="validate" name="mail" ng-model="data.mail">
                                 <label for="name">email</label>

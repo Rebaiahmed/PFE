@@ -81,7 +81,9 @@ app.use(function(err,req,res,next){
   if(err.name="UnauthorizedError")
   {
     res.status(401);
-    res.json({"message" :err.name + " :" +  err.message});
+    console.log('401 !')
+    res.json({"error" :err.name + " :" +  err.message});
+    //res.redirect('/');
 
   }
 })
@@ -127,13 +129,6 @@ app.use(function(err, req, res, next) {
 
 
 
-// Catch unauthorised errors
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401);
-    res.json({"message" : err.name + ": " + err.message});
-  }
-});
 
 
 

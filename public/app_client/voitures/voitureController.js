@@ -11,7 +11,14 @@ angular
         $scope.voiture = {};
         $scope.newReservation ={};
 
+
+
        // console.log(ReservationService.getReservation());
+
+
+
+
+
 
 
 
@@ -92,6 +99,18 @@ angular
             $scope.newReservation = ReservationService.getReservation();
 
 
+            if(angular.equals($scope.newReservation ,{}))
+            {
+               $location.path('Reservation');
+
+
+            }
+
+            else{
+
+
+
+
 
 
             //$scope.newReservation = JSON.parse($scope.newReservation);
@@ -107,7 +126,7 @@ angular
             ReservationService.saveReservation(JSON.stringify($scope.newReservation));
 
             $location.path('Options');
-
+            }
         }
 
 

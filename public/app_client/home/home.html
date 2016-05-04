@@ -1,129 +1,95 @@
 
-<div class="container" ng-controller="homeCtrl"
-    >
 
-<h1>welcome {{ currentUser.nom}}</h1>
-      <a ng-click="logOut()">log out</a>
+<div class=" center row" ng-controller="homeCtrl">
+    <div class="col s6">
+        <div class="card">
+            <div class="card-content black-text">
 
-        <div class="mdl-layout__tab-panel is-active" id="overview">
-
-
-            <section class="section--center">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-
-                            <div class="card-content">
-                                <h4 class="card-title">location<i class="material-icons">save</i></h4>
-                                <p>{{ newReservation }}</p>
-
-                                <div class="row">
-                                    <form ng-submit="Create()" novalidate name="ReservationForm">
-                                        <div class="row">
-
-
-                                            <div class="col s2">
-                                                <label for="date_debut">Date Début</label>
-                                            </div><!--end of col s2--->
-
-
-                                            <div class="input-field col s10">
-                                                <input input-date
-                                                       type="text"
-                                                       name="created"
-                                                       id="inputCreated"
-                                                       ng-model="newReservation.dateDebut"
-                                                       container="body"
-                                                       format="dd/mm/yyyy"
-                                                       months-full="{{ month }}"
-                                                       months-short="{{ monthShort }}"
-                                                       weekdays-full="{{ weekdaysFull }}">
-                                            </div><!--end of col s0--->
-
-                                            <div class="input-field col s12">
-                                                <input  type="text" class="validate" ng-model="newReservation.heureDebut"
-                                                        required>
-                                                <label for="heure_fin">Heure Début</label>
-                                            </div><!--end of col s12--->
-
-                                        </div><!--end of row---->
-
-                                        <div class="row">
-                                            <div class="input-field col s12 ">
-                                                <select class=""  material-select watch ng-model="newReservation.lieuPrise">
-                                                    <option value="" disabled selected>Lieu de Prise</option>
-                                                    <option value="Tunis">Tunis</option>
-                                                    <option value="Sfax">Sfax</option>
-                                                    <option value="Jerba">Jerba</option>
-                                                </select>
-                                                </select>
-
-                                            </div><!--end of col s12-->
-                                        </div><!--end of row---->
-
-                                        <div class="divider"></div>
-
-
-                                        <div class="col s2">
-                                            <label for="date_fin">Date Fin</label>
-                                        </div><!--end of col 12-->
-
-
-                                        <div class="input-field col s10">
-                                            <input input-date
-                                                   type="text"
-                                                   name="created"
-                                                   id="dateFin"
-                                                   ng-model="newReservation.dateFin"
-                                                   container="body"
-                                                   format="dd/mm/yyyy"
-                                                   months-full="{{ month }}"
-                                                   months-short="{{ monthShort }}"
-                                                   weekdays-full="{{ weekdaysFull }}">
-
-                                        </div><!--end of col s10-->
-
-
-                                        <div class="input-field col s12">
-                                            <input  type="text" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
-                                                    required>
-                                            <label for="heure_fin">Heure Fin</label>
-                                        </div><!--end of col s12--->
-
-
-                                        <div class="row">
-                                            <div class="input-field col s12 ">
-                                                <select class=""  material-select watch ng-model="newReservation.lieuRetour">
-                                                    <option value="" disabled selected>Lieu de Retour</option>
-                                                   <option value="Tunis">Tunis</option>
-                                                    <option value="Sfax">Sfax</option>
-                                                    <option value="Jerba">Jerba</option>
-                                                </select>
-
-                                            </div><!--end of col s12-->
-                                        </div><!--end of row--->
-
-                                        <button class="waves-effect waves-light btn">Réserver</button>
-                                    </form><!--end of form---->
-                                </div><!--end of row--->
+                <nav>
+                    <div class="nav-wrapper teal lighten-2">
+                        <div class="col s12">
+                            <ul>
+                            <li class="active"><a class=" breadcrumb">Ou et quand</a></li>
+                            <li><a href="#!" class="breadcrumb">Choix Voiture</a></li>
+                            <li><a href="#!" class="breadcrumb">Options</a></li>
+                            <li><a href="#!" class="breadcrumb">Confirmation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
 
 
 
 
 
-                            </div><!--end of card content----------->
+                <form ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl" ng-model="ReservationForm">
+                    <h5>Réservez maintenat {{ newReservation }}</h5>
 
 
-                            <div class="card-action">
 
-                            </div><!--end of card action-------->
 
-                        </div><!--end of row-->
-                    </div><!--end of col --->
-                </div><!--end of content---->
 
-            </section>
+                    <div class="row">
+
+
+                        <div class="col s6">
+
+
+
+                            <div class="col s2">
+                                <label for="date_debut">Date Début</label>
+                            </div><!--end of col s2--->
+
+
+                            <div class="input-field col s10 validate">
+                                <input input-date
+                                       type="text"
+                                       name="dateDebut"
+                                       id="inputCreated"
+                                       ng-model="newReservation.dateDebut"
+                                       container="body"
+                                       format="dd/mm/yyyy"
+                                       months-full="{{ month }}"
+                                       months-short="{{ monthShort }}"
+                                       weekdays-full="{{ weekdaysFull }}"
+                                        required
+                                      >
+                            </div><!--end of col s0--->
+                        </div><!--end of col s6---->
+
+
+                        <div class="col s6">
+
+
+
+                            <div class="col s2">
+                                <label for="date_fin">Date Fin</label>
+                            </div><!--end of col 12-->
+
+
+                            <div class="input-field col s10 validate">
+                                <input input-date
+                                       type="text"
+                                       name="dateFin"
+                                       id="dateFin"
+                                       ng-model="newReservation.dateFin"
+                                       container="body"
+                                       format="dd/mm/yyyy"
+                                       months-full="{{ month }}"
+                                       months-short="{{ monthShort }}"
+                                       weekdays-full="{{ weekdaysFull }}"
+                                        required>
+
+                            </div><!--end of col s10-->
+
+
+                        </div><!--end of col s6--->
+
+
+
+
+                    </div><!--end of row----->
 
 
 
@@ -131,10 +97,585 @@
 
 
 
+                    <div class="row">
+                        <div class="col s6">
+
+
+
+                            <div class="col s2">
+                                <label for="heure_fin">Heure Début</label>
+                            </div><!--end of col s2--->
+                            <div class="input-field col s10">
+                                <input  type="text" class="validate" ng-model="newReservation.heureDebut"
+                                        required name="heureDebut">
+
+                            </div><!--end of col s10--->
+
+
+                        </div><!--end of col s6---------->
+
+                        <div class="col s6">
+
+                            <div class="col s2">
+                                <label for="heure_fin">Heure Fin</label>
+                            </div><!--end of col 2-->
+
+                            <div class="input-field col s10">
+                                <input  type="text" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
+                                        required name="heureFin">
+
+                            </div><!--end of col s10--->
+
+                        </div><!--end of col s6-->
+
+                    </div><!--end of row-->
+
+
+
+
+
+                    <div class="row">
+
+
+
+
+                        <div class="col s6">
+                            <select  ng-model="newReservation.lieuPrise" material-select required >
+
+
+                                <option value="" disabled selected>lieur de Prise</option>
+                                <option value="Tunis">Tunis</option>
+                                <option value="Jerba">Jerba</option>
+                                <option value="Sfax">Sfax</option>
+                            </select>
+                        </div><!--end of col s6--->
+
+
+                        <div class="col s6">
+
+                            <select  ng-model="newReservation.lieuRetour" material-select required >
+                                <option value="" disabled selected>lieur de Retour</option>
+                                <option value="Tunis">Tunis</option>
+                                <option value="Jerba">Jerba</option>
+                                <option value="Sfax">Sfax</option>
+                            </select>
+
+                        </div><!--end of col s6--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div><!--end of row---->
+
+                    <div class="row">
+
+
+
+
+                        <p ng-show="newReservation.dateDebut>newReservation.dateFin" style="color: #b71c1c"
+                           class="center-align">
+                           Vous devez choisir des  Dates valides <i class="material-icons">error</i>
+                        </p>
+                        <p ng-show="ReservationForm.dateDebut.$invalid &&  !ReservationForm.dateDebut.$pristine" style="color: #b71c1c">
+                            Vous devez indiquer une date <i class="material-icons">error</i>
+                        </p>
+
+                        <p ng-show="ReservationForm.dateFin.$invalid &&  !ReservationForm.dateFin.$pristine" style="color: #b71c1c">
+                            Vous devez indiquer une date <i class="material-icons">error</i>
+                        </p>
+
+
+
+
+
+
+
+                        <!---------------------------->
+
+
+                        <p ng-show="ReservationForm.heureDebut.$invalid &&  ReservationForm.heureDebut.$dirty" style="color: #b71c1c">
+                            Vous devez indique une heureDebut! <i class="material-icons">error</i>
+                        </p>
+
+
+
+
+                        <p ng-show="ReservationForm.heureFin.$invalid &&  ReservationForm.heureFin.$dirty" style="color: #b71c1c">
+                            Vous devez indique une heure fin ! <i class="material-icons">error</i>
+                        </p>
+
+
+
+
+
+                    </div>
+
+                    <button class=" modal-action modal-close waves-effect waves-light btn" >Réservez</button>
+
+
+
+
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div><!--end of col s6---->
+
+
+    <div class="col s6">
+        <div class="parallax"><img src="/images/fullscreen.jpg" alt="img"></div>
+    </div>
 
 
 
 
 </div>
 
+
+
+
+<!----------------------------------------------------------------------------->
+<div class="container section scrollspy" >
+    <div class="section">
+
+        <div class=" card-panel center-align">
+            <h5 class=" waves-effect waves-light" style="color: #8bc34a">
+                Réservation Mobile <h5 class="animated infinite bounce">Example</h5>
+            </h5>
+            <ul class="share-buttons">
+
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" target="_blank" title="Share on Facebook"><img src="/images/play.jpg"></a></li>
+                <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet"><img src="/images/ios.jpg"></a></li>
+
+            </ul>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+
+
+            <div class=" card-panel center-align">
+                <h5 class=" waves-effect waves-light" style="color: #8bc34a">Nos Offres</h5>
+            </div>
+
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+
+                    <h5 class="center">Audi A4
+
+                    </h5>
+
+
+                    <div class="card">
+                        <div class="card-image ">
+                            <img src="/images/symbol.jpg">
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+
+                    <h5 class="center">Mercedes E200</h5>
+
+
+
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/symbol.jpg">
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+
+                    <h5 class="center">Fiat punto </h5>
+
+
+
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/symbol.jpg">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+
+                    <h5 class="center">Fiat punto </h5>
+
+
+
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/symbol.jpg">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+
+                    <h5 class="center">Fiat punto </h5>
+
+
+
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/symbol.jpg">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+
+                    <h5 class="center">Fiat punto </h5>
+
+
+
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/images/symbol.jpg">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="center">
+            <a class="waves-effect waves-light btn">Voir Nos Voitures</a>
+            </div><!--end of div---->
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div class="parallax-container valign-wrapper" style="width: 100%">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class=" card-panel row center">
+                <h5 class="header col s12" style="color: #333;">S'abonner à la newsletter Sixt <i class="material-icons">email</i></h5>
+
+                <form class="col s12">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!----------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----------------->
+
+
+
+
+
+
+
+<div class="container section scrollspy" id="projects">
+    <div class="section">
+        <br>
+        <br>
+        <h4 class="center">Nos lieux de Prise <i class="material-icons">place</i> </h4>
+        <br>
+        <div class="row">
+            <div class="col s4">
+                <div class=" center"> <strong>Tunis</strong></div>
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/tunis.jpg">
+            </div>
+            <div class="col s4">
+                <div class=" center"> <strong>Sfax</strong></div>
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/SFAX.jpg">
+            </div>
+
+            <div class="col s4">
+                <div class=" center"> <strong>Gafsa</strong></div>
+                <img class="materialboxed responsive-img" data-caption="Description about the work or project"  src="/images/Gafsa.jpg">
+            </div>
+        </div><!--row-->
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+            <div class="center row col s3">
+
+                <h3>King Rent Car</h3>
+                <h4>A votre Disposition</h4>
+            </div>
+
+
+<div class="container">
+
+
+<div class="row">
+
+
+            <div class=" col s12 m6">
+
+
+                    <h6><strong>King Rent Car</strong></h6>
+                    <p>66, Avenue Taieb Mhiri,. 2080, Ariana, Tunisie,</p>
+                    <h6><strong>E-mail </strong> :</h6>
+                    <p>king.rent.car@hotmail.com</p>
+
+
+                    <h6><strong>Fax </strong> :</h6>
+                    <p>(+216) 71 710 853</p>
+
+                    <h6> <strong>Phone : </strong> </h6>
+                    <p>(+216) 71 710 853</p>
+                    <p>(+216) 28 868 001</p>
+                    <p>(+216) 54 161 052</p>
+
+                </div>
+
+
+    <div class="col md6">
+
+
+
+        <ul class="share-buttons">
+
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" target="_blank" title="Share on Facebook"><img src="/images/flat_web_icon_set/inverted/Facebook.png"></a></li>
+            <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet"><img src="/images/flat_web_icon_set/inverted/Twitter.png"></a></li>
+            <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+"><img src="/images/flat_web_icon_set/inverted/GooglePlus.png"></a></li>
+        </ul>
+
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+
+
+        <a class="waves-effect waves-light btn">Contact</a>
+
+    </div>
+
+
+
+</div><!--end of row--->
+</div>
+
+
+
+
+
+
+    <div class="row">
+
+
+
+            <h5 class="center-align">Avis Clients</h5>
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+
+                    <div class="col s2">
+                        <img src="images/tunis.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                    </div><!--end of col s2--->
+
+                    <div class="col s10">
+              <span class="black-text">
+               King Rent Car c'est le meilleur Choix
+
+                  <i class="material-icons">favorite</i>
+                   <i class="material-icons">favorite_border</i>
+                  <i class="material-icons">favorite</i>
+              </span>
+                    </div><!--end of col s10-->
+                </div><!--end of row---->
+
+
+                <div class="row valign-wrapper">
+
+                    <div class="col s2">
+                        <img src="images/tunis.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                    </div><!--end of col s2--->
+
+                    <div class="col s10">
+              <span class="black-text">
+               King Rent Car c'est le meilleur Choix
+                  <i class="material-icons">favorite_border</i>
+                 <i class="material-icons">favorite</i>
+                  <i class="material-icons">favorite_border</i>
+              </span>
+                    </div><!--end of col s10-->
+                </div><!--end of row---->
+
+
+
+            </div>
+        </div>
+
+</div>
+
+<script src='//maps.googleapis.com/maps/api/js?key=AIzaSyBYRaa7QZ30PCCo_BJ6OR_g8dpxkld9E7M'></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('.parallax').parallax();
+    });
+
+</script>

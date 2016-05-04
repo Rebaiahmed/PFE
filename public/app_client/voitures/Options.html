@@ -1,32 +1,9 @@
 <div class="container" ng-controller="optionsCtrl">
 
-
-
-
-<div class="row" style="height: 10px">
-
-    <nav>
-        <div class="nav-wrapper">
-            <div class="col s12">
-                <a href="#!" class="breadcrumb">First</a>
-                <a href="#!" class="breadcrumb">Second</a>
-                <a href="#!" class="breadcrumb">Third</a>
-            </div>
-        </div>
-    </nav>
-
-</div><!--end of row--->
-    <hr>
-
-
-
-
-
-
-
-
-
     <div class="row">
+
+
+
         <div class="col m6 s12">
 
 
@@ -43,14 +20,13 @@
                         </div>
                         <div class="card-content">
                            <ul>
-                               <li style="color: red" class="collection">Prix location {{ voiture.prixLocation  }}</li>
-                               <li class="collection">Categorie :{{ voiture.categorie }}</li>
-                               <li class="collection"><span class="new badge">4</span></li>
+                               <li><strong>Prix location </strong> {{ voiture.prixLocation  }}</li>
+                               <li><strong>Categorie </strong> :{{ voiture.categorie }}</li>
+                               <li><strong>Puissance</strong> :{{ voiture.Modele.puissance }}</li>
+                               <li><strong>Carburant </strong> :{{ voiture.Modele.carburant }}</li>
                            </ul>
                         </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -77,8 +53,8 @@
 
     <div class="row">
         <div class="col s12 m12">
-            <div class="card g teal darken-1">
-                <div class="card-content white-text">
+            <div class="card  ">
+                <div class="card-content text-darken-2">
                     <span class="card-title">2 éme Chauffeurr <i class="material-icons">perm_identity</i></span>
                     <p>Conducteur supplémentaire</p>
                     <p>{{ voiture.Modele.prixChauffeur}} Dt/jour</p>
@@ -86,7 +62,7 @@
                 <div class="card-action">
                     <p>
                         <input type="checkbox" id="test4" ng-model=" newReservation.Chauffeur" />
-                        <label for="test4">Sélectionner  {{ newReservation.Chauffeur }}</label>
+                        <label for="test4">Sélectionner  </label>
                     </p>
                 </div>
             </div>
@@ -100,8 +76,8 @@
 
     <div class="row">
         <div class="col s12 m12">
-            <div class="card  teal darken-1">
-                <div class="card-content white-text">
+            <div class="card  ">
+                <div class="card-content text-darken-2">
                     <span class="card-title">GPS <i class="material-icons">gps_fixed</i></span>
                     <p>Demandez le périphérique Garmin Nuvi 650 Navigation Peu importe où vous êtes,
                         obtenir les directions tour-par-tour où vous êtes censé être. Il est simple, facile et abordable!</p>
@@ -126,8 +102,8 @@
 
     <div class="row">
         <div class="col s12 m12">
-            <div class="card  teal darken-1">
-                <div class="card-content white-text">
+            <div class="card   ">
+                <div class="card-content text-darken-2t">
                     <span class="card-title">Chaise Baby <i class="material-icons">child_care</i></span>
                     <p>	Siège bébé.</p>
 
@@ -159,7 +135,7 @@
 
 
          <h5>Réservation</h5>
-            <table class="striped ">
+            <table class="striped card-panel ">
                 <thead>
                 <tr>
                     <th data-field="id">Date Début <i class="material-icons">date_range</i> </th>
@@ -205,6 +181,42 @@
                 </tbody>
 
 
+
+
+                <thead>
+                <tr>
+                    <th data-field="id">lieur de Prise <i class="material-icons prefix">home</i></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+
+
+   <td>
+       <img src="/images/tunis.jpg" alt="" class="circle responsive-img">
+   </td> <!-- notice the "circle" class -->
+
+
+
+                </tr>
+                </tbody>
+
+<!------------------------->
+                <thead>
+                <tr>
+                    <th data-field="id">lieur de Retour <i class="material-icons">home</i></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <img src="/images/tunis.jpg" alt="" class="circle responsive-img">
+                    </td> <!-- notice the "circle" class -->
+                </tr>
+                </tbody>
 
 
 </table>

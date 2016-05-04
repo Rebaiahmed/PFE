@@ -19,6 +19,7 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "googleapis": "~5.2.1",
-    "google-auth-library": "~0.9.7"
+    "google-auth-library": "~0.9.7",
+    "nodemailer": "~0.7.1"
   }
 }

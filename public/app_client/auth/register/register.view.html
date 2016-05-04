@@ -9,18 +9,16 @@
 <div class="container" ng-controller="registerCtrl">
     <div class="row">
 
+        <div class="card large">
 
 
-        <div class="col-md-6 col-sm-12">
-            <div class="panel panel-default">
 
-                <div class="panel-heading">
-                   <h3>   <i class="material-icons">account_box</i>       Créer Votre compte </h3>
-                </div>
+                   <h3 class="center-align">   <i class="material-icons">account_box</i> Créer Votre compte </h3>
 
 
-                <div class="panel-body">
-<form ng-submit="onSubmit()" name="registerForm" novalidate>
+
+
+<form ng-submit="onSubmit()" name="registerForm" novalidate ng-model="registerForm">
 
 
 <div class="row">
@@ -28,21 +26,28 @@
 
 
 
-    <div class="form-group col s6">
-        <label for="name">Nom</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="newClient.nom"
-                name="nom" required>
+    <div class="input-field col s6">
 
-        <p ng-show="registerForm.nom.$invalid && !registerForm.nom.$pristine" class="error">Veuillez Remplir tous les champs</p>
+        <input type="text" class="form-control" id="name"  ng-model="newClient.nom"
+                name="nom" required>
+        <label for="name">Nom</label>
+ <span style="color: #d32f2f" ng-show="submitted && registerForm.nom.$error.required">
+                            Veuillez indiquer indiquer votre nom
+                        </span>
     </div>
 
 
 
-    <div class="form-group col s6">
-        <label for="prenom">Prénom</label>
-        <input type="text" class="form-control" id="prenom" placeholder="Enter your name" ng-model="newClient.prenom"
+    <div class="input-field col s6">
+
+        <input type="text" class="form-control" id="prenom"  ng-model="newClient.prenom"
                 required name="prenom">
-        <p ng-show="registerForm.prenom.$invalid && !registerForm.prenom.$pristine" class="error">Veuillez Remplir tous les champs</p>
+        <label for="prenom">Prénom</label>
+
+         <span style="color: #d32f2f" ng-show="submitted && registerForm.prenom.$error.required">
+                            Veuillez indiquer indiquer votre Prenom
+                        </span>
+
     </div>
 
 
@@ -62,21 +67,26 @@
 
 
 
-        <div class="form-group col s6">
-            <label for="name"><i class="material-icons">location_city</i>Adresse</label>
-            <input type="text" class="form-control" id="adresse" placeholder="Enter your name" ng-model="newClient.adresse"
-                   name="adresse" required>
+        <div class="input-field col s6">
 
-            <p ng-show="registerForm.adresse.$invalid && !registerForm.adresse.$pristine" class="error">Veuillez Remplir tous les champs</p>
+            <input type="text" class="form-control" id="adresse"  ng-model="newClient.adresse"
+                   name="adresse" required>
+            <label for="name"><i class="material-icons">location_city</i>Adresse</label>
+  <span style="color: #d32f2f" ng-show="submitted && registerForm.adresse.$error.required">
+                            Veuillez indiquer indiquer votre Adressse
+                        </span>
         </div>
 
 
 
-        <div class="form-group col s6">
-            <label for="prenom"><i class="material-icons">settings_phone</i>Num télephone</label>
-            <input type="text" class="form-control" id="phone" placeholder="Enter your name" ng-model="newClient.numTel1"
+        <div class=" input-field col s6">
+
+            <input type="text" class="form-control" id="phone"  ng-model="newClient.numTel1"
                    required name="phone">
-            <p ng-show="registerForm.phone.$invalid && !registerForm.phone.$pristine" class="error">Veuillez Remplir tous les champs</p>
+            <label for="phone"><i class="material-icons">settings_phone</i>Num télephone</label>
+            <span style="color: #d32f2f" ng-show="submitted && registerForm.phone.$error.required">
+                            Veuillez indiquer indiquer votre num telephone
+                        </span>
         </div>
 
 
@@ -111,11 +121,17 @@
 
 
 
-    <div class="form-group col s6">
-        <label for="email"><i class="material-icons">email</i>Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="newClient.email"
+    <div class=" input-field col s6">
+
+        <input type="email" class="form-control" id="email"  ng-model="newClient.email"
                 required name="email">
-        <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="error">Veuillez Remplir tous les champs</p>
+        <label for="email"><i class="material-icons">email</i>Email address</label>
+          <span style="color: #d32f2f" ng-show="submitted && registerForm.email.$error.required">
+                            Veuillez indiquer indiquer votre email
+                        </span>
+         <span style="color: #d32f2f" class="help-inline" ng-show="submitted && loginForm.email.$error.email">
+                            Saisissez une adresse e-mail valide
+                        </span>
 
 
 
@@ -126,29 +142,41 @@
         </div>
 
 
+    </div><!---------end of col s6----------->
+
+    <div class=" input-field col s6">
+
+
+        <input type="password"  id="password"  ng-model="newClient.password"
+               name="password" required>
+        <label for="password"><i class="material-icons">https</i>Password</label>
+ <span style="color: #d32f2f" ng-show="submitted && registerForm.password.$error.required">
+                            Veuillez indiquer indiquer votre mot de passe
+                        </span>
+
+
+
     </div>
+
+
+
 </div><!-----end of row------------->
 
-    <div class="form-group col s6">
-        <label for="password"><i class="material-icons">https</i>Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="newClient.password"
-                name="password" required>
-        <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" class="error">Veuillez Remplir tous les champs</p>
-    </div>
 
 
 
 
-<div class="row">
 
+<div>
 
-    <button type="submit" class="btn btn-success" ng-disabled="registerForm.$invalid">Register!<i class="material-icons">skip_next</i></button>
-    {{ newClient }}
-
+<div class="center-align">
+    <button type="submit" class="waves-effect waves-light btn center-align" >Register!<i class="material-icons">skip_next</i></button>
+</div><!--end of div button--->
 </div><!--end of row---->
 </form>
-                    </div>
-</div>
-        </div><!--end of col md-6-->
+
+            </div><!--end of card large --->
+
+
     </div><!--end of row-->
 </div><!--end of container-->

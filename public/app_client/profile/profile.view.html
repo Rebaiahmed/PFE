@@ -1,10 +1,121 @@
-<div ng-controller="profileCtrl">
+<div class="container" ng-controller="profileCtrl">
 
 
 
 
-<h1>THis is profile page </h1>
-    <p>{{ user.nom }}</p>
+    <div class="col s2">
+        <img src="images/avatar.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+    </div>
+
+<div class="col s2">
+    <h6>Bienvinue Mr Profile <strong>{{ user.nom }}</strong></h6>
+</div>
+
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a href="#test1">Mes Réservations</a></li>
+
+
+                <li class="tab col s3"><a href="#test4">Réglages</a></li>
+            </ul>
+        </div>
+        <div id="test1" class="col s12">
+
+<h5>vos Réservations</h5>
+            <table>
+                <thead>
+                <tr>
+                    <th data-field="id">Numéro</th>
+
+                    <th data-field="price">Prix totale</th>
+                    <th data-field="price">Détails Réservations</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-if="reservations.length==0">
+                    <td>Vous n'avez pas effectuez aucun réservation</td>
+
+                </tr>
+                <tr ng-repeat="res in reservations ">
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div id="test4" class="col s12">
+
+            <h5>Modifiez les Réglages de Votre Compte</h5>
+            <hr>
+
+            <div class="row">
+                <form class="col s12" name="profileForm" ng-submit="updateProfile()">
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input  id="first_name" type="text" class="validate" ng-model="user.nom">
+                            <label for="first_name">Nom</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="last_name" type="text" class="validate" ng-model="user.prenom">
+                            <label for="last_name">Prénom</label>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input disabled  id="email" type="email" class="validate" ng-model="user.email">
+                            <label for="email">Email</label>
+                        </div>
+
+  <p style="color: #e53935">Vous ne pouvez pas changer votre adresse e-mail</p>
+
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input id="numtel1" type="text" class="validate" ng-model="user.numTel1">
+                            <label for="numtel1">Num tel1</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="numtel2" type="text" class="validate" ng-model="user.numTel2">
+                            <label for="numtel2">Num tel2(opt)</label>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <input id="adresse" type="text" class="validate" ng-model="user.adresse">
+                            <label for="adresse">Adressse</label>
+                        </div>
+
+                    </div>
+
+
+
+                    <button type="submit" class="waves-effect waves-light btn"><i class="material-icons prefix">update</i>Enregistrer</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+    });
+
+</script>
