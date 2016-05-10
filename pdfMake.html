@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>my first pdfmake example</title>
+    <script src='bower_components/pdfmake/build/pdfmake.js'></script>
+    <script src='bower_components/pdfmake/build/vfs_fonts.js'></script>
+</head>
+<body>
+<h1 id="ahmed">ahmed</h1>
+<script>
+    var a=11
+    var docDefinition = { content: 'ahmed a '+ a };
+    pdfMake.createPdf(docDefinition).open();
+    pdfMake.createPdf(docDefinition).download();
+</script>
+</body>
+</html>

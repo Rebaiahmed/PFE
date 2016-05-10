@@ -1,0 +1,50 @@
+<div class="container">
+<div class="row">
+
+    <style>
+        .has-error
+        {
+            color: #a94442;
+        }
+    </style>
+
+    <div class="col s6" id="formlogin" >
+    <form ng-submit="onSubmit()" name="adminForm" novalidate ng-model="adminForm">
+
+
+
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="email" type="email" class="validate" ng-model="data.email" required name="email">
+                <label for="email">Email</label>
+                <p class="red-text darken-1-text" ng-show="submitted && adminForm.email.$error.required">wrong email</p>
+                <p class="red-text darken-1-text" ng-show="submitted && adminForm.email.$error.email">invalide email</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="password" type="password" class="validate" required ng-model="data.password" required name="password">
+                <label for="password">Password</label>
+                <p class="red-text darken-1-text" ng-show="submitted && adminForm.password.$error.required">wrong password</p>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">sign-in
+            <i class="material-icons right">send</i>
+        </button>
+
+
+    </form>
+
+        <div class="card-panel" ng-show="error">
+            <span class="red-text text-darken-2">données erronées ! 3</span>
+        </div>
+
+        </div><!--end of col s-->
+
+
+
+
+
+
+</div><!--end of row-->
+</div><!--end of container-->

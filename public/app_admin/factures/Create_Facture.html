@@ -1,0 +1,144 @@
+
+
+<div class="container" ng-controller="FacturesController"  ng-model="facture" id="content">
+
+
+
+
+    <div class="row">
+        <div class="col s3">
+            <a ng-click="save(facture)" class="waves-effect waves-light btn"><i class="material-icons">save</i>Sauver</a>
+        </div><!--end col--s3-->
+    </div><!--end of row-->
+    <div class="row">
+        <div class="col s3">
+            <a id="create_pdf"  class="waves-effect waves-light btn"><i class="material-icons">picture_as_pdf</i>Génere PDF</a>
+        </div><!--end of col s3-->
+    </div><!--end of row-->
+
+
+
+
+
+
+
+
+    <div class="center">
+        <h5 id="titre" class="center-align">Facture N°032/2016</h5>
+    </div>
+
+    <div class="row">
+        <p class="right-align">Tunis le {{ }} </p>
+    </div>
+
+    <div class="row">
+        <p class="left-align"><strong>Client : {{ location.Client.nom + ' ' + location.Client.prenom }}</strong></p>
+        <p class="left-align"><strong>MF :1236 V/A/1000</strong></p>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+        <table>
+            <thead>
+            <tr>
+                <th data-field="id">Nature des services</th>
+                <th data-field="name">Montant</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>
+                    <p>location d'une voiture Renault Symbol pour uen periode de 10 jours<br> a partir
+                        de 29/04/2016 au 09/05/2016</p>
+
+                    <div class="right-align">
+                        <table class="bordered">
+                            <tbody>
+                            <tr>Total hors TVA </tr>
+                            <br>
+                            <tr>T.V.A </tr>
+                            <br>
+                            <tr>Total TTc </tr>
+                            <br>
+                            <tr>Timbre fiscal :</tr>
+                            <br>
+                            <tr><strong>Total :</strong></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="right-align">
+                        <table class="bordered">
+                            <tbody>
+                            <tr>{{ facture.prixHt }}</tr>
+                            <br>
+                            <tr>18</tr>
+                            <br>
+                            <tr>{{ facture.prixTT }}</tr>
+                            <br>
+                            <tr>0.500</tr>
+                            <br>
+                            <tr><strong>{{ facture.prixTT+ 0.500 }}</strong></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+    <p>Valeur en votre aimable réglement</p>
+
+
+    <div>
+        <h5 class="right-align">la Direction</h5>
+    </div>
+
+    <a href="http://html2pdfrocket.com/html/topdf?value=http://www.google.co.nz&apikey=737ef6e8-4172-44eb-b6ec-e50c3df7b6e9">Download Current Page as PDF</a>
+
+
+
+
+</div><!--end of container--->
+
+
+<script type="text/javascript">
+    var doc = new jsPDF();
+
+    // We'll make our own renderer to skip this editor
+    var specialElementHandlers = {
+        '#editor': function(element, renderer){
+            return true;
+        }
+    };
+
+    // All units are in the set measurement for the document
+    // This can be changed to "pt" (points), "mm" (Default), "cm", "in"
+    doc.fromHTML($('#content').get(0), 30, 40, {
+        'width': 30,
+        'elementHandlers': specialElementHandlers
+    });
+
+
+    $('a').click(function(){
+        doc.save('TestHTMLDoc.pdf');
+    });
+</script>

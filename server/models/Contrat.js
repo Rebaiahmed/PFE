@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     kilometrageRetour: {
       type: DataTypes.INTEGER(11),
-      allowNull: false
+      allowNull: true
     },
     prixHt: {
       type: DataTypes.FLOAT,

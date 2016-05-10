@@ -1,30 +1,15 @@
 
-
+<style>
+    .angular-google-map-container { height: 400px; }
+</style>
 <div class=" center row" ng-controller="homeCtrl">
     <div class="col s6">
         <div class="card">
             <div class="card-content black-text">
 
-                <nav>
-                    <div class="nav-wrapper teal lighten-2">
-                        <div class="col s12">
-                            <ul>
-                            <li class="active"><a class=" breadcrumb">Ou et quand</a></li>
-                            <li><a href="#!" class="breadcrumb">Choix Voiture</a></li>
-                            <li><a href="#!" class="breadcrumb">Options</a></li>
-                            <li><a href="#!" class="breadcrumb">Confirmation</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-
-
-
-
-
 
                 <form ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl" ng-model="ReservationForm">
-                    <h5>Réservez maintenat {{ newReservation }}</h5>
+                    <h5>Réservez maintenat </h5>
 
 
 
@@ -33,7 +18,7 @@
                     <div class="row">
 
 
-                        <div class="col s6">
+                        <div class="col s8">
 
 
 
@@ -59,7 +44,34 @@
                         </div><!--end of col s6---->
 
 
-                        <div class="col s6">
+                        <div class="col s4">
+
+
+                            <div class="col s2">
+                                <label for="heure_fin">Heure Début</label>
+                            </div><!--end of col s2--->
+                            <div class="input-field col s10">
+                                <input  type="time" class="validate" ng-model="newReservation.heureDebut"
+                                        required name="heureDebut">
+
+                            </div><!--end of col s10--->
+
+
+                        </div><!--end of col s6--->
+
+
+
+
+                    </div><!--end of row----->
+
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col s8">
 
 
 
@@ -79,49 +91,21 @@
                                        months-full="{{ month }}"
                                        months-short="{{ monthShort }}"
                                        weekdays-full="{{ weekdaysFull }}"
-                                        required>
+                                       required>
 
                             </div><!--end of col s10-->
 
 
-                        </div><!--end of col s6--->
-
-
-
-
-                    </div><!--end of row----->
-
-
-
-
-
-
-
-                    <div class="row">
-                        <div class="col s6">
-
-
-
-                            <div class="col s2">
-                                <label for="heure_fin">Heure Début</label>
-                            </div><!--end of col s2--->
-                            <div class="input-field col s10">
-                                <input  type="text" class="validate" ng-model="newReservation.heureDebut"
-                                        required name="heureDebut">
-
-                            </div><!--end of col s10--->
-
-
                         </div><!--end of col s6---------->
 
-                        <div class="col s6">
+                        <div class="col s4">
 
                             <div class="col s2">
                                 <label for="heure_fin">Heure Fin</label>
                             </div><!--end of col 2-->
 
                             <div class="input-field col s10">
-                                <input  type="text" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
+                                <input  type="time" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
                                         required name="heureFin">
 
                             </div><!--end of col s10--->
@@ -140,24 +124,28 @@
 
 
                         <div class="col s6">
-                            <select  ng-model="newReservation.lieuPrise" material-select required >
+                            <select  ng-model="newReservation.lieuPrise" material-select required name="lieuPrise" >
 
 
                                 <option value="" disabled selected>lieur de Prise</option>
-                                <option value="Tunis">Tunis</option>
-                                <option value="Jerba">Jerba</option>
-                                <option value="Sfax">Sfax</option>
+                                <option value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
+                                <option value="Nfidha">Aéroport  de Nfidha</option>
+                                <option value="Mounsatir">Aéroport Mounastir</option>
+                                <option value="Djerba">Aéroport Djerba</option>
+                                <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
                             </select>
                         </div><!--end of col s6--->
 
 
                         <div class="col s6">
 
-                            <select  ng-model="newReservation.lieuRetour" material-select required >
-                                <option value="" disabled selected>lieur de Retour</option>
-                                <option value="Tunis">Tunis</option>
-                                <option value="Jerba">Jerba</option>
-                                <option value="Sfax">Sfax</option>
+                            <select  ng-model="newReservation.lieuRetour" material-select required name="lieuRetour">
+                                <option value="" disabled selected>lieur de Prise</option>
+                                <option value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
+                                <option value="Nfidha">Aéroport  de Nfidha</option>
+                                <option value="Mounsatir">Aéroport Mounastir</option>
+                                <option value="Djerba">Aéroport Djerba</option>
+                                <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
                             </select>
 
                         </div><!--end of col s6--->
@@ -176,50 +164,54 @@
 
                     </div><!--end of row---->
 
-                    <div class="row">
+                    <div class="row" style="color: #d32f2f">
 
 
 
 
-                        <p ng-show="newReservation.dateDebut>newReservation.dateFin" style="color: #b71c1c"
+                        <p ng-show="submitted && newReservation.dateDebut>newReservation.dateFin"
                            class="center-align">
                            Vous devez choisir des  Dates valides <i class="material-icons">error</i>
                         </p>
-                        <p ng-show="ReservationForm.dateDebut.$invalid &&  !ReservationForm.dateDebut.$pristine" style="color: #b71c1c">
-                            Vous devez indiquer une date <i class="material-icons">error</i>
+                        <p ng-show=" submitted && ReservationForm.dateDebut.$error.required ">
+                            Veuillez indiquer une date de debut s'il vous plaît. <i class="material-icons">error</i>
                         </p>
 
-                        <p ng-show="ReservationForm.dateFin.$invalid &&  !ReservationForm.dateFin.$pristine" style="color: #b71c1c">
-                            Vous devez indiquer une date <i class="material-icons">error</i>
+                        <p ng-show="submitted && ReservationForm.dateFin.$error.required ">
+                            Veuillez indiquer une date de retour s'il vous plaît. <i class="material-icons">error</i>
                         </p>
-
-
-
-
-
-
 
                         <!---------------------------->
 
 
-                        <p ng-show="ReservationForm.heureDebut.$invalid &&  ReservationForm.heureDebut.$dirty" style="color: #b71c1c">
-                            Vous devez indique une heureDebut! <i class="material-icons">error</i>
+                        <p ng-show=" submitted && ReservationForm.heureDebut.$error.required" >
+                            Veuillez indiquer une heure de prise s'il vous plaît. <i class="material-icons">error</i>
                         </p>
 
 
 
 
-                        <p ng-show="ReservationForm.heureFin.$invalid &&  ReservationForm.heureFin.$dirty" style="color: #b71c1c">
-                            Vous devez indique une heure fin ! <i class="material-icons">error</i>
+                        <p ng-show="submitted && ReservationForm.heureFin.$error.required">
+
+                            Veuillez indiquer une heure de retour s'il vous plaît.  <i class="material-icons">error</i>
                         </p>
 
 
+                        <p ng-show="submitted && ReservationForm.lieuRetour.$error.required">
+
+                            Merci d'indiquer le lieu de Prise  <i class="material-icons">error</i>
+                        </p>
+
+                        <p ng-show="submitted && ReservationForm.lieuPrise.$error.required">
+
+                            Merci d'indiquer le lieu de Retour  <i class="material-icons">error</i>
+                        </p>
 
 
 
                     </div>
 
-                    <button class=" modal-action modal-close waves-effect waves-light btn" >Réservez</button>
+                    <button class="waves-effect waves-light btn" >Réservez</button>
 
 
 
@@ -671,7 +663,7 @@
 
 </div>
 
-<script src='//maps.googleapis.com/maps/api/js?key=AIzaSyBYRaa7QZ30PCCo_BJ6OR_g8dpxkld9E7M'></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
 

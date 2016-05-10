@@ -146,13 +146,14 @@ Voiture.hasMany(Entretient,{constraints: true,foreignKey: 'Voiture_idVoiture'});
 
 
 /*var mng = Manager.build({
-    idManager :2,
-    nom : 'ahmed',
-    email :'ahmed@mail.com'
+
+    nom : 'manager',
+    email :'manager@mail.com',
+    role:'User'
 })
 
 
-mng.setPassword('ahmed');
+mng.setPassword('manager');
 
 mng.save().then(function(res){
     console.log('manager saved !');

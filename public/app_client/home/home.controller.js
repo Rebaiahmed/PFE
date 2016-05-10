@@ -20,7 +20,7 @@ angular
          */
         $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
 
-
+  $scope.submitted = false;
 
 
 
@@ -91,7 +91,7 @@ angular
 
 
 
-
+              $scope.submitted= true;
 
 
 
@@ -105,7 +105,7 @@ angular
 
                if ($scope.currentUser != null) {
                    $scope.newReservation.Client_idClient = $scope.currentUser.id;
-                   console.log('the id is :' + $scope.currentUser.id)
+
                }
 
 

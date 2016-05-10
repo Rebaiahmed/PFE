@@ -80,7 +80,7 @@ Router.route('/auth/client/sendMail')
  */
 
 Router.get('/auth/admin',function(req,res){
-    res.sendFile('./app_admin/auth/login/login_admin.html',{root: '/home/ahmed/WebstormProjects/login_pfe/public'});
+    res.sendFile('./app_admin/login_admin.html',{root: '/home/ahmed/WebstormProjects/login_pfe/public'});
 });
 
 
@@ -95,9 +95,9 @@ Router.post('/auth/admin/admin',authCtrl.login_admin)
 
 //-_-_-_-__ for the pre reservation
 
-Router.get('/auth/admin/admin/PreReservations',authAdmin,ReservationonCtrl.getPreReservation )
-
-      //.post(ReservationonCtrl.addPreReservation)
+Router.route('/auth/admin/admin/PreReservations')
+    .get(ReservationonCtrl.getPreReservation )
+      .post(ReservationonCtrl.addPreReservation)
 
 Router.route('/auth/admin/admin/PreReservations/:idPreReservation')
     .delete(ReservationonCtrl.deletePreservation);
@@ -177,6 +177,7 @@ Router.route('/auth/admin/admin/contrats')
 Router.route('/auth/admin/admin/contrats/:idContrat')
     .get(ContratCtrl.getContrat)
     .put(ContratCtrl.updateContrat)
+    .delete(ContratCtrl.deleteContrat)
 
 
 
@@ -191,6 +192,7 @@ Router.route('/auth/admin/admin/contrats/:idContrat')
 
 Router.route('/auth/admin/admin/Factures')
     .get(FactureCtrl.getFactures)
+    .post(FactureCtrl.postFacture)
 
 
 Router.route('/auth/admin/admin/Factures/:id_facture')

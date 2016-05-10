@@ -10,6 +10,10 @@ var passport = require('passport');
 var routes = require('./routes/api.js');
 
 
+var helmet = require('helmet')
+
+
+
 
 
 
@@ -39,12 +43,14 @@ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
 
 
+//utiliser helmet pour sécruiser
+app.use(helmet())
+app.use(helmet.noCache())
+app.use(helmet.frameguard())
 
 
-
-
-
-
+//xssFilter
+app.use(helmet.xssFilter())
 
 
 

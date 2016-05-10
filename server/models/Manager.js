@@ -22,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         hash: {
             type: DataTypes.STRING,
             allowNull: true
@@ -52,13 +56,14 @@ module.exports = function(sequelize, DataTypes) {
 
             generateJwt : function(){
                 var expiry = new Date();
-                //set the date of sesisin to 7 days
-                expiry.setDate(expiry.getDate()+ 7);
+                //set the date of sesisin to 24 hours
+                expiry.setDate(expiry.getHours()+ 24);
 
                 return jwt.sign({
                         _id  :this.idManager,
                         email :this.email,
                         nom : this.nom,
+                    role:this.role,
                         exp :parseInt(expiry.getTime()/1000)
                     },
                     "secret_admin");

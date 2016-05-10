@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
       references: {
         model: '',
         key: ''
@@ -19,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.FLOAT,
       allowNull: true
     },
-    montantTT: {
+        prixTT: {
       type: DataTypes.FLOAT,
       allowNull: true
     },

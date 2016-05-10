@@ -2,6 +2,7 @@ var models  = require('../models/index.js');
 
 var Contrat = models.Contrat ;
 var Reservation =models.Reservation;
+var Client = models.Client ;
 
 /*
  we will export the CRUD OPERATIONS
@@ -107,6 +108,8 @@ exports.getContrats = function(req,res)
         {
             include :[
                 {model :Reservation}
+
+
             ]
         }
     ).then(function(result){
@@ -296,7 +299,36 @@ var idContrat = req.params.idContrat ;
 
 
 
+exports.deleteContrat = function(req,res)
+{
+    // get the id
+    var id = req.params.idContrat ;
 
+
+
+    //we msut check if driver exist in the database
+    Contrat.findById(id)
+
+        .then(function(contrat){
+
+
+            if(!contrat)
+            {
+                res.json({'msg': 'contrat inconnue!'});
+
+            }
+
+            Contrat.destroy({
+                where :{
+                    'idContrat' : id
+                }
+            })
+
+            res.json({"message":"contrat supprimé !"})
+        })
+
+
+}
 
 
 

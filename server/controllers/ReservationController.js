@@ -6,6 +6,7 @@ var Voiture = models.Voiture ;
 var Client = models.Client ;
 var Modele = models.Modele ;
 var PreReservation = models.PreReservation ;
+
 var moment = require('moment');
 
 
@@ -99,6 +100,7 @@ exports.findReservations = function(req,res)
                 {model :Client},
                 {model:Voiture},
                 {model:Modele}
+
 
             ]
 

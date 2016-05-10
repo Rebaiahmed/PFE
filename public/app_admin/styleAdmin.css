@@ -1,0 +1,71 @@
+#main {
+    padding-left: 240px;
+}
+.m-box{
+    padding-top:12px;
+}
+.sidebar-collapse {
+    position: absolute;
+    top: -47px;
+    left: -155px;
+}
+#left-sidebar-nav {
+    position: fixed;
+    width: 100px;
+    left: 180px;
+    z-index: 999;
+    height: auto;
+}
+ul.side-nav.leftside-navigation {
+    top: 64px;
+    overflow: hidden;
+}
+.collapsible-header:after {
+    font-family: "Material-Design-Icons";
+    content: "\e7c3";
+    float: right;
+    color: #9e9e9e;
+    font-size: 18px;
+}
+.side-nav a {
+    line-height: 43px;
+    height: 43px;
+}
+ul.side-nav.leftside-navigation li a {
+    font-size: 14px;
+    font-weight: 400;
+    height: 43px;
+    line-height: 43px;
+}
+ul.side-nav.leftside-navigation li a {
+    font-size: 14px;
+    font-weight: 400;
+}
+@media screen and (min-width: 992px) {
+    a.brand-logo {
+        margin-left: 30px;
+    }
+}
+@media only screen and (max-width: 993px){
+    #main {
+        padding-left: 0;
+    }
+}
+
+footer {
+    background: #ee6e73;
+    padding :25px 0px 5px;
+    color: #fff;
+}
+
+#formlogin
+{
+    position: absolute;
+    margin: auto;
+    top: 120px;
+    right: 50px;
+    bottom: 0;
+    left: 100px;
+
+    border-radius: 3px;
+}

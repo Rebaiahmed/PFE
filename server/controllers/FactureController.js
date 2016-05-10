@@ -137,7 +137,30 @@ exports.put = function(req,res)
 
 
 
+exports.postFacture = function(req,res)
+{
 
+    var tva = req.body.tva ;
+    var prixHt = req.body.prixHt;
+    var prixTT = req.body.prixTT;
+    var Contrat_idContrat =req.body.Contrat_idContrat;
+
+    console.log('data is ' + Contrat_idContrat + ' ' + prixTT+ ' ' + prixHt
+    + ' ' + tva);
+
+    Facture.create({
+        "tva":tva,
+        "prixHt":prixHt,
+        "prixTT":prixTT,
+        "Contrat_idContrat":Contrat_idContrat
+    }).then(function(result){
+        res.json("facture sauvé"+result)
+    }).catch(function(err){
+        res.json(err)
+    })
+
+
+}
 
 
 

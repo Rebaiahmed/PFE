@@ -2,423 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da16bd73-66a4-42f9-9d72-7b435976bfbc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Gafsa.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/SFAX.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/avatar.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/fullscreen.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/google.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/ios.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/mobile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/play.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower_components/angular-ui-router-anim-in-out/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xmlbuilder/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/public-address/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/string_decoder/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/AUTHORS" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/Changelog.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/node_modules/punycode/LICENSE-GPL.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/he/LICENSE-MIT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/node_modules/punycode/LICENSE-MIT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/core-util-is/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/inherits/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/string_decoder/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/NOTICE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xmlbuilder/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/he/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/node_modules/punycode/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/public-address/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/core-util-is/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/inherits/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/isarray/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/string_decoder/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/partials/Réservation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/partials/Tarifs.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/UPGRADING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xmlbuilder/lib/XMLBuilder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xmlbuilder/lib/XMLFragment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/lib/_stream_duplex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/lib/_stream_passthrough.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/lib/_stream_readable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/lib/_stream_transform.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/lib/_stream_writable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/src/addressparser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower_components/angular-ui-router-anim-in-out/anim-in-out.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower_components/angular-ui-router-anim-in-out/scss/anim-in-out.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/animate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/model/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/autoscaling-2011-01-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/autoscaling-2011-01-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/aws.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/big-not-pretty.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/big5-added.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/lib/bom-handling.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower_components/angular-ui-router-anim-in-out/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/brillantClient.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/xml/browser_parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/buffer-overrun.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/isarray/build/build.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/json/builder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/xml/builder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/case.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/cdata-chunked.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/cdata-end-split.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/cdata-fake-end.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/cdata-multiple.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/cdata.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/client.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudformation-2010-05-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudformation-2010-05-15.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudfront-2014-05-31.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudfront-2014-05-31.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudfront-2014-05-31.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudsearch-2011-02-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudsearch-2011-02-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudsearch-2013-01-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudsearch-2013-01-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudsearchdomain-2013-01-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/cloudsearchdomain.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudtrail-2013-11-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cloudtrail-2013-11-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cognito-identity-2014-06-30.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/cognito-sync-2014-06-30.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/model/collection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/isarray/component.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/scripts/console" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/lib/content-types-reversed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/lib/content-types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/cp936.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/cp949.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/cp950.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/credential_provider_chain.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/datapipeline-2012-10-29.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/datapipeline-2012-10-29.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/dbcs-codec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/dbcs-data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/direct.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/directconnect-2012-10-25.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/directconnect-2012-10-25.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/lib/dkim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/duplex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/dynamodb-2011-12-05.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/dynamodb-2011-12-05.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/dynamodb-2011-12-05.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/dynamodb-2012-08-10.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/dynamodb-2012-08-10.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/dynamodb-2012-08-10.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/dynamodb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/ec2-2014-06-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/ec2-2014-06-15.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/ec2-2014-06-15.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/ec2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/ec2_metadata_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticache-2014-07-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticache-2014-07-15.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticbeanstalk-2010-12-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticbeanstalk-2010-12-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticloadbalancing-2012-06-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticloadbalancing-2012-06-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticmapreduce-2009-03-31.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elasticmapreduce-2009-03-31.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elastictranscoder-2012-09-25.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elastictranscoder-2012-09-25.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/elastictranscoder-2012-09-25.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/elastictranscoder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/email-2010-12-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/email-2010-12-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/email-2010-12-01.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/lib/encoding.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/environment_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/eucjp.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/event_listeners.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/example.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/lib/extend-node.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/file_system_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/float.patch" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/core-util-is/float.patch" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/gbk-added.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/get-products.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/glacier-2012-06-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/glacier-2012-06-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/glacier-2012-06-01.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/glacier.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/he/man/he.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/he/he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/.bin/he" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/he/bin/he" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/hello-world.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/helpers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/http.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/iam-2010-05-08.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/iam-2010-05-08.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/lib/iconv-loader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/importexport-2010-06-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/importexport-2010-06-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xmlbuilder/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/test/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/public-address/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/isarray/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/string_decoder/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/inherits/inherits.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/inherits/inherits_browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/internal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/issue-23.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/issue-30.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/issue-35.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/issue-47.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/issue-49.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/protocol/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/kinesis-2013-12-02.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/kinesis-2013-12-02.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/profile/login.profile.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/profile/login_Profile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/logs-2014-03-28.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/logs-2014-03-28.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/lib/mailer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/metadata.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/metadata_service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/mime.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/types/mime.types" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/lib/mimelib.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/lib/mockup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/monitoring-2010-08-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/monitoring-2010-08-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/partials/navigationController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/http/node.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/types/node.types" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/xml/node_parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/not-pretty.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/model/operation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/opsworks-2013-02-18.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/opsworks-2013-02-18.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xmlbuilder/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/he/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/node_modules/punycode/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/public-address/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/core-util-is/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/inherits/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/isarray/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/string_decoder/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/model/paginator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/param_validator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/parser-position.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/json/parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/passthrough.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/pickup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/pool.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/presign.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/pretty-print.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/node_modules/punycode/punycode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/dkim-signer/node_modules/punycode/punycode.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/protocol/query.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/query/query_param_serializer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/directmail/lib/queue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/lib/rai.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-01-10.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-01-10.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-02-12.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-02-12.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-09-09.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-09-09.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/rds-2013-09-09.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/readable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/redshift-2012-12-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/redshift-2012-12-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/redshift-2012-12-01.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/region_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/region_config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/request.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/request_signer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/resource_waiter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/model/resource_waiter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/response.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/protocol/rest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/protocol/rest_json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/protocol/rest_xml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/route53-2013-04-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/route53-2013-04-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/route53.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/route53domains-2014-05-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/s3-2006-03-01.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/s3-2006-03-01.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/s3-2006-03-01.waiters.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/s3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/s3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/saml_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/lib/sax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/sbcs-codec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/sbcs-data-generated.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/sbcs-data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sdb-2009-04-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sdb-2009-04-15.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/self-closing-child-strict.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/self-closing-child.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/self-closing-tag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/sendmail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/sequential_executor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/cert/server.crt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/server.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/cert/server.key" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/ses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/model/shape.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/shared_ini_file_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/tables/shiftjis.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/shopping.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/simpleserver.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/smtp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sns-2010-03-31.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sns-2010-03-31.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sqs-2012-11-05.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sqs-2012-11-05.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/sqs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/lib/starttls.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/state_machine.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/storagegateway-2013-06-30.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/storagegateway-2013-06-30.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/stray-ending.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/lib/streams.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/strict.dtd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/sts-2011-06-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/sts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/stub.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/support-2013-04-15.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/support-2013-04-15.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/swf-2012-01-25.api.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/apis/swf-2012-01-25.paginators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/services/swf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/switch-bench.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_client/partials/tarifController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/temporary_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/test/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/core-util-is/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/inherits/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/examples/test.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/testem.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/topunycode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/trailing-non-whitespace.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/transform.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/scripts/translate-api" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/aws-sdk-apis/lib/translator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/transport.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/underscore-min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/underscore.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/unquoted.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/urlfetch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/utf16.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/utf7.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/node_modules/core-util-is/lib/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/v2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/v3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/v3https.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/signers/v4.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/credentials/web_identity_credentials.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/wellknown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/readable-stream/writable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/lib/http/xhr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/lib/xml2js.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-issue-41.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-rebinding.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-strict.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-unbound.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-xml-default-ns.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-xml-default-prefix-attribute.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-xml-default-prefix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/aws-sdk/node_modules/xml2js/node_modules/sax/test/xmlns-xml-default-redefine.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/xoauth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/Calendrier/Calendrier.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/factures/ConvertPdf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/conducteurs/Creer_Conducteur.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/contrats/EditerContrat.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/Managers/Managers.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/Managers/Managers.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/parametres/Parametre.controller.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/parametres/Paramétres.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/Réservations/Reservations.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/Réservations/Réservations.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/clients/clients.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/clients/clients.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/conducteurs/conducteur.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/conducteurs/conducteurs2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/conducteurs/conductuer.email.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/conducteurs/conductuer.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/contrats/contrat.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/contrats/contrat.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/entretients/entretients.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/entretients/entretients.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/factures/facture.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/locations/locations.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/locations/locations.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/login/login.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/login/login.service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/statistique/statistci.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/styleAdmin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/voitures/voiture.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/voitures/voiture.services.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app_admin/voitures/voitures2.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/brillant.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/creative.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/form.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/init.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/.eslintrc.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/ISSUE_TEMPLATE.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/http-proxy.js" afterPath="" />
@@ -643,49 +261,57 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/node_modules/smart-buffer/test/test.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/package.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-materialize/.bower.json" afterPath="$PROJECT_DIR$/bower_components/angular-materialize/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/.npmignore" afterPath="$PROJECT_DIR$/node_modules/nodemailer/.npmignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/angular/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/angular/controllers/controllers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/angular/controllers/locationController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/angular/services/AuthenticationService.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/auth/AuthenticationService.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/auth/login/App.admin.login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/cutom_calednar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/locations_copies.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Creer_Conducteur.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Details_location.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Paramétres.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/pages/conducteurs2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_admin/pages/voitures2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_client/brillantClient.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app_client/client.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/angular/services/services.js" afterPath="$PROJECT_DIR$/public/app_admin/factures/facture.controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/auth/login/form_login.html" afterPath="$PROJECT_DIR$/public/app_admin/form_login.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/auth/login/login_admin.html" afterPath="$PROJECT_DIR$/public/app_admin/login_admin.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Create_Contrat.html" afterPath="$PROJECT_DIR$/public/app_admin/contrats/Create_Contrat.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Create_Facture.html" afterPath="$PROJECT_DIR$/public/app_admin/factures/Create_Facture.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Creer_Entretient.html" afterPath="$PROJECT_DIR$/public/app_admin/entretients/Creer_Entretient.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Creer_Modele.html" afterPath="$PROJECT_DIR$/public/app_admin/voitures/Creer_Modele.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Creer_Voiture.html" afterPath="$PROJECT_DIR$/public/app_admin/voitures/Creer_Voiture.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Creer_location.html" afterPath="$PROJECT_DIR$/public/app_admin/locations/Creer_location.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Details_Client.html" afterPath="$PROJECT_DIR$/public/app_admin/clients/Details_Client.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Editer_Client.html" afterPath="$PROJECT_DIR$/public/app_admin/clients/Editer_Client.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Envoyer_Email_2.html" afterPath="$PROJECT_DIR$/public/app_admin/clients/Envoyer_Email_2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Envoyer_email.html" afterPath="$PROJECT_DIR$/public/app_admin/conducteurs/Envoyer_email.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Profile.html" afterPath="$PROJECT_DIR$/public/app_admin/Managers/Profile.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/Reservations.html" afterPath="$PROJECT_DIR$/public/app_admin/Réservations/Reservations.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/calendrier.html" afterPath="$PROJECT_DIR$/public/app_admin/Calendrier/calendrier.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/clients2.html" afterPath="$PROJECT_DIR$/public/app_admin/clients/clients2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/contrats2.html" afterPath="$PROJECT_DIR$/public/app_admin/contrats/contrats2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/entretients2.html" afterPath="$PROJECT_DIR$/public/app_admin/entretients/entretients2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/factures2.html" afterPath="$PROJECT_DIR$/public/app_admin/factures/factures2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/locations2.html" afterPath="$PROJECT_DIR$/public/app_admin/locations/locations2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app_admin/pages/statistiques.html" afterPath="$PROJECT_DIR$/public/app_admin/statistique/statistiques.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_admin/Admin.html" afterPath="$PROJECT_DIR$/public/app_admin/Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/auth/AuthenticationService.js" afterPath="$PROJECT_DIR$/public/app_client/auth/AuthenticationService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/nodemailer/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/Client.js" afterPath="$PROJECT_DIR$/server/models/Client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/partials/Contact.html" afterPath="$PROJECT_DIR$/public/app_client/partials/Contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/partials/ContactController.js" afterPath="$PROJECT_DIR$/public/app_client/partials/ContactController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_admin/pages/Envoyer_email.html" afterPath="$PROJECT_DIR$/public/app_admin/pages/Envoyer_email.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/LICENSE" afterPath="$PROJECT_DIR$/node_modules/nodemailer/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/LICENSE" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/voitures/Options.html" afterPath="$PROJECT_DIR$/public/app_client/voitures/Options.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/README.md" afterPath="$PROJECT_DIR$/node_modules/nodemailer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/README.md" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/accessController.js" afterPath="$PROJECT_DIR$/server/controllers/accessController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-materialize/src/angular-materialize.js" afterPath="$PROJECT_DIR$/bower_components/angular-materialize/src/angular-materialize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/Contrat.js" afterPath="$PROJECT_DIR$/server/models/Contrat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/ContratController.js" afterPath="$PROJECT_DIR$/server/controllers/ContratController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/Facture.js" afterPath="$PROJECT_DIR$/server/models/Facture.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/FactureController.js" afterPath="$PROJECT_DIR$/server/controllers/FactureController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/Manager.js" afterPath="$PROJECT_DIR$/server/models/Manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/ReservationController.js" afterPath="$PROJECT_DIR$/server/controllers/ReservationController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.js" afterPath="$PROJECT_DIR$/routes/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-materialize/js/app.js" afterPath="$PROJECT_DIR$/bower_components/angular-materialize/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-materialize/bower.json" afterPath="$PROJECT_DIR$/bower_components/angular-materialize/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/confirm/confirm.html" afterPath="$PROJECT_DIR$/public/app_client/confirm/confirm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form.txt" afterPath="$PROJECT_DIR$/form.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/home/home.controller.js" afterPath="$PROJECT_DIR$/public/app_client/home/home.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/home/home.html" afterPath="$PROJECT_DIR$/public/app_client/home/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/index.html" afterPath="$PROJECT_DIR$/public/app_client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/auth/login/login.controller.js" afterPath="$PROJECT_DIR$/public/app_client/auth/login/login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/auth/login/login.view.html" afterPath="$PROJECT_DIR$/public/app_client/auth/login/login.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/mailController.js" afterPath="$PROJECT_DIR$/server/controllers/mailController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/mailcomposer.js" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/mailcomposer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/main.js" afterPath="$PROJECT_DIR$/public/app_client/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/voitures/optionsController.js" afterPath="$PROJECT_DIR$/public/app_client/voitures/optionsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/package.json" afterPath="$PROJECT_DIR$/node_modules/nodemailer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/package.json" afterPath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/profile/profile.controller.js" afterPath="$PROJECT_DIR$/public/app_client/profile/profile.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/profile/profile.view.html" afterPath="$PROJECT_DIR$/public/app_client/profile/profile.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/partials/qui_sommes_nous.html" afterPath="$PROJECT_DIR$/public/app_client/partials/qui_sommes_nous.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/auth/register/register.controller.js" afterPath="$PROJECT_DIR$/public/app_client/auth/register/register.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/auth/register/register.view.html" afterPath="$PROJECT_DIR$/public/app_client/auth/register/register.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/index.js" afterPath="$PROJECT_DIR$/server/models/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test2_Client.html" afterPath="$PROJECT_DIR$/test2_Client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/voitures/voitureController.js" afterPath="$PROJECT_DIR$/public/app_client/voitures/voitureController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_client/voitures/voitures.html" afterPath="$PROJECT_DIR$/public/app_client/voitures/voitures.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_client.html" afterPath="$PROJECT_DIR$/test_client.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="login_pfe.iws" />
@@ -707,21 +333,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app_client/home/home.html">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48598132">
-              <caret line="256" column="38" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
+            <state vertical-scroll-proportion="-10.178572">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app_client/profile/profile.controller.js">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app_client/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+              <caret line="134" column="1" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -730,30 +356,30 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app_client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navigationController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app_client/partials/navigationController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="177" column="67" selection-start-line="177" selection-start-column="67" selection-end-line="177" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animate.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/animate.css">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app_client/home/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.40298507">
+              <caret line="204" column="74" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Creer_Conducteur.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app_admin/conducteurs/Creer_Conducteur.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.625">
+              <caret line="17" column="84" selection-start-line="17" selection-start-column="84" selection-end-line="17" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -763,7 +389,17 @@
         <entry file="file://$PROJECT_DIR$/public/app_client/home/home.controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="59" />
+              <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brillant.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app_client/home/brillant.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -774,9 +410,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Html5" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -786,56 +422,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/app_admin/pages/statistiques.html" />
-        <option value="$PROJECT_DIR$/server/controllers/statisticCtrl.js" />
-        <option value="$PROJECT_DIR$/public/app_client/conditions&amp;infos/Conditions.html" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/header.html" />
-        <option value="$PROJECT_DIR$/brillant.html" />
-        <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/public/app_admin/factures/testHtmlPdf.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/factures/testHtmlPdf.js" />
         <option value="$PROJECT_DIR$/test_client.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/factures/test.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/factures/ahmed.html" />
+        <option value="$PROJECT_DIR$/ahmed.html" />
+        <option value="$PROJECT_DIR$/AHMED.html" />
+        <option value="$PROJECT_DIR$/pdfCrowd.js" />
+        <option value="$PROJECT_DIR$/hnatam.js.html" />
+        <option value="$PROJECT_DIR$/phantom.js" />
+        <option value="$PROJECT_DIR$/testpdfkit.js" />
+        <option value="$PROJECT_DIR$/wkht.js" />
+        <option value="$PROJECT_DIR$/pdfMake.html" />
+        <option value="$PROJECT_DIR$/testhtml_pdf.js" />
+        <option value="$PROJECT_DIR$/example.html" />
+        <option value="$PROJECT_DIR$/Facture.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/factures/Create_Facture.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/locations/locations2.html" />
+        <option value="$PROJECT_DIR$/server/models/Manager.js" />
+        <option value="$PROJECT_DIR$/server/models/index.js" />
         <option value="$PROJECT_DIR$/public/app_admin/pages/Paramétres.html" />
-        <option value="$PROJECT_DIR$/server/models/Contrat.js" />
-        <option value="$PROJECT_DIR$/public/app_admin/pages/Create_Contrat.html" />
-        <option value="$PROJECT_DIR$/server/controllers/ContratController.js" />
-        <option value="$PROJECT_DIR$/public/app_admin/pages/contrats2.html" />
-        <option value="$PROJECT_DIR$/public/app_admin/pages/calendrier.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/pages/Alert.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/parametres/Parametre.controller.service.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/Réservations/Réservations.service.js" />
         <option value="$PROJECT_DIR$/public/app_admin/auth/login/login_admin.html" />
         <option value="$PROJECT_DIR$/public/app_admin/auth/login/App.admin.login.js" />
-        <option value="$PROJECT_DIR$/public/app_admin/Admin.html" />
-        <option value="$PROJECT_DIR$/public/app_client/brillantClient.txt" />
-        <option value="$PROJECT_DIR$/public/app_admin/pages/Envoyer_email.html" />
-        <option value="$PROJECT_DIR$/server/controllers/mailController.js" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/ContactController.js" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/Contact.html" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/Réservation.html" />
-        <option value="$PROJECT_DIR$/public/app_client/profile/login.profile.controller.js" />
-        <option value="$PROJECT_DIR$/test2_Client.html" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/footer.html" />
-        <option value="$PROJECT_DIR$/public/app_client/profile/login_Profile.html" />
-        <option value="$PROJECT_DIR$/form.txt" />
-        <option value="$PROJECT_DIR$/public/app_client/voitures/voitures.html" />
-        <option value="$PROJECT_DIR$/public/app_client/voitures/voitureController.js" />
-        <option value="$PROJECT_DIR$/public/app_client/voitures/Options.html" />
-        <option value="$PROJECT_DIR$/public/app_client/voitures/optionsController.js" />
-        <option value="$PROJECT_DIR$/public/app_client/confirm/confirm.html" />
-        <option value="$PROJECT_DIR$/public/app_client/auth/login/login.view.html" />
-        <option value="$PROJECT_DIR$/public/app_client/auth/register/register.view.html" />
-        <option value="$PROJECT_DIR$/public/app_client/auth/register/register.controller.js" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/qui_sommes_nous.html" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/tarifController.js" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/Tarifs.html" />
-        <option value="$PROJECT_DIR$/server/models/Client.js" />
-        <option value="$PROJECT_DIR$/public/app_client/auth/login/login.controller.js" />
-        <option value="$PROJECT_DIR$/public/app_client/main.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/public/app_client/auth/AuthenticationService.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/App.admin.login.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/login/login.service.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/login/login.controller.js" />
         <option value="$PROJECT_DIR$/routes/api.js" />
-        <option value="$PROJECT_DIR$/server/controllers/accessController.js" />
-        <option value="$PROJECT_DIR$/public/app_client/profile/profile.controller.js" />
-        <option value="$PROJECT_DIR$/public/app_client/profile/profile.view.html" />
-        <option value="$PROJECT_DIR$/public/app_client/home/home.controller.js" />
-        <option value="$PROJECT_DIR$/public/app_client/partials/navigationController.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/Calendrier/Calendrier.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/clients/clients.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/conducteurs/conductuer.email.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/contrats/contrat.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/entretients/entretients.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/entretients/entretients.service.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/locations/locations.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/Managers/Managers.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/Réservations/Reservations.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/statistique/statistci.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/voitures/voiture.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/styleAdmin.css" />
+        <option value="$PROJECT_DIR$/public/app_admin/Admin.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/login_admin.html" />
+        <option value="$PROJECT_DIR$/public/app_admin/factures/facture.controller.js" />
+        <option value="$PROJECT_DIR$/public/app_admin/main.js" />
+        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/app_client/index.html" />
+        <option value="$PROJECT_DIR$/public/app_client/home/brillant.txt" />
+        <option value="$PROJECT_DIR$/public/app_client/home/home.controller.js" />
         <option value="$PROJECT_DIR$/public/app_client/home/home.html" />
       </list>
     </option>
@@ -875,6 +511,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -903,57 +540,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -972,72 +559,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app_client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app_client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voitures" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app_client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app_client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1077,50 +598,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="confirm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app_client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app_admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1143,40 +620,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login_pfe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app_admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
+              <option name="myItemId" value="conducteurs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1192,34 +642,34 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/stylesheets" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/node_modules" />
-      <recent name="$PROJECT_DIR$/public/app_client" />
+      <recent name="$PROJECT_DIR$/public/app_admin/factures" />
+      <recent name="$PROJECT_DIR$/public/app_admin/Calendrier" />
+      <recent name="$PROJECT_DIR$/public/app_admin/Managers" />
+      <recent name="$PROJECT_DIR$/public/app_admin/entretients" />
+      <recent name="$PROJECT_DIR$/public/app_admin/voitures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/app_admin/pages" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/public/stylesheets" />
-      <recent name="$PROJECT_DIR$/server/models" />
-      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/public/app_admin" />
+      <recent name="$PROJECT_DIR$/public/app_admin/auth" />
+      <recent name="$PROJECT_DIR$/public/app_admin/parametres" />
+      <recent name="$PROJECT_DIR$/public/app_admin/contrats" />
+      <recent name="$PROJECT_DIR$/public/app_admin/Réservations" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
-    <configuration default="false" name="server.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/bin/nodejs" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="pdfMake.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/login_pfe/pdfMake.html">
       <method />
     </configuration>
-    <configuration default="false" name="test_client.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/login_pfe/test_client.html">
+    <configuration default="false" name="Facture.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/login_pfe/Facture.html">
       <method />
     </configuration>
-    <configuration default="false" name="test2_Client.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/login_pfe/test2_Client.html">
+    <configuration default="false" name="testhtml_pdf.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/bin/node" path-to-js-file="testhtml_pdf.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
-    <configuration default="false" name="Contact.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/login_pfe/public/app_client/partials/Contact.html">
+    <configuration default="false" name="server.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/bin/node" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
-    <configuration default="false" name="mailController.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/bin/node" path-to-js-file="mailController.js" working-dir="$PROJECT_DIR$/server/controllers">
+    <configuration default="false" name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/bin/node" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/server/models">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -1262,19 +712,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Node.js.bin/www" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.server.js" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.test_client.html" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.test2_Client.html" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.Contact.html" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.mailController.js" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.pdfMake.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Facture.html" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.testhtml_pdf.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.server.js" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.index.js" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Node.js.server.js" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.test2_Client.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Contact.html" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.mailController.js" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.test_client.html" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.index.js" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Facture.html" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.testhtml_pdf.js" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.pdfMake.html" />
       </list>
     </recent_temporary>
   </component>
@@ -1283,21 +733,21 @@
     <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20551005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20699926" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2953451" sideWeight="0.50558454" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.4497394" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39967898" sideWeight="0.50335073" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26966292" sideWeight="0.5502606" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967898" sideWeight="0.4966493" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967898" sideWeight="0.49367088" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1337,313 +787,376 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/app_client/brillantClient.txt">
+    <entry file="file://$PROJECT_DIR$/phantom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47965115">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.975">
+          <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ahmed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.984375">
+          <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testpdfkit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04360465">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testhtml_pdf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0872093">
+          <caret line="2" column="112" selection-start-line="2" selection-start-column="112" selection-end-line="2" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/factures/Create_Facture.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34375">
+          <caret line="135" column="19" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/locations/locations2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_admin/pages/Envoyer_email.html">
+    <entry file="file://$PROJECT_DIR$/Facture.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3276699">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_admin/pages/conducteurs2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/mailController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_admin/auth/login/login_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.92718446">
-          <caret line="106" column="7" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/Réservation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.8592234">
-          <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_admin/Admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/profile/login.profile.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86009175">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/bmw.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/symbol2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/sfax2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/toyota.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/sfax.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2_Client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60747665">
-          <caret line="149" column="2" selection-start-line="149" selection-start-column="2" selection-end-line="149" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53582555">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="61" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/Contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9096573">
-          <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="74" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/PreReservation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73913044">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73913044">
-          <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/voitures/voitures.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6542056">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/voitures/Options.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90654206">
-          <caret line="143" column="24" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/voitures/optionsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/profile/login_Profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/qui_sommes_nous.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.038860105">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/auth/login/login.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37823835">
-          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/auth/register/register.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.038860105">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/auth/register/register.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/Tarifs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20560747">
-          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/tarifController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47826087">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/voitures/voitureController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39130434">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/ContactController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7797102">
-          <caret line="25" column="69" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="6" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/models/Manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6086956">
-          <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.8255814">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/Client.js">
+    <entry file="file://$PROJECT_DIR$/server/models/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="51" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.86918604">
+          <caret line="159" column="4" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/authentification.js">
+    <entry file="file://$PROJECT_DIR$/server/controllers/ManagerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="46" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.9127907">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/factures/facture.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03521127">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/auth/login/login.controller.js">
+    <entry file="file://$PROJECT_DIR$/public/app_admin/pages/Alert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="93" selection-start-line="0" selection-start-column="93" selection-end-line="0" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/parametres/Paramétres.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2238806">
+          <caret line="37" column="106" selection-start-line="37" selection-start-column="106" selection-end-line="37" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/form_login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/ReservationController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/Calendrier/Calendrier.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5217391">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/auth/AuthenticationService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6086956">
-          <caret line="146" column="32" selection-start-line="146" selection-start-column="32" selection-end-line="146" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/confirm/confirm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6012461">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/confirm/confirm.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04347826">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04347826">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63380283">
+          <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/clients/clients.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/conducteurs/conductuer.email.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/conducteurs/conductuer.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/contrats/contrat.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/contrats/contrat.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07042254">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/conducteurs/conducteur.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/clients/clients.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="227" column="2" selection-start-line="227" selection-start-column="2" selection-end-line="227" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/locations/locations.service.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/ClientController.js">
+    <entry file="file://$PROJECT_DIR$/public/app_admin/locations/locations.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/Managers/Managers.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="38" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/profile/profile.view.html">
+    <entry file="file://$PROJECT_DIR$/public/app_admin/Managers/Managers.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7009346">
-          <caret line="37" column="67" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_admin/auth/login/App.admin.login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04347826">
-          <caret line="766" column="0" selection-start-line="766" selection-start-column="0" selection-end-line="766" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="74" column="2" selection-start-line="74" selection-start-column="2" selection-end-line="74" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/accessController.js">
+    <entry file="file://$PROJECT_DIR$/public/app_admin/Réservations/Réservations.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2173913">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.07042254">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/Réservations/Reservations.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="77" column="3" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/parametres/Parametre.controller.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/login/login.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="123" column="18" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/entretients/entretients.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.0211267">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/entretients/entretients.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/voitures/voiture.services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/voitures/voiture.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/statistique/statistci.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92957747">
+          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/styleAdmin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/factures/facture.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57746476">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/Admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0447761">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/login/login.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03521127">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5422535">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_admin/login_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9197861">
+          <caret line="141" column="7" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.178572">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_client/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="1" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="177" column="67" selection-start-line="177" selection-start-column="67" selection-end-line="177" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app_client/home/brillant.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -1651,58 +1164,26 @@
     <entry file="file://$PROJECT_DIR$/public/app_client/home/home.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="59" />
+          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/profile/profile.controller.js">
+    <entry file="file://$PROJECT_DIR$/public/app_admin/conducteurs/Creer_Conducteur.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        <state vertical-scroll-proportion="-10.625">
+          <caret line="17" column="84" selection-start-line="17" selection-start-column="84" selection-end-line="17" selection-end-column="99" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.093457945">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/partials/navigationController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/animate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app_client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app_client/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48598132">
-          <caret line="256" column="38" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
-          <folding />
+        <state vertical-scroll-proportion="0.40298507">
+          <caret line="204" column="74" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
