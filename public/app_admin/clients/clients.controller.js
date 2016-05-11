@@ -1,6 +1,7 @@
 
 angular
-    .module('adminApp').controller('clientsController', function($scope,ClientsFactory,$state,locationsFactory){
+    .module('adminApp').controller('clientsController', function($scope,ClientsFactory,$state,locationsFactory
+    ,$window){
 
 
 
@@ -74,6 +75,7 @@ angular
             .then(function(){
                 $scope.status ="deleted client!";
                 console.log($scope.status);
+
                 // we msut refresh the list
                 getClients();
 

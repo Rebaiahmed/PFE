@@ -5,21 +5,33 @@
 
 angular
     .module('meanApp')
-    .controller('navigationCtrl', function($scope,$location,Authentication,$http, $window,notify){
+    .controller('navigationCtrl', function($scope,$location,Authentication,$http, $window,notify,$state
+    ,$q,$rootScope){
 
 
 
 
-$scope.message = "hello" ;
 
-        $scope.isloggedIn =Authentication.isloggedIn();
 
-        console.log('logged '  + $scope.isloggedIn);
+        function testlogged ()
+        {
+            $rootScope.$on('$stateChangeStart',
+                function(event, toState, toParams, fromState, fromParams){
+                    $scope.isloggedIn = Authentication.isloggedIn();
+                })
+        }
+
+        testlogged ();
+
+
+
 
 $scope.logout = function()
 {
-    alert('we will disocnnect !');
+
     Authentication.logout();
+    $window.location.reload();
+    $location.path('/');
 }
 
 

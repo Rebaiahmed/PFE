@@ -1,49 +1,76 @@
-<div class="container" ng-controller="confirmCtrl">
-
-
-
-    <div class="parallax-container valign-wrapper" style="width: 100%">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class=" card-panel row center">
-                    <h5 class="header col s12" style="color: #333;">
-                        <i class="material-icons">done_all</i>
-                        Confimer Votre Réservation <i class="material-icons">done_all</i></h5>
-
-
-                         <div class="col s12">
-                        <div class="row">
-<hr>
-                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">cloud_done</i>
-                            Confirm</a>
-                        </div><!--end of row--->
-                             </div><!--end of col s12---->
-
-
-
-
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Merci Pour Votre canfiance</h4>
-                            <h6><i class="material-icons">face</i></h6>
-                            <p>un email de confirmation vous sera envoyé</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-                        </div>
-                    </div>
+<div class="container" ng-controller="confirmCtrl" >
 
 
 
 
 
+    <div class="card-panel center" >
+<h5 ng-hide="clicked">Merci de Confimer Voter Réservation</h5>
 
 
 
-                </div>
+
+
+        <div class="row" ng-hide="clicked">
+
+            <div class="col s4">
+                <h5 class="blue-text "><strong>Client</strong></h5>
+                <p>{{ client.nom  | uppercase }}  {{ client.prenom | uppercase }}</p>
             </div>
+            <div class="col s4">
+                <h5 class="blue-text "><strong>Voiture</strong></h5>
+                <p>Marque Modéle</p>
+            </div>
+            <div class="col s4">
+                <h5 class="blue-text "><strong>Réservation</strong></h5>
+                <ul>
+               <li> {{ newReservation.dateDebut | date:'yyyy-MM-dd' + ' ' + newReservation.heureDebut + 'h' }}</li>
+                    <li>{{ newReservation.dateFin | date:'yyyy-MM-dd' + ' ' + newReservation.heureFin + 'h'  }}</li>
+                </ul>
+                <p class="blue-text">lieux</p>
+                <ul>
+                <li>{{ newReservation.lieuPrise }}</li>
+                    <li>{{ newReservation.lieuRetour  }}</li>
+                </ul>
+                <p class="blue-text text-darken-1">Options</p>
+                <ul>
+                    <li ng-show="newReservation.chaiseBaBy">Chaise bébé sélectionné</li>
+                    <li ng-show="newReservation.Chauffeur">Chauffeur sélectionné</li>
+                    <li ng-show="newReservation.GPS">GPS sélectionné</li>
+                </ul>
+            </div>
+
+
+
+            <a ng-hide="clicked" ng-click="Create3()" class="waves-effect waves-light btn " ><i class="material-icons">cloud_done</i>
+                Confirm</a>
+
         </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row animated lightSpeedIn" ng-show="clicked">
+            <h5 class="light-green-text">Votre demande de réservation a été envoyée avec succées </h5>
+            <h5 class="blue-text">Merci pour votre confiance</h5>
+            <p>Pour toute autre infomration Merci de Nous contacter au : <span class="blue-text">king.rent.car@hotmail.com</span></p>
+            <p><strong>Télechargez Notre Application Mobile</strong> </p>
+            <div class="row center">
+
+                <img src="/images/badge_new.png">
+                <img src="/images/AppStore.svg">
+            </div><!--end of row-->
+            <a ui-sref="index" href>Retour </a>
+        </div>
+
+
 
     </div>
 
@@ -53,12 +80,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div><!--end of container--------->
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-    });
-
-</script>

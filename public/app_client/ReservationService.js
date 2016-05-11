@@ -4,7 +4,7 @@
 
 angular
     .module('meanApp')
-    .service('ReservationService',['$http','$window', function($http,$window) {
+    .service('ReservationService',['$http','$window', function($http,$window,Authentication) {
 
 
 
@@ -63,7 +63,6 @@ angular
         {
             return $http.post('/auth/admin/admin/PreReservations',data);
         }
-
 
 
     }

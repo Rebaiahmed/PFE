@@ -2,7 +2,7 @@
 
 angular
     .module('meanApp')
-    .controller('optionsCtrl', function($scope,$location,ReservationService,$http,moment,Authentication){
+    .controller('optionsCtrl', function($scope,$location,ReservationService,$http,moment,Authentication,$state){
 
         $scope.voitures=[];
         $scope.voiture = {};
@@ -92,7 +92,8 @@ angular
 
                 if ($scope.currentUser) {
                     console.log('currentUser exist ');
-                    $location.path('Confirm');
+
+                    $state.go('Confirm');
                 }
                 else {
                     $location.path('login');

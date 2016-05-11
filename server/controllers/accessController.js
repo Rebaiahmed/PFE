@@ -48,7 +48,7 @@ module.exports.accessAdmin = function(req,res)
        Manager
             .findOne({where :{email :req.user.email}})
             .then(function(manager) {
-                console.log('the client found !' +manager);
+                console.log('the Manager found !' +manager);
                 res.status(200).json(manager);
             });
     }

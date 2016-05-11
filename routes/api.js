@@ -70,6 +70,11 @@ Router.get('/client/voitures', voitureCtrl.getCars_Client);
 Router.route('/auth/client/sendMail')
     .post(mailController.sendMailClient_Agence);
 
+Router.post('/auth/client/newsletter',function(req,res){
+    res.send('ik !');
+})
+
+
 
 
 
@@ -237,6 +242,8 @@ Router.route('/auth/admin/admin/conducteurs/:idDriver')
 
 Router.route('/auth/admin/sendMail')
     .post(mailController.sendMail);
+
+
 
 
 

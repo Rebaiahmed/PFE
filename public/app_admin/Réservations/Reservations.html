@@ -11,8 +11,8 @@
 
 
 
-                    <div class="card blue-grey darken-1" ng-repeat="pre in prereservations ">
-                        <div class="card-content white-text">
+                    <div class="card  " ng-repeat="pre in prereservations ">
+                        <div class="card-content ">
 
                             <span class="card-title">Réservation n° {{ pre.idReservation }}</span>
                             <table>
@@ -21,17 +21,21 @@
                                 <th>Voiture</th>
                                 <th>Date Réservation <i class="material-icons">date_range</i></th>
                                 <th>lieux</th>
+                                <th>Options Choisies <i class="material-icons">cached</i></th>
 
                                 </thead>
 
                                 <tbody>
                                   <tr>
                                       <td>
-                                          {{ pre.Client.nom + " " + pre.Client.prenom}}
+                                         <strong>Nom Complet</strong>
+                                          <p>{{ pre.Client.nom + " " + pre.Client.prenom}}</p>
                                           <br>
-                                      {{ pre.Client.email }}
+                                          <strong>email</strong>
+                                          <p>{{ pre.Client.email }}</p>
                                           <br>
-                                      num tel1 {{ pre.Client.numTel1 }}
+                                          <strong>Num Tel</strong>
+                                          <p>{{ pre.Client.numTel1 }}</p>
                                       </td>
 
                                       <td>
@@ -41,24 +45,38 @@
 
 
                                       <td>
-                                        {{ pre.dateDebut | date:'MM/dd/yyyy'  + " " + pre.heureDebut }} h
+                                        <p>{{ pre.dateDebut | date:'dd/MM/yyyy' }} </p>
+                                          <p>{{ pre.heureDebut  }}</p>
                                           <br>
-                                        {{ pre.dateFin | date:'MM/dd/yyyy' +" " + pre.heureFin  }} h
+                                        <p>{{ pre.dateFin | date:'dd/MM/yyyy' +" " }}
+                                            <p> {{ pre.heureFin   }} </p>
                                       </td>
 
                                       <td>
-                                         {{ pre.lieuPrise }}
-                                          <br>
-                                         {{ pre.lieuRetour }}
+                                         <p>{{ pre.lieuPrise }}</p>
+
+                                         <p>{{ pre.lieuRetour }} </p>
                                       </td>
 
+                                      <td>
+                                          <ul>
+                                              <li ng-show="pre.Chauffeur"><i class="material-icons">perm_contact_calendar</i></li>
+                                              <li ng-show="pre.GPS"><i class="material-icons">gps_fixed</i></li>
+                                              <li ng-show="pre.chaiseBaBy"><i class="material-icons">child_care</i></li>
+                                          </ul>
+                                      </td>
                                   </tr>
                                 </tbody>
                             </table>
 
-                            <div class="card-action">
-                                <a ng-click="confirmer(pre.idReservation)">Confimer</a>
-                                <a ng-click="delete(pre.idReservation)">Rejeter</a>
+                            <div class="card-action  ">
+                                <a class="waves-effect waves-light btn  black-text" ng-click="confirmer(pre.idReservation)">
+                                    Confimer<i class="material-icons">done</i></a>
+                                <a class="waves-effect waves-light btn  black-text" ng-click="delete(pre.idReservation)">Rejeter
+                                    <i class="material-icons">delete</i></a>
+
+                                <a class="waves-effect waves-light btn  black-text" >Archiver
+                                    <i class="material-icons">archive</i></a>
                             </div>
 
                             </div><!--end of card content-->

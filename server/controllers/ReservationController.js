@@ -236,8 +236,16 @@ var newReservation = req.body;
         var Voiture_Modele_idModele = newReservation.Voiture_Modele_idModele;
     var Client_idClient = newReservation.Client_idClient;
 
+
+
+    var GPS = newReservation.GPS ;
+    var Chauffeur = newReservation.Chauffeur;
+    var chaiseBaBy = newReservation.chaiseBaBy
+
+
     console.log('data recived is :' + dateDebut + ' ' + heureDebut + ' ' + lieuPrise + ' ' + dateFin
-    + ' ' + heureFin + '' + lieuRetour + ' id voiture :' + Voiture_idVoiture + 'id modele ' + Voiture_Modele_idModele + 'id client : ' + Client_idClient)
+    + ' ' + heureFin + '' + lieuRetour + ' id voiture :' + Voiture_idVoiture + 'id modele ' + Voiture_Modele_idModele + 'id client : ' + Client_idClient
+    + ' GPS' + GPS + 'ch ' + Chauffeur + ' bébé' + chaiseBaBy);
 
     PreReservation.create({
         dateDebut  : newReservation.dateDebut,
@@ -249,6 +257,9 @@ var newReservation = req.body;
         Voiture_idVoiture : newReservation.Voiture_idVoiture,
         Voiture_Modele_idModele : newReservation.Voiture_Modele_idModele,
         Client_idClient : newReservation.Client_idClient,
+        GPS:GPS,
+        chaiseBaBy:chaiseBaBy,
+        Chauffeur:Chauffeur
 
 
 

@@ -6,14 +6,14 @@
 
     }
 </style>
-<div class="container" ng-controller="registerCtrl">
+<div class="container animated zoomIn" ng-controller="registerCtrl">
     <div class="row">
 
-        <div class="card large">
+        <div class="card-panel large ">
 
 
 
-                   <h3 class="center-align">   <i class="material-icons">account_box</i> Créer Votre compte </h3>
+ <h5 class="center-align blue-text text-darken-2">   <i class="material-icons">account_box</i> Créer Votre compte </h5>
 
 
 
@@ -32,7 +32,7 @@
                 name="nom" required>
         <label for="name">Nom</label>
  <span style="color: #d32f2f" ng-show="submitted && registerForm.nom.$error.required">
-                            Veuillez indiquer indiquer votre nom
+                            Veuillez indiquer  votre nom
                         </span>
     </div>
 
@@ -45,7 +45,7 @@
         <label for="prenom">Prénom</label>
 
          <span style="color: #d32f2f" ng-show="submitted && registerForm.prenom.$error.required">
-                            Veuillez indiquer indiquer votre Prenom
+                            Veuillez indiquer  votre Prenom
                         </span>
 
     </div>
@@ -58,60 +58,6 @@
 
 
 </div><!---end of diw row----------------->
-
-
- <!------------------------------------------------------------------------>
-
-    <div class="row">
-
-
-
-
-        <div class="input-field col s6">
-
-            <input type="text" class="form-control" id="adresse"  ng-model="newClient.adresse"
-                   name="adresse" required>
-            <label for="name"><i class="material-icons">location_city</i>Adresse</label>
-  <span style="color: #d32f2f" ng-show="submitted && registerForm.adresse.$error.required">
-                            Veuillez indiquer indiquer votre Adressse
-                        </span>
-        </div>
-
-
-
-        <div class=" input-field col s6">
-
-            <input type="text" class="form-control" id="phone"  ng-model="newClient.numTel1"
-                   required name="phone">
-            <label for="phone"><i class="material-icons">settings_phone</i>Num télephone</label>
-            <span style="color: #d32f2f" ng-show="submitted && registerForm.phone.$error.required">
-                            Veuillez indiquer indiquer votre num telephone
-                        </span>
-        </div>
-
-
-
-
-
-
-
-
-    </div><!---end of diw row----------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -127,7 +73,7 @@
                 required name="email">
         <label for="email"><i class="material-icons">email</i>Email address</label>
           <span style="color: #d32f2f" ng-show="submitted && registerForm.email.$error.required">
-                            Veuillez indiquer indiquer votre email
+                            Veuillez  indiquer votre email
                         </span>
          <span style="color: #d32f2f" class="help-inline" ng-show="submitted && loginForm.email.$error.email">
                             Saisissez une adresse e-mail valide
@@ -151,10 +97,9 @@
                name="password" required>
         <label for="password"><i class="material-icons">https</i>Password</label>
  <span style="color: #d32f2f" ng-show="submitted && registerForm.password.$error.required">
-                            Veuillez indiquer indiquer votre mot de passe
+                            Veuillez  indiquer votre mot de passe
+
                         </span>
-
-
 
     </div>
 
@@ -164,10 +109,102 @@
 
 
 
+    <!------------------------------------------------------------------------>
+
+    <div class="row">
 
 
 
-<div>
+
+        <div class="input-field col s6">
+
+            <input type="text" class="form-control" id="adresse"  ng-model="newClient.adresse"
+                   name="adresse" required>
+            <label for="name"><i class="material-icons">location_city</i>Adresse</label>
+  <span style="color: #d32f2f" ng-show="submitted && registerForm.adresse.$error.required">
+                            Veuillez  indiquer votre Adressse
+                        </span>
+        </div>
+
+
+
+        <div class=" input-field col s6">
+
+            <input type="number" class="form-control" id="phone"  ng-model="newClient.numTel1"
+                   required name="phone" ng-pattern="/^[1-9]{1}[0-9]{7}$/">
+            <label for="phone"><i class="material-icons">settings_phone</i>Num télephone</label>
+
+            <span style="color: #d32f2f" ng-show="submitted && registerForm.phone.$error.required">
+                            Veuillez  indiquer votre num telephone
+                        </span>
+
+                <span style="color: #d32f2f" ng-show="submitted && registerForm.phone.$error.pattern">
+                            Veuillez  indiquer votre un numéro de télephone valide
+                        </span>
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div><!---end of diw row----------------->
+
+
+<!--------------------------------->
+
+
+
+    <!------------------------------------------------------------------------>
+
+    <div class="row">
+
+
+
+
+        <div class="input-field col s6">
+
+
+            <p>
+                <input name="group1" type="radio" id="test1" ng-model="newClient.statut" />
+                <label for="test1">Particulier</label>
+            </p>
+            <p>
+                <input name="group1" type="radio" id="test2" ng-model="newClient.statut" />
+                <label for="test2">Proffesionel</label>
+            </p>
+        </div>
+
+
+        <div class="input-field col s6">
+            <input type="number" class="form-control" id="phone2"  ng-model="newClient.numTel2"
+                   required name="phone2" ng-pattern="/^[1-9]{1}[0-9]{7}$/" >
+            <label for="phone2"><i class="material-icons">settings_phone</i>Num télephone 2(opt)</label>
+
+             <span style="color: #d32f2f" ng-show="submitted && registerForm.phone2.$error.pattern">
+                            Veuillez  indiquer votre un numéro de télephone valide
+                        </span>
+            </div>
+
+
+
+
+
+
+
+
+    </div><!---end of diw row----------------->
+
+
+
+
+
+
+    <div>
 
 <div class="center-align">
     <button type="submit" class="waves-effect waves-light btn center-align" >Register!<i class="material-icons">skip_next</i></button>

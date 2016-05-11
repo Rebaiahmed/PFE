@@ -1,4 +1,4 @@
-<div class="container" ng-controller="optionsCtrl">
+<div class="container animated bounceInRight" ng-controller="optionsCtrl">
 
     <div class="row">
 
@@ -15,9 +15,9 @@
                 <div class="col s12 m12">
                     <div class="card">
                         <div class="card-image">
-                            <img src="/images/mercedes.jpg">
+                            <img ng-src="/images/{{voiture.photo}}.jpg">
                             <span class="card-title">{{ voiture.Modele.nom + ' ' + voiture.Modele.nom.marque    }}</span>
-                        </div>
+                        </div><!--end of card image-->
                         <div class="card-content">
                            <ul>
                                <li><strong>Prix location </strong> {{ voiture.prixLocation  }}</li>
@@ -25,104 +25,22 @@
                                <li><strong>Puissance</strong> :{{ voiture.Modele.puissance }}</li>
                                <li><strong>Carburant </strong> :{{ voiture.Modele.carburant }}</li>
                            </ul>
-                        </div>
+                        </div><!--end of card content--->
 
-                    </div>
-                </div>
-            </div>
-
-
+                    </div><!--end of card---->
+                </div><!--end of col s12--->
+            </div><!--end of row--->
 
 
-
-
-
-
-
-
-<h5>Options</h5><hr>
-
-
-
-
-
-            <!---------------------------------->
-
-
-
-
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card  ">
-                <div class="card-content text-darken-2">
-                    <span class="card-title">2 éme Chauffeurr <i class="material-icons">perm_identity</i></span>
-                    <p>Conducteur supplémentaire</p>
-                    <p>{{ voiture.Modele.prixChauffeur}} Dt/jour</p>
-                </div>
-                <div class="card-action">
-                    <p>
-                        <input type="checkbox" id="test4" ng-model=" newReservation.Chauffeur" />
-                        <label for="test4">Sélectionner  </label>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!------------------->
-
-
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card  ">
-                <div class="card-content text-darken-2">
-                    <span class="card-title">GPS <i class="material-icons">gps_fixed</i></span>
-                    <p>Demandez le périphérique Garmin Nuvi 650 Navigation Peu importe où vous êtes,
-                        obtenir les directions tour-par-tour où vous êtes censé être. Il est simple, facile et abordable!</p>
-                    <p>{{ voiture.Modele.prixGPS }} Dt/jour</p>
-                </div>
-                <div class="card-action">
-                    <p>
-                        <input type="checkbox" id="test5" ng-model=" newReservation.GPS" />
-                        <label for="test5">Sélectionner</label>
-                    </p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!------------------->
-
-
-
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card   ">
-                <div class="card-content text-darken-2t">
-                    <span class="card-title">Chaise Baby <i class="material-icons">child_care</i></span>
-                    <p>	Siège bébé.</p>
-
-                    <p>{{ voiture.Modele.prixChaisse}} Dt/jour</p>
-                </div>
-                <div class="card-action">
-                    <p>
-                        <input type="checkbox" id="test6" ng-model="newReservation.chaiseBaBy"/>
-                        <label for="test6">Sélectionner</label>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-            <a class="waves-effect waves-light btn" ng-click="Create3()">L'étape suivante <i class="material-icons">skip_next</i></a>
-
+            <a ng-click="Create3()" class="waves-effect waves-light btn">Étape suivante <i class="material-icons">skip_next</i></a>
         </div><!-----end of col m6------->
+
+
+
+
+
+
+
 
 
 
@@ -181,46 +99,13 @@
                 </tbody>
 
 
-
-
-                <thead>
-                <tr>
-                    <th data-field="id">lieur de Prise <i class="material-icons prefix">home</i></th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-
-
-
-   <td>
-       <img src="/images/tunis.jpg" alt="" class="circle responsive-img">
-   </td> <!-- notice the "circle" class -->
-
-
-
-                </tr>
-                </tbody>
-
-<!------------------------->
-                <thead>
-                <tr>
-                    <th data-field="id">lieur de Retour <i class="material-icons">home</i></th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img src="/images/tunis.jpg" alt="" class="circle responsive-img">
-                    </td> <!-- notice the "circle" class -->
-                </tr>
-                </tbody>
-
-
 </table>
 
+</div><!--end of col md6-->
+
+
+
+    </div><!--end of row--------->
 
 
 
@@ -228,11 +113,95 @@
 
 
 
-</div>
+        <h5>Options</h5><hr>
 
 
 
 
 
-</div><!--end of row--------->
+        <!---------------------------------->
+
+
+
+
+        <div class="row">
+
+
+
+
+
+
+            <div class="col s12 m4">
+                <div class="card  ">
+                    <div class="card-content text-darken-2">
+                        <span class="card-title">2 éme Chauffeurr <i class="material-icons">perm_identity</i></span>
+                        <p>Conducteur supplémentaire</p>
+                        <p>{{ voiture.Modele.prixChauffeur}} Dt/jour</p>
+                    </div>
+                    <div class="card-action">
+                        <p>
+                            <input type="checkbox" id="test4" ng-model=" newReservation.Chauffeur" />
+                            <label for="test4">Sélectionner  </label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col s12 m4">
+                <div class="card   ">
+
+
+                    <div class="card-content text-darken-2t">
+                        <span class="card-title">Chaise Baby <i class="material-icons">child_care</i></span>
+                        <p>	Siège bébé.</p>
+
+                        <p>{{ voiture.Modele.prixChaisse}} Dt/jour</p>
+                    </div><!--end of card content-->
+                    <div class="card-action">
+                        <p>
+                            <input type="checkbox" id="test6" ng-model="newReservation.chaiseBaBy"/>
+                            <label for="test6">Sélectionner</label>
+                        </p>
+                    </div><!--end of card action--->
+
+                </div><!--end of card---->
+            </div><!--end of col s12--->
+
+
+            <!---------------------------------------------------------------------------------------->
+
+            <div class="col s12 m4">
+                <div class="card  ">
+                    <div class="card-content text-darken-2">
+                        <span class="card-title">GPS <i class="material-icons">gps_fixed</i></span>
+                        <p>Demandez le périphérique Garmin Nuvi 650 </p>
+                        <p>{{ voiture.Modele.prixGPS }} Dt/jour</p>
+                    </div>
+                    <div class="card-action">
+                        <p>
+                            <input type="checkbox" id="test5" ng-model="newReservation.GPS" />
+                            <label for="test5">Sélectionner</label>
+                        </p>
+
+                    </div><!---end of card action--->
+                </div><!---end of card ---->
+            </div><!--end of col s12---->
+
+
+
+        </div><!--end of row--->
+
+
+
+
+
+
+
+
+
 </div><!--end of container--->

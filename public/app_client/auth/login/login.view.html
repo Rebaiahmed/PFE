@@ -16,7 +16,7 @@
 
 </style>
 
-<div class="container " ng-controller="loginCtrl">
+<div class="container animated lightSpeedIn " ng-controller="loginCtrl">
 
 
 
@@ -28,7 +28,7 @@
             <div class="col md6 ">
 
 
-                <h5>Connectez-vous à votre compte </h5>
+                <h5 class="blue-text text-darken-2">Connectez-vous à votre compte </h5>
 
                 <form class="col s12" ng-submit="onSubmit()" novalidate name="loginForm" ng-model="loginForm">
                     <div class="row">
@@ -73,11 +73,10 @@
 
             <div class="col md6 ">
 
-                <h5 class="center-align">Vous n'avez pas encore de compte</h5>
-                <p>Créer un compte</p>
+                <h5 class="center-align blue-text text-darken-2">Vous n'avez pas encore de compte</h5>
+                <a class="blue-text text-darken-1" ui-sref="Register">Créer un compte</a>
 
-                <a class="waves-effect waves-light btn" ui-sref="Register">Sign up
-                    <i class="material-icons">account_box</i></a>
+
 
             </div><!--edn of col md6-->
 

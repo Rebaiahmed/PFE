@@ -1,5 +1,5 @@
 
-<div class="container" ng-controller="voituresCtrl">
+<div class="container animated bounceInLeft " ng-controller="voituresCtrl">
 
 
 
@@ -12,13 +12,13 @@
 
 
 
-    <div class="col s12 m4" >
+    <div class="col s12 m4 animated zoomIn" >
         <div class="card large">
             <div class="card-image">
-                <img ng-src="/images/symbol2.jpg"  class="materialboxed" width="250" height="200">
+                <img ng-src="images/{{voitures[($index )].photo}}.jpg"  class="materialboxed" width="250" height="200">
             </div>
-            <div class="card-content">
-                <span class="card-title">{{ voitures[($index )].Modele.marque + ' ' + voitures[($index )].Modele.nom }} </span>
+            <div class="card-content ">
+                <span class="card-title blue-text text-darken-2">{{ voitures[($index )].Modele.marque + ' ' + voitures[($index )].Modele.nom }} </span>
 
 
                 <p><strong>Prix location </strong> : {{ voitures[($index  )].prixLocation }} </p>
@@ -27,8 +27,11 @@
                 <p> <strong>carburant </strong> : {{ voitures[($index )].Modele.carburant }} </p>
                 <p><strong>Places </strong> : {{ voitures[($index )].nbPlaces }}</p>
 
+
+
             </div>
             <div class="card-action">
+
                 <a class="waves-effect waves-light btn" ng-click="Create2(voitures[($index )].idVoiture)">Réserver</a>
 
             </div>
@@ -39,13 +42,13 @@
 
     <!---->
 
-    <div class="col s12 m4" ng-if="voitures.length > ($index + 1)">
+    <div class="col s12 m4 animated zoomIn" ng-if="voitures.length > ($index + 1)">
         <div class="card large">
             <div class="card-image">
-                <img ng-src="/images/symbol2.jpg" class="circle responsive-img">
+                <img ng-src="images/{{voitures[($index + 1)].photo}}.jpg" class="circle responsive-img">
             </div>
             <div class="card-content">
-                <span class="card-title">{{ voitures[($index + 1)].Modele.marque + ' ' + voitures[($index + 1)].Modele.nom }}</span>
+                <span class="card-title blue-text text-darken-2">{{ voitures[($index + 1)].Modele.marque + ' ' + voitures[($index + 1)].Modele.nom }}</span>
 
 
                 <p><strong>Prix location </strong> : {{ voitures[($index +1 )].prixLocation }} </p>
@@ -65,13 +68,13 @@
 
 
     <!--->
-    <div class="col s12 m4" ng-if="voitures.length > ($index + 2)">
+    <div class="col s12 m4 animated zoomIn" ng-if="voitures.length > ($index + 2)">
         <div class="card large">
             <div class="card-image">
-                <img ng-src="images/symbol2.jpg" class="circle responsive-img">
+                <img ng-src="images/{{voitures[($index + 2)].photo}}.jpg" class="circle responsive-img">
             </div>
             <div class="card-content">
-                <span class="card-title"> {{ voitures[($index + 2)].Modele.marque + ' ' + voitures[($index + 2)].Modele.nom }}</span>
+                <span class="card-title blue-text text-darken-2"> {{ voitures[($index + 2)].Modele.marque + ' ' + voitures[($index + 2)].Modele.nom }}</span>
 
 
 

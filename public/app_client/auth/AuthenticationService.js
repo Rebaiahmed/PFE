@@ -35,13 +35,13 @@ angular
              var token = getToken();
 
              var payload ; // the data is stored here
-             console.log('the tokne getd is :' + JSON.stringify(token) + ' ' + token);
+
 
 
 
              if(token=="undefined")
              {
-                 console.log('undefined token' + token)
+
                  return false ;
              }
 
@@ -52,9 +52,8 @@ angular
                  payload =$window.atob(payload);
                  payload = JSON.parse(payload);
 
-                 console.log('payload exp :' + payload.exp/1000);
 
-                  console.log((payload.exp >Date.now() /1000))
+
                  return payload.exp >Date.now() /1000;  // a expliquer
 
              }
@@ -83,7 +82,7 @@ angular
                        payload =$window.atob(payload);
                        payload = JSON.parse(payload);
 
-                       console.log('thd payload object is :' + JSON.stringify(payload));
+
 
 
                        // we will return an object

@@ -10,7 +10,7 @@ var passport = require('passport');
 var routes = require('./routes/api.js');
 
 
-var helmet = require('helmet')
+//var helmet = require('helmet')
 
 
 
@@ -44,13 +44,13 @@ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
 
 //utiliser helmet pour sécruiser
-app.use(helmet())
+/*app.use(helmet())
 app.use(helmet.noCache())
 app.use(helmet.frameguard())
 
 
 //xssFilter
-app.use(helmet.xssFilter())
+app.use(helmet.xssFilter())*/
 
 
 
@@ -87,7 +87,7 @@ app.use(function(err,req,res,next){
   if(err.name="UnauthorizedError")
   {
     res.status(401);
-    console.log('401 !')
+    console.log('401 !' + JSON.stringify(err));
     res.json({"error" :err.name + " :" +  err.message});
     //res.redirect('/');
 
@@ -102,6 +102,7 @@ app.use(function(err,req,res,next){
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
+
   next(err);
 });
 
@@ -122,15 +123,7 @@ if (app.get('env') === 'development') {
 
 
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+
 
 
 

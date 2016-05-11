@@ -6,11 +6,17 @@ define our controlller
 angular
     .module('meanApp')
     .controller('registerCtrl', function($scope,$location,Authentication,ReservationService,
-                                         $state){
+                                         $state,notify,$window){
 
 
         $scope.show = false ;
         $scope.submitted = false ;
+
+
+
+           //pour vailde rune expression Réguliére !
+        $scope.ph_numbr = '/^[0-9]{8}$/';
+        console.log('ph number' + $scope.ph_numbr  );
 
         $scope.newClient = {};
 
@@ -55,10 +61,12 @@ angular
 
                             if (angular.equals({}, $scope.newReservation)) {
 
-                                console.log('juste authentication et no pour termiern la réservation !')
-                                alert('we will login to profile !');
 
-                                $location.path('Profile');
+                                $scope.newClient={};
+                                notify('Merci Pour Votre inscription');
+
+                                $location.path('/');
+                                //$window.location.reload();
 
                             }
 

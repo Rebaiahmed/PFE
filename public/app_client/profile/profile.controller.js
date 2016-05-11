@@ -5,11 +5,15 @@
 
 angular
     .module('meanApp')
-    .controller('profileCtrl', function($scope,$location,Authentication,$http, $window,notify){
+    .controller('profileCtrl', function($scope,$location,Authentication,$http, $window,notify,$state){
 
         console.log(JSON.stringify(Authentication.getProfile()));
 
         $scope.user = {};
+
+        console.log('the cureent state is ' + JSON.stringify($state.current.name));
+
+
 
         $scope.reservations =[];
 

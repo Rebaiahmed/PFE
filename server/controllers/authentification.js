@@ -25,7 +25,10 @@ module.exports.signup = function(req,res)
      var nom = req.body.nom ;
     var password = req.body.password ;
     var prenom = req.body.prenom ;
-
+    var adresse = req.body.adresse;
+    var numTel1 = req.body.numTel1;
+    var statut = req.body.statut;
+var numTel2 = req.body.numTel2;
     /*
     check if Client saved before in the database
      */
@@ -38,7 +41,7 @@ module.exports.signup = function(req,res)
         else{
 
      //build our first non persistant data
-            var client = Client.build({nom :nom,prenom:prenom, email:email});
+            var client = Client.build({nom :nom,prenom:prenom, email:email,adresse:adresse,numTel1:numTel1,numTel2 :numTel2,statut:statut });
 
      //set the password to genreate the jwt
             client.setPassword(password);

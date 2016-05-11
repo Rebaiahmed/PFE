@@ -9,10 +9,8 @@ angular
 
 
 
-  console.log(Authentication.isloggedIn());
 
 
-        console.log('_________' + JSON.stringify(Authentication.getProfile()));
 
 
 
@@ -68,7 +66,7 @@ angular
               {
               alert('we will login to profile !');
 
-              $location.path('Profile');
+              $state.go('Profile');
 
               }
 

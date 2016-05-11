@@ -1,5 +1,5 @@
 var app = angular.module('meanApp',['ui.router','ui.materialize','angularMoment','cgNotify','ngAnimate','anim-in-out'
-,'uiGmapgoogle-maps']);
+,'uiGmapgoogle-maps','ngAnimate','djds4rce.angular-socialshare']);
 
 /*
 define the config function
@@ -9,11 +9,13 @@ define the config function
  the config for touing
  */
 
-function config($stateProvider, $urlRouterProvider) {
+function config($stateProvider, $urlRouterProvider,$locationProvider) {
 
 
 
     $urlRouterProvider.otherwise('/');
+
+
 
     $stateProvider
 
@@ -31,7 +33,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('Tarifs', {
             url: '/Tarifs',
-            templateUrl: '/app_client/partials/Tarifs.html',
+            templateUrl: '/app_client/tarifs/Tarifs.html',
 
 
         })
@@ -54,6 +56,25 @@ function config($stateProvider, $urlRouterProvider) {
         .state('Profile', {
             url :'/Profile',
             templateUrl: '/app_client/profile/profile.view.html',
+            resolve: {
+                app: function ($q, $rootScope, $location,Authentication) {
+                    var defer = $q.defer();
+
+
+                    console.log('User undefined !' + angular.isUndefined(Authentication.currentUser()));
+
+                    if (angular.isUndefined(Authentication.currentUser())) {
+
+
+                        $location.path('/');
+
+                        deferred.reject();
+                    }
+
+                    defer.resolve();
+                    return defer.promise;
+                }
+            }
 
 
         })
@@ -62,6 +83,28 @@ function config($stateProvider, $urlRouterProvider) {
         .state('login', {
             url :'/login',
             templateUrl: '/app_client/auth/login/login.view.html',
+            resolve: {
+                app: function ($q, $rootScope, $location,Authentication) {
+                    var defer = $q.defer();
+
+
+                    //si le client est déja authentifié alors il ne peut pas acceder au login
+
+                    if (!angular.isUndefined(Authentication.currentUser())) {
+
+
+                        $location.path('/');
+
+                        deferred.reject();
+                    }
+
+                    defer.resolve();
+                    return defer.promise;
+                }
+            }
+
+
+
 
 
 
@@ -99,7 +142,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('Contact', {
             url :'/Contact',
-            templateUrl: '/app_client/partials/Contact.html',
+            templateUrl: '/app_client/contact/Contact.html',
 
 
         })
@@ -137,4 +180,39 @@ function run($rootScope,$location,Authentication)
 
 
 app.config(['$stateProvider', '$urlRouterProvider',config]);
+
+
 app.run(['$rootScope','$location','Authentication',run]);
+
+
+
+
+
+/*
+Socila Share
+ */
+app.run(function($FB){
+    $FB.init('231684367202361');
+});
+
+
+
+
+
+
+app.config(function($locationProvider){
+    $locationProvider.html5Mode(true).hashPrefix('!');
+    /*$locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });*/
+    $locationProvider.html5Mode(false);
+});
+
+app.config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        key: "AIzaSyBYRaa7QZ30PCCo_BJ6OR_g8dpxkld9E7M", //Clé pour utiliser l'API
+        v: '3.17', //Par défaut la version la plus récente disponible
+        libraries: 'geometry,visualization' //Librairies supplémentaires
+    });
+}]) ;

@@ -3,13 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <title>Parallax Template</title>
+    <title>King Rent Car</title>
 
-     <link rel="stylesheet" href="/public/stylesheets/animate.css">
+
     <link rel="stylesheet" href="/bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css">
     <link rel="stylesheet" href="/bower_components/angular-notify/dist/angular-notify.css">
     <link rel="stylesheet" href="/bower_components/Materialize/dist/css/materialize.min.css">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/bower_components/angular-socialshare/angular-socialshare.css">
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 
     <link rel="shortcut icon" href="images/favicon (8).ico" type="image/x-icon">
     <link rel="icon" href="/images/favicon (8).ico" type="image/x-icon">
@@ -109,6 +112,7 @@
         body
         {
             background-color: #f1f8e9;
+
         }
 
     </style>
@@ -122,6 +126,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <script src="http://platform.twitter.com/widgets.js"></script>
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/lodash/dist/lodash.min.js"></script>
 
@@ -139,10 +145,9 @@
     <script src="/bower_components/angular-materialize/src/angular-materialize.js"></script>
     <script src="/bower_components/angular-notify/dist/angular-notify.min.js"></script>
     <script src="/bower_components/angular-ui-router-anim-in-out/anim-in-out.js"></script>
+ <script src="/bower_components/angular-socialshare/angular-socialshare.min.js"></script>
 
 
-<script src="/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
-    <script src="/bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
     <script src="/bower_components/interact/dist/interact.min.js"></script>
 
@@ -162,32 +167,46 @@
 
 </head>
 <body>
-<div id="navbar" class="navbar-fixed scrollspy">
+<div id="navbar" class="navbar-fixed scrollspy white-text  ">
 
-    <nav  class="white" ng-controller="navigationCtrl">
+    <nav  class="white teal lighten-2 white-text " ng-controller="navigationCtrl">
 
         <div class="nav-wrapper container">
-            <div class="container"> <a href="#navbar" class="brand-logo">Logo</a></div>
+            <div class="container"> <a href="#navbar" class="brand-logo">
+                <img src="/images/logo.png">
+            </a></div>
 
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">apps</i></a>
 
 
-            <ul class="right hide-on-med-and-down">
+            <ul class="right hide-on-med-and-down white-text">
 
-                <li><a class="head-link" ui-sref="index">Acceuil</a></li>
-                <li><a class="head-link" ui-sref="Voitures">Voitures</a></li>
-                <li><a class="head-link" ui-sref="Tarifs">Tarifs</a></li>
-                <li><a class="head-link" ui-sref="Reservation">Réservation</a></li>
-                <li><a class="head-link" ui-sref="Nous">Qui Sommes Nous</a></li>
-                <li><a class="head-link" ui-sref="Contact">Contatc {{ isloggedIn }}
+                <li><a class="head-link white-text" ui-sref="index" style="font-family: 'Oswald', sans-serif;">Acceuil</a></li>
+                <li><a class="head-link white-text" ui-sref="Voitures" style="font-family: 'Oswald', sans-serif;">Voitures</a></li>
+                <li><a class="head-link white-text" ui-sref="Tarifs" style="font-family: 'Oswald', sans-serif;">Tarifs</a></li>
+                <li><a class="head-link white-text" ui-sref="Reservation" style="font-family: 'Oswald', sans-serif;">Réservation</a></li>
+                <li><a class="head-link white-text" ui-sref="Nous" style="font-family: 'Oswald', sans-serif;">Qui Sommes Nous</a></li>
+                <li><a class="head-link white-text" ui-sref="Contact" style="font-family: 'Oswald', sans-serif;">Contact
                    </a></li>
 
-                <li ng-show="!isloggedIn"><a class="head-link" ui-sref="login"><i class="material-icons">supervisor_account</i>
-                </a></li>
 
-                <li ng-show="isloggedIn "><a class="head-link" ng-click="logout()">déconnexion </a>
+
+                    <li><a class="dropdown-button white-text" href="#!" data-activates="d2"><i class="material-icons">menu</i></a>
+                        <ul id='d2' class='dropdown-content'>
+
+                            <li ng-show="isloggedIn"><a ui-sref="Profile">Profile<i class="material-icons">account_box</i></a></li>
+                            <li ng-show="isloggedIn"><a ng-click="logout()">Déconnecter<i class="material-icons">view_quilt</i></a></li>
+                            <li ng-show="!isloggedIn"><a ui-sref="login">login<i class="material-icons">account_circle</i></a></li>
+                            <li ng-show="!isloggedIn"><a ui-sref="Register">S'inscrire<i class="material-icons">supervisor_account</i></a></li>
+
+                        </ul>
+                    </li>
+
+
 
             </ul>
+
+
 
 
 
@@ -202,10 +221,16 @@
                 </a></li>
             </ul>
         </div>
+
+
     </nav>
+
+
+
+
+
+
 </div>
-
-
 
 
 
@@ -230,15 +255,15 @@
 
 
 
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-large red">
-        <i class=" large material-icons">chat</i>
+        <i class="material-icons">shopping_cart</i>
     </a>
     <ul>
         <li><a class="btn-floating red"><i class="material-icons">chat</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="material-icons">supervisor_account</i>sign in</a></li>
+        <li><a class="btn-floating green"><i class="material-icons">account_circle</i>sign up</a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">contacts</i></a></li>
     </ul>
 </div>
 
@@ -263,8 +288,9 @@
 <script src="./app_client/voitures/voitureController.js"></script>
 <script src="./app_client/voitures/optionsController.js"></script>
 <script src="./app_client/confirm/confirm.controller.js"></script>
-<script src="./app_client/partials/ContactController.js"></script>
-<script src="./app_client/partials/tarifController.js"></script>
+<script src="./app_client/contact/ContactController.js"></script>
+<script src="./app_client/tarifs/tarifController.js"></script>
+<script src="./app_client/Newsletter/Newsletter.controller.js"></script>
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src=/bower_components/materialize/dist/js/materialize.min.js></script>
@@ -280,7 +306,12 @@
 
 
 </script>
+
+
 <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyBYRaa7QZ30PCCo_BJ6OR_g8dpxkld9E7M'></script>
+<script src="/bower_components/lodash/lodash.js"></script>
+<script src="/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+<script src="/bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 <script>
 
     $(document).ready(function(){
@@ -296,7 +327,22 @@
             }, 800);
         });
 
+
+
+        $('.dropdown-button').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: true, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: false, // Displays dropdown below the button
+                    alignment: 'left' // Displays dropdown with edge aligned to the left of button
+                }
+        );
+
     });
+
+
 </script>
 <script>
 

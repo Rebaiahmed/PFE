@@ -151,7 +151,43 @@ module.exports.sendMailClient_Agence = function(req,res)
 
 
 
+module.exports.Newsletter = function(req,res)
+{
+    //get the mail
+    var mail_client = req.body.email ;
 
+
+
+    console.log("data recived is :" + mail_client );
+
+
+
+
+
+    //Mail options
+    mailOpts = {
+        from: "ahmed.bouhmid94@gmail.com",
+        to: mail_client,
+        subject: 'test',
+        text: 'newsletter'
+    };
+    smtpTrans.sendMail(mailOpts, function (error, response) {
+        //Email not sent
+        if (error) {
+            console.log('error ' + error);
+            res.json(error);
+        }
+        //Yay!! Email sent
+        else {
+            console.log('success ' + JSON.stringify(response));
+            res.json("send succesfuly !");
+        }
+        smtpTrans.close();
+
+    })
+
+
+}
 
 
 
