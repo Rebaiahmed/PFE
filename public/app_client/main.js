@@ -202,10 +202,10 @@ app.run(function($FB){
 
 app.config(function($locationProvider){
     $locationProvider.html5Mode(true).hashPrefix('!');
-    /*$locationProvider.html5Mode({
+    $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
-    });*/
+    });
     $locationProvider.html5Mode(false);
 });
 
