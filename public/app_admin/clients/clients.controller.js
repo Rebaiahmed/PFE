@@ -1,7 +1,7 @@
 
 angular
     .module('adminApp').controller('clientsController', function($scope,ClientsFactory,$state,locationsFactory
-    ,$window){
+    ,$window,notify){
 
 
 
@@ -19,11 +19,27 @@ angular
 
 
 
+        //POur vérifier si le from est envoyée
+        $scope.submitted = false ;
+
+
+        //editer Client
+        $scope.ClientEdit= false;
+
+        $scope.ClientDetails =false;
+
+        $scope.chiffreAffaire =[];
+
+
+
     function getClients()
     {
         ClientsFactory.getClients()
             .then(function(data){
-                $scope.clients =data.data ;
+
+                $scope.clients =data.data[0] ;
+
+                $scope.chiffreAffaire = data.data[1];
 
             }, function(err){
                 console.log('err' + err);
@@ -41,23 +57,33 @@ angular
     $scope.updateClient = function()
     {
 
+         $scope.submitted = true ;
 
 
-        ClientsFactory.updateClient($scope.client.idClient,$scope.client)
-            .then(function(data){
-                $scope.status ="200 ok !";
-                console.log($scope.status);
 
-            }, function(err){
-                console.log('err  !' + err);
-            })
+        console.log('form valid' + $scope.ClientForm.$valid)
 
-        //refresh !!!!
+       if($scope.ClientForm.$valid) {
 
-        getClients();
-        $state.go('clients');
+            ClientsFactory.updateClient($scope.client.idClient, $scope.client)
+                .then(function (data) {
+                    $scope.status = "200 ok !";
+                    console.log($scope.status);
 
 
+                    notify('Client Modifé avec Succeés !')
+                    $scope.ClientEdit= false;
+
+                }, function (err) {
+                    console.log('err  !' + err);
+                })
+
+            //refresh !!!!
+
+            getClients();
+
+
+        }//end if !!
 
     }
 
@@ -76,6 +102,8 @@ angular
                 $scope.status ="deleted client!";
                 console.log($scope.status);
 
+
+                notify('Client Supprimée avec Succeés !')
                 // we msut refresh the list
                 getClients();
 
@@ -86,13 +114,18 @@ angular
             })
     }
 
+
     /*
 
      */
 
+        /*
+
+         */
 
     $scope.editClient = function(id)
     {
+
 
         // rechercher le client
         for(var i=0;i<$scope.clients.length;i++)
@@ -106,17 +139,46 @@ angular
             }
         }
 
-        $state.go('.edit')
 
+
+        $scope.ClientEdit= true;
+        $scope.ClientDetails= false;
     }
+
+
+
+
+        /*
+
+         */
 
     /*
 
 
      */
 
+
+
+
+
     $scope.detailsClient =function(id)
     {
+
+        $scope.chiffreClient = 0;
+        //Parcourir cette tableau
+        for(var j=0;j<$scope.chiffreAffaire.length;j++)
+        {
+            if($scope.chiffreAffaire[j].idClient==id)
+            {
+                $scope.chiffreClient= $scope.chiffreAffaire[j].prixTT;
+
+                break;
+            }
+        }//end for
+
+
+        $scope.ClientDetails= true;
+        //$scope.ClientEdit = false;
         // serahc the client
         for(var i=0;i<$scope.clients.length;i++)
         {
@@ -129,10 +191,13 @@ angular
             }
         }
 
-        $state.go('.details')
+
 
     }
 
+        /*
+
+         */
 
 
     /*
@@ -199,7 +264,7 @@ angular
 
 
 angular
-    .module('adminApp').controller('emailClientsController', function($scope,$http, $state){
+    .module('adminApp').controller('emailClientsController', function($scope,$http, $state, notify){
     $scope.show = true ;
     $scope.submitted = false ;
 
@@ -209,12 +274,17 @@ angular
 
         $scope.submitted = true;
 
+
+
+
         if ($scope.emailForm.$valid) {
 
             $http.post('/auth/admin/sendMail', $scope.data)
                 .then(function (res) {
-                    console.log('success !');
+
                     $state.go('clients');
+
+                    notify('email envoyé avec succées !')
 
 
                 }, function (err) {

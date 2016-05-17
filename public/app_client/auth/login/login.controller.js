@@ -80,7 +80,7 @@ angular
               $scope.newReservation.Client_idClient = $scope.client.id;
               //console.log('modify it to be ::' +  $scope.newReservation)
               //saved it
-              ReservationService.saveReservation(JSON.stringify($scope.newReservation));
+              ReservationService.saveReservation($scope.newReservation);
               //display it
               console.log("saved in the login ctrl :" + ReservationService.getReservation());
 

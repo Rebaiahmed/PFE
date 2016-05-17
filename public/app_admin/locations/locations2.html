@@ -1,4 +1,4 @@
-<section class="content" ng-controller="locationsController" >
+<section class="content animated slideInLeft" ng-controller="locationsController" >
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
             <div class="row">
@@ -8,18 +8,239 @@
 
 
 
-                    <div permission
-                         permission-only="'canReadInvoice'">
-                        <span>Congrats! You are logged in.</span>
-                    </div>
 
 
 
-                    <a class="btn-floating btn-large waves-effect waves-light red"
-                            ui-sref=".add"><i class="material-icons">add</i></a>
+
+                    <a class="btn-floating btn-large waves-effect waves-light blue darken-3"
+                            ng-click="addOrEdit =!addOrEdit"><i class="material-icons">add</i></a>
 
 
-     <div ui-view></div>
+
+                    <!--------------------------Détails Clietn------------------------------->
+
+                    <div class="card-panel animated bounceInDown" ng-show="locationDetails">
+
+                        <a ng-click="ClientDetails=!ClientDetails"><i class="material-icons">cached</i>Cacher</a>
+                        <ul>
+                            <li class="collection-item">
+                                <p><strong>Date Début </strong> : {{ location.dateDebut | date:'yyyy-MM-dd' }}
+                                A  {{ location.heureDebut }} </p>
+                               <p><strong>Date Fin </strong> : {{ location.dateFin | date:'yyyy-MM-dd' }}</p>
+                            </li>
+
+                            <hr>
+                            <li class="collection-item">
+
+                                <p><strong>lieu de Prise</strong> :{{ location.lieuPrise }}</p>
+                                <p> <strong>lieur de Retour </strong> : {{ location.lieuRetour }}</p>
+                            </li>
+
+                            <hr>
+
+                            <li class="collection-item">
+                            <p> <strong>Client </strong> {{ location.Client.nom + ' ' + location.Client.prenom }} </p>
+                            </li>
+
+                            <hr>
+
+                            <li class="collection-item">
+                                <p><strong>Voiture </strong> {{ location.Voiture.numImmatricule + ' ' + location.Voiture.Modele.nom
+                                     + ' ' +  location.Voiture.Modele.marque }} </p>
+
+
+                            </li>
+
+
+                            <hr>
+
+                            <li class="collection-item">
+
+                              <p><stron>Prix Totale </stron> : {{ location.PrixTotale }}</p>
+                            </li>
+
+                            <hr>
+                            <li class="collection-item">
+                                <p><strong>Etat </strong> :</p>
+                            </li>
+
+                            <hr>
+
+                        </ul>
+
+
+
+                    </div><!---end of card panel---------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-------from addd or edit------------------->
+
+
+                    <div class="row animated zoomIn" ng-show="addOrEdit">
+
+                        <div class="col s12">
+
+
+
+
+                            <form ng-submit="addReservation()" name="ResForm" novalidate ng-model="ResForm">
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="" id="first_name" type="date" name="dateDebut"
+                                               class="datepicker" ng-model="newReservation.dateDebut" required>
+
+                                        <p class="red-text" ng-show="submitted && ResForm.dateDebut.$error.required ">
+                                            Vous devez indiquer la deat de Début
+                                        </p>
+
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="Date fin" type="date" class="datepicker" name="dateFin"
+                                               ng-model="newReservation.dateFin" required>
+
+                                        <p class="red-text" ng-show="submitted && ResForm.dateFin.$error.required ">
+                                            Vous devez indiquer la deat de Fin
+                                        </p>
+
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="heure Debut" type="text" class="validate" name="heureDebut"
+                                               ng-model="newReservation.heureDebut" required>
+                                        <label for="last_name">heure debut</label>
+                                        <p class="red-text" ng-show="submitted && ResForm.heureDebut.$error.required ">
+                                            Vous devez indiquer Heure Début
+                                        </p>
+
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="Heure fin" type="text" class="validate"
+                                               ng-model="newReservation.heureFin"  required name="heureFin">
+                                        <label for="last_name">heure fin</label>
+                                        <p class="red-text" ng-show="submitted && ResForm.heureFin.$error.required ">
+                                            Vous devez indiquer Heure Début
+                                        </p>
+
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="lieu_Prise" type="text" class="validate" name="lieuPrise"
+                                               ng-model="newReservation.lieuPrise" required>
+                                        <label for="last_name">lieu Prise</label>
+                                        <p class="red-text" ng-show="submitted && ResForm.lieuPrise.$error.required ">
+                                            Vous devez indiquer lieu de debut
+                                        </p>
+
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="lieu Fin" type="text" class="validate" name="lieuRetour"
+                                               ng-model="newReservation.lieuRetour" required>
+                                        <label for="last_name">lieu Retour</label>
+                                        <p class="red-text" ng-show="submitted && ResForm.lieuRetour.$error.required ">
+                                            Vous devez indiquer lieur de Retour
+                                        </p>
+
+
+
+
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea" length="120"
+                                          ng-model="newReservation.description"></textarea>
+                                        <label for="textarea1">Description</label>
+                                    </div>
+
+
+
+                                    <label><h5>Voiture</h5></label>
+                                    <select class="browser-default" ng-model="newReservation.Voiture_idVoiture" required >
+
+                                        <option value="{{c.idVoiture }}" ng-repeat="c in cars" ng-selected="c.idVoiture==newReservation.Voiture_idVoiture"
+                                                ng-disabled="!c.disponibilite">
+                                            {{ c.Modele.nom + " " +  c.Modele.marque + " " + c.numImmatricule
+                                            }}
+                                            {{  c.idVoiture==newReservation.Voiture_idVoiture }}
+
+                                        </option>
+
+
+
+
+                                    </select>
+
+                                    <label><h5>Client </h5></label>
+                                    <select class="browser-default" ng-model="newReservation.Client_idClient" required>
+
+                                        <option value="{{cl.idClient}}" ng-repeat="cl in clients"
+                                                ng-selected="cl.idClient==newReservation.Client_idClient">
+                                            {{ cl.nom + " " + cl.prenom + " " + cl.idClient  }}
+                                            {{ cl.idClient==newReservation.Client_idClient }}
+                                        </option>
+
+                                    </select>
+
+
+
+                                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                                            >Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+
+                                    <p class="red-text" ng-show="submitted && ResForm.lieuRetour.$error.required ">
+                                        Vous devez indiquer lieur de Retour
+                                    </p>
+
+                                </div>
+
+
+
+
+
+                            </form>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <!--end of col-s12-->
+
+                    </div><!--end of row-->
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,6 +292,7 @@
                     <table class="centered highlight">
                         <thead>
                         <tr>
+                            <th>Num Réservation <i class="material-icons">format_list_numbered</i></th>
                             <th data-field="id">
                                 <p><i class="small material-icons">perm_identity</i> Client</p>
                             </th>
@@ -137,7 +359,7 @@
 
                         <tbody>
                         <tr ng-repeat="loc in locations     ">
-                            <td>{{  }}</td>
+                            <td>{{ loc.idReservation }}</td>
                           <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
                             <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
                             <td>{{ loc.dateDebut | date:'dd/MM/yyyy'  + " " + loc.heureDebut    }}h</td>

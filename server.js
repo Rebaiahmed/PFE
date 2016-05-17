@@ -143,15 +143,71 @@ app.set('port',process.env.PORT | 3000);
 
 
 
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+
+//store the socket.io in the app container
+app.set('socketio', io);
+
+//store the server in the app
+app.set('server', server);
 
 
 
-app.listen(3000, function()
+/*
+si l'admin est connectée
+ */
+
+
+
+
+server.listen(3000, function()
 {
   console.log('server runnung in port 3000 !');
 })
 
 
+io.sockets.on('connection', function(socket, user ){
+
+
+
+  socket.on('admin_online', function(user ){
+
+    console.log("l'admin est connecte !");
+
+    socket.broadcast.emit('client');
+  })
+
+
+  //quna l'amdin envoie un message
+
+
+  socket.on('admin_message', function(msg ){
+
+    console.log("msg d'apres l'aadmin !",msg);
+
+    socket.broadcast.emit('client_recive', msg);
+  })
+
+
+
+  /*
+  _-___--_-_-_-_-_-_-_-_--_
+   */
+
+
+  socket.on('client_message', function(msg ){
+
+    console.log("msg d'apres le client !",msg);
+
+    socket.broadcast.emit('admin_recive', msg);
+  })
+
+
+
+
+})
 
 
 

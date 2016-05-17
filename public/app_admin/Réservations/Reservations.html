@@ -1,17 +1,18 @@
-<section class="content">
+<section class="content ">
     <div class="container" style="width: 50%; padding: 0 0.5rem;" ng-controller="PreReservationCtrl" >
         <div class="m-box">
             <div class="row">
 
                 <div class="col s12">
                     <h3> Réservations  {{ nbr }}</h3>
+                    <h6><a ui-sref="Archive">Voir l'archvie</a></h6>
 
 
 
 
 
 
-                    <div class="card  " ng-repeat="pre in prereservations ">
+                    <div class="card animated slideInDown" ng-repeat="pre in prereservations ">
                         <div class="card-content ">
 
                             <span class="card-title">Réservation n° {{ pre.idReservation }}</span>
@@ -70,12 +71,12 @@
                             </table>
 
                             <div class="card-action  ">
-                                <a class="waves-effect waves-light btn  black-text" ng-click="confirmer(pre.idReservation)">
+                                <a class="waves-effect waves-light btn  blue lighten-1  black-text" ng-click="confirmer(pre.idReservation)">
                                     Confimer<i class="material-icons">done</i></a>
-                                <a class="waves-effect waves-light btn  black-text" ng-click="delete(pre.idReservation)">Rejeter
+                                <a class="waves-effect waves-light btn red  black-text" ng-click="delete(pre.idReservation)">Rejeter
                                     <i class="material-icons">delete</i></a>
 
-                                <a class="waves-effect waves-light btn  black-text" >Archiver
+                                <a class="waves-effect waves-light btn grey darken-3  black-text" >Archiver
                                     <i class="material-icons">archive</i></a>
                             </div>
 

@@ -27,9 +27,28 @@ angular
 
 
 
+
+        //detila slocation
+
+        $scope.locationDetails = false ;
+
+
+        //Por vérifier l'envoi du form
+        $scope.submitted = false ;
+
+
+        //variable pour voir les locations
+
+        $scope.addOrEdit = false ;
+
+
+
     ClientsFactory.getClients()
         .success(function(res){
-            $scope.clients = res ;
+
+
+            $scope.clients =res[0] ;
+
 
         })
 
@@ -99,7 +118,9 @@ angular
 
         })
 
-        $state.go('.details')
+        $scope.locationDetails = true;
+
+        //$state.go('.details')
 
     }
 
@@ -181,6 +202,13 @@ angular
     $scope.editlocation = function(id)
     {
 
+
+
+
+  //metree a true
+        $scope.addOrEdit = true;
+
+
         $scope.location=locationsFactory.get({
             idReservation:id
 
@@ -198,7 +226,7 @@ angular
 
         })
 
-        $state.go('locations.add');
+        //$state.go('locations.add');
 
 
 
@@ -215,6 +243,14 @@ angular
 
     $scope.addReservation = function()
     {
+
+        $scope.submitted = true;
+
+        if($scope.ResForm.$valid)
+        {
+
+
+
 
         var idVoiture = $scope.newReservation.Voiture_idVoiture;
 
@@ -264,6 +300,11 @@ angular
             })
 
         }
+
+
+
+
+        }//end of if test !!!
 
     }
 

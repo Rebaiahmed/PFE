@@ -5,26 +5,17 @@ angular
 
 
 
-
-
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-
     /* config object */
     $scope.uiConfig = {
         calendar:{
-            height: 450,
+            height: 650,
             editable: true,
             header:{
                 left: 'month basicWeek basicDay agendaWeek agendaDay',
                 center: 'title',
                 right: 'today prev,next'
             },
-            dayClick: $scope.alertEventOnClick,
-            eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize
+
         }
     };
 
@@ -47,6 +38,8 @@ angular
     var locations = locationsFactory.query(function(){
 
 
+
+
         for (var i = 0; i < locations.length; i++) {
 
 //convertir les dates
@@ -59,13 +52,14 @@ angular
 
             var event = {
                 "title": locations[i].Client.nom + ' ' +locations[i].Client.prenom,
-                "start": locations[i].dateFin,
-                "end":  new Date(y, m, d)
+                "start": locations[i].dateDebut,
+                "end":  locations[i].dateFin
             }
             //pour la peristant des evenemtns
             event.stick = true;
+            event.className = ['highPriority'];
 
-//ajouter l'event au eventSources
+          //ajouter l'event au eventSources
             $scope.eventSources[0].push(event);
 
         }

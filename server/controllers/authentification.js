@@ -20,6 +20,22 @@ var Manager = models.Manager ;
 
 module.exports.signup = function(req,res)
 {
+
+
+
+    //faire appel au socket.io pour notifier l'admi q'un client est inscrit !
+    var socketio = req.app.get('socketio');
+
+   console.log('the sokeet is ' + socketio);
+
+
+
+
+
+
+
+
+
     //get the data necessary for the signup
     var email = req.body.email ;
      var nom = req.body.nom ;
@@ -50,6 +66,18 @@ var numTel2 = req.body.numTel2;
                 .then(function(){
                     var token ;
                     token = client.generateJwt();
+
+
+
+                    //avnat d'nevoyer le token
+
+                    socketio.sockets.emit('new_client');
+
+
+
+
+
+
 
                     //send the tokne to the front-end system
                     res.status(200).json({

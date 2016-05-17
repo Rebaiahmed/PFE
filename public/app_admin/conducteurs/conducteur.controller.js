@@ -20,12 +20,6 @@ angular
 
 
 
-
-
-
-
-
-
     $scope.change = function()
     {
         $scope.showAdd = !$scope.showAdd;

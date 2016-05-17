@@ -16,11 +16,11 @@ $scope.clicked = false ;
 
         //$scope.newReservation = JSON.parse($scope.newReservation);
 
-        var Reservation ={};
+
         // get the Reservation
-        Reservation = ReservationService.getReservation();
+        var Reservation = ReservationService.getReservation();
 
-
+  console.log('la réservation est ' + JSON.stringify(ReservationService.getReservation()));
 
             var dDebut = Reservation.dateDebut.split('/').join('-');
             var dFin = Reservation.dateFin.split('/').join('-');

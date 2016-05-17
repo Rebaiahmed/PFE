@@ -8,10 +8,37 @@ angular
 
 
 
-        $scope.goReservation = function()
+
+
+
+/*
+envoyer Newsltter
+ */
+
+        //itnitilaize l'email
+        $scope.data ;
+
+
+        $scope.sendEmail = function()
         {
 
+            alert('ahmed !');
+
+
+            /* $http.post('/auth/client/newsletter', $scope.data)
+             .then(function (res) {
+             console.log('success !');
+             notify('email envoyée avec succes !')
+
+
+
+             }, function (err) {
+             console.log('err' + err);
+             })*/
         }
+
+
+
 
 
 
@@ -39,6 +66,33 @@ angular
         $scope.clickMarker = function(marker) {
             alert(marker.email); //Affichera l'email du point sur lequel on a cliqué
         };
+
+
+
+
+
+
+
+
+        /*
+        une fnction d'envoi
+         */
+
+        $scope.showForm = false;
+
+        $scope.showform = function()
+        {
+            $scope.showForm = true;
+        }
+
+
+
+
+
+
+
+
+
 
 
 

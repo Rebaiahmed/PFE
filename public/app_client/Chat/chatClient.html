@@ -1,0 +1,130 @@
+
+<section class="content animated bounceInLeft" style="background-color: #ffffff" ng-controller="chatCtrl">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+<h4>Chatt<i class="material-icons">chat_bubble_outline</i></h4>
+<p>Mr {{ currentuser.nom }}</p>
+
+
+
+
+                <div  class="col s12">
+
+
+
+                    <!--------------->
+
+                    <div class="animated slideInUp" ng-repeat="obj in messages ">
+
+                        <div ng-show="obj.user!='admin'" class="animated bounce">
+                            <h2>
+                                <div class="chip">
+
+                                    <i class="material-icons">person_pin</i>
+                                    <strong>{{ currentuser.nom }}</strong>
+                                </div>
+
+                            </h2>
+
+                            <p>{{ obj.msg }} </p>
+                        </div>
+
+                        <!--------------------->
+
+
+                        <div ng-show="obj.user=='admin'"class="row grey lighten-4 animated slideInUp" >
+                            <h2>
+                                <div class="chip">
+
+                                    <i class="material-icons">person_pin</i>
+                                    <strong>Admin</strong>
+                                </div>
+
+                            </h2>
+
+                            <p>{{ obj.msg }} </p>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <form class="col s12"  >
+                        <div class="row">
+                            <div class="input-field col s12">
+
+                                <input type="text" ng-enter="sendMsg($scope.msg)" ng-model="$scope.msg" class="validate" required>
+                                <label for="first_name">Msg</label>
+
+                                <a  class="waves-effect waves-light btn blue darken-1">   <i class="material-icons">send</i>envoyer</a>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

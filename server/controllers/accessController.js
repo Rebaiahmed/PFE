@@ -4,6 +4,7 @@ var models  = require('../models/index.js');
 var Client = models.Client ;
 var Manager = models.Manager ;
 var Reservation = models.Reservation ;
+var Voiture = models.Voiture;
 
 module.exports.viewProfile = function(req,res)
 {

@@ -1,12 +1,12 @@
 
-<section class="content" ng-controller="ManagerController" >
+<section class="content animated slideInDown" ng-controller="ManagerController" >
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
             <div class="row">
 
                 <div class="col s12">
                    <h5>Profile Manager
-                       <a class="btn-floating btn-large waves-effect waves-light " ng-click="show3=!show3"><i class="material-icons">update</i></a></h5>
+                       <a class="btn-floating btn-large waves-effect waves-light blue lighten-1 " ng-click="show3=!show3"><i class="material-icons">update</i></a></h5>
                 </div>
                 <!--end of col-s12-->
 
@@ -56,7 +56,7 @@
                         </div>
                     </div>
 
-                    <button class="waves-effect waves-light btn">Enregistrer</button>
+                    <button class="waves-effect waves-light btn blue lighten-1">Enregistrer</button>
 
                 </form>
 
@@ -69,10 +69,10 @@
 
             <div class="row">
                 <h5>Ajouter un Manager</h5>
-                <a class="btn-floating btn-large waves-effect waves-light " ng-click="show=!show"><i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light blue lighten-1 " ng-click="show=!show"><i class="material-icons">add</i></a>
 
 
-                <form class="col s12" ng-show="show" ng-submit="addManager()" name="managerForm">
+                <form class="col s12 animated bounceInDown" ng-show="show" ng-submit="addManager()" name="managerForm">
                     <div class="row">
                         <div class="input-field col s6">
                             <input  id="first_name" type="text" class="validate"
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <button class="waves-effect waves-light btn" ng-disabled="managerForm.$invalid">Enregistrer</button>
+                    <button class="waves-effect waves-light btn blue lighten-1" ng-disabled="managerForm.$invalid">Enregistrer</button>
 
                 </form>
             </div><!--end of row---->
@@ -105,11 +105,11 @@
 
             <div class="row">
                 <h5>Voire les Adminstrateurs</h5>
-                <a class="btn-floating btn-large waves-effect waves-light " ng-click="show2=!show2"><i class="material-icons">view_array</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light blue lighten-1" ng-click="show2=!show2"><i class="material-icons">view_array</i></a>
 
 
 
-                <table ng-show="show2">
+                <table ng-show="show2" class="animated bounceInDown">
                     <thead>
                     <tr>
                         <th data-field="id">Nom</th>

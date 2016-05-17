@@ -58,6 +58,12 @@ angular
              }
 
 
+        this.getCar = function(id)
+        {
+            return $http.get('/client/voiture/', id);
+        }
+
+
 
         this.savePreReservation = function(data)
         {

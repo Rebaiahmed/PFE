@@ -8,10 +8,11 @@ angular
     $scope.show = false ;
 
     $scope.shwoUpdate = false ;
+        $scope.submitted = false;
 
 
 
-    function getCars()
+        function getCars()
     {
         VoitureFactory.getCars()
             .then(function(data){
@@ -29,7 +30,7 @@ angular
 
 
             }, function(err){
-                $scope.message ="enable to load data !" + err;
+                console.log('err' + err);
             })
     }
 
@@ -86,20 +87,27 @@ angular
 
     $scope.addEntretient = function(idVoiture)
     {
+
+        $scope.submitted = true;
         $scope.newEntretient.Voiture_idVoiture = idVoiture;
         //save it !
 
         $scope.show=false;
-        EntretientFactory.postEntretient($scope.newEntretient)
-            .then(function(res){
-
-                $state.show=false;
 
 
 
-            }, function(err){
-                console.log('err !'+err);
-            })
+            EntretientFactory.postEntretient($scope.newEntretient)
+                .then(function (res) {
+
+                    $state.show = false;
+                    notify('Ajouté avec succés !');
+                    getCars();
+
+
+                }, function (err) {
+                    console.log('err !' + err);
+                })
+
 
         $scope.newEntretient={};
         getCars();

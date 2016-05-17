@@ -1,5 +1,5 @@
 
-<section class="content" ng-controller="conducteursController">
+<section class="content animated slideInLeft" ng-controller="conducteursController">
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
             <div class="row">
@@ -168,12 +168,12 @@
 
 
                     <div class="fixed-action-btn horizontal click-to-toggle">
-                        <a class="btn-floating btn-large red">
+                        <a class="btn-floating btn-large  blue darken-2">
                             <i class="large mdi-navigation-menu"></i>
                         </a>
                         <ul>
-                            <li><a class="btn-floating red" ng-click="change()"><i class="material-icons">add</i></a></li>
-                          <li><a class="btn-floating red" ui-sref=".mail"><i class="material-icons">email</i></a> </li>
+                            <li><a class="btn-floating  blue lighten-1 " ng-click="change()"><i class="material-icons">add</i></a></li>
+                          <li><a class="btn-floating  blue lighten-1" ui-sref=".mail"><i class="material-icons">email</i></a> </li>
 
                         </ul>
                     </div>
@@ -220,8 +220,8 @@
 
                             <td>
 
-                                <a class="btn-floating btn waves-effect waves-light " ng-click="editDriver(dr.idConducteur)"> <i class="large material-icons">mode_edit</i></a>
-                                <a class="btn-floating  waves-effect waves-light " ng-click="deleteDriver(dr.idConducteur)"><i class="material-icons">delete</i></a>
+                                <a class="btn-floating btn waves-effect waves-light  blue lighten-1 " ng-click="editDriver(dr.idConducteur)"> <i class="large material-icons">mode_edit</i></a>
+                                <a class="btn-floating  waves-effect waves-light red " ng-click="deleteDriver(dr.idConducteur)"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
 

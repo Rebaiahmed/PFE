@@ -142,7 +142,7 @@
                             Veuillez  indiquer votre un numéro de télephone valide
                         </span>
 
-
+<p> {{ registerForm.phone.$error.pattern }}</p>
         </div>
 
 
@@ -182,7 +182,7 @@
 
         <div class="input-field col s6">
             <input type="number" class="form-control" id="phone2"  ng-model="newClient.numTel2"
-                   required name="phone2" ng-pattern="/^[1-9]{1}[0-9]{7}$/" >
+                    name="phone2" ng-pattern="/^[1-9]{1}[0-9]{7}$/" >
             <label for="phone2"><i class="material-icons">settings_phone</i>Num télephone 2(opt)</label>
 
              <span style="color: #d32f2f" ng-show="submitted && registerForm.phone2.$error.pattern">
@@ -207,7 +207,7 @@
     <div>
 
 <div class="center-align">
-    <button type="submit" class="waves-effect waves-light btn center-align" >Register!<i class="material-icons">skip_next</i></button>
+    <button type="submit" class="waves-effect waves-light btn center-align blue darken-1 " >Register!<i class="material-icons">skip_next</i></button>
 </div><!--end of div button--->
 </div><!--end of row---->
 </form>

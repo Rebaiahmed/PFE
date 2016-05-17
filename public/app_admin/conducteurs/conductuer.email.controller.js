@@ -13,7 +13,7 @@ angular
         $scope.submitted = true;
 
 
-        console.log('' + $scope.emailForm.$valid);
+
 
         if ($scope.emailForm.$valid) {
 

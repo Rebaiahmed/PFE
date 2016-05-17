@@ -12,7 +12,8 @@ smtpTrans = nodemailer.createTransport('SMTP', {
 
 
 
-
+//var mailgun = require('mailgun.js');
+//var mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 'key-yourkeyhere'});
 
 
 
@@ -168,8 +169,8 @@ module.exports.Newsletter = function(req,res)
     mailOpts = {
         from: "ahmed.bouhmid94@gmail.com",
         to: mail_client,
-        subject: 'test',
-        text: 'newsletter'
+        subject: 'newsleeter King Rent Car !',
+        text: 'vous etes abonné a notre newsleeter'
     };
     smtpTrans.sendMail(mailOpts, function (error, response) {
         //Email not sent
@@ -180,7 +181,7 @@ module.exports.Newsletter = function(req,res)
         //Yay!! Email sent
         else {
             console.log('success ' + JSON.stringify(response));
-            res.json("send succesfuly !");
+            res.json(response);
         }
         smtpTrans.close();
 

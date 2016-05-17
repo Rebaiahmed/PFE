@@ -1,11 +1,11 @@
 
-<section class="content" ng-controller="clientsController">
+<section class="content animated slideInLeft" ng-controller="clientsController">
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
             <div class="row">
 
                 <div class="col s12">
-                    <h3> Clients <i class="material-icons">account_box</i></h3>
+                    <h3> Clients  <i class="material-icons">account_box</i></h3>
 
 
                 </div>
@@ -26,26 +26,257 @@
 
         </div><!--end of m-box-->
 
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
+
+
+        <!-----------editer Client---------------------->
+
+
+
+        <div class="row animated bounceInDown" ng-show="ClientEdit">
+
+            <div class="col s12">
+
+
+             <a ng-click="ClientEdit=!ClientEdit"><i class="material-icons">cached</i>Cacher</a>
+
+
+                <form name="ClientForm" novalidate ng-model="ClientForm" ng-submit="updateClient()">
+
+
+                    <div class="row">
+
+                        <div class="input-field col s12">
+                            <input id="num_cin" type="text" class="validate" name="Num_Cin"
+                                   ng-model="client.numCin" ng-pattern="/^[0-9]{1}[0-9]{7}$/"  required >
+                            <label for="Num_Cin">Num Cin</label>
+
+            <span style="color: #d32f2f" ng-show="submitted && ClientForm.Num_Cin.$error.required">
+                            Veuillez  entrez le Num de Cin du client {{ submitted && ClientForm.Num_Cin.$error.required }}
+                        </span>
+
+                <span style="color: #d32f2f" ng-show="submitted && ClientForm.Num_Cin.$error.pattern">
+                            Veuillez  entrez un Num de Cin Valide
+                        </span>
+
+
+                        </div>
+
+                        <!---------------------->
+                        <div class="input-field col s6">
+                            <input id="nom" type="text" class="validate"
+                                   ng-model="client.nom"   name="nom" required>
+                            <label for="last_name">Nom</label>
+  <span style="color: #d32f2f" ng-show="submitted && ClientForm.nom.$error.required">
+                            Veuillez  entrez le Nom du client
+                        </span>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input id="prenom" type="text" class="validate"
+                                   ng-model="client.prenom"  name="Prenom" required>
+                            <label for="prenom">Prenom</label>
+
+                                 <span style="color: #d32f2f" ng-show="submitted && ClientForm.Prenom.$error.required">
+                            Veuillez  entrez le Prénom du Client
+                        </span>
+
+                        </div>
+
+
+                        <!------------------------------>
+
+
+
+                        <div class="input-field col s12">
+                            <input id="email" type="text" class="validate"
+                                   ng-model="client.email"   name="email" required>
+                            <label for="email">email</label>
+                                    <span style="color: #d32f2f" ng-show="submitted && ClientForm.email.$error.required">
+                            Veuillez  entrez le Prénom du Client</span>
+                                        <span style="color: #d32f2f" class="help-inline" ng-show="submitted && ClientForm.email.$error.email">
+                            Saisissez une adresse e-mail valide
+
+                        </span>
+
+                        </div>
+
+
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="Num_tel1" type="text" class="validate"
+                                   ng-model="client.numTel1"   name="numTel1" ng-pattern="/^[1-9]{1}[0-9]{7}$/" required>
+                            <label for="Num_tel1">Num tel1</label>
+
+                                 <span style="color: #d32f2f" ng-show="submitted && ClientForm.numTel1.$error.required">
+                            Veuillez  indiquer un numéro de télephone
+                        </span>
+
+                <span style="color: #d32f2f" ng-show="submitted && ClientForm.numTel1.$error.pattern">
+                            Veuillez  indiquer votre un numéro de télephone valide
+                        </span>
+
+
+
+                        </div>
+
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="num_tel" type="text" class="validate"
+                                   ng-model="client.numTel2"  name="num_tel2" ng-pattern="/^[1-9]{1}[0-9]{7}$/">
+                            <label for="last_name">Num tel2</label>
+
+                                  <span style="color: #d32f2f" ng-show="submitted && ClientForm.num_tel2.$error.pattern">
+                            Veuillez  indiquer votre un numéro de télephone valide
+                        </span>
+                        </div>
+
+
+
+
+                        <div class="input-field col s6">
+                            <input id="num_permis" type="text" class="validate"
+                                   ng-model="client.numPermis"   name="num_permis" ng-pattern="/^[1-9]{1}[0-9]{9}$/">
+                            <label for="last_name">Num Permis</label>
+                                      <span style="color: #d32f2f" ng-show="submitted && ClientForm.num_tel2.$error.pattern">
+                            Veuillez  indiquer votre un numéro de Permis Valide
+                        </span>
+
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input id="date" type="date" class="validate"
+                                   ng-model="client.datePermis"   name="num_permis">
+
+                            <label for="date">Date Permis</label>
+                        </div>
+
+
+                        <p>
+                            <input name="group1" type="radio" id="test1" value="1" ng-model="client.statut" />
+                            <label for="test1">Particulier</label>{{ particulier }}
+
+                        </p>
+                        <p>
+                            <input name="group1" type="radio" id="test2" value="0" ng-model="client.statut" />
+                            <label for="test2">Professionnel</label>
+                            {{ professionel }}
+                        </p>
+
+
+
+
+
+
+                        <button class="btn waves-effect waves-light" type="submit" name="action"
+                                >Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+
+                    </div>
+
+
+
+
+
+                </form>
+
+
+
+
+
+
+
+
+
+
             </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div>
+            <!--end of col-s12-->
+
+        </div><!--end of row-->
 
 
 
 
 
-        <div ui-view></div>
 
+        <!--------------------------Détails Clietn------------------------------->
+
+        <div class="card-panel animated bounceInDown" ng-show="ClientDetails">
+
+            <a ng-click="ClientDetails=!ClientDetails"><i class="material-icons">cached</i>Cacher</a>
+            <ul>
+                <li class="collection-item">
+                    <h5>Num Cin : {{ client.numCin }} <i class="material-icons">not_interested</i></h5>
+                </li>
+                <li class="collection-item">
+                    <p>  <i class="material-icons prefix">account_circle</i>Nom Complet : {{ client.nom + " " + client.prenom }}  </p>
+                    <p> <i class="material-icons">email</i> email :  {{ client.email }} </p>
+
+
+                </li>
+
+                <hr>
+
+                <li class="collection-item">
+                    <p> <i class="material-icons">perm_identity</i> Numéro de permis :  {{ client.numPermis }}</p>
+                    <p> <i class="material-icons">date_range</i> Date d'obtention de permis :  {{ client.datePermis | date:'medium' }} </p>
+
+                </li>
+
+                <hr>
+
+                <li class="collection-item">
+                    <i class="material-icons prefix">phone</i>
+                    <p>Num tel1 :  {{ client.numTel1 }} </p>
+                    <p ng-show="client.numTel2 !=null">Num tel2 : {{ client.numTel2 }}</p>
+
+                </li>
+
+
+                <hr>
+
+                <li class="collection-item">
+                    <i class="material-icons">location_city</i>
+                    <p>Adresse : {{ client.adresse }} </p>
+                    <p>Ville : <i class="material-icons">not_interested</i> </p>
+                    <p>Rue : <i class="material-icons">not_interested</i> </p>
+                    <p>Code postale : <i class="material-icons">not_interested</i> </p>
+
+                </li>
+
+                <hr>
+                <li class="collection-item">
+                    <i class="material-icons">attach_money</i>
+                    <p>Chiffre d'affaire réalisée  :{{ chiffreClient }}</p>
+                    <p>Nombre totale de réservations : {{  client.Reservations.length }}:</p>
+
+
+                </li>
+
+                <hr>
+                <li class="collection-item">
+
+                    <h5> Statut {{ client.statut }}</h5>
+
+                </li>
+            </ul>
+
+
+
+        </div><!---end of card panel---------->
+
+
+
+
+
+
+
+
+
+
+
+<div ui-view></div>
 
 
 
@@ -70,19 +301,19 @@
                 </th>
                 <th>
 
-                    <a ng-click="order('email')">Nom Prenom</a>
+                    <a ng-click="order('email')">Nom Prenom <i class="material-icons">expand_more</i></a>
                 </th>
                 <th>
-                    <a ng-click="order('email')">email</a>
+                    <a ng-click="order('email')">email<i class="material-icons">expand_more</i></a>
                 </th>
                 <th>
-                    <a ng-click="order('numTel1')">numTel1</a>
+                    <a ng-click="order('numTel1')">numTel1 <i class="material-icons">expand_more</i></a>
                 </th>
                 <th>
-                    <a ng-click="order('adresse')">adresse</a>
+                    <a ng-click="order('adresse')">adresse <i class="material-icons">expand_more</i></a>
                 </th>
                 <th>
-                    <a ng-click="order('statut')">Statut</a>
+                    <a ng-click="order('statut')">Statut <i class="material-icons">expand_more</i></a>
                 </th>
                 <th></th>
                 <th></th>
@@ -127,22 +358,11 @@
 <!--end content-->
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-        $('#modal1').openModal();
-        $('#modal1').closeModal();
-        $('.modal-trigger').leanModal({
-                    dismissible: true, // Modal can be dismissed by clicking outside of the modal
-                    opacity: .5, // Opacity of modal background
-                    in_duration: 300, // Transition in duration
-                    out_duration: 200, // Transition out duration
-                    ready: function() { alert('Ready'); }, // Callback for Modal open
-                    complete: function() { alert('Closed'); } // Callback for Modal close
-                }
-        );
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
     });
-
-
-
 </script>
+
+

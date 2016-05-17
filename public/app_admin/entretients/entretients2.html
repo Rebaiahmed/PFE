@@ -1,4 +1,4 @@
-<section class="content" ng-controller="EntretientsCtrl">
+<section class="content animated slideInLeft" ng-controller="EntretientsCtrl">
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
 
@@ -22,7 +22,7 @@
                 <h5>Voiture : <span>{{ c.Modele.nom + " " + c.Modele.marque  + " " + c.numImmatricule
                    }}</span></h5>
 
-                <a class="waves-effect waves-light btn" ng-click="voirNotifcations(c)">Voir Notifications
+                <a class="waves-effect  btn  blue lighten-1" ng-click="voirNotifcations(c)">Voir Notifications
                     <i class="material-icons">add_alert</i></a>
 
                     <table>
@@ -53,11 +53,11 @@
                         <!-------------------------->
 
 
-                        <div ng-repeat="en in c.Entretients">
+                        <div ng-repeat="en in c.Entretients" class="striped animated bounceInDown">
 
-                            <table class="striped">
+                            <table class="striped animated bounceInDown">
                             <thead>
-                            <tr>
+                            <tr class="striped animated bounceInDown">
                                 <th data-field="id">Nom</th>
                                 <th data-field="name">kilometrage prévu</th>
                                 <th data-field="price">kilometrage effectuée</th>
@@ -87,20 +87,21 @@
                             </table>
                         </div>
 
-                <a class="btn-floating btn-large waves-effect waves-light red" ng-click="show=!show"><i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light  blue darken-3 animated bounceInDown " ng-click="show=!show"><i class="material-icons">add</i></a>
 
 
 
-                <form class="col s12" ng-submit="addEntretient(c.idVoiture)" ng-show="show" name="formEntretient" novalidate>
+                <form class="col s12" ng-submit="addEntretient(c.idVoiture)" ng-show="show" name="formEntretient" novalidate
+                        ng-model="formEntretient">
+                    <p></p>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Nom" id="first_name" type="text" class="validate" ng-model="newEntretient.nom"
+                            <input  id="first_name" type="text" class="validate" ng-model="newEntretient.nom"
                                    name="nom" required>
                             <label for="first_name">nom</label>
 
 
-                            <p ng-show=" formEntretient.nom.$invalid &&
-                                formEntretient.nom.$dirty"
+                            <p ng-show="submitted &&formEntretient.nom.$error.required"
                                class="has-error">
                                nom entretient obligatoire
                                 <i class="material-icons">error</i></p>
@@ -108,13 +109,12 @@
 
                         </div>
                         <div class="input-field col s6">
-                            <input id="kiloemtrage prevu" type="text" class="validate" ng-model="newEntretient.kilometrage_prevu"
+                            <input id="kiloemtrage prevu" type="number" class="validate" ng-model="newEntretient.kilometrage_prevu"
                                    name="kilometrage_prevu" required>
                             <label for="last_name">kiloemtrage prévu
                            </label>
 
-                            <p ng-show=" formEntretient.kilometrage_prevu.$invalid &&
-                                formEntretient.kilometrage_prevu.$dirty"
+                            <p ng-show="submitted &&formEntretient.kilometrage_prevu.$error.required"
                                     class="has-error">
                                 Kilometrage prévu obliagtoire
                                 <i class="material-icons">error</i></p>
@@ -137,7 +137,7 @@
                             </div>
 
 
-                        <button class="waves-effect waves-light btn" ng-click="show=!show"
+                        <button class="waves-effect waves-light btn blue darken-1" ng-click="show=!show"
                                 ng-disabled="formEntretient.$invalid">Enregistrer</button>
 
 

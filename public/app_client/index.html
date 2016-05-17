@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="/bower_components/angular-socialshare/angular-socialshare.css">
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="components/angular-atomic-notify/dist/angular-atomic-notify.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
 
     <link rel="shortcut icon" href="images/favicon (8).ico" type="image/x-icon">
     <link rel="icon" href="/images/favicon (8).ico" type="image/x-icon">
@@ -111,9 +114,12 @@
         }
         body
         {
-            background-color: #f1f8e9;
+
+
+
 
         }
+
 
     </style>
 
@@ -131,8 +137,11 @@
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/lodash/dist/lodash.min.js"></script>
 
-
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="components/angular-socket-io/socket.min.js"></script>
+
+    <script src="components/angular-atomic-notify/dist/angular-atomic-notify.min.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
 
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -155,49 +164,51 @@
     <!-- Compiled and minified JavaScript -->
     <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
     <script src="/bower_components/ng-materialize/dist/ng-materialize.min.js"></script>
-
-
-
-    <script>
-        $(document).ready(function() {
-            $('select').material_select();
-        });
-
-    </script>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src=/bower_components/materialize/dist/js/materialize.min.js></script>
+    <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyBYRaa7QZ30PCCo_BJ6OR_g8dpxkld9E7M'></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="/bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
 </head>
 <body>
-<div id="navbar" class="navbar-fixed scrollspy white-text  ">
 
-    <nav  class="white teal lighten-2 white-text " ng-controller="navigationCtrl">
 
-        <div class="nav-wrapper container">
-            <div class="container"> <a href="#navbar" class="brand-logo">
-                <img src="/images/logo.png">
+
+<div id="navbar" class="navbar-fixed scrollspy   " style="font-family: 'Merriweather', serif;">
+
+    <nav  class="blue darken-1 black-text z-depth-3  " ng-controller="navigationCtrl">
+
+        <div class="nav-wrapper container" >
+            <div class="container"> <a href="#navbar" class="brand-logo transparent" >
+                <img src="/images/logo.png" >
             </a></div>
 
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">apps</i></a>
 
 
-            <ul class="right hide-on-med-and-down white-text">
+            <ul class="right hide-on-med-and-down">
 
-                <li><a class="head-link white-text" ui-sref="index" style="font-family: 'Oswald', sans-serif;">Acceuil</a></li>
-                <li><a class="head-link white-text" ui-sref="Voitures" style="font-family: 'Oswald', sans-serif;">Voitures</a></li>
-                <li><a class="head-link white-text" ui-sref="Tarifs" style="font-family: 'Oswald', sans-serif;">Tarifs</a></li>
-                <li><a class="head-link white-text" ui-sref="Reservation" style="font-family: 'Oswald', sans-serif;">Réservation</a></li>
-                <li><a class="head-link white-text" ui-sref="Nous" style="font-family: 'Oswald', sans-serif;">Qui Sommes Nous</a></li>
-                <li><a class="head-link white-text" ui-sref="Contact" style="font-family: 'Oswald', sans-serif;">Contact
+
+                <li><a class="head-link white-text" ui-sref="index" style="color: #000000">Acceuil</a></li>
+                <li><a class="head-link white-text" ui-sref="Voitures" style="color: #000000">Voitures</a></li>
+                <li><a class="head-link white-text" ui-sref="Tarifs" style="color: #000000">Tarifs</a></li>
+                <li><a class="head-link white-text" ui-sref="Reservation" style="color: #000000"  >Réservation</a></li>
+                <li><a class="head-link white-text" ui-sref="Nous"  style="color: #000000" >Qui Sommes Nous</a></li>
+                <li><a class="head-link white-text" ui-sref="Contact" style="color: #000000" >Contact
                    </a></li>
 
 
 
                     <li><a class="dropdown-button white-text" href="#!" data-activates="d2"><i class="material-icons">menu</i></a>
-                        <ul id='d2' class='dropdown-content'>
+                        <ul id='d2' class='dropdown-content  blue darken-3'>
 
-                            <li ng-show="isloggedIn"><a ui-sref="Profile">Profile<i class="material-icons">account_box</i></a></li>
-                            <li ng-show="isloggedIn"><a ng-click="logout()">Déconnecter<i class="material-icons">view_quilt</i></a></li>
-                            <li ng-show="!isloggedIn"><a ui-sref="login">login<i class="material-icons">account_circle</i></a></li>
-                            <li ng-show="!isloggedIn"><a ui-sref="Register">S'inscrire<i class="material-icons">supervisor_account</i></a></li>
+                            <li ng-show="isloggedIn"><a ui-sref="Profile" class="white-text">Profile<i class="material-icons">account_box</i></a></li>
+                            <li ng-show="isloggedIn"><a ng-click="logout()" class="white-text">Déconnecter<i class="material-icons">view_quilt</i></a></li>
+                            <li ng-show="!isloggedIn"><a ui-sref="login" class="white-text">login<i class="material-icons">account_circle</i></a></li>
+                            <li ng-show="!isloggedIn"><a ui-sref="Register" class="white-text">S'inscrire<i class="material-icons">supervisor_account</i></a></li>
 
                         </ul>
                     </li>
@@ -233,7 +244,7 @@
 </div>
 
 
-
+<br>
 
 
 
@@ -255,17 +266,19 @@
 
 
 
-<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large red">
-        <i class="material-icons">shopping_cart</i>
-    </a>
-    <ul>
-        <li><a class="btn-floating red"><i class="material-icons">chat</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">supervisor_account</i>sign in</a></li>
-        <li><a class="btn-floating green"><i class="material-icons">account_circle</i>sign up</a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">contacts</i></a></li>
-    </ul>
-</div>
+<div ng-controller="chatCtrl" class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+
+   <a ng-click="goChat()"  class="btn-floating btn-large modal-trigger blue lighten-1" ><i class="material-icons">chat</i></a>
+
+
+
+    </div><!---end of chat-->
+
+
+
+
+
+
 
 
 
@@ -275,6 +288,20 @@
 
 
 <div ng-include src="'/app_client/partials/footer.html'"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="./app_client/main.js"></script>
 <script src="./app_client/auth/AuthenticationService.js"></script>
@@ -291,30 +318,26 @@
 <script src="./app_client/contact/ContactController.js"></script>
 <script src="./app_client/tarifs/tarifController.js"></script>
 <script src="./app_client/Newsletter/Newsletter.controller.js"></script>
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src=/bower_components/materialize/dist/js/materialize.min.js></script>
-<script>
-    (function($){
-        $(function(){
 
-            $('.button-collapse').sideNav();
-            $('.parallax').parallax();
-
-        }); // end of document ready
-    })(jQuery); // end of jQuery name space
+<script src="./app_client/Chat/chatCtrl.controller.js"></script>
+<script src="./app_client/Chat/socket.service.js"></script>
 
 
-</script>
-
-
-<script src='//maps.googleapis.com/maps/api/js?key=AIzaSyBYRaa7QZ30PCCo_BJ6OR_g8dpxkld9E7M'></script>
-<script src="/bower_components/lodash/lodash.js"></script>
-<script src="/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
-<script src="/bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 <script>
 
     $(document).ready(function(){
+
+
+
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+
+
+
+
+
+
         $('.materialboxed').materialbox();
         $('.button-collapse').sideNav();
         $('.head-link').click(function(e) {
@@ -339,6 +362,18 @@
                     alignment: 'left' // Displays dropdown with edge aligned to the left of button
                 }
         );
+
+
+
+        (function($){
+            $(function(){
+
+                $('.button-collapse').sideNav();
+                $('.parallax').parallax();
+
+            }); // end of document ready
+        })(jQuery); // end of jQuery name space
+
 
     });
 

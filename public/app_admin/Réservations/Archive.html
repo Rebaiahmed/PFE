@@ -1,0 +1,104 @@
+<section class="content ">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;" ng-controller="PreReservationCtrl" >
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Archive des Réservations non confirmées
+                        <i class="material-icons">archive</i></h3>
+
+
+
+
+
+
+                    <div class="card animated slideInDown" ng-repeat="pre in prereservations ">
+                        <div class="card-content ">
+
+                            <span class="card-title">Réservation n° {{ pre.idReservation }}</span>
+                            <table>
+                                <thead>
+                                <th>Client</th>
+                                <th>Voiture</th>
+                                <th>Date Réservation <i class="material-icons">date_range</i></th>
+                                <th>lieux</th>
+                                <th>Options Choisies <i class="material-icons">cached</i></th>
+
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Nom Complet</strong>
+                                        <p>{{ pre.Client.nom + " " + pre.Client.prenom}}</p>
+                                        <br>
+                                        <strong>email</strong>
+                                        <p>{{ pre.Client.email }}</p>
+                                        <br>
+                                        <strong>Num Tel</strong>
+                                        <p>{{ pre.Client.numTel1 }}</p>
+                                    </td>
+
+                                    <td>
+                                        {{ pre.Modele.nom + " " + pre.Modele.marque + " " + pre.Voiture.numImmatricule   }}
+
+                                    </td>
+
+
+                                    <td>
+                                        <p>{{ pre.dateDebut | date:'dd/MM/yyyy' }} </p>
+                                        <p>{{ pre.heureDebut  }}</p>
+                                        <br>
+                                        <p>{{ pre.dateFin | date:'dd/MM/yyyy' +" " }}
+                                        <p> {{ pre.heureFin   }} </p>
+                                    </td>
+
+                                    <td>
+                                        <p>{{ pre.lieuPrise }}</p>
+
+                                        <p>{{ pre.lieuRetour }} </p>
+                                    </td>
+
+                                    <td>
+                                        <ul>
+                                            <li ng-show="pre.Chauffeur"><i class="material-icons">perm_contact_calendar</i></li>
+                                            <li ng-show="pre.GPS"><i class="material-icons">gps_fixed</i></li>
+                                            <li ng-show="pre.chaiseBaBy"><i class="material-icons">child_care</i></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div><!--end of card content-->
+                    </div><!--end oc card blue-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

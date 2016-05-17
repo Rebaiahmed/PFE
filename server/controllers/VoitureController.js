@@ -491,7 +491,49 @@ exports.updateCar = function(req,res)
 
 
 
-// notification for the maintenance car
+
+
+exports.getCar_for_Client = function(req,res)
+{
+
+
+
+
+
+
+
+
+
+    //get the id
+
+    var id = req.params.idVoiture ;
+
+
+    Voiture.findById(id,
+        {
+        })
+        .then(function(car){
+            if(!car)
+            {
+                res.send('error in getting car with this id ! !')
+
+            }
+
+            else {
+
+                res.json(car);
+
+
+            }
+        })
+        .catch(function(err){
+            console.log('err ! ctach in car !' + err)
+
+        })
+
+
+}
+
 
 
 

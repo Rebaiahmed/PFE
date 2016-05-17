@@ -64,15 +64,16 @@ Router.get('/auth/voitures',);*/
 
 
 Router.get('/client/voitures', voitureCtrl.getCars_Client);
+Router.get('/client/voiture/:idVoiture',voitureCtrl.getCar_for_Client);
 
 //_-_-_-_-_-___-_-_-_MAILING CLIENT TO AGENCY _-_-_-_-_-_-__-_-_-_-_-_-_-_
 
 Router.route('/auth/client/sendMail')
     .post(mailController.sendMailClient_Agence);
 
-Router.post('/auth/client/newsletter',function(req,res){
-    res.send('ik !');
-})
+Router.post('/auth/client/newsletter', mailController.Newsletter)
+
+
 
 
 

@@ -223,6 +223,25 @@ exports.deletePreservation = function(req,res)
 
 exports.addPreReservation = function(req,res)
 {
+
+
+
+
+    //faire appel au socket.io pour notifier l'admi q'un client est inscrit !
+    var socketio = req.app.get('socketio');
+
+    console.log('the sokeet is ' + socketio);
+
+
+
+
+
+
+
+
+
+
+
     // we msut get the data
 var newReservation = req.body;
     console.log('the newReservation is ' + JSON.stringify(newReservation));
@@ -270,6 +289,10 @@ var newReservation = req.body;
             res.send("erreur dans les données  du Reservation")
         }
         else {
+
+
+            socketio.sockets.emit('new_reservation');
+
             res.json({message: 'succes de création de reservation', data: reservation})
         }
 

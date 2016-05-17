@@ -3,6 +3,7 @@ var models  = require('../models/index.js');
 var Client = models.Client ;
 var Reservation = models.Reservation ;
 var Voiture = models.Voiture ;
+var Contrat = models.Contrat ;
 
 
 
@@ -87,8 +88,81 @@ exports.getClients = function(req,res)
         .then(function(result){
 
 
-            //send the rows found
-            res.json(result.rows);
+
+
+
+
+            Contrat.findAndCountAll().then(function(contrats){
+
+                var client = {};
+                var tableChiffres=[];
+                var  chiffrTotale = 0;
+                var object = {"idClient":'',"prixTT":''}
+
+
+
+
+                for(var j=0;j<result.rows.length;j++)
+                {
+
+
+                    //Pour chaque Client
+            client =result.rows[j];
+
+                    object.idClient= client.idClient;
+                    object.prixTT=0;
+                    for(var i=0;i<contrats.rows.length;i++)
+                    {
+
+                        //test si le contrat correspond au cet client
+                       // console.log('client = contra' + (client.idClient==contrats.rows[i].Reservation_Client_idClient))
+                      if(client.idClient==contrats.rows[i].Reservation_Client_idClient)
+                        {
+
+                            //incrementer le chiffre d'affire pour cette client
+                            console.log('clien tnom' + client.nom)
+
+
+                            object.prixTT= object.prixTT+ contrats.rows[i].prixTT ;
+                           console.log('prix tt will be' + object.prixTT);
+                        }
+
+
+
+                      //console.log('------------------------------------!');
+                    }//end for contras
+
+
+                    console.log('the objetc is' + JSON.stringify(object));
+                    tableChiffres.push(object);
+                    object ={};
+
+
+                }//end for client
+
+
+
+
+                console.log("table chiifre d 'affire est " +
+                JSON.stringify(tableChiffres));
+                //send the rows found
+                res.json([result.rows,tableChiffres]);
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         })
         .catch(function(err){
             console.log('err client ' + err);

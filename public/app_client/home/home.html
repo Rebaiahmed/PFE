@@ -9,281 +9,258 @@
 </style>
 
 
-<div id="index-banner" class="parallax-container animated flipInY">
-    <div class="section no-pad-bot">
-        <div class="container">
 
 
-            <div class="row center">
-                <h1 class="header col s12 white-text">King Rent Car</h1>
-            </div>
-            <div class="row center">
-                <a class="waves-effect waves-light btn"><i class="material-icons">folder_open</i>Réserver</a>
-            </div>
 
+    <div id="index-banner" class="parallax-container" ng-controller="homeCtrl">
+        <div class="section no-pad-bot">
+            <div class="container" >
+                <br><br>
+                <h1 class="header center  grey-text lighten-5" >King Rent Car</h1>
+                <div class="row center">
 
+                </div><!-----end of conatienr-->
+                <div class="row center" ng-hide="showForm" ng-class="{'animated rollOut':showForm==true}">
+                    <a ng-click="showform()" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">
+                        Créer Votre Réservation
+                    </a>
+                </div><!--end of row center---------->
+                <br><br>
 
-            <div class="animated bounceInDown center row" ng-controller="homeCtrl" >
-                <div class="col s6 left-align">
-                    <div class="card">
-                        <div class="card-content black-text">
+            </div><!-------end of sction----------->
 
 
-                            <form ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl" ng-model="ReservationForm">
-                                <h5 class="blue-text text-darken-2">Réservez maintenat  </h5>
 
 
 
 
-                                {{ newReservation }}
-                                <div class="row">
 
 
-                                    <div class="col s8">
 
 
 
-                                        <div class="col s2">
-                                            <label for="date_debut">Date Début</label>
-                                        </div><!--end of col s2--->
 
 
-                                        <div class="input-field col s10 validate">
-                                            <input input-date
-                                                   type="text"
-                                                   name="dateDebut"
-                                                   id="inputCreated"
-                                                   ng-model="newReservation.dateDebut"
-                                                   container="body"
-                                                   format="dd/mm/yyyy"
-                                                   months-full="{{ month }}"
-                                                   months-short="{{ monthShort }}"
-                                                   weekdays-full="{{ weekdaysFull }}"
-                                                   required
-                                                    >
-                                        </div><!--end of col s0--->
-                                    </div><!--end of col s6---->
+        <!-----------ici form reservation------------------->
 
 
-                                    <div class="col s4">
 
 
-                                        <div class="col s2">
-                                            <label for="heure_fin">Heure Début</label>
-                                        </div><!--end of col s2--->
-                                        <div class="input-field col s10">
-                                            <input  type="number" class="validate" ng-model="newReservation.heureDebut"
-                                                     required name="heureDebut">
 
-                                        </div><!--end of col s10--->
 
 
-                                    </div><!--end of col s6--->
+        <div class="row " >
+            <div class="col md8">
 
+  <div class="card center-align animated bounceInDown" ng-show="showForm">
 
 
+      <form  ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl" ng-model="ReservationForm">
+          <h5 class="blue-text text-darken-2 card-title center-align">Réservez maintenat  </h5>
 
-                                </div><!--end of row----->
 
 
 
 
+          <div class="row">
+              <div class="col s6">
 
 
+                  <div class="col s4">
+                      <label for="date_debut">Date Début</label>
+                  </div><!--end of col s2--->
 
-                                <div class="row">
-                                    <div class="col s8">
 
+                  <div class="input-field col s10 validate">
+                      <input input-date
+                             type="text"
+                             name="dateDebut"
+                             id="inputCreated"
+                             ng-model="newReservation.dateDebut"
+                             container="body"
+                             format="dd/mm/yyyy"
+                             months-full="{{ month }}"
+                             months-short="{{ monthShort }}"
+                             weekdays-full="{{ weekdaysFull }}"
+                             required
+                              >
+                  </div><!--end of col s0--->
+              </div><!--end of col s6---->
 
 
-                                        <div class="col s2">
-                                            <label for="date_fin">Date Fin</label>
-                                        </div><!--end of col 12-->
+              <div class="col s6">
 
 
-                                        <div class="input-field col s10 validate">
-                                            <input input-date
-                                                   type="text"
-                                                   name="dateFin"
-                                                   id="dateFin"
-                                                   ng-model="newReservation.dateFin"
-                                                   container="body"
-                                                   format="dd/mm/yyyy"
-                                                   months-full="{{ month }}"
-                                                   months-short="{{ monthShort }}"
-                                                   weekdays-full="{{ weekdaysFull }}"
-                                                   required>
+                  <div class="col s4">
+                      <label for="heure_fin">Heure Début</label>
+                  </div><!--end of col s2--->
+                  <div class="input-field col s10">
+                      <input  type="number" class="validate" ng-model="newReservation.heureDebut"
+                              required name="heureDebut">
 
-                                        </div><!--end of col s10-->
+                  </div><!--end of col s10--->
 
 
-                                    </div><!--end of col s6---------->
+              </div><!--end of col s6--->
 
-                                    <div class="col s4">
 
-                                        <div class="col s2">
-                                            <label for="heure_fin">Heure Fin</label>
-                                        </div><!--end of col 2-->
 
-                                        <div class="input-field col s10">
-                                            <input  type="number" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
-                                                    required name="heureFin">
 
-                                        </div><!--end of col s10--->
+          </div><!--end of row----->
 
-                                    </div><!--end of col s6-->
+          <div class="row">
+              <div class="col s6">
 
-                                </div><!--end of row-->
+                  <div class="col s4">
+                      <label for="date_fin">Date Fin</label>
+                  </div><!--end of col 12-->
 
 
+                  <div class="input-field col s10 validate">
+                      <input input-date
+                             type="text"
+                             name="dateFin"
+                             id="dateFin"
+                             ng-model="newReservation.dateFin"
+                             container="body"
+                             format="dd/mm/yyyy"
+                             months-full="{{ month }}"
+                             months-short="{{ monthShort }}"
+                             weekdays-full="{{ weekdaysFull }}"
+                             required>
 
+                  </div><!--end of col s10-->
 
 
-                                <div class="row">
+              </div><!--end of col s6---------->
 
+              <div class="col s6">
 
+                  <div class="col s4">
+                      <label for="heure_fin">Heure Fin</label>
+                  </div><!--end of col 2-->
 
+                  <div class="input-field col s10">
+                      <input  type="number" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
+                              required name="heureFin">
 
-                                    <div class="col s6">
-                                        <select  ng-model="newReservation.lieuPrise" material-select required name="lieuPrise" >
+                  </div><!--end of col s10--->
 
+              </div><!--end of col s6-->
 
-                                            <option class="blue-text text-darken-2" value="" disabled selected>lieur de Prise</option>
-                                            <option value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
-                                            <option value="Nfidha">Aéroport  de Nfidha</option>
-                                            <option value="Mounsatir">Aéroport Mounastir</option>
-                                            <option value="Djerba">Aéroport Djerba</option>
-                                            <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
-                                        </select>
-                                    </div><!--end of col s6--->
+          </div><!--end of row-->
 
 
-                                    <div class="col s6">
 
-                                        <select  ng-model="newReservation.lieuRetour" material-select required name="lieuRetour">
-                                            <option class="blue-text text-darken-2" value="" disabled selected>lieur de Prise</option>
-                                            <option value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
-                                            <option value="Nfidha">Aéroport  de Nfidha</option>
-                                            <option value="Mounsatir">Aéroport Mounastir</option>
-                                            <option value="Djerba">Aéroport Djerba</option>
-                                            <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
-                                        </select>
 
-                                    </div><!--end of col s6--->
 
+          <div class="row">
 
+              <div class="col s6">
+                  <select  ng-model="newReservation.lieuPrise" material-select required name="lieuPrise" >
 
 
+                      <option class="blue-text text-darken-2" value="" disabled selected>lieur de Prise</option>
+                      <option value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
+                      <option value="Nfidha">Aéroport  de Nfidha</option>
+                      <option value="Mounsatir">Aéroport Mounastir</option>
+                      <option value="Djerba">Aéroport Djerba</option>
+                      <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
+                  </select>
+              </div><!--end of col s6--->
 
 
+              <div class="col s6">
 
+                  <select  ng-model="newReservation.lieuRetour" material-select required name="lieuRetour">
+                      <option class="blue-text text-darken-2" value="" disabled selected>lieur de Retour</option>
+                      <option class="blue-text" value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
+                      <option value="Nfidha">Aéroport  de Nfidha</option>
+                      <option value="Mounsatir">Aéroport Mounastir</option>
+                      <option value="Djerba">Aéroport Djerba</option>
+                      <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
+                  </select>
 
+              </div><!--end of col s6--->
 
+          </div><!--end of row---->
 
+          <div class="row" >
 
+              <p ng-show="submitted && newReservation.dateDebut>newReservation.dateFin"
+                 class="center-align red-text">
+                  Vous devez choisir des  Dates valides <i class="material-icons">error</i>
+              </p>
+              <p ng-show=" submitted && ReservationForm.dateDebut.$error.required " class="center-align red-text">
+                  Veuillez indiquer une date de debut s'il vous plaît. <i class="material-icons">error</i>
+              </p>
 
+              <p ng-show="submitted && ReservationForm.dateFin.$error.required " class="center-align red-text">
+                  Veuillez indiquer une date de retour s'il vous plaît. <i class="material-icons">error</i>
+              </p>
 
-                                </div><!--end of row---->
+              <!---------------------------->
 
-                                <div class="row" style="color: #d32f2f">
+              <p ng-show=" submitted && ReservationForm.heureDebut.$error.required" class="center-align red-text" >
+                  Veuillez indiquer une heure de prise s'il vous plaît. <i class="material-icons">error</i>
+              </p>
 
+              <p ng-show="submitted && ReservationForm.heureFin.$error.required" class="center-align red-text">
 
+                  Veuillez indiquer une heure de retour s'il vous plaît.  <i class="material-icons">error</i>
+              </p>
 
+              <p ng-show="submitted && ReservationForm.lieuRetour.$error.required" class="center-align red-text">
 
-                                    <p ng-show="submitted && newReservation.dateDebut>newReservation.dateFin"
-                                       class="center-align">
-                                        Vous devez choisir des  Dates valides <i class="material-icons">error</i>
-                                    </p>
-                                    <p ng-show=" submitted && ReservationForm.dateDebut.$error.required ">
-                                        Veuillez indiquer une date de debut s'il vous plaît. <i class="material-icons">error</i>
-                                    </p>
+                  Merci d'indiquer le lieu de Prise  <i class="material-icons">error</i>
+              </p>
 
-                                    <p ng-show="submitted && ReservationForm.dateFin.$error.required ">
-                                        Veuillez indiquer une date de retour s'il vous plaît. <i class="material-icons">error</i>
-                                    </p>
+              <p ng-show="submitted && ReservationForm.lieuPrise.$error.required" class="center-align red-text">
 
-                                    <!---------------------------->
+                  Merci d'indiquer le lieu de Retour  <i class="material-icons">error</i>
+              </p>
 
 
-                                    <p ng-show=" submitted && ReservationForm.heureDebut.$error.required" >
-                                        Veuillez indiquer une heure de prise s'il vous plaît. <i class="material-icons">error</i>
-                                    </p>
+          </div><!---end of row-------->
 
+          <div class="card-action">
+          <button class="waves-effect waves-light btn  blue darken-1" >Réservez
+              <i class="material-icons">skip_next</i></button>
+           </div><!--ed=nd of card action---------->
 
 
 
-                                    <p ng-show="submitted && ReservationForm.heureFin.$error.required">
+      </form>
 
-                                        Veuillez indiquer une heure de retour s'il vous plaît.  <i class="material-icons">error</i>
-                                    </p>
 
 
-                                    <p ng-show="submitted && ReservationForm.lieuRetour.$error.required">
 
-                                        Merci d'indiquer le lieu de Prise  <i class="material-icons">error</i>
-                                    </p>
+  </div><!--end of card-->
+            </div><!--end of col md6-->
+        </div><!----end of row--->
 
-                                    <p ng-show="submitted && ReservationForm.lieuPrise.$error.required">
 
-                                        Merci d'indiquer le lieu de Retour  <i class="material-icons">error</i>
-                                    </p>
 
 
+        <div class="parallax"><img src="images/essai2.jpg" alt="Unsplashed background img 1"></div>
+    </div><!----end of parallax container-------->
 
-                                </div>
 
-                                <button class="waves-effect waves-light btn" >Réservez</button>
+</div><!--end of container--->
 
 
 
 
-                            </form>
 
 
 
-
-
-                        </div>
-                    </div>
-
-                </div><!--end of col s6---->
-
-
-
-
-
-            </div>
-
-
-
-
-        </div>
-    </div>
-    <div class="parallax"><img src="images/background1.jpg" alt="Unsplashed background img 1"></div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-
-<div class="row center">
-<h5 class="blue-text text-darken-2 animated slideInUp">Notre Application Mobile</h5>
-<img src="/images/badge_new.png">
-<img src="/images/AppStore.svg">
-</div><!--end of row-->
-
-
-
-
-<hr>
 
 
 
 
 
 <div class="container animated zoomIn">
-    <div class="section">
+    <div class="section card">
 
         <!--   Icon Section   -->
         <div class="row">
@@ -363,35 +340,56 @@
                 </div>
             </div>
 
-            <a class="waves-effect waves-light btn"><i class="material-icons">card_giftcard</i>Voir Nos Voitures</a>
+            <a ui-sref="Voitures" class="waves-effect waves-light btn blue darken-1"><i class="material-icons">card_giftcard</i>Voir Nos Voitures</a>
         </div>
 
     </div>
 </div>
 
 
+
+
+
+
+
+
+<div class="row center card">
+<h5 class="blue-text text-darken-2 animated slideInUp">Notre Application Mobile</h5>
+<img src="/images/badge_new.png">
+<img src="/images/AppStore.svg">
+</div><!--end of row-->
+
+
+
+
+<hr>
+
+
+
+
 <div class="parallax-container">
-    <div class="parallax"><img src="images/parallax.jpg"></div>
+    <div class="parallax"><img src="images/car3.jpg"></div>
 </div>
 
 
 
 
-<div class="parallax-container valign-wrapper" ng-controller="newsletter" style="width: 100%">
+<div class="parallax-container valign-wrapper" ng-controller="newsletterCtrl" >
     <div class="section no-pad-bot">
         <div class="container">
             <div class=" card-panel row center">
                 <h5 class="blue-text text-darken-2">S'abonner à la newsletter Sixt <i class="material-icons">email</i></h5>
 
-                <form class="col s12" ng-submit="sendEmail()">
+                <form name="newsleeterForm" class="col s12" ng-submit="sendEmail()">
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" required ng-model="data">
+                            <input id="email" type="email" class="validate" required ng-model="data.email">
                             <label for="email">Email </label>
                         </div>
 
-                        <button type="submit" class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">fiber_new</i></button>
+                        <button type="submit" class="btn-floating btn-large waves-effect waves-light
+                         blue darken-1"><i class="material-icons">email</i></button>
                     </div>
                 </form>
 
@@ -421,7 +419,7 @@
 
 
 <div class="parallax-container">
-    <div class="parallax"><img src="images/parallax.jpg"></div>
+    <div class="parallax"><img src="images/car3.jpg"></div>
 </div>
 
 
@@ -483,7 +481,8 @@
 
         </div><!--row-->
         <div class="row center">
-            <a ui-sref="Reservation"  class="waves-effect waves-light btn animated ">Réservez Maintenant</a>
+            <a ui-sref="Reservation"  class="waves-effect waves-light btn blue lighten-1  ">Réservez Maintenant
+                <i class="material-icons">skip_next</i></a>
         </div>
 
 
@@ -518,19 +517,19 @@
             <div class=" col s12 m6 ">
 
 
-                    <h6 class="animated rubberBand"><strong>King Rent Car</strong></h6>
-                    <p>66, Avenue Taieb Mhiri,. 2080, Ariana, Tunisie,</p>
-                    <h6><strong>E-mail </strong> :</h6>
-                    <p>king.rent.car@hotmail.com</p>
+                    <h5 class="animated rubberBand blue-text text-lighten-1"><strong>King Rent Car</strong></h5>
+                    <p><strong>66, Avenue Taieb Mhiri,. 2080, Ariana, Tunisie,</strong></p>
+                    <h5 class="blue-text text-lighten-1"><strong>E-mail </strong> :</h5>
+                    <p><strong>king.rent.car@hotmail.com</strong></p>
 
 
-                    <h6><strong>Fax </strong> :</h6>
-                    <p>(+216) 71 710 853</p>
+                    <h5 class="blue-text text-lighten-1"><strong>Fax </strong> :</h5>
+                    <p><strong>(+216) 71 710 853</strong></p>
 
-                    <h6> <strong>Phone : </strong> </h6>
-                    <p>(+216) 71 710 853</p>
-                    <p>(+216) 28 868 001</p>
-                    <p>(+216) 54 161 052</p>
+                    <h5 class="blue-text text-lighten-1"> <strong>Phone : </strong> </h5>
+                    <p><strong>(+216) 71 710 853</strong></p>
+                    <p><strong>(+216) 28 868 001</strong></p>
+                    <p><strong>(+216) 54 161 052</strong></p>
 
                 </div>
 
@@ -552,10 +551,8 @@
 
 
 
-            <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-                <ui-gmap-markers click="clickMarker" icon="'icon'" models="markers" coords="'coord'">
-                </ui-gmap-markers>
-            </ui-gmap-google-map>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25895663.485556163!2d-95.665!3d37.599999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sus!4v1428092793529"
+                    width="100%" height="300" frameborder="0" style="border:0"></iframe>
 
 
 
@@ -565,8 +562,8 @@
 
 
 
-        <a class="waves-effect waves-light btn">
-            <i class="material-icons">contact_phone</i>Contact</a>
+        <a class="waves-effect waves-light btn blue lighten-1" ui-sref="Contact">
+           Contact   <i class="material-icons">contact_phone</i></a>
 
     </div>
 
@@ -630,11 +627,8 @@
 
 
 
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-    <ui-gmap-markers click="clickMarker" icon="'icon'" models="markers" coords="'coord'">
-    </ui-gmap-markers>
-</ui-gmap-google-map>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25895663.485556163!2d-95.665!3d37.599999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sus!4v1428092793529"
+        width="100%" height="300" frameborder="0" style="border:0"></iframe>
 
 
 
@@ -648,6 +642,19 @@
     $(document).ready(function() {
 
         $('.parallax').parallax();
+
+
+            $('.slider').slider({full_width: true});
+
+
     });
 
 </script>
+
+
+
+
+
+
+
+

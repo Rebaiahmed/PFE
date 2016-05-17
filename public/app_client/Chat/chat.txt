@@ -1,0 +1,152 @@
+
+<section class="content animated bounceInLeft" style="background-color: #ffffff" ng-controller="chatCtrl">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+
+
+
+
+
+                <div  class="col s12">
+
+
+
+                    <!--------------->
+
+                    <div class="row" ng-repeat="obj in messages ">
+
+                        <div ng-show="obj.user=='client'">
+                            <h2>
+                                <div class="chip">
+
+                                    <i class="material-icons">person_pin</i>
+                                    <strong>{{ currentuser.nom }}</strong>
+                                </div>
+
+                            </h2>
+
+                            <p>{{ obj.msg }} </p>
+                        </div>
+
+                        <!--------------------->
+
+
+                        <div ng-show="obj.user=='admin'"class="row grey lighten-4" >
+                            <h2>
+                                <div class="chip">
+
+                                    <i class="material-icons">person_pin</i>
+                                    <strong>Admin</strong>
+                                </div>
+
+                            </h2>
+
+                            <p>{{ obj.msg }} </p>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <form class="col s12"  >
+                        <div class="row">
+                            <div class="input-field col s12">
+
+                                <input type="text" ng-enter="sendMsg($scope.msg)" ng-model="$scope.msg" class="validate" required>
+                                <label for="first_name">Msg</label>
+
+                                <a  class="waves-effect waves-light btn">   <i class="material-icons">send</i>envoyer</a>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+
+<div ng-hide="cncte" class="col s12 center-align">
+                <div class="card-panel ">
+                    <h5>l'admin n'est pas disponible pour le moment
+                        <i class="material-icons">announcement</i></h5>
+                </div>
+
+
+</div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

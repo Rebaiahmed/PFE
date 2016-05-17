@@ -1,11 +1,11 @@
 
-<section class="content" ng-controller="voituresController">
+<section class="content animated slideInLeft " ng-controller="voituresController">
     <div class="container" style="width: 50%; padding: 0 0.5rem;">
         <div class="m-box">
             <div class="row">
 
                 <div class="col s12">
-                    <h3>Voitures  <a class="btn-floating btn-large waves-effect waves-light red"
+                    <h3>Voitures  <a class="btn-floating btn-large waves-effect waves-light blue darken-2"
                             ng-click="getAdd()"><i class="material-icons">add</i></a>
                     </h3>
 
@@ -179,7 +179,7 @@
 
 
 
-                    <p>Ajouter un nouveau modéle <a class="btn-floating btn-large waves-effect "
+                    <p><strong>Ajouter un nouveau modéle</strong> <a class="btn-floating btn-large waves-effect blue darken-1 "
                                                         ng-click="change()"><i class="material-icons">add</i></a></p>
 
 
@@ -323,13 +323,13 @@
                        </div><!--end of images-->
 
                        <div class="card-action">
-                           <a class="btn-floating btn-large " ng-click="deleteCar(c.idVoiture)">
+                           <a class="btn-floating btn-large red " ng-click="deleteCar(c.idVoiture)">
                                <i class="material-icons">delete_forever</i>
                            </a>
 
 
 
-                               <a class=" btn-floating btn-large red" ng-click="editCar(c.idVoiture)">
+                               <a class=" btn-floating btn-large  blue lighten-1" ng-click="editCar(c.idVoiture)">
                                    <i class="large material-icons">mode_edit</i>
                                </a>
 

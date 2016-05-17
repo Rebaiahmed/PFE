@@ -6,20 +6,21 @@
 
                 <div class="col s12">
 
-                    ici details clients
 
 
-                    <ul class="collection">
+<div class="card-panel">
+                    <ul>
                         <li class="collection-item">
-                            Num Cin : {{ client.numCin }}
+                            <h5>Num Cin : {{ client.numCin }} <i class="material-icons">not_interested</i></h5>
                         </li>
                         <li class="collection-item">
                             <p>  <i class="material-icons prefix">account_circle</i>Nom Complet : {{ client.nom + " " + client.prenom }}  </p>
                             <p> <i class="material-icons">email</i> email :  {{ client.email }} </p>
-                            <p>Age :  ! a terminer</p>
+
 
                         </li>
 
+                        <hr>
 
                         <li class="collection-item">
                            <p> <i class="material-icons">perm_identity</i> Numéro de permis :  {{ client.numPermis }}</p>
@@ -27,44 +28,47 @@
 
                         </li>
 
+<hr>
 
-                        <li class="collection-item">
-                           Client depuis : date ! adeterminer
-
-                        </li>
                         <li class="collection-item">
                             <i class="material-icons prefix">phone</i>
                            <p>Num tel1 :  {{ client.numTel1 }} </p>
-                            <p>Num tel2 : {{ client.numTel2 }}</p>
+                            <p ng-show="client.numTel2 !=null">Num tel2 : {{ client.numTel2 }}</p>
 
                         </li>
+
+
+                        <hr>
 
                         <li class="collection-item">
                             <i class="material-icons">location_city</i>
-                            <p>Ville : {{ client.adresset }} </p>
-                            <p>Rue : {{ client.adresset }}</p>
-                            <p>Code postale : {{ client.adresset }}</p>
+                            <p>Adresse : {{ client.adresse }} </p>
+                            <p>Ville : <i class="material-icons">not_interested</i> </p>
+                            <p>Rue : <i class="material-icons">not_interested</i> </p>
+                            <p>Code postale : <i class="material-icons">not_interested</i> </p>
 
                         </li>
 
+                        <hr>
                         <li class="collection-item">
                             <i class="material-icons">attach_money</i>
                             <p>Chiffre d'affaire réalisée  :</p>
-                            <p>Nombre totale de réservations : {{ Nbr_Reservations_Totale ( client) }}:</p>
-                            <p>Réservation en cours  : {{ Reservation_En_Cours(client) }}</p>
+                            <p>Nombre totale de réservations : {{  }}:</p>
+
 
                         </li>
 
+                        <hr>
                         <li class="collection-item">
 
-                            <p>ici statut {{ client.statut }}</p>
+                            <h5> Statut {{ client.statut }}</h5>
 
                         </li>
                     </ul>
 
 
 
-
+</div><!---end of card panel---------->
 
 
 

@@ -1,6 +1,6 @@
 
 var App = angular.module('adminApp',['ui.router','ngResource','ngMessages','ui.materialize','cgNotify','angularMoment','googlechart'
-,'ui.calendar','ngStorage','permission','permission.ng']);
+,'ui.calendar','ngStorage','permission','permission.ng','btford.socket-io','ngAudio','atomic-notify']);
 
 
 
@@ -9,39 +9,6 @@ var App = angular.module('adminApp',['ui.router','ngResource','ngMessages','ui.m
 define our factory interceptor
  */
 
-
-
-App.service('authInterceptor', function($q) {
-    var service = this;
-
-    service.responseError = function(response) {
-        if (response.status == 401){
-            window.location = "/login";
-        }
-        return $q.reject(response);
-    };
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    App.config(['$httpProvider', function($httpProvider) {
-        $httpProvider.interceptors.push('authInterceptor');
-    }])
 
 
 /*
@@ -536,6 +503,14 @@ function config($stateProvider, $urlRouterProvider) {
 
         })
 
+        .state('Archive', {
+            url :'/Archive',
+            templateUrl: '/app_admin/Réservations/Archive.html',
+            parent: "admin_access",
+
+
+        })
+
 
 
 
@@ -603,7 +578,10 @@ App.config(['$httpProvider', function($httpProvider){
 
 
 
-
+App.config(['atomicNotifyProvider', function(atomicNotifyProvider){
+    atomicNotifyProvider.setDefaultDelay(5000);
+    atomicNotifyProvider.useIconOnNotification(true);
+}])
 
 
 
@@ -752,10 +730,33 @@ _-_-_--_-_-_-_-_-_-_-_-__-_-_-_-_-_ADMIN CTRL-_-_-_-_-__-_-_--_-_-_
  */
 
 
-App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication,$location,$state){
+App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication,$location,$state,Socket,notify,ngAudio
+, atomicNotify){
 
 
 
+
+    console.log('socket'+ JSON.stringify(Socket));
+
+
+    $scope.audio = ngAudio.load("http://static1.grsites.com/archive/sounds/birds/birds007.wav");
+
+
+
+    Socket.on('new_client', function(){
+        notify('une Réservation effectuée!');
+
+        $scope.audio.play();
+    })
+
+
+    //Pour les Noivelles réservations
+
+    Socket.on('new_reservation', function(){
+
+        notify('une Réservation effectuée!');
+        $scope.audio.play();
+    })
 
 
 

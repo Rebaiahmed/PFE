@@ -5,7 +5,7 @@
 
 angular
     .module('meanApp')
-    .controller('profileCtrl', function($scope,$location,Authentication,$http, $window,notify,$state){
+    .controller('profileCtrl', function($scope,$location,Authentication,$http, $window,notify,$state,ReservationService){
 
         console.log(JSON.stringify(Authentication.getProfile()));
 
@@ -63,7 +63,6 @@ angular
                 })
 
         }
-
 
 
 

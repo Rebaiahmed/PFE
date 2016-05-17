@@ -92,10 +92,13 @@ angular
 
                 if ($scope.currentUser) {
                     console.log('currentUser exist ');
+                    console.log('the Reservation its currnet User ' + JSON.stringify(ReservationService.getReservation()));
 
                     $state.go('Confirm');
                 }
                 else {
+
+                    console.log('the Reservation in the login method ' + JSON.stringify(ReservationService.getReservation()));
                     $location.path('login');
                 }
 

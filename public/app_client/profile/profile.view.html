@@ -39,9 +39,17 @@
 
                 </tr>
                 <tr ng-repeat="res in reservations ">
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
+                    <td>{{ res.idReservation }}</td>
+                    <td>{{ res.PrixTotale | currency:"DT":0 }}</td>
+                    <td>
+                        <p><strong>Dates</strong>
+                           : {{ res.dateDebut | date:'yyyy-MM-dd'  }}
+                       {{  res.dateFin | date:'yyyy-MM-dd' }}
+                            <i class="material-icons">space_bar</i>
+                       <strong>lieux</strong>
+                       {{ res.lieuPrise }}
+                        {{ res.lieuRetour }}</p>
+                    </td>
                 </tr>
 
 
@@ -102,7 +110,7 @@
 
 
 
-                    <button type="submit" class="waves-effect waves-light btn"><i class="material-icons prefix">update</i>Enregistrer</button>
+                    <button type="submit" class="waves-effect waves-light btn blue darken-1"><i class="material-icons prefix">update</i>Enregistrer</button>
 
 
                 </form>

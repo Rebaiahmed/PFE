@@ -1,5 +1,5 @@
 var app = angular.module('meanApp',['ui.router','ui.materialize','angularMoment','cgNotify','ngAnimate','anim-in-out'
-,'uiGmapgoogle-maps','ngAnimate','djds4rce.angular-socialshare']);
+,'uiGmapgoogle-maps','ngAnimate','djds4rce.angular-socialshare','btford.socket-io','atomic-notify']);
 
 /*
 define the config function
@@ -150,6 +150,33 @@ function config($stateProvider, $urlRouterProvider,$locationProvider) {
         .state('Options', {
             url :'/Options',
             templateUrl: '/app_client/voitures/Options.html',
+
+
+        })
+
+        .state('Chat', {
+            url :'/Chat',
+            templateUrl: '/app_client/Chat/chatClient.html',
+            resolve: {
+                app: function ($q, $rootScope, $location,Authentication) {
+                    var defer = $q.defer();
+
+
+                    console.log('User undefined !' + angular.isUndefined(Authentication.currentUser()));
+
+                    if (angular.isUndefined(Authentication.currentUser())) {
+
+
+                        $location.path('/');
+
+                        deferred.reject();
+                    }
+
+                    defer.resolve();
+                    return defer.promise;
+                }
+            }
+
 
 
         })

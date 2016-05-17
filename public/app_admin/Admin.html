@@ -16,8 +16,8 @@
     <div class="loader-section section-right"></div>
 </div>
 <!-- Navbar goes here -->
-<div class="navbar-fixed  deep-purple darken-4">
-    <nav class="teal lighten-2" ng-controller="AdminCtrl">
+<div class="navbar-fixed  blue darken-4">
+    <nav class="blue darken-4" ng-controller="AdminCtrl">
         <div class="nav-wrapper ">
 
 
@@ -31,22 +31,22 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="#"></a></li>
                 <li>
-                    <a class='dropdown-button btn' ui-sref="Reservations" >Réservations <span class="new badge"></span></a>
+                    <a class='dropdown-button btn blue lighten-1' ui-sref="Reservations" >Réservations <span class="new badge blue lighten-1"></span></a>
 
                 </li>
-                <li><a ui-sref="Messages">Messages <span class="new badge">4</span></a></li>
+                <li><a class="dropdown-button btn blue lighten-1" ui-sref="Messages">Messages <i class="material-icons">chat</i></a></li>
             <li>
                 <!-- Dropdown Trigger -->
-                <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
+                <a class='dropdown-button btn blue lighten-1' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
                     Profile  <i class="material-icons">person_pin</i>
                 </a>
             </li>
 
                 <!-- Dropdown Structure -->
-                <ul id='demoDropdown' class='dropdown-content'>
-                    <li><a href="javascript:void(0);" ng-click="profile()">Profile</a></li>
-                    <li><a href="javascript:void(0);" ng-click="Parametre()">Paramétres</a></li>
-                    <li><a href="javascript:void(0);" ng-click="logOut()">log out</a></li>
+                <ul id='demoDropdown' class='dropdown-content ' >
+                    <li><a href="javascript:void(0);" ng-click="profile()" style="color: #000000">Profile</a></li>
+                    <li><a href="javascript:void(0);" ng-click="Parametre()" style="color: #000000">Paramétres</a></li>
+                    <li><a href="javascript:void(0);" ng-click="logOut()" style="color: #000000">log out</a></li>
 
                 </ul>
 
@@ -64,15 +64,15 @@
         <!--start left side bar-->
         <aside id="left-sidebar-nav">
             <ul id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y" >
-                <li ><a ui-sref="Calendrier" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Calendrier</a></li>
-                <li ><a ui-sref="locations" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> locations</a></li>
-                <li><a ui-sref="voitures" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i>Voitures</a></li>
-                <li><a ui-sref="entretients" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Entretients</a></li>
-                <li><a ui-sref="contrats" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Contrats</a></li>
-                <li><a ui-sref="factures" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Factures</a></li>
-                <li><a ui-sref="clients" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Clients</a></li>
-                <li><a ui-sref="conducteurs" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Conducteurs</a></li>
-                <li><a ui-sref="statistiques" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Statistiques</a></li>
+                <li ><a ui-sref="Calendrier" class="waves-effect waves-cyan"><i class="material-icons">today</i> Calendrier</a></li>
+                <li ><a ui-sref="locations" class="waves-effect waves-cyan"><i class="material-icons">data_usage</i> locations</a></li>
+                <li><a ui-sref="voitures" class="waves-effect waves-cyan"><i class="material-icons">drive_eta</i>Voitures</a></li>
+                <li><a ui-sref="entretients" class="waves-effect waves-cyan"><i class="material-icons">build</i> Entretients</a></li>
+                <li><a ui-sref="contrats" class="waves-effect waves-cyan"><i class="material-icons">import_contacts</i>Contrats</a></li>
+                <li><a ui-sref="factures" class="waves-effect waves-cyan"><i class="material-icons">attach_money</i> Factures</a></li>
+                <li><a ui-sref="clients" class="waves-effect waves-cyan"><i class="material-icons">account_circle</i> Clients</a></li>
+                <li><a ui-sref="conducteurs" class="waves-effect waves-cyan"><i class="material-icons">person_pin</i>Conducteurs</a></li>
+                <li><a ui-sref="statistiques" class="waves-effect waves-cyan"><i class="material-icons">insert_chart</i>Statistiques</a></li>
 
 
             </ul>

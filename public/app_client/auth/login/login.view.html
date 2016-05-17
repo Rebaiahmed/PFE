@@ -20,8 +20,8 @@
 
 
 
-    <div class="row" style="border: 30px">
-        <div class="card large">
+    <div class="row">
+        <div class="card large z-depth-5 ">
 
 
 
@@ -37,7 +37,7 @@
                             <input id="icon_prefix" type="email" class="validate" ng-model="client.email" name="email" required>
                             <label for="icon_prefix">email</label>
                             <span style="color: #d32f2f" ng-show="submitted && loginForm.email.$error.required">Saisissez une adresse e-mail</span>
-                        <span style="color: #d32f2f" class="help-inline" ng-show="submitted && loginForm.email.$error.email">
+                        <span  class="help-inline" ng-show="submitted && loginForm.email.$error.email">
                             Saisissez une adresse e-mail valide
                         </span>
                         </div>
@@ -54,7 +54,8 @@
                         </span>
                         </div>
                     </div><!--end of row--->
-                    <button type="submit" class="waves-effect waves-light btn"><i class="material-icons">account_box</i>log in</button>
+                    <button type="submit" class="waves-effect waves-light btn blue darken-1">log in
+                        <i class="material-icons">account_box</i></button>
 
 
 

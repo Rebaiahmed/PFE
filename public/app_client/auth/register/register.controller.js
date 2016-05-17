@@ -16,7 +16,7 @@ angular
 
            //pour vailde rune expression Réguliére !
         $scope.ph_numbr = '/^[0-9]{8}$/';
-        console.log('ph number' + $scope.ph_numbr  );
+
 
         $scope.newClient = {};
 
@@ -25,8 +25,12 @@ angular
         $scope.onSubmit = function() {
             $scope.submitted = true;
 
+console.log('submit the form' + $scope.registerForm.$valid);
 
             if ($scope.registerForm.$valid) {
+
+
+
                 Authentication.register($scope.newClient)
                     .error(function (err) {
                         console.log('err :' + JSON.stringify(err));
@@ -96,9 +100,17 @@ angular
 
 
                     })//end of then
+
+
+
+            }//end if form valid
+            else{
+                alert('from invalid !');
             }
 
 
-        }//end of else form validation
+        }//end of submit
+
+
 
     })
