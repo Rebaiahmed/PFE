@@ -44,13 +44,13 @@ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
 
 //utiliser helmet pour sécruiser
-/*app.use(helmet())
+app.use(helmet())
 app.use(helmet.noCache())
 app.use(helmet.frameguard())
 
 
 //xssFilter
-app.use(helmet.xssFilter())*/
+app.use(helmet.xssFilter())
 
 
 
@@ -82,13 +82,13 @@ require('./server/config/passport');
 
 
 cors = require('cors')
-/*app.use(cors());
+app.use(cors());
 
 
 app.use(cors({
   origin: true,
   credentials: true
-}))*/
+}))
 
 
 //catch the 401 aunothorized
