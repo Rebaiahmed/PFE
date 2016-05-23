@@ -16,6 +16,7 @@ angular
 
     $scope.Reservation ={}
 
+        console.log('contrat service' + JSON.stringify(Reservation_Contrat_Service.getReservation()));
 
     $scope.Reservation  =Reservation_Contrat_Service.getReservation();
 
@@ -99,7 +100,7 @@ angular
         // and save it in the database !
 
 
-        alert('we willa add ths is to databe' + JSON.stringify($scope.newContrat));
+
 
 
 //test si les autres attributs sont nulls$
@@ -108,7 +109,10 @@ angular
         ContratService.createContrat($scope.newContrat)
             .success(function(){
 
-                notify('le Contrat est cére avec succes !');
+               /* notify('le Contrat est cére avec succes !');
+                $state.go('contrats');*/
+                window.print();
+                Reservation_Contrat_Service.removeReservation();
                 $state.go('contrats');
 
             })
@@ -301,12 +305,23 @@ angular
             });
     }
 
+        $scope.facture ={};
+
 
     $scope.GenereFacture = function(ctrl)
     {
+
+        //attahcer tous ses attributs
+
+
+
         $state.go('Create_Facture',{contrat:ctrl})
 
     }
+
+
+
+
 
 
 }]);

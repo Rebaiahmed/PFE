@@ -7,7 +7,7 @@ angular.module('mgcrea.ngStrap.helpers.dimensions', [])
     var fn = {};
 
     /**
-     * Test the element nodeName
+     * test the element nodeName
      * @param element
      * @param name
      */

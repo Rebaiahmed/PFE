@@ -1060,7 +1060,7 @@
         return maxInteractions > 0;
     }
 
-    // Test for the element that's "above" all other qualifiers
+    // test for the element that's "above" all other qualifiers
     function indexOfDeepestElement (elements) {
         var dropzone,
             deepestZone = elements[0],

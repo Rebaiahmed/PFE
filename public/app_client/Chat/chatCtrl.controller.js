@@ -32,6 +32,10 @@ $scope.cncte= false;
         Socket.on('client', function(){
             console.log('admin connecte !');
             $scope.cncte = true;
+            console.log('cncte est ' + $scope.cncte);
+            $scope.$watch('cncte', function() {
+               $scope.cncte = true;
+            })
         })
 
 

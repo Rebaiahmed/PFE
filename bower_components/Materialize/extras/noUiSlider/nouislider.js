@@ -638,7 +638,7 @@ e)}function t(b){if(!(this instanceof t))return new t(b);"object"===typeof b&&(b
 		throw new Error( "noUiSlider: 'format' requires 'to' and 'from' methods.");
 	}
 
-	// Test all developer settings and parse to assumption-safe values.
+	// test all developer settings and parse to assumption-safe values.
 	function testOptions ( options ) {
 
 		var parsed = {
@@ -1364,7 +1364,7 @@ function closure ( target, options ){
 	}
 
 
-	// Test suggested values and apply margin, step.
+	// test suggested values and apply margin, step.
 	function setHandle ( handle, to, noLimitOption ) {
 
 		var trigger = handle !== scope_Handles[0] ? 1 : 0,
@@ -1623,7 +1623,7 @@ function closure ( target, options ){
 			throw new Error('noUiSlider.create requires a single element.');
 		}
 
-		// Test the options and create the slider environment;
+		// test the options and create the slider environment;
 		var options = testOptions( originalOptions, target ),
 			slider = closure( target, options );
 

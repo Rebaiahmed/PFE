@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "angular": "^1.5.2",
+    "angular": "^1.5.5",
     "angular-bootstrap-calendar": "^0.19.3",
     "angular-ui-bootstrap": "^1.2.4",
     "body-parser": "~1.13.2",
@@ -15,12 +15,29 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
+    "google-auth-library": "~0.9.7",
+    "googleapis": "~5.2.1",
     "moment": "^2.12.0",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0",
-    "googleapis": "~5.2.1",
-    "google-auth-library": "~0.9.7",
     "nodemailer": "~0.7.1",
+    "serve-favicon": "~2.3.0",
     "socket.io": "~1.4.6"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.5",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-opera-launcher": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0",
+    "mocha": "^2.4.5",
+    "should": "^8.3.2",
+    "supertest": "^1.2.0"
   }
 }

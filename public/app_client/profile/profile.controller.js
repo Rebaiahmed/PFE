@@ -51,8 +51,9 @@ angular
         {
 
 
+            var user = $scope.user
 
-            $http.post('/auth/updateProfile',$scope.user)
+            $http.post('/auth/updateProfile',user)
                 .then(function(result){
                     console.log('update succesfuly !' + JSON.stringify(result));
 

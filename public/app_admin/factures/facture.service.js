@@ -25,6 +25,11 @@ angular
         return $http.put(urlbase+'/' + facture.id,facture)//a vérfier !!
     }
 
+        factureFactory.deleteFacture = function(id)
+        {
+            return $http.delete(urlbase+'/' + id)//a vérfier !!
+        }
+
 
     return factureFactory ;
 

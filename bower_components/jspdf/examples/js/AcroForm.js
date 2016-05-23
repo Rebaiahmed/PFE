@@ -52,14 +52,14 @@ doc.addField(passwordField);
 
 doc.text(50, 165, 'RadioGroup:');
 var radioGroup = new RadioButton();
-radioGroup.V = "/Test";
+radioGroup.V = "/test";
 radioGroup.Subtype = "Form";
 
 doc.addField(radioGroup);
 
 var radioButton1 = radioGroup.createOption("Test");
 radioButton1.Rect = [50, 170, 30, 10];
-radioButton1.AS = "/Test";
+radioButton1.AS = "/test";
 
 var radioButton2 = radioGroup.createOption("Test2");
 radioButton2.Rect = [50, 180, 30, 10];

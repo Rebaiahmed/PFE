@@ -75,4 +75,10 @@ angular
     }
 
 
+
+        $scope.archiver = function(){
+            alert('cette réservation est archivée !');
+        }
+
+
 });

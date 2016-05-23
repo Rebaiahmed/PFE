@@ -329,12 +329,14 @@ angular
 
             $scope.location.dateDebut = new Date($scope.location.dateDebut);
             $scope.location.dateFin = new Date($scope.location.dateFin);
-            Reservation_Contrat_Service.saveReservation( $scope.location);
 
+            console.log('location est ' + JSON.stringify($scope.location));
+            Reservation_Contrat_Service.saveReservation( $scope.location);
+            $state.go('CreateContrat');
 
         })
 
-        $state.go('CreateContrat');
+
     }
 
 

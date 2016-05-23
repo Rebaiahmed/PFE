@@ -54,7 +54,7 @@ Router.post('/auth/login',authCtrl.login)
 Router.post('/auth/register',authCtrl.signup);
 
 
-Router.post('/auth/updateProfile',auth,accessCtrl.updateProfile )
+Router.post('/auth/updateProfile',accessCtrl.updateProfile )
 Router.get('/auth/ClientReservations/:idClient',accessCtrl.getReservations )
 
 /*Router.post('/auth/reserver')
@@ -202,7 +202,8 @@ Router.route('/auth/admin/admin/Factures')
 
 
 Router.route('/auth/admin/admin/Factures/:id_facture')
-    .put(FactureCtrl.put);
+    .put(FactureCtrl.put)
+    .delete(FactureCtrl.deleteFacture)
 
 
 

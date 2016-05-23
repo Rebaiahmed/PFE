@@ -8,7 +8,11 @@
 <p>Mr {{ currentuser.nom }}</p>
 
 
+                <p>
 
+                    <label ng-if="cncte==true">l'admin est en ligne</label>
+                    <label ng-if="cncte!=true">l'admin n'est pas disponible</label>
+                </p>
 
                 <div  class="col s12">
 

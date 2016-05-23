@@ -202,7 +202,7 @@ module.exports = function (grunt) {
       }
     },
 
-    // Test compile sass
+    // test compile sass
     sass: {
       compile: {
         options:{

@@ -20,6 +20,7 @@ angular
 
         $scope.Online = function()
         {
+            console.log('we will be online !');
 
             Socket.emit('admin_online');
 

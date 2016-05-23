@@ -118,7 +118,7 @@ describe('uiCalendar', function () {
             $compile('<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>')(scope);
             expect($.fn.fullCalendar.mostRecentCall.args[0].weekends).toEqual(false);
         });
-        /* Test to make sure that when an event is added to the calendar everything is updated with the new event. */
+        /* test to make sure that when an event is added to the calendar everything is updated with the new event. */
         it('should expect the scopes events to increase by 2', function () {
             spyOn($.fn, 'fullCalendar');
             $compile('<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>')(scope);
@@ -127,7 +127,7 @@ describe('uiCalendar', function () {
             scope.addChild(scope.events);
             expect($.fn.fullCalendar.mostRecentCall.args[0].eventSources[0].length).toEqual(6);
         });
-        /* Test to make sure the calendar is updating itself on changes to events length. */
+        /* test to make sure the calendar is updating itself on changes to events length. */
         it('should expect the calendar to update itself with new events', function () {
             spyOn($.fn, 'fullCalendar');
             $compile('<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>')(scope);
@@ -139,7 +139,7 @@ describe('uiCalendar', function () {
             clientEventsLength = $.fn.fullCalendar.mostRecentCall.args[0].eventSources[0].length;
             expect(clientEventsLength).toEqual(3);
         });
-        /* Test to make sure header options can be overwritten */
+        /* test to make sure header options can be overwritten */
         it('should overwrite default header options', function () {
             spyOn($.fn, 'fullCalendar');
             scope.uiConfig2 = {
@@ -152,7 +152,7 @@ describe('uiCalendar', function () {
             var header = $.fn.fullCalendar.mostRecentCall.args[0].header;
             expect(header).toEqual({center: 'title'});
         });
-        /* Test to see if calendar is watching all eventSources for changes. */
+        /* test to see if calendar is watching all eventSources for changes. */
         it('should update the calendar if any eventSource array contains a delta', function () {
             spyOn($.fn, 'fullCalendar');
             $compile('<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>')(scope);
@@ -171,7 +171,7 @@ describe('uiCalendar', function () {
             clientEventsLength = $.fn.fullCalendar.mostRecentCall.args[0].eventSources[0].length;
             expect(clientEventsLength).toEqual(3);
         });
-        /* Test to see if calendar is updating when a new eventSource is added. */
+        /* test to see if calendar is updating when a new eventSource is added. */
         it('should update the calendar if an eventSource is Added', function () {
             spyOn($.fn, 'fullCalendar');
             $compile('<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>')(scope);
@@ -187,7 +187,7 @@ describe('uiCalendar', function () {
             var clientEventsLength = $.fn.fullCalendar.mostRecentCall.args[0].eventSources[2].length;
             expect(clientEventsLength).toEqual(2);
         });
-        /* Test to see if calendar is updating when an eventSource replaces another with an equal length. */
+        /* test to see if calendar is updating when an eventSource replaces another with an equal length. */
         it('should update the calendar if an eventSource has same length as prior eventSource', function () {
             spyOn($.fn, 'fullCalendar');
             $compile('<div ui-calendar="uiConfig.calendar" ng-model="eventSources" equals-tracker="equalsTracker"></div>')(scope);

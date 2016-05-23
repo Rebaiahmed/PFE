@@ -6,13 +6,13 @@ describe( 'Toasts:', function() {
   describe('Toast javascript functions', function() {
     // Toast out animation duration does not count as part of its timer.
     it('should display and remove a toast', function(done) {
-      Materialize.toast('Test toast', toastInDuration);
+      Materialize.toast('test toast', toastInDuration);
 
       setTimeout(function() {
         toast = $('.toast');
         expect(toast.length).toBe(1);
         expect(toast).toBeVisible();
-        expect(toast.text()).toBe('Test toast');
+        expect(toast.text()).toBe('test toast');
         setTimeout(function() {
           toast = $('.toast');
           expect(toast).toBeVisible();

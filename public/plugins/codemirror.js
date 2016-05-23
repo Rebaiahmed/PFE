@@ -6526,7 +6526,7 @@
   function collapsedSpanAtStart(line) { return collapsedSpanAtSide(line, true); }
   function collapsedSpanAtEnd(line) { return collapsedSpanAtSide(line, false); }
 
-  // Test whether there exists a collapsed span that partially
+  // test whether there exists a collapsed span that partially
   // overlaps (covers the start or end, but not both) of a new span.
   // Such overlap is not allowed.
   function conflictingCollapsedRange(doc, lineNo, from, to, marker) {

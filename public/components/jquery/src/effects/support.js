@@ -20,7 +20,7 @@ define( [
 		body = document.getElementsByTagName( "body" )[ 0 ];
 		if ( !body || !body.style ) {
 
-			// Test fired too early or in an unsupported environment, exit.
+			// test fired too early or in an unsupported environment, exit.
 			return;
 		}
 

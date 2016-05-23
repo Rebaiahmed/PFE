@@ -1,10 +1,13 @@
 
 angular
-    .module('adminApp').controller('FacturesController', function($scope,factureFactory,$stateParams,locationsFactory){
+    .module('adminApp').controller('FacturesController', function($scope,factureFactory,$stateParams,locationsFactory,notify,$window){
 
     $scope.factures = [];
     $scope.facture ={} ;
     $scope.location ;
+
+
+        $scope.dateDay = new Date();
 
 
 
@@ -37,12 +40,17 @@ if( !angular.isUndefined($stateParams.contrat)) {
 
     $scope.save = function(facture)
     {
+
+
         factureFactory.postFacture(facture).then(function(result){
 
-            console.log('sauvgardé avec succes !');
+            console.log('sauvgardé avec succées !');
+            window.print();
         }, function(err){
             console.log('err' + err);
+            throw  err;
         })
+
     }
 
 
@@ -63,6 +71,9 @@ if( !angular.isUndefined($stateParams.contrat)) {
     }
 
     getFactures();
+
+
+
 
     updateFacture = function(id)
     {
@@ -92,6 +103,23 @@ if( !angular.isUndefined($stateParams.contrat)) {
             })
 
     }
+
+
+
+        $scope.deleteFacture = function(id)
+        {
+            console.log('the id is' + id);
+            factureFactory.deleteFacture(id)
+                .then(function(result){
+
+                    notify('supprimée !');
+                    getFactures();
+                   // $window.location.reload();
+                }, function(err){
+                    console.log('err' + err);
+                })
+
+        }
 
 
 

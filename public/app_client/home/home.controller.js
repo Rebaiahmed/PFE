@@ -25,7 +25,7 @@ envoyer Newsltter
             alert('ahmed !');
 
 
-            /* $http.post('/auth/client/newsletter', $scope.data)
+             $http.post('/auth/client/newsletter', $scope.data)
              .then(function (res) {
              console.log('success !');
              notify('email envoyée avec succes !')
@@ -34,7 +34,7 @@ envoyer Newsltter
 
              }, function (err) {
              console.log('err' + err);
-             })*/
+             })
         }
 
 

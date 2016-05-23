@@ -1,6 +1,6 @@
 /*global beforeEach, afterEach, describe, it, inject, expect, module, spyOn, CodeMirror, angular, $*/
 /**
- * TODO Test all the CodeMirror events : cursorActivity viewportChange gutterClick focus blur scroll update.
+ * TODO test all the CodeMirror events : cursorActivity viewportChange gutterClick focus blur scroll update.
  *      with  <textarea ui-codemirror="{onChange: doChange ,onCursorActivity: doSomething}" ng-model="foo">
  *
  */

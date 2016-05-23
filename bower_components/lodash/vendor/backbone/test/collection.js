@@ -1167,7 +1167,7 @@
     var m3 = new Backbone.Model();
     var collection = new Backbone.Collection([m1, m2]);
 
-    // Test add/change/remove events
+    // test add/change/remove events
     collection.on('add', function(model) {
       assert.strictEqual(model, m3);
     });
@@ -1200,14 +1200,14 @@
     assert.strictEqual(collection.length, 2);
     assert.strictEqual(m2.get('a'), 1);
 
-    // Test removing models not passing an argument
+    // test removing models not passing an argument
     collection.off('remove').on('remove', function(model) {
       assert.ok(model === m2 || model === m3);
     });
     collection.set([]);
     assert.strictEqual(collection.length, 0);
 
-    // Test null models on set doesn't clear collection
+    // test null models on set doesn't clear collection
     collection.off();
     collection.set([{id: 1}]);
     collection.set();

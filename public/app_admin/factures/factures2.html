@@ -16,31 +16,23 @@
                     <thead>
                     <tr>
                         <th data-field="id">Num</th>
-                        <th data-field="name">Nom Prénom</th>
-                        <th data-field="price">Voiture</th>
-                        <th>Date</th>
+                        <th data-field="name">prixTT</th>
 
-                        <th>outils</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr ng-repeat="ctrl in contrats">
-                        <td>ici nuero</td>
-                        <td>icic informations clients</td>
-                        <td>ici informatiosn voitures</td>
-                        <td>iic date</td>
-
+                    <tr ng-repeat="fac in factures">
+                        <td>{{ fac.idFacture}}</td>
+                        <td>{{ fac.prixTT }}</td>
 
                         <td class="row">
+
                             <div class="col s2">
-                                <a ng-click="editerContrat(ctrl)"></a><i class="material-icons">update</i>
+                                <a>  </a><i class="material-icons">archive</i>
                             </div>
                             <div class="col s2">
-                                <a ng-click="go_Facture(ctrl.idContrat)">  </a><i class="material-icons">archive</i>
-                            </div>
-                            <div class="col s2">
-                                <a><i class="material-icons">delete</i></a>
+                                <a ng-click="deleteFacture(fac.idFacture)"><i class="material-icons">delete</i></a>
                             </div>
                         </td>
 

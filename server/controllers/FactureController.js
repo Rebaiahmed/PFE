@@ -165,6 +165,47 @@ exports.postFacture = function(req,res)
 
 
 
+/*
+delete facture
+ */
+
+exports.deleteFacture = function(req,res)
+{
+    var id = req.params.id_facture;
+
+    Facture.findById(id).then(function(facture){
+
+
+
+
+            if(!facture)
+            {
+                res.json({'msg': 'facture not found!'});
+
+            }
+        else {
+
+                Facture.destroy({
+                    where: {
+                        'idFacture': id
+                    }
+
+                })
+
+
+                res.json({"message":"facture deleted !"})
+
+            }//end of lese
+
+
+
+
+    }).catch(function(err){
+        throw  err;
+    })
+
+
+}
 
 
 

@@ -34664,7 +34664,7 @@
         assert.equal(a.seconds(), 8, 'second');
         assert.equal(a.milliseconds(), 9, 'milliseconds');
 
-        // Test month() behavior. See https://github.com/timrwood/moment/pull/822
+        // test month() behavior. See https://github.com/timrwood/moment/pull/822
         a = moment('20130531', 'YYYYMMDD');
         a.month(3);
         assert.equal(a.month(), 3, 'month edge case');
@@ -34688,7 +34688,7 @@
         assert.equal(a.seconds(), 8, 'second');
         assert.equal(a.milliseconds(), 9, 'milliseconds');
 
-        // Test month() behavior. See https://github.com/timrwood/moment/pull/822
+        // test month() behavior. See https://github.com/timrwood/moment/pull/822
         a = moment('20130531', 'YYYYMMDD');
         a.month(3);
         assert.equal(a.month(), 3, 'month edge case');

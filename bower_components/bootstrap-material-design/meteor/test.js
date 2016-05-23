@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } else {
             // [^] matches across newlines. Stay within the container div, or else the fragment will attempt to load resources on its own.
             bootstrapDropZone.innerHTML = result.content.match(/<div[^]+<\/div>/);
-            test.ok({message: 'Test passed if the display looks OK *and* clicking dropdowns/popovers/tooltips works.'});
+            test.ok({message: 'test passed if the display looks OK *and* clicking dropdowns/popovers/tooltips works.'});
           }
 
           done();
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           // [^] matches across newlines. Stay within the container div, or else the fragment will attempt to load resources on its own.
           bootstrapDropZone.innerHTML = result.content.match(/<meta name="viewport"[^]+<script src=/);
-          test.ok({message: 'Test passed if the display looks OK *and* clicking dropdowns/popovers/tooltips works.'});
+          test.ok({message: 'test passed if the display looks OK *and* clicking dropdowns/popovers/tooltips works.'});
           // only does anything after loading the 'dropdown' plugin test
           $('[data-toggle="dropdown"]').dropdown();
           // only does anything after loading the 'popover' plugin test

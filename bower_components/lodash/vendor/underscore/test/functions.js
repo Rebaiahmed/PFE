@@ -162,7 +162,7 @@
     hashed('yep');
     assert.deepEqual(hashed.cache, {YEP: 'yep'}, 'takes a hasher');
 
-    // Test that the hash function can be used to swizzle the key.
+    // test that the hash function can be used to swizzle the key.
     var objCacher = _.memoize(function(value, key) {
       return {key: key, value: value};
     }, function(value, key) {

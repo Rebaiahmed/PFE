@@ -6,7 +6,7 @@
 
     beforeEach: function(assert) {
       $('#qunit-fixture').append(
-        '<div id="testElement"><h1>Test</h1></div>'
+        '<div id="testElement"><h1>test</h1></div>'
       );
 
       view = new Backbone.View({
