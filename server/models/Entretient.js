@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Entretient', {
-    idEntretient: {
+    idEntretien: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    date: {
+    date_entretien: {
       type: DataTypes.DATE,
       allowNull: true
     },
@@ -28,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.FLOAT,
       allowNull: true
     },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     Voiture_idVoiture: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -35,10 +39,19 @@ module.exports = function(sequelize, DataTypes) {
         model: 'Voiture',
         key: 'idVoiture'
       }
+    },
+    Voiture_Modele_idModele: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'Voiture',
+        key: 'Modele_idModele'
+      }
     }
+
   }, {
     tableName: 'Entretient',
     freezeTableName: true,
-    timestamps : false
+    timestamps : false, // eliminate updateAT and createAt
   });
 };

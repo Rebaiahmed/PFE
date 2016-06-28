@@ -7,9 +7,12 @@ var Manager = models.Manager ;
 exports.getManagers = function(req,res)
 {
 
-    Manager.findAndCountAll().then(function(result){
+    Manager.findAndCountAll()
+        .then(function(result){
         res.json(result.rows);
-    })
+        }).catch(function(err){
+            throw err
+        })
 
 
 }
@@ -19,24 +22,22 @@ exports.getManagers = function(req,res)
 exports.addManager = function(req,res)
 {
     //ge the necessary data
-    var nom = req.body.nom ;
+    var nom = req.body.Username ;
     var login = req.body.email ;
     var password = req.body.password ;
-
-    //affiche dans le console avant l'affichage
-    console.log('data recived ' + nom + ' ' + login+ ' ' + password);
-
+var role = req.body.role ;
     //we must chek the email
     Manager.findOne({where :{email :login}}).then(function(mg) {
         if (mg) {
-            res.json({"err_create": "CREATE_ALREADY_HAVE_ACCOUNT"});
+            res.status(400).json({"err_create": "CREATE_ALREADY_HAVE_ACCOUNT"});
         }
 
 
         else {
             var manager = Manager.build({
                 email: login,
-                nom: nom
+                Username: nom,
+                role : role
             })
 
             manager.setPassword(password);
@@ -53,8 +54,8 @@ exports.addManager = function(req,res)
 
                 })
                 .catch(function(err){
-                    console.log('error :' + err);
-                   res.json(err);
+
+                  throw err;
                 })
 
         }//end of else
@@ -93,9 +94,12 @@ exports.updateManager = function(req,res)
                 manager.nom = nom,
                     manager.email = login
 
-                manager.save().then(function(result){
+                manager.save()
+                    .then(function(result){
                    res.json(result);
-                })
+                   }).catch(function(err){
+                        throw err;
+                    })
 
 
 
@@ -104,11 +108,13 @@ exports.updateManager = function(req,res)
 
             else
             {
-                res.json({"msg" :"no Manager Found!"})
+                res.status(404).json({"msg" :"no Manager Found!"})
             }
 
 
 
+        }).catch(function(err){
+            throw err;
         })
 
 
@@ -133,14 +139,16 @@ exports.deleteManager = function(req,res)
                         'idManager': id
                     }
                 })
-                res.json({"message": "Manager deletd deleted !"})
+                res.json({"message": "Manager deleted !"})
             }
             else{
-                res.json({"message": "No Manager found !"})
+                res.status(404).json({"message": "No Manager found !"})
             }
 
 
 
+        }).catch(function(err){
+            throw err;
         })
 
 

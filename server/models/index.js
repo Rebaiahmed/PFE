@@ -44,7 +44,7 @@ var Entretient = db["Entretient"];
 var Contrat = db["Contrat"];
 var Facture = db["Facture"];
 var Modele = db["Modele"];
-var Preservation = db["PreReservation"];
+var Alerte = db["Alerte"];
 var Manager = db["Manager"];
 
 
@@ -54,46 +54,40 @@ var Manager = db["Manager"];
 
 //-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
 Reservation.belongsTo(Client,{foreignKey: 'Client_idClient'});
-Preservation.belongsTo(Client,{foreignKey: 'Client_idClient'});
+
 Client.hasMany(Reservation,{constraints: true,foreignKey: 'Client_idClient'});
-Client.hasMany(Preservation,{constraints: true,foreignKey: 'Client_idClient'});
+
+
+
+
 
 /*
 
  */
 //-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
 Reservation.belongsTo(Voiture,{foreignKey: 'Voiture_idVoiture'});
-Voiture.hasMany(Reservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
-//-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
-Preservation.belongsTo(Voiture,{foreignKey: 'Voiture_idVoiture'});
-Voiture.hasMany(Preservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
-
-//-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
 Reservation.belongsTo(Modele,{foreignKey: 'Voiture_Modele_idModele'});
-Preservation.belongsTo(Modele,{foreignKey: 'Voiture_Modele_idModele'});
+Voiture.hasMany(Reservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
+
+Entretient.belongsTo(Voiture ,{foreignKey: 'Voiture_idVoiture'});
+Voiture.hasMany(Entretient,{constraints: true,foreignKey: 'Voiture_idVoiture'})
+
 Voiture.belongsTo(Modele ,{foreignKey: 'Modele_idModele'});
+Modele.hasMany(Voiture,{foreignKey: 'Modele_idModele'})
 
-//-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
-Preservation.belongsTo(Voiture,{foreignKey: 'Voiture_idVoiture'});
-Voiture.hasMany(Preservation,{constraints: true,foreignKey: 'Voiture_idVoiture'})
-
-//-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
-//Contrat.belongsTo(Facture,{foreignKey: 'Facture_idFacture'});
-Contrat.belongsTo(Reservation,{foreignKey: 'Reservation_idReservation'});
-
-//Facture.hasOne(Contrat,{foreignkey:'Facture_idFacture'});
+//Entretient.belongsTo(Alerte,{foreignKey: 'Alerte_idAlerte'});
+Alerte.belongsTo(Entretient,{foreignKey: 'Alerte_idAlerte'});
 
 
 
+/*
+*/
+//_-_--_-__-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_
+Contrat.belongsTo(Reservation,{foreignKey: 'Reservation_numReservation'});
+//Reservation.belongsTo(Contrat,{foreignKey: 'Reservation_numReservation'});
 
-//-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
 
-
-Entretient.belongsTo(Voiture,{foreignKey :'Voiture_idVoiture'});
-Voiture.hasMany(Entretient,{constraints: true,foreignKey: 'Voiture_idVoiture'});
-
-
-//-_-__-_-_-_-_-_-_-_-_-_-__-_-_-__-_-_-_-_-_
+Facture.belongsTo(Contrat,{foreignKey: 'Contrat_idContrat'});
 
 
 
@@ -101,91 +95,40 @@ Voiture.hasMany(Entretient,{constraints: true,foreignKey: 'Voiture_idVoiture'});
 
 
 
-/*Manager.findOne({ where : {email : "ahmed@mail.com"}}).then(function(admin)
-{
-
-    if(!admin)
-    {
-        console.log('admin not found !')
-
-
-
-    }
-    else
-    {
-
-
-        // we mustc check password
-
-
-        if(admin.validPassword("ahmed")!=true)
-        {
-            console.log('result is:' + admin.validPassword("ahmed"));
-            console.log('not valid password !');
-
-
-        }
-        else {
-
-            console.log('mrigél :' + admin);
-
-            // tout est correcte retourner le manager
-           // token = admin.generateJwt();  /// ???? i hope the work
-
-
-        }
-
-
-    }// end of else
 
 
 
 
-})//end findOne*/
 
 
 
-/*var mng = Manager.build({
 
-    nom : 'manager',
-    email :'manager@mail.com',
-    role:'User'
+/*var manager = Manager.build({
+    email :'ahmed@mail.com',
+    Username : 'ahmed',
+    role:true
+
 })
+//75fddec218dc45073242b6ea8dfd179775cd6085ab4e3bef3f512a280334810a7c05062657b02674afcd5ac7a2a538ec43d4c5d4b13b0c8a31ee861d0f321981
+
+//set the password
+manager.setPassword('ahmed');
 
 
-mng.setPassword('manager');
+console.log('manager' + manager.hash);
 
-mng.save().then(function(res){
-    console.log('manager saved !');
-})*/
-
-
-
-
+ manager.save().then(function(manager){
+ console.log('saved !' + JSON.stringify(manager));
+ }).catch(function(err){
+ console.log('err' + err);
+ })*/
 
 
 
 
 
 
-/*Facture.findAndCountAll(
 
-).then(function(result){
-
-
-      console.log(JSON.stringify(result.rows));
-
-    })*/
-
-/*var fs = require('fs');
-var pdf = require('html-pdf');
-var html = fs.readFileSync('/home/ahmed/WebstormProjects/login_pfe/test_file.html', 'utf8');
-var options = { format: 'Letter' };
-
-pdf.create(html, options).toFile('home/ahmed/businesscard.pdf', function(err, res) {
-    if (err) return console.log(err);
-    console.log(res); // { filename: '/app/businesscard.pdf' }
-});*/
 
 
 

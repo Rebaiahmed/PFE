@@ -14,27 +14,6 @@ var Manager = models.Manager ;
 
 
 
-//-_-_-__-_-_-_-_-__-_-_
-    //passport session setup
-    //-_-_-_-_-_-_-__-_ required for persistant login sessions
-    // passport needs abilitu to serialize and deserialize users of session
-
-
-    // used to serialize the user for the session
-    passport.serializeUser(function(client, done) {
-        done(null, client);
-    });
-
-    // used to deserialize the user
-    passport.deserializeUser(function(client, done) {
-        Client.findById(client.id).then(function(result)
-        {
-
-
-            done(null,result);
-        })
-    });
-
 
 
 

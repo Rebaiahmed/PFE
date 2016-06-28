@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.5.5",
+    "gulp": "^3.9.1",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
@@ -37,6 +38,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-safari-launcher": "^1.0.0",
     "mocha": "^2.4.5",
+    "nodemon": "^1.9.2",
     "should": "^8.3.2",
     "supertest": "^1.2.0"
   }

@@ -2,23 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Conducteur', {
-    idConducteur: {
-      type: DataTypes.BIGINT,
+    num_cin: {
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement :true,
-      references: {
-        model: '',
-        key: ''
-      }
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    numTel: {
-      type: DataTypes.STRING,
-      allowNull: true
+      primaryKey: true
     },
     nom: {
       type: DataTypes.STRING,
@@ -28,27 +15,29 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     adresse: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    numPermis: {
+    num_tel: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    datePermis: {
+    num_permis: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    numCin: {
-      type: DataTypes.STRING,
+    date_obtention_permis: {
+      type: DataTypes.DATE,
       allowNull: true
     }
-
-
   }, {
     tableName: 'Conducteur',
     freezeTableName: true,
-    timestamps : false
+    timestamps : false, // eliminate updateAT and createAt
   });
 };

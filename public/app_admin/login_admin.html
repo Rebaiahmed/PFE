@@ -2,11 +2,11 @@
 <html lang="fr" ng-app="adminApp">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>king Rent a Car</title>
     <base href="/">
 
   <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.css">
-    <link rel="stylesheet" href="/bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" >
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css">
@@ -34,32 +34,19 @@
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/Materialize/dist/js/materialize.js"></script>
-
     <script src="/bower_components/fusioncharts/fusioncharts.js"></script>
     <script src="/bower_components/fusioncharts/fusioncharts.gantt.js"></script>
     <script src="/bower_components/fusioncharts/fusioncharts.maps.js"></script>
     <script src="/bower_components/fusioncharts/fusioncharts.powercharts.js"></script>
-
-
-
-
-
-
-
-
-
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-
-
+      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
     <script src="/bower_components/angular/angular.min.js"></script>
-  <script src="components/angular-socket-io/socket.min.js"></script>
-
 
 
     <script src="/bower_components/angular-fusioncharts/dist/angular-fusioncharts.min.js"></script>
- <script src="components/angular-audio/app/angular.audio.js"></script>
-  <script src="components/angular-atomic-notify/dist/angular-atomic-notify.min.js"></script>
+<script src="/components/angular-audio/app/angular.audio.js"></script>
+  <!---<script src="/bower_components/angular-atomic-notify/dist/angular-atomic-notify.min.js"></script>-->
+  <script src="/components/angular-socket-io/socket.min.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-moment/angular-moment.min.js"></script>
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
@@ -73,18 +60,16 @@
     <script src="/bower_components/moment/min/moment.min.js"></script>
     <script src="/bower_components/angular-moment/angular-moment.min.js"></script>
     <script src="/bower_components/angular-google-chart/ng-google-chart.min.js"></script>
-
     <script src="/bower_components/interact/dist/interact.min.js"></script>
     <script src="/bower_components/ngstorage/ngStorage.min.js"></script>
-  <script src="/bower_components/angular-permission/dist/angular-permission.min.js"></script>
-  <script src="/bower_components/angular-permission/dist/angular-permission-ng.min.js"></script>
+ <script src="/components/ng-file-upload/ng-file-upload.min.js"></script>
+  <script src="/components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+
 
     <!--------calendar angular---------------------------------->
     <script src="/bower_components/angular-ui-calendar/src/calendar.js"></script>
     <script src="/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="/bower_components/fullcalendar/dist/gcal.js"></script>
-
-
   <script src="/bower_components/jspdf/dist/jspdf.min.js"></script>
 
 
@@ -95,63 +80,15 @@
 
 
     <script src="/app_admin/main.js"></script>
+  <script src="/app_admin/services/Services.js"></script>
+  <script src="/app_admin/controllers/Controllers.js"></script>
 
 
-<script src="/app_admin/login/login.controller.js"></script>
-  <script src="/app_admin/login/login.service.js"></script>
-
-  <script src="/app_admin/Réservations/Reservations.controller.js"></script>
-  <script src="/app_admin/Réservations/Réservations.service.js"></script>
-
-  <script src="app_admin/contrats/contrat.service.js"></script>
-
-
-    <script src="/app_admin/voitures/voiture.services.js"></script>
-    <script src="/app_admin/voitures/voiture.controller.js"></script>
-
-
-    <script src="/app_admin/conducteurs/conductuer.service.js"></script>
-    <script src="/app_admin/conducteurs/conducteur.controller.js"></script>
-  <script src="/app_admin/conducteurs/conductuer.email.controller.js"></script>
-
-
-    <script src="/app_admin/statistique/statistci.controller.js"></script>
-
-
-    <script src="/app_admin/clients/clients.service.js"></script>
-    <script src="/app_admin/clients/clients.controller.js"></script>
-
-
-  <script src="/app_admin/Calendrier/Calendrier.controller.js"></script>
-
-  <script src="/app_admin/locations/locations.controller.js"></script>
-  <script src="/app_admin/locations/locations.service.js"></script>
-
-  <script src="/app_admin/entretients/entretients.service.js"></script>
-  <script src="/app_admin/entretients/entretients.controller.js"></script>
-
-
-  <script src="/app_admin/Managers/Managers.service.js"></script>
-  <script src="/app_admin/Managers/Managers.controller.js"></script>
-
-  <script src="/app_admin/contrats/contrat.controller.js"></script>
-  <script src="/app_admin/contrats/contrat.service.js"></script>
-
-
-  <script src="/app_admin/factures/facture.controller.js"></script>
-  <script src="/app_admin/factures/facture.service.js"></script>
-
-<script src="/app_admin/parametres/Parametre.controller.service.js"></script>
-
-  <script src="/app_admin/pages/Message.controller.js"></script>
-
-  <!-----------chat service--------->
-  <script src="/app_admin/chat/socket.service.js"></script>
 
 </head>
 
 
-<body ng-controller="loginCtrl">
+<body>
 
 
 

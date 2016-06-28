@@ -1,9 +1,9 @@
 
 var App = angular.module('adminApp',['ui.router','ngResource','ngMessages','ui.materialize','cgNotify','angularMoment','googlechart'
-,'ui.calendar','ngStorage','permission','permission.ng','btford.socket-io','ngAudio','atomic-notify']);
+,'ui.calendar','ngStorage','btford.socket-io','ngAudio','ngFileUpload']);
 
 
-
+//'btford.socket-io','ngAudio','atomic-notify'
 
 /*
 define our factory interceptor
@@ -34,6 +34,7 @@ function config($stateProvider, $urlRouterProvider) {
         .state('admin_access', {
             url: '/auth/admin/admin',
             templateUrl: '/app_admin/Admin.html',
+            controller :'AdminCtrl',
             resolve: {
                 app: function ($q, $rootScope, $location,ParametresService,Authentication,notify) {
                     var defer = $q.defer();
@@ -60,8 +61,9 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('Calendrier', {
             url :'/Calednrier',
-            templateUrl: '/app_admin/Calendrier/calendrier.html',
+            templateUrl: '/app_admin/partials/Calendrier/calendrier.html',
             parent: "admin_access",
+            controller :'calendrierCtrl'
 
 
 
@@ -71,15 +73,16 @@ function config($stateProvider, $urlRouterProvider) {
         //  =================================
         .state('Profile', {
             url :'/Profile',
-            templateUrl: '/app_admin/Managers/Profile.html',
+            templateUrl: '/app_admin/partials/Managers/Profile.html',
             parent: "admin_access",
+            controller :'ManagerController',
 
-            resolve: {
+           resolve: {
                 app: function ($q, $rootScope, $location,ParametresService,Authentication,notify) {
                     var defer = $q.defer();
 
 
-                    if (!angular.equals(Authentication.currentUser().role,"SuperUser")) {
+                    if (Authentication.currentUser().role !=true) {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
 
                         deferred.reject();
@@ -96,14 +99,15 @@ function config($stateProvider, $urlRouterProvider) {
         //  =================================
         .state('Paramétres', {
             url :'/Paramétres',
-            templateUrl: '/app_admin/parametres/Paramétres.html',
+            templateUrl: '/app_admin/partials/parametres/Paramétres.html',
             parent: "admin_access",
-            resolve: {
+            controller :'ParametresController',
+           resolve: {
                 app: function ($q, $rootScope, $location,ParametresService,Authentication,notify) {
                     var defer = $q.defer();
 
 
-                    if (!angular.equals(Authentication.currentUser().role,"SuperUser")) {
+                    if (Authentication.currentUser().role !=true) {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
 
                         deferred.reject();
@@ -125,7 +129,7 @@ function config($stateProvider, $urlRouterProvider) {
         //  =================================
         .state('Messages', {
             url :'/Messages',
-            templateUrl: '/app_admin/pages/Messages.html',
+            templateUrl: '/app_admin/partials/pages/Messages.html',
             parent: "admin_access",
 
         })
@@ -134,21 +138,19 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('locations', {
                url :'/locations',
-            templateUrl: '/app_admin/locations/locations2.html',
+            templateUrl: '/app_admin/partials/locations/locations2.html',
             parent: "admin_access",
+            controller :'locationsController',
 
-            resolve: {
+           resolve: {
                 app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
                     var defer = $q.defer();
- var tab = JSON.parse(ParametresService.getParams());
-
-
-                    console.log('it not authorized ' +
-                        ( angular.equals(Authentication.currentUser().role,"User") && (tab[0]==false)  ));
+                  var tab = JSON.parse(ParametresService.getParams());
 
 
 
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[0]==false)  )) {
+
+                    if ( (Authentication.currentUser().role==false) && (tab[0]==false) ) {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
                         deferred.reject();
                     }
@@ -164,8 +166,9 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('locations.add', {
             url :'/addReservation',
-            templateUrl: '/app_admin/locations/Creer_location.html',
+            templateUrl: '/app_admin/partials/locations/Creer_location.html',
             parent: "locations",
+            controller :'locationsController'
 
         })
 
@@ -173,29 +176,35 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('locations.details', {
             url :'/locationDetails',
-            templateUrl: '/app_admin/locations/Details_location.html',
+            templateUrl: '/app_admin/partials/locations/Details_location.html',
             parent: "locations",
+            controller :'locationsController'
 
         })
 
         //  =================================
 
+
+
+
+
         .state('Reservations', {
             url :'/reservations',
-            templateUrl: '/app_admin/Réservations/Reservations.html',
+            templateUrl: '/app_admin/partials/Réservations/Reservations.html',
             parent: "admin_access",
+            controller :'locationsController',
 
-            resolve: {
+           resolve: {
                 app: function ($q, $rootScope, $location,ParametresService,Authentication,notify) {
                     var defer = $q.defer();
 
 
-                    if (!angular.equals(Authentication.currentUser().role,"SuperUser")) {
+                    if (( (Authentication.currentUser().role==false) && (tab[1]==false) ) ) {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
 
                         deferred.reject();
                     }
-                    ;
+
                     defer.resolve();
                     return defer.promise;
                 }
@@ -205,10 +214,35 @@ function config($stateProvider, $urlRouterProvider) {
 
         //  =================================
 
+
+        .state('locationsRetard', {
+            url :'/locationRetard',
+            templateUrl: '/app_admin/partials/locations/locations_Retard.html',
+            parent: "admin_access",
+            controller :'locationsController'
+
+        })
+
+
+        //  =================================
+
+
+        .state('locationsCloturee', {
+            url :'/locationCloturee',
+            templateUrl: '/app_admin/partials/locations/locations_cloturee.html',
+            parent: "admin_access",
+            controller :'locationsController'
+
+        })
+
+
+        //  =================================
+
         .state('voitures', {
             url :'/voitures',
-            templateUrl: '/app_admin/voitures/voitures2.html',
+            templateUrl: '/app_admin/partials/voitures/voitures2.html',
             parent: "admin_access",
+            controller :'voituresController',
             resolve: {
                 app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
                     var defer = $q.defer();
@@ -219,7 +253,7 @@ function config($stateProvider, $urlRouterProvider) {
 
 
 
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[1]==false)  )) {
+                    if ( (Authentication.currentUser().role==false) && (tab[2]==false) )  {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
                         deferred.reject();
                     }
@@ -228,6 +262,15 @@ function config($stateProvider, $urlRouterProvider) {
                     return defer.promise;
                 }
             }
+
+        })
+
+        //_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_
+        .state('VoitureDetails', {
+            url :'/VoitureDetails/:idVoiture',
+            templateUrl: '/app_admin/partials/voitures/VoitureDetails.html',
+            parent: "admin_access",
+            controller :'voituresController'
 
         })
 
@@ -235,8 +278,9 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('voitures.add', {
             url :'/addCar',
-            templateUrl: '/app_admin/voitures/Creer_Voiture.html',
+            templateUrl: '/app_admin/partials/voitures/Creer_Voiture.html',
             parent: "voitures",
+            controller :'voituresController'
 
         })
 
@@ -244,16 +288,46 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('voitures.add.add', {
             url :'/addCar',
-            templateUrl: '/app_admin/voitures/Creer_Voiture.html',
+            templateUrl: '/app_admin/partials/voitures/Creer_Voiture.html',
             parent: "voitures.add",
+            controller :'voituresController',
 
         })
         //  =================================
 
         .state('voitures.add.add2', {
             url :'/addModele',
-            templateUrl: '/app_admin/voitures/Creer_Voiture.html',
+            templateUrl: '/app_admin/partials/voitures/Creer_Voiture.html',
             parent: "voitures",
+            controller :'voituresController',
+
+        })
+
+
+        .state('Alertes', {
+            url :'/Alertes',
+            templateUrl: '/app_admin/partials/Alerte/Alertes.html',
+            parent: "admin_access",
+            controller :'AlertesCtrl',
+            resolve: {
+                app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
+                    var defer = $q.defer();
+                    var tab = JSON.parse(ParametresService.getParams());
+
+
+//2
+
+                    if ( (Authentication.currentUser().role==false) && (tab[4]==false) ) {
+                        notify("Vous n'ets pas authorizé d'accéder ici !");
+                        deferred.reject();
+                    }
+
+                    defer.resolve();
+                    return defer.promise;
+                }
+            }
+
+
 
         })
 
@@ -261,17 +335,18 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('entretients', {
             url :'/entretients',
-            templateUrl: '/app_admin/entretients/entretients2.html',
+            templateUrl: '/app_admin/partials/entretients/entretients2.html',
             parent: "admin_access",
-            resolve: {
+            controller :'EntretientsCtrl',
+           resolve: {
                 app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
                     var defer = $q.defer();
                     var tab = JSON.parse(ParametresService.getParams());
 
 
+//2
 
-
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[2]==false)  )) {
+                    if ( (Authentication.currentUser().role==false) && (tab[3]==false) ) {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
                         deferred.reject();
                     }
@@ -287,38 +362,17 @@ function config($stateProvider, $urlRouterProvider) {
         //  =================================
         .state('contrats', {
             url :'/contrats',
-            templateUrl: '/app_admin/contrats/contrats2.html',
+            templateUrl: '/app_admin/partials/contrats/contrats2.html',
             parent: "admin_access",
-
-
-            resolve: {
-                app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
-                    var defer = $q.defer();
-                    var tab = JSON.parse(ParametresService.getParams());
-
-
-
-
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[3]==false)  )) {
-                        notify("Vous n'ets pas authorizé d'accéder ici !");
-                        deferred.reject();
-                    }
-
-                    defer.resolve();
-                    return defer.promise;
-                }
-            }
-
-
-
-
+            controller :'ContratsController',
 
         })
 
         .state('contrats.edit', {
             url :'/EditerContrat',
-            templateUrl: '/app_admin/contrats/EditerContrat.html',
+            templateUrl: '/app_admin/partials/contrats/EditerContrat.html',
             parent: "admin_access",
+            controller :'ContratsController'
 
         })
 
@@ -326,28 +380,9 @@ function config($stateProvider, $urlRouterProvider) {
         //  =================================
         .state('factures', {
             url :'/factures',
-            templateUrl: '/app_admin/factures/factures2.html',
+            templateUrl: '/app_admin/partials/factures/factures2.html',
             parent: "admin_access",
-
-            resolve: {
-                app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
-                    var defer = $q.defer();
-                    var tab = JSON.parse(ParametresService.getParams());
-
-
-
-
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[4]==false)  )) {
-                        notify("Vous n'ets pas authorizé d'accéder ici !");
-                        deferred.reject();
-                    }
-
-                    defer.resolve();
-                    return defer.promise;
-                }
-            }
-
-
+            controller :'FacturesController',
 
         })
 
@@ -355,22 +390,18 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('clients', {
             url :'/clients',
-            templateUrl: '/app_admin/clients/clients2.html',
+            templateUrl: '/app_admin/partials/clients/clients2.html',
             parent: "admin_access",
+            controller :'clientsController as CLIENT',
+
 
             resolve: {
                 app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
                     var defer = $q.defer();
                     var tab = JSON.parse(ParametresService.getParams());
 
-
-
-                    console.log('it not authorized ' +
-                        ( angular.equals(Authentication.currentUser().role,"User") && (tab[5]==false)  ));
-
-
-
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[5]==false)  )) {
+                    //5
+                    if ( (Authentication.currentUser().role==false) && (tab[5]==false) )  {
                         notify("Vous n'ets pas authorizé d'accéder ici !");
                         deferred.reject();
                     }
@@ -384,41 +415,19 @@ function config($stateProvider, $urlRouterProvider) {
         //  =================================
         .state('clients.edit', {
             url :'/addClient',
-            templateUrl: '/app_admin/clients/Editer_Client.html',
+            templateUrl: '/app_admin/partials/clients/Editer_Client.html',
             parent: "clients",
+            controller :'clientsController',
 
         })
 
 
-        //  =================================
-        .state('clients.details', {
-            url :'/detailsClient',
-            templateUrl: '/app_admin/clients/Details_Client.html',
-            parent: "clients",
-
-        })
-
-        //  =================================
-        .state('clients.details.edit', {
-            url :'/addClient',
-            templateUrl: '/app_admin/clients/Editer_Client.html',
-            parent: "clients",
-
-        })
-
-        //  =================================
-        .state('clients.edit.details', {
-            url :'/addClient',
-            templateUrl: '/app_admin/clients/Details_Client.html',
-            parent: "clients",
-
-        })
-        //  =================================
 
         .state('clients.mail', {
             url :'/sendMail',
-            templateUrl: '/app_admin/clients/Envoyer_Email_2.html',
+            templateUrl: '/app_admin/partials/clients/Envoyer_Email_2.html',
             parent: "clients",
+            controller :'clientsController as CLIENT'
 
         })
 
@@ -427,40 +436,21 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('conducteurs', {
             url :'/conducteurs',
-            templateUrl: '/app_admin/conducteurs/conducteurs2.html',
+            templateUrl: '/app_admin/partials/conducteurs/conducteurs2.html',
             parent: "admin_access",
-            resolve: {
-                app: function ($q, $rootScope, $location,Authentication,ParametresService,notify) {
-                    var defer = $q.defer();
-
-                    var tab = JSON.parse(ParametresService.getParams());
-
-
-                    if ( ( angular.equals(Authentication.currentUser().role,"User") && (tab[6]==false)  )) {
-                        notify("Vous n'ets pas authorizé d'accéder ici !");
-                        deferred.reject();
-                    }
-
-                    defer.resolve();
-                    return defer.promise;
-                }
-            }
+            controller :'conducteursController',
 
         })
 
-        //  =================================
-        .state('conducteurs.mail', {
-            url :'/conducteursMail',
-            templateUrl: '/app_admin/conducteurs/Envoyer_email.html',
-            parent: "conducteurs",
 
-        })
+
         //  =================================
 
         .state('conducteurs.add', {
             url :'/conducteursAdd',
-            templateUrl: '/app_admin/conducteurs/Creer_Conducteur.html',
+            templateUrl: '/app_admin/partials/conducteurs/Creer_Conducteur.html',
             parent: "conducteurs",
+            controller :'conducteursController',
 
         })
 
@@ -469,7 +459,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('CreateContrat',{
             url :'/Create_Contrat',
-            templateUrl: '/app_admin/contrats/Create_Contrat.html',
+            templateUrl: '/app_admin/partials/contrats/Create_Contrat.html',
             params:{
                 'Reservation' :new Object()
 
@@ -480,7 +470,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('Create_Facture',{
             url :'/Creer_Facture',
-            templateUrl: '/app_admin/factures/Create_Facture.html',
+            templateUrl: '/app_admin/partials/factures/Create_Facture.html',
             params:{
                 'contrat' :new Object()
 
@@ -497,19 +487,17 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('statistiques', {
             url :'/statistiques',
-            templateUrl: '/app_admin/statistique/statistiques.html',
+            templateUrl: '/app_admin/partials/statistique/statistiques.html',
             parent: "admin_access",
+            controller :'statistciCtrl'
 
 
         })
 
-        .state('Archive', {
-            url :'/Archive',
-            templateUrl: '/app_admin/Réservations/Archive.html',
-            parent: "admin_access",
 
 
-        })
+
+
 
 
 
@@ -536,270 +524,8 @@ function run($rootScope,$location,Authentication)
 }
 
 
-App.factory('AuthInterceptor',['$q','$location','$injector', function($q,$location){
-    return function (promise) {
-        var success = function (response) {
-            return response;
-        };
-
-        var error = function (response) {
-            if (response.status === 401) {
-                $location.path('/');
-            }
-
-            return $q.reject(response);
-        };
-
-        return promise.then(success, error);
-    };
-
-
-}]);
-
-
 
 //call the functions
 App.config(['$stateProvider', '$urlRouterProvider',config]);
 App .run(['$rootScope','$location','Authentication',run]);
-
-App.run(function (PermissionStore) {
-    PermissionStore
-        .definePermission('statistiques', function () {
-            return false;
-        });
-});
-
-App.config(['$httpProvider', function($httpProvider){
-
-
-    $httpProvider.interceptors.push('AuthInterceptor');
-
-}]);
-
-
-
-App.config(['atomicNotifyProvider', function(atomicNotifyProvider){
-    atomicNotifyProvider.setDefaultDelay(5000);
-    atomicNotifyProvider.useIconOnNotification(true);
-}])
-
-
-
-
-
-/*
--_-_-_-_-_-_-_-_-_--__-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_--__-_-_-__--_-__-_-
----------------------DEFINE OUR SERVICES------------------------------------------------
- -_-_-_-_-_-_-_-_-_--__-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-_--__-_-_-__--_-__-_-
-
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- -_-_-_-_-_-__-_--_-__SERVICES POUR PERSISTER UNE RÉSERVATION POR UN CONTRAT-_-_-_-_-__-_-_--__--_-__-_-_-_-_-_-_-_-_
- */
-
-
-
-App.service('Reservation_Contrat_Service',['$http', function($http){
-
-
-    this.Reservation ={};
-
-    this.saveReservation = function(reservation)
-    {
-        this.Reservation = reservation;
-
-    }
-
-    this.getReservation = function()
-    {
-        return this.Reservation;
-    }
-
-    this.removeReservation = function()
-    {
-        this.Reservation ={};
-    }
-
-
-
-
-
-}]);
-
-
-
-
-
-
-App.factory('modeleFactory',['$http', function($http){
-
-    var urlbase = "/auth/admin/admin/modele";
-    var modeleFactory ={} ;
-
-
-
-
-     modeleFactory.getModeles = function()
-     {
-          return $http.get(urlbase);
-
-     }
-
-
-    modeleFactory.postModele =function(modele)
-    {
-        return $http.post(urlbase,modele)
-
-    }
-
-    return modeleFactory ;
-
-
-}]);
-
-
-
-
-
-
-
-
-
-
-
-    /*
-     _-_-_-_-_-_-_-_-_-_-_-SERVICE FOR MAINTENANCE OPERATIONS-_-_-_-__-_-_-_-_-_-_-_-_-_--_-_-_
-     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-_-_-_--_-_-_-_-_-_-_-_-__-_-_-_-_-_ADMIN CTRL-_-_-_-_-__-_-_--_-_-_
- */
-
-
-App.controller('AdminCtrl', function($scope,PreReservationFactory,Authentication,$location,$state,Socket,notify,ngAudio
-, atomicNotify){
-
-
-
-
-    console.log('socket'+ JSON.stringify(Socket));
-
-
-    $scope.audio = ngAudio.load("http://static1.grsites.com/archive/sounds/birds/birds007.wav");
-
-
-
-    Socket.on('new_client', function(){
-        notify('une Réservation effectuée!');
-
-        $scope.audio.play();
-    })
-
-
-    //Pour les Noivelles réservations
-
-    Socket.on('new_reservation', function(){
-
-        notify('une Réservation effectuée!');
-        $scope.audio.play();
-    })
-
-
-
-    $scope.user = Authentication.isloggedIn();
-
-
-    //inclure le variable $state dans uiRouterStatepour utiliser dans le routing pour pouvoir afficher le calendar
-    $scope.uiRouterState = $state;
-
-
-
-
-
-
-
-    $scope.logOut = function()
-    {
-
-        Authentication.logout();
-
-        $location.path('admin');
-
-    }
-
-
-
-
-    $scope.profile = function()
-    {
-        console.log('we ill got to the Profile')
-        $state.go('Profile');
-    }
-  $scope.Parametre = function()
-  {
-      console.log('we ill got to the Paramétres')
-      $state.go('Paramétres');
-
-  }
-
-
-
-})
-
-
-
 

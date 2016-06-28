@@ -70,3 +70,7 @@ footer {
     border-radius: 3px;
 }
 
+.has-error
+{
+    color: #a94442;
+}

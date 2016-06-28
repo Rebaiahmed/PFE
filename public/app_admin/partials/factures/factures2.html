@@ -1,0 +1,66 @@
+
+<section class="content animated slideInLeft">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Factures
+                        <i class="material-icons">picture_as_pdf</i></h3>
+
+                </div>  <!--end of col-s12-->
+
+
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th data-field="id">N°</th>
+                        <th data-field="name">Nom && Prénom</th>
+                        <th data-field="name">Voiture</th>
+                        <th data-field="name">Dates</th>
+                        <th data-field="name"></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="fac in factures">
+                        <td>{{ fac.idFacture}}</td>
+                        <td>client</td>
+                        <td>Voiture</td>
+                        <td>Dates</td>
+                        <td>
+                            <a>Voir</a>
+                            <a>Supprimer</a>
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

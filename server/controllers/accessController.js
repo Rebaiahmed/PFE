@@ -10,8 +10,6 @@ module.exports.viewProfile = function(req,res)
 {
     // If no user ID exists in the JWT return a 401
 
-
-    console.log('id payload :'  + req.user.email );
     if(!req.user.email) {
         res.status(401).json({
             "message" : "UnauthorizedError !!:"
@@ -21,9 +19,11 @@ module.exports.viewProfile = function(req,res)
         Client
             .findOne({where :{email :req.user.email}})
             .then(function(client) {
-                console.log('the client found !' + client);
+
                 res.status(200).json(client);
-            });
+            }).catch(function(err){
+                throw err;
+            })
     }
 
 
@@ -41,7 +41,6 @@ module.exports.accessAdmin = function(req,res)
     // If no user ID exists in the JWT return a 401
 
 
-    console.log('id payload :'  + req.user.email );
     if(!req.user.email) {
         res.status(401).json({
             "message" : "UnauthorizedError !!:"
@@ -53,7 +52,9 @@ module.exports.accessAdmin = function(req,res)
             .then(function(manager) {
                 console.log('the Manager found !' +manager);
                 res.status(200).json(manager);
-            });
+            }).catch(function(err){
+               throw err;
+           })
     }
 
 

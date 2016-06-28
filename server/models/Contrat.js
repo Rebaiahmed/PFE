@@ -8,24 +8,20 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    kilometrageDebut: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    kilometrageRetour: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    prixHt: {
+    Prix_Totale: {
       type: DataTypes.FLOAT,
       allowNull: true
     },
-    tva: {
-      type: DataTypes.INTEGER(11),
+    Prix_Hors_Taxe: {
+      type: DataTypes.FLOAT,
       allowNull: true
     },
-    prixTT: {
+    TVA: {
       type: DataTypes.FLOAT,
+      allowNull: true
+    },
+    Mode_payement: {
+      type: DataTypes.STRING,
       allowNull: true
     },
     Acompte: {
@@ -36,43 +32,25 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.FLOAT,
       allowNull: true
     },
-    modePayement: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Nbr_Jours:{
-      type :DataTypes.INTEGER
-
-    }
-,    dureeRetard: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    penaliteJour: {
-      type: DataTypes.FLOAT,
-      allowNull: true
-
-    },
-    date_debut_prolngation: {
+    Date_Signature: {
       type: DataTypes.DATE,
       allowNull: true
     },
-    date_fin_prolngation: {
-      type: DataTypes.DATE,
+    Date_Debut_Prolongation: {
+      type: DataTypes.STRING,
       allowNull: true
     },
-
-    Reservation_idReservation: {
+    Date_Fin_Prolongation: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    Reservation_numReservation: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       references: {
         model: 'Reservation',
-        key: 'idReservation'
+        key: 'numReservation'
       }
-    },
-    Reservation_Voiture_Modele_idModele: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
     },
     Reservation_Client_idClient: {
       type: DataTypes.INTEGER(11),
@@ -81,10 +59,77 @@ module.exports = function(sequelize, DataTypes) {
         model: 'Reservation',
         key: 'Client_idClient'
       }
+    },
+    Reservation_Voiture_idVoiture: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'Reservation',
+        key: 'Voiture_idVoiture'
+      }
+    },
+    Reservation_Voiture_Modele_idModele: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'Reservation',
+        key: 'Voiture_Modele_idModele'
+      }
     }
   }, {
     tableName: 'Contrat',
     freezeTableName: true,
-    timestamps : false
+    timestamps : false, // eliminate updateAT and createAt
+
+
+    instanceMethods: {
+
+      calcul_Montant_Prolongation :function(prixVoiture)
+      {
+        var dateDebut_prolongation = new moment(this.Date_Debut_Prolongation);
+        var dateFin_prolongation = new moment(this.Date_Fin_Prolongation);
+        var diff = dateFin_prolongation.diff(dateDebut_prolongation,'days');
+        return diff*prixVoiture;
+      },
+
+      //calcul tva
+      calcul_tva :function(prixVoiture)
+      {
+        var dateA = new moment(this.dateDebut);
+        var dateB = new moment(this.dateFin);
+        var diff = dateB.diff(dateA,'days');
+        return diff*prixVoiture;
+      },
+
+      calcul_Penalite_Retard :function(prixVoiture)
+      {
+        var dateA = new moment(this.dateDebut);
+        var dateB = new moment(this.dateFin);
+        var diff = dateB.diff(dateA,'days');
+        return diff*prixVoiture;
+      },
+      calcul_Rest_A_payer :function(prixVoiture)
+      {
+        var dateA = new moment(this.dateDebut);
+        var dateB = new moment(this.dateFin);
+        var diff = dateB.diff(dateA,'days');
+        return diff*prixVoiture;
+      }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   });
 };

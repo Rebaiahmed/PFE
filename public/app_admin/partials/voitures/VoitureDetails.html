@@ -1,0 +1,247 @@
+<section class="content animated slideInLeft">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Details Voiture</h3>
+
+
+                </div>
+                <!--end of col-s12-->
+
+
+
+
+
+
+
+                <div class="row">
+
+
+                    <div class="col s12 m6 " ng-show="!showEdit">
+                        <div class="card">
+                            <div class="card-title">
+
+                                <h5 class="blue-text">{{ car.Modele.nom_modele + ' ' + car.Modele.marque }}</h5>
+                            </div><!--end of card title-->
+                            <div class="card-content">
+                               <ul>
+                                   <li><b>Puissance </b> : {{ car.kilometrage_parcouru }}</li>
+                                   <li><b>consommation </b> : {{ car.Modele.consommation }}</li>
+                                   <li><b>Ports </b>: {{ car.nb_places }}</li>
+                                   <li><b>Couleur </b>: {{ car.etat }}</li>
+                                   <li><b>Categorie </b>: {{ car.categorie }}</li>
+                                   <hr>
+                                   <li><b>prix location</b> : {{ car.prix_location}}</li>
+                                   <li><b>chiffre affaire</b> : {{ chiffre }}</li>
+                                   <li><b>Nombre Réservations :</b> : {{ nbr}}</li>
+                                   <hr>
+                                   <li><b>kilometrage parcouru</b>: {{ car.kilometrage_parcouru }}</li>
+                                   <li><b>etat</b> : {{ car.etat }}</li>
+                               </ul>
+                            </div><!--end of card content-->
+                            <div class="card-action">
+                                <a class="btn-floating btn-large red " ng-click="deleteCar(c.idVoiture)">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+
+
+
+                                <a class=" btn-floating btn-large  blue lighten-1" ng-click="editCar(car.idVoiture)">
+                                    <i class="large material-icons">mode_edit</i>
+                                </a>
+
+                            </div><!--end of card action--->
+
+
+                        </div><!--end of card---->
+                    </div><!---end of col --------->
+
+
+
+
+
+                    <div class="col md6">
+                        <form class="animated zoomIn"  name="CarForm" novalidate  ng-model="CarForm" ng-show="showEdit">
+
+
+                            <div class="row">
+
+
+
+
+                                <div class="col s2">
+                                    <label>date visite tecknique</label>
+                                </div>
+                                <div class="input-field col s2">
+                                    <input placeholder="date" id="first_name" type="date" name="date_visite_tecknique"
+                                           class="datepicker" ng-model="car.date_visite_tecknique" required>
+                                </div>
+
+
+                                <div class="col s2">
+                                    <label>date vignette</label>
+                                </div>
+                                <div class="input-field col s2">
+                                    <input id="Date vignette" type="date" class="datepicker" name="date_vignette"
+                                           ng-model="car.date_vignette" required>
+
+                                </div>
+
+
+
+
+                                <div class="col s2">
+                                    <label>date assurance</label>
+                                </div>
+
+                                <div class="input-field col s2">
+                                    <input id="Date assurance" type="date" class="datepicker" name="date_Asurance"
+                                           ng-model="car.date_assurance" required>
+
+                                </div>
+
+
+
+                            </div><!---end of class row--------->
+
+
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <input id="kilometrage" type="number" class="validate"
+                                           ng-model="car.kilometrage_parcouru"   name="kilometrage" required>
+                                    <label for="kilometrage">kilometrage</label>
+
+                                </div>
+
+
+                                <div class="input-field col s4">
+                                    <input id="prix_location" type="number" class="validate" name="prix_location"
+                                           ng-model="car.prix_location" required >
+                                    <label for="prix_location">Prix de location <i class="material-icons">attach_money</i></label>
+
+                                </div>
+
+                            </div><!------end of row-------->
+
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input id="num_immatricule" type="text" class="validate" name="num_immatricule"
+                                           ng-model="car.numImmatricule" required>
+                                    <label for="num_immatricule">num immatricule</label>
+
+                                </div>
+                            </div><!---end of orw--------->
+
+
+
+
+
+
+                            <div class="row">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>File</span>
+                                        <input
+                                                type="file"
+                                                ngf-select
+                                                ng-model="file2"
+                                                name="file2"
+                                                ngf-pattern="'image/*'"
+                                                accept="image/*"
+                                                ngf-max-size="20MB"
+                                                />
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input ng-model="name2" class="file-path validate" type="text">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <button class="btn waves-effect waves-light  blue darken-2" type="submit" name="action" ng-click="updateCar()"
+                                    >Save
+                                <i class="material-icons right">send</i>
+                            </button>
+
+
+
+
+
+                            <div class="row">
+
+                                <p ng-show="submitted && CarForm.date_visite_tecknique.$error.required" class="red-text">
+                                    vous devez indiquez la date de visite technique
+                                </p>
+
+                                <p ng-show="submitted && CarForm.date_vignette.$error.required" class="red-text">
+                                    vous devez choisr une date vignette
+                                </p>
+
+                                <p ng-show="submitted && CarForm.date_Asurance.$error.required" class="red-text">
+                                    vous devez saisir une date_Asurance
+                                </p>
+
+                                <p ng-show="submitted && CarForm.kilometrage.$error.required" class="red-text">
+                                    vous devez choisr la kilometrage
+                                </p>
+
+                                <p ng-show="submitted && CarForm.nbPlaces.$error.required" class="red-text">
+                                    vous devez choisr le nombre de places
+                                </p>
+
+                                <p ng-show="submitted && CarForm.numChassee.$error.required" class="red-text">
+                                    vous devez choisr le numéro de chassée
+                                </p>
+
+                                <p ng-show="submitted && CarForm.num_immatricule.$error.required" class="red-text">
+                                    vous devez choisr le num_immatricule
+                                </p>
+
+                                <p ng-show="submitted && CarForm.prix_location.$error.required" class="red-text">
+                                    vous devez choisr le prix_location
+                                </p>
+                                <p ng-show="submitted && CarForm.modele.$error.required" class="red-text">
+                                    vous devez choisr le modele
+                                </p>
+
+
+                                <p>
+                                    <img style="width:100px;" ngf-thumbnail="file"/>
+                                    <i ng-show="CarForm.file.$error.required">*required</i><br>
+                                    <i ng-show="CarForm.file.$error.maxSize">File too large
+                                        {{ file.size / 1000000|number:1}}MB: max 20M</i>
+                                </p>
+                                <p>{{ progress}}</p>
+
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div><!--end of row-->
+
+
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

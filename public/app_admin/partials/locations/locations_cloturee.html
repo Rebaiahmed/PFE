@@ -1,0 +1,101 @@
+
+<section class="content animated slideInLeft">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> locations Cloturee
+                        <i class="material-icons">picture_as_pdf</i></h3>
+
+                </div>  <!--end of col-s12-->
+
+
+
+
+                <div class="row">
+
+
+
+                    <div class="col s12">
+
+
+
+
+
+                        <table class="centered highlight">
+                            <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th data-field="id">
+                                    <p><i class="small material-icons">perm_identity</i>Nom & Prénom</p>
+                                </th>
+
+                                <th data-field="name">
+                                    <p>
+                                        <i class="material-icons">drive_eta</i>
+                                        Voiture
+                                    </p>
+                                </th>
+                                <th data-field="name">
+                                    <p>Dates
+                                    </p>
+
+                                </th>
+
+
+
+                                <th data-field="name" >
+                                    Action
+                                </th>
+
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="loc in locations_cloture    ">
+                                <td>{{ loc.idReservation }}</td>
+                                <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
+                                <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
+                                <td>{{ loc.dateDebut | date:'dd/MM/yyyy'  + " " + loc.heureDebut + loc.dateFin  | date:'dd/MM/yyyy' +" " + loc.heureFin   }}h</td>
+
+                                <td>
+                                    <a ng-click="editlocation(loc.numReservation)">  <i class="material-icons">mode_edit</i></a>
+                                    <a ng-click="supprimlocation(loc.numReservation)"><i class="material-icons">delete</i></a>
+                                </td>
+
+                            </tr>
+
+
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </div><!--end of row-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

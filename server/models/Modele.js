@@ -6,13 +6,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      autoIncrement : true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
-    nom: {
+     nom_modele: {
       type: DataTypes.STRING,
       allowNull: true
     },
@@ -24,25 +20,25 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    consommation: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     puissance: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    prixGPS: {
+    prix_chaise_bebe: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    prixChaisse: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    prixChauffeur: {
+    prix_chauffeur: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     }
   }, {
     tableName: 'Modele',
     freezeTableName: true,
-    timestamps : false
+    timestamps : false, // eliminate updateAT and createAt
   });
 };

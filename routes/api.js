@@ -1,5 +1,14 @@
 var express = require('express');
 var Router = express.Router();
+//require all the necessary modules
+var models  = require('../server/models/index.js');
+var Client = models.Client ;
+var Reservation = models.Reservation ;
+var Voiture = models.Voiture ;
+var Contrat = models.Contrat ;
+var Modele = models.Modele ;
+var Entretient = models.Entretient ;
+var sequelize = models.sequelize;
 
 
 
@@ -37,6 +46,8 @@ THE HOME PAGE
 Router.get('/', function(req,res){
     res.sendFile('./app_client/index.html',{root: '/home/ahmed/WebstormProjects/login_pfe/public'});
 })
+
+
 
 /*
 -_-_-_-_-_-_-_-__--_-__-_-_-_-_-_-
@@ -99,36 +110,36 @@ Router.post('/auth/admin/admin',authCtrl.login_admin)
 
 
 
-//-_-_-_-__ for the pre reservation
+//-_-_-_-__ for the pre reservation from client
 
 Router.route('/auth/admin/admin/PreReservations')
-    .get(ReservationonCtrl.getPreReservation )
       .post(ReservationonCtrl.addPreReservation)
 
-Router.route('/auth/admin/admin/PreReservations/:idPreReservation')
-    .delete(ReservationonCtrl.deletePreservation);
+//-_-__-__-__-_-_-_-_ for the reservation from manager
 
-
-// _-_-_-_-____-_-_-___-the LOCATIONS-_-__-_-_-_-__-
 Router.route('/auth/admin/admin/locations')
-    .get(ReservationonCtrl.findReservations)
     .post(ReservationonCtrl.addReservation)
 
 
 
+// _-_-_-_-____-_-_-___-the LOCATIONS-_-__-_-_-_-__-
+Router.route('/auth/admin/admin/locations/:etat')
+    .get(ReservationonCtrl.findReservations)
 
-Router.route('/auth/admin/admin/Prelocations')
-    .post(ReservationonCtrl.saveReservation)
+//-_-_-_-__-_-_-_-_-LOCATIONS EN RETARD_-_-_-_-_-_-_-__
+
+Router.route('/auth/admin/locations/retard')
+    .get(ReservationonCtrl.findReservations_Retard)
 
 
-
-
-Router.route('/auth/admin/admin/locations/:idReservation')
+Router.route('/auth/admin/admin/location/:idReservation')
     .get(ReservationonCtrl.getReservation)
     .put(ReservationonCtrl.updateReservation)
     .delete(ReservationonCtrl.deleteReservation)
 
 
+Router.route('/auth/admin/admin/location/cloture/:idReservation')
+    .put(ReservationonCtrl.Reservation_Cloture)
 
 // _-_-_-_-____-_-_-___-the CARS-_-__-_-_-_-__-
 
@@ -138,10 +149,15 @@ Router.route('/auth/admin/admin/voitures')
     .post(voitureCtrl.addCar)
 
 
-Router.route('/auth/admin/admin/voitures/:idVoiture')
+Router.route('/auth/admin/admin/voiture/:idVoiture')
     .get(voitureCtrl.getCar)
-    .put(voitureCtrl.updateCar)
+    .post(voitureCtrl.updateCar)
     .delete(voitureCtrl.deleteCar)
+    .put(voitureCtrl.updateCar_dates)
+
+Router.route('/auth/admin/admin/voiture/dates/:idVoiture')
+    .put(voitureCtrl.updateCar_dates)
+
 
 
 Router.route('/auth/admin/admin/modele')
@@ -159,7 +175,7 @@ Router.route('/auth/admin/admin/entretients')
     .post(EntretientCtrl.addMaintenance)
 
 
-Router.route('/auth/admin/admin/entretients/:idEntretient')
+Router.route('/auth/admin/admin/entretients/:idEntretien')
     .get(EntretientCtrl.getEntretient)
     .put(EntretientCtrl.updateEntretient)
     .delete(EntretientCtrl.deleteEntretient)
@@ -167,6 +183,7 @@ Router.route('/auth/admin/admin/entretients/:idEntretient')
 
 Router.route('/auth/admin/admin/entretientCar/:idVoiture')
     .get(EntretientCtrl.getEntretientCar)
+
 
 
 
@@ -212,7 +229,7 @@ Router.route('/auth/admin/admin/Factures/:id_facture')
 
 Router.route('/auth/admin/admin/clients')
     .get(ClientCtrl.getClients)
-    .post(ClientCtrl.addClient)
+
 
 
 Router.route('/auth/admin/admin/clients/:idClient')
@@ -268,7 +285,18 @@ Router.route('/auth/admin/admin/Managers/:idManager')
 Router.route('/auth/admin/statiscCars')
     .get(statistcCtrl.getCarsChiffreAffaire)
 
-Router.route('/auth/admin/statiscClient')
-    .get(statistcCtrl.getStatistciClients)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = Router;

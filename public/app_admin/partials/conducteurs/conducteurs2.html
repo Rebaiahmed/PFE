@@ -1,0 +1,226 @@
+
+<section class="content animated slideInLeft">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Conducteurs</h3>
+
+                    <div class="col s12">
+
+                        <h6 ng-show="showAdd">Creer conducteur</h6>
+
+
+
+                        <form class="col s12" ng-submit="addDriver()" name="driverForm" novalidate ng-show="showAdd" ng-model="driverForm">
+                            <div class="row">
+
+
+
+
+                                <div class="input-field col s4">
+                                    <input id="nom" type="text" class="validate" ng-model="newDriver.nom" required name="nom" required>
+                                    <label for="nom">Nom</label>
+
+                                    <p class="red-text" ng-show="submitted &&driverForm.nom.$error.required ">Vous devez indique le nom pour le conducteur</p>
+                                </div>
+
+
+
+
+                                <div class="input-field col s4">
+                                    <input id="prenom" type="text" class="validate" ng-model="newDriver.prenom" required name="prenom" >
+                                    <label for="prenom">Prenom</label>
+
+                                    <p class="red-text" ng-show="submitted &&driverForm.email.$error.required ">Vous devez indique un prénom pour le conducteur</p>
+                                </div>
+
+                                <div class="input-field col s4">
+                                    <input id="email" type="email" class="validate" ng-model="newDriver.email" required name="email">
+                                    <label for="email">email</label>
+
+                                    <p class="red-text" ng-show="submitted && driverForm.email.$error.required">
+                                        Vous devez saisi une adresse email</p>
+                                    <p class="red-text" ng-show="submitted && driverForm.email.$error.email">
+                                        Saisissez une adresse e-mail valide</p>
+
+                                </div>
+
+                            </div><!-----end of row---->
+
+                            <!-->
+                            <div class="row">
+
+                                <div class="input-field col s4">
+                                    <input id="numtel"  type="text" class="validate" ng-model="newDriver.numTel" required name="numtel">
+                                    <label for="numtel">Num tel </label>
+                                    <p class="red-text" ng-show="submitted && driverForm.numtel.$error.required">
+                                        Saisissez son numéro de télephone </p>
+                                </div>
+
+                                <div class="input-field col s4">
+                                    <input id="numCin"  type="text" class="validate" ng-model="newDriver.numCin" required name="numcin">
+                                    <label for="numCin">Num cin</label>
+                                    <p class="red-text" ng-show="submitted &&driverForm.numcin.$error.required ">Vous devez indique le numcin pour le conducteur</p>
+                                </div><!--end of div 4-->
+
+                            <div class="input-field col s4">
+                                <input id="adresse"  type="text" class="validate" ng-model="newDriver.adresse" required name="adresse">
+                                <label for="adresse">adresse</label>
+                                <p class="red-text" ng-show="submitted &&driverForm.adresse.$error.required ">Vous devez indique l('adresse du conducteur</p>
+                            </div>
+
+
+                            </div><!----end of row---->
+                            <!-->
+
+                            <div class="row">
+
+
+
+                                <div class="input-field col s6">
+                                    <input id="numPermis" type="text" class="validate" ng-model="newDriver.numPermis" required name="numPermis">
+                                    <label for="numPermis">num Permis</label>
+                                    <p class="red-text" ng-show="submitted &&driverForm.numPermis.$error.required ">Vous
+                                    devez indiquez le num de Permis</p>
+                                </div>
+
+                                <div class="col s2">
+                                    <label>Date Permis</label>
+                                    <p class="red-text" ng-show="submitted &&driverForm.date.$error.required ">Vous devez indique la date d'obtention du permis</p>
+                                </div>
+
+                                <div class="input-field col s4">
+
+                                    <input type="date" class="validate" ng-model="newDriver.datePermis" required name="date">
+
+                                </div>
+
+
+                            </div>
+
+                            <button class="btn waves-effect waves-light btn blue lighten-1" type="submit" name="action">Ajouter
+
+                                <i class="material-icons right">send</i>
+                            </button>
+
+
+
+                        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                    <!--end of col-s12-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="fixed-action-btn horizontal click-to-toggle">
+                        <a class="btn-floating btn-large  blue darken-2">
+                            <i class="large mdi-navigation-menu"></i>
+                        </a>
+                        <ul>
+                            <li><a class="btn-floating  blue lighten-1 " ng-click="change()"><i class="material-icons">add</i></a></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
+                    <div ui-view> </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th>email</th>
+                            <th>Nom Prenom</th>
+                            <th>Num tel</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="dr in drivers">
+                            <td>{{ dr.email }}</td>
+                            <td>{{  dr.nom + " " + dr. prenom }}</td>
+                            <td>{{ dr.numTel }}</td>
+
+                            <td>
+
+                                <a class="btn-floating btn waves-effect waves-light  blue lighten-1 " ng-click="editDriver(dr.idConducteur)"> <i class="large material-icons">mode_edit</i></a>
+                                <a class="btn-floating  waves-effect waves-light red " ng-click="deleteDriver(dr.idConducteur)"><i class="material-icons">delete</i></a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

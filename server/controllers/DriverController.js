@@ -42,11 +42,10 @@ exports.addDriver = function(req,res){
 
   }).then(function(driver){
 
-      if(!driver){ res.send('No Driver created !')}
-
-
       res.json(driver) ;
-  })//end of create method
+  }).catch(function(err){
+      throw err;
+  })
 
 
 }
@@ -70,7 +69,9 @@ exports.getDrivers = function(req,res)
 
             res.json(drivers.rows);
 
-    })
+                    }).catch(function(err){
+            throw err;
+                        })
 
 }
 
@@ -86,9 +87,9 @@ exports.getDrivers = function(req,res)
 exports.getDriver = function(req,res)
 {
 
-    var id = req.params.idDriver ;
 
-    Conducteur.findById(id)
+
+    Conducteur.findById(req.params.idDriver)
 
         .then(function(driver){
 
@@ -96,7 +97,7 @@ exports.getDriver = function(req,res)
 
           })
         .catch(function(err){
-            console.log('err' + err);
+            throw err;
         })
 
 
@@ -122,14 +123,14 @@ exports.deleteDriver = function(req,res)
 
 
     //we msut check if driver exist in the database
-    Conducteur.findById(id)
+    Conducteur.findById(req.params.idDriver)
 
         .then(function(driver){
 
 
             if(!driver)
             {
-            res.json({'msg': 'Driver Not Found !'});
+            res.status(404).json({'msg': 'Driver Not Found !'});
 
               }
 
@@ -140,7 +141,9 @@ exports.deleteDriver = function(req,res)
         })
 
         res.json({"message":"driver deleted !"})
-    })
+    }).catch(function(err){
+            throw err;
+        })
 
 
 
@@ -204,12 +207,14 @@ exports.updateDRiver = function(req,res)
                     res.json(driver);
                 }
 
-            })//end of update method
+            }).catch(function(err){
+                throw err;
+            })
 
 
         }
 
-        else { res.json({'msg': 'Driver Not Found !'});}
+        else { res.status(404).json({'msg': 'Driver Not Found !'});}
 
 
 
@@ -218,18 +223,3 @@ exports.updateDRiver = function(req,res)
 
 }
 
-
-
-
-/*
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------UPDATE A DRIVER---------------------------
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- */
-
-
-
-exports.historyConducteur = function(req,res)
-{
-    // in this method we will select all the locations which the driver is included !
-}

@@ -12,39 +12,6 @@ smtpTrans = nodemailer.createTransport('SMTP', {
 
 
 
-//var mailgun = require('mailgun.js');
-//var mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 'key-yourkeyhere'});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports.sendMail = function(req,res)
 {
@@ -59,7 +26,7 @@ module.exports.sendMail = function(req,res)
 
     var text = req.body.text ;
 
-    console.log("data recived is :" + mail_client + "" + subject + "" + text);
+
 
 
 

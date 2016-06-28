@@ -1,0 +1,446 @@
+
+<section class="content animated slideInLeft " >
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3>Voitures  <a class="btn-floating btn-large waves-effect waves-light blue darken-2"
+                            ng-click="getAdd()"><i class="material-icons">add</i></a>
+                    </h3>
+
+                </div><!--end of col s12----->
+
+
+
+
+
+                <div class="col s12">
+
+
+
+
+                    <form class="animated zoomIn"  name="CarForm" novalidate ng-show="carAdd" ng-model="CarForm">
+
+
+                        <div class="row">
+
+
+
+
+                            <div class="col s2">
+                            <label>date visite tecknique</label>
+                            </div>
+                            <div class="input-field col s2">
+                                <input placeholder="date" id="first_name" type="date" name="date_visite_tecknique"
+                                       class="datepicker" ng-model="newCar.date_visite_tecknique" required>
+                            </div>
+
+
+                            <div class="col s2">
+                            <label>date vignette</label>
+                                </div>
+                            <div class="input-field col s2">
+                                <input id="Date vignette" type="date" class="datepicker" name="date_vignette"
+                                       ng-model="newCar.date_vignette" required>
+
+                            </div>
+
+
+
+
+                            <div class="col s2">
+                            <label>date assurance</label>
+                                </div>
+
+                            <div class="input-field col s2">
+                                <input id="Date assurance" type="date" class="datepicker" name="date_Asurance"
+                                       ng-model="newCar.date_assurance" required>
+
+                            </div>
+
+
+
+                            </div><!---end of class row--------->
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="kilometrage" type="number" class="validate"
+                                       ng-model="newCar.kilometrage_parcouru"   name="kilometrage" required>
+                                <label for="kilometrage">kilometrage</label>
+
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="nbPlaces" type="number" class="validate" name="nbPlaces"
+                                       ng-model="newCar.nb_places" required>
+                                <label for="nbPlaces">Nombre de  places</label>
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <input id="prix_location" type="number" class="validate" name="prix_location"
+                                       ng-model="newCar.prix_location" required >
+                                <label for="prix_location">Prix de location <i class="material-icons">attach_money</i></label>
+
+                            </div>
+
+                        </div><!------end of row-------->
+
+
+                            <div class="row">
+                            <div class="input-field col s6">
+                                <input id="num chassee" type="text" class="validate" name="numChassee"
+                                       ng-model="newCar.numChassee" required>
+                                <label for="num chassee">num chassee</label>
+
+                            </div>
+
+
+                            <div class="input-field col s6">
+                                <input id="num_immatricule" type="text" class="validate" name="num_immatricule"
+                                       ng-model="newCar.numImmatricule" required>
+                                <label for="num_immatricule">num immatricule</label>
+
+                            </div>
+</div><!---end of orw--------->
+
+
+
+
+
+
+
+<div class="row">
+
+
+
+
+
+    <div class="col s6">
+
+        <label>Catégorie </label>
+        <select class="browser-default" ng-model="newCar.categorie">
+            <option value="" disabled selected>Choisir Catéghorie</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+
+    </div>
+
+
+
+
+                            <div class="col s6">
+                                <label>Modele </label>
+                                <select class="browser-default" ng-model="newCar.Modele_idModele" required name="modele">
+
+                                    <option value="{{m.idModele }}" ng-repeat=" m in models"
+                                            >
+                                        {{  m.nom + ' ' + m.marque   }}
+
+                                    </option>
+
+
+                                </select>
+                            </div>
+</div><!----end of class row--------->
+
+
+
+                        <div class="row">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input
+                                            type="file"
+                                            ngf-select
+                                            ng-model="file"
+                                            name="file"
+                                            ngf-pattern="'image/*'"
+                                            accept="image/*"
+                                            ngf-max-size="20MB"
+                                            />
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input ng-model="name" class="file-path validate" type="text">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                            <button class="btn waves-effect waves-light  blue darken-2" type="submit" name="action" ng-click="addCar()"
+                                    >Save
+                                <i class="material-icons right">send</i>
+                            </button>
+
+
+
+
+<!--
+  <div class="row">
+
+                        <p ng-show="submitted && CarForm.date_visite_tecknique.$error.required" class="red-text">
+                            vous devez indiquez la date de visite technique
+                        </p>
+
+                        <p ng-show="submitted && CarForm.date_vignette.$error.required" class="red-text">
+                            vous devez choisr une date vignette
+                        </p>
+
+                        <p ng-show="submitted && CarForm.date_Asurance.$error.required" class="red-text">
+                            vous devez saisir une date_Asurance
+                        </p>
+
+                        <p ng-show="submitted && CarForm.kilometrage.$error.required" class="red-text">
+                            vous devez choisr la kilometrage
+                        </p>
+
+      <p ng-show="submitted && CarForm.nbPlaces.$error.required" class="red-text">
+          vous devez choisr le nombre de places
+      </p>
+
+      <p ng-show="submitted && CarForm.numChassee.$error.required" class="red-text">
+          vous devez choisr le numéro de chassée
+      </p>
+
+      <p ng-show="submitted && CarForm.num_immatricule.$error.required" class="red-text">
+          vous devez choisr le num_immatricule
+      </p>
+
+      <p ng-show="submitted && CarForm.prix_location.$error.required" class="red-text">
+          vous devez choisr le prix_location
+      </p>
+      <p ng-show="submitted && CarForm.modele.$error.required" class="red-text">
+          vous devez choisr le modele
+      </p>
+
+
+
+  </div>
+-->
+                        <p>
+                            <img style="width:100px;" ngf-thumbnail="file"/>
+                            <i ng-show="CarForm.file.$error.required">*required</i><br>
+                            <i ng-show="CarForm.file.$error.maxSize">File too large
+                                {{ file.size / 1000000|number:1}}MB: max 20M</i>
+</p>
+                        <p>{{ progress}}</p>
+
+                    </form>
+
+
+
+
+
+
+
+
+
+
+                    <p><strong>Ajouter un nouveau modéle</strong> <a class="btn-floating btn-large waves-effect blue darken-1 "
+                                                        ng-click="change()"><i class="material-icons">add</i></a></p>
+
+
+<div class="row animated zoomIn">
+
+                    <form class="animated zoomIn" ng-submit="addModele()" name="ModeleForm" novalidate ng-show="show" ng-model="ModeleForm">
+
+
+                        <div class="row">
+
+                            <div class="input-field col s3">
+                                <input id="Nom" type="text" class="validate" name="nom"
+                                       ng-model="newModele.nom" required>
+                                <label for="Nom">Nom</label>
+
+                            </div>
+                            <div class="input-field col s3">
+                                <input id="marque" type="text" class="validate"
+                                       ng-model="newModele.marque"  required name="marque">
+                                <label for="marque">Marque</label>
+
+                            </div>
+
+                            <div class="input-field col s3">
+                                <input id="puissance" type="number" class="validate"
+                                       ng-model="newModele.puissance"  required name="puissance">
+                                <label>puissance</label>
+
+                            </div>
+
+                            <div class="input-field col s3">
+                                <input id="consommation" type="number" class="validate"
+                                       ng-model="newModele.consommation"  required name="consommation">
+                                <label>Consommation</label>
+
+                            </div>
+
+
+                        </div><!------end of class row------->
+
+                        <div class="row">
+                            <div class="col s6">
+                                <label>Carburant </label>
+                                <select class="browser-default" ng-model="newModele.carburant" required
+                                        name="Carburant">
+
+                                    <option value="essence">Essence</option>
+                                    <option value="diesel">Diesel</option>
+
+                                </select>
+                            </div>
+
+
+                            <div class="input-field col s3">
+                                <input id="chair" type="number" class="validate"
+                                       ng-model="newModele.prixChaisse"  required name="prixChaise">
+                                <label>Prix chaisse</label>
+
+                            </div>
+
+
+                            <div class="input-field col s3">
+                                <input id="chauffeur" type="number" class="validate"
+                                       ng-model="newModele.prixChauffeur"  required name="prixChauffeur">
+                                <label>Prix chauffeur</label>
+
+                            </div>
+
+</div><!--end of class row------>
+                            <button type="submit" class="btn waves-effect waves-light blue darken-2" type="submit" name="action"
+                                    >Save
+                                <i class="material-icons right">send</i>
+                            </button>
+
+                    </form><!--end of form-->
+
+
+
+</div><!---end of orw-------->
+
+                        <div class="row">
+
+
+
+
+                            <p ng-show="submitted2 && ModeleForm.nom.$error.required" class="red-text">
+                                vous devez indiquez le nom du modéle
+                            </p>
+
+                            <p ng-show="submitted2 && ModeleForm.marque.$error.required" class="red-text">
+                                vous devez indiquez la marque
+                            </p>
+
+                            <p ng-show="submitted2 && ModeleForm.puissance.$error.required" class="red-text">
+                                vous devez indiquez la puissance du nouveau modéle
+                            </p>
+                            <p ng-show="submitted2 && ModeleForm.Carburant.$error.required" class="red-text">
+                                vous devez indiquez le Carburant
+                            </p>
+
+                            <p ng-show="submitted2 && ModeleForm.prixGps.$error.required" class="red-text">
+                                vous devez indiquez le prix GPS
+                            </p>
+                            <p ng-show="submitted2 && ModeleForm.prixChaise.$error.required" class="red-text">
+                                vous devez indiquez le prix prixChaise
+                            </p>
+
+                            <p ng-show="submitted2 && ModeleForm.prixChauffeur.$error.required" class="red-text">
+                                vous devez indiquez le prix prixChaise
+                            </p>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--end of col-s12-->
+
+
+
+
+
+
+
+                    <div ui-view></div>
+
+
+
+
+
+               <div class="row"  ng-repeat="c in cars" >
+
+
+                   <div class="row">
+                       <h5 class="card-title blue-text text-darken-2">
+                           <a ui-sref="VoitureDetails({idVoiture :c.idVoiture})">{{ c.Modele.nom + ' ' +
+                               c.Modele.marque + ' ' + c.numImmatricule }}
+                               </a>
+                                <i class="material-icons right">more_vert</i>
+                            </h5>
+                   </div><!----end of orw--->
+
+                   <div class="col md6 ">
+
+                       <div class="card-image waves-effect waves-block waves-light">
+                           <img class="activator" ng-src="/images/{{c.photo}}" width="250px" height="300px">
+                       </div><!--end of images-->
+
+                       <div class="card-action">
+
+
+
+                       </div><!--end oif card action-------->
+                   </div><!---end of col md6---->
+
+
+               </div><!--end of orw-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div><!--end of row-->
+
+
+
+
+
+
+
+
+
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

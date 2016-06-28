@@ -7,63 +7,6 @@ var Contrat = models.Contrat ;
 
 
 
-/*
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------THE ADD METHOD---------------------------
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- */
-
-
-
-exports.addClient = function(req,res){
-
-
-    // get the data from the req object
-    var numCin = req.body.numCin ;
-    var email = req.body.email ;
-    var nom = req.body.nom ;
-    var prenom = req.body.prenom  ;
-    var adresse = req.body.adresse ;
-    var password = req.body.password ;
-    var statut = req.body.statut ;
-    var adresse = req.body.adresse ;
-    var numPermis = req.body.numPermis ;
-    var datePermis = req.body.datePermis ;
-    var numTel1 = req.body.numTel1 ;
-
-    //save the new Data in teh database
-
-   /*var client = Client.build({
-
-        email :email,
-        nom :nom,
-        prenom :prenom,
-       numTel1 :numTel1,
-        adresse :adresse,
-       numPermis :numPermis,
-       datePermis :datePermis,
-       statut :statut,
-       numCin :numCin
-
-
-    })
-
-    client.setPassword(password);
-
-    client.save().then(function(){
-
-    })
-
-    res.json(client) ;*/
-
-
-
-
-
-}
-
-
-
 
 /*
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
@@ -82,90 +25,19 @@ exports.getClients = function(req,res)
     //include : to get teh Reservation associated with the client
     Client.findAndCountAll(
         {
-            include: [{model:Reservation}]
+
+            /*attributes : ['idClient', 'email', 'prenom', 'nom', 'num_tel1','num_tel2','num_permis','date_obtention_permis','statut','Ville' ,+
+            'pays','Num_Cin','Nom_Société','Raison_Sociale']*/
         }
     )
         .then(function(result){
 
 
-
-
-
-
-            Contrat.findAndCountAll().then(function(contrats){
-
-                var client = {};
-                var tableChiffres=[];
-                var  chiffrTotale = 0;
-                var object = {"idClient":'',"prixTT":''}
-
-
-
-
-                for(var j=0;j<result.rows.length;j++)
-                {
-
-
-                    //Pour chaque Client
-            client =result.rows[j];
-
-                    object.idClient= client.idClient;
-                    object.prixTT=0;
-                    for(var i=0;i<contrats.rows.length;i++)
-                    {
-
-                        //test si le contrat correspond au cet client
-                       // console.log('client = contra' + (client.idClient==contrats.rows[i].Reservation_Client_idClient))
-                      if(client.idClient==contrats.rows[i].Reservation_Client_idClient)
-                        {
-
-                            //incrementer le chiffre d'affire pour cette client
-                            console.log('clien tnom' + client.nom)
-
-
-                            object.prixTT= object.prixTT+ contrats.rows[i].prixTT ;
-                           console.log('prix tt will be' + object.prixTT);
-                        }
-
-
-
-                      //console.log('------------------------------------!');
-                    }//end for contras
-
-
-                    console.log('the objetc is' + JSON.stringify(object));
-                    tableChiffres.push(object);
-                    object ={};
-
-
-                }//end for client
-
-
-
-
-                console.log("table chiifre d 'affire est " +
-                JSON.stringify(tableChiffres));
-                //send the rows found
-                res.json([result.rows,tableChiffres]);
-
-            })
-
-
-
-
-
-
-
-
-
-
-
-
-
+               res.json(result.rows);
 
         })
         .catch(function(err){
-            console.log('err client ' + err);
+            console.log('err' + JSON.stringify(err));
         })
 }
 
@@ -181,19 +53,37 @@ exports.getClients = function(req,res)
 
 exports.getClient = function(req,res)
 {
-    // get the id
-    var id = req.params.idClient;
-    //find Client By Id
-    Client.findById(id, {
-        include: [{model:Reservation}]
-    })
+
+    Client.findById(req.params.idClient)
         .then(function(client){
 
-            //send the result
-            res.json(client);
+
+            //calcul_chiifre Affaire
+
+            if(client)
+            {
+                var chiffreAffaire =  client.calcul_chiffre_affaire_totale(Contrat);
+                var nbr = client.Calcul_Nbr_reservations_totale(Reservation);
+
+                //calcul Nombre totale de réservation
+
+                var verifier = client.Verifier_location(Reservation)
+
+
+                console.log('nbr' + nbr + ' chiffre affaire' + chiffreAffaire + ' ' + verifier);
+
+
+                //send the result
+                res.json({'client':client,'chiffre_affaire':chiffreAffaire,'nbr_reservations':nbr ,'location_encours':verifier});
+
+            }
+            else{
+                res.json(client)
+            }
+
 
        }).catch(function(err){
-            console.log('errin geting client' + err);
+           throw err;
         })
 
 
@@ -212,25 +102,52 @@ exports.getClient = function(req,res)
 
 exports.deleteClient= function(req,res)
 {
-    // get the id
-    var id = req.params.idClient ;
 
 //we must first check fi the client exist !!
-    Client.findById(id)
+    Client.findById(req.params.idClient)
         .then(function(client){
-        if(!client){res.json({'msg': 'Client  Not Found !'});}
+
+
+        if(!client)
+        {
+            res.status(404).json({'msg': 'Client  Not Found !'});
+        }
 
            else {
-            Client.destroy({
-                where: {
-                    'idClient': id
-                }
-            })
+            //Nous devons vérifier si le client a déja une historique
 
-            res.json({"message": "Client deleted !"})
+            var verifier = client.Verifier_location(Reservation)
+            var nbr = client.Calcul_Nbr_reservations_totale(Reservation);
+            if(verifier){
+                res.status(400).json({'message' : 'Client a d"ja une réservation en cours'})
+            }else if(nbr>0) {
+
+                res.status(400).json({'message' : 'Client a déja une historique'})
+            }
+            else{
+                Client.destroy({
+                    where: {
+                        'idClient': req.params.idClient
+                    }
+                })
+
+                res.status(200).json({"message": "Client Supprimée"})
+            }
+
+
+
+
+
+
+
+
+
+
 
         }
-    })
+    }).catch(function(err){
+            throw  err;
+        })
 
 
 
@@ -242,7 +159,7 @@ exports.deleteClient= function(req,res)
 
 /*
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------DELETE CLIENT---------------------------
+ ---------------UPDATE CLIENT---------------------------
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
 
@@ -256,35 +173,35 @@ exports.deleteClient= function(req,res)
 exports.updateClient = function(req,res)
 {
 
-
-    //get the id from the params
            var id = req.params.idClient ;
 
             // get the data from the req object
             var numCin = req.body.numCin ;
-            var email = req.body.email ;
-            var nom = req.body.nom ;
-            var prenom = req.body.prenom  ;
+
             var adresse = req.body.adresse ;
-            var password = req.body.password ;
             var statut = req.body.statut ;
-            var adresse = req.body.adresse ;
             var numPermis = req.body.numPermis ;
             var datePermis = req.body.datePermis ;
-            var numTel1 = req.body.numTel1 ;
-
-
+            var  num_tel1 = req.body. num_tel1 ;
+ var num_tel2 = req.body.num_tel2 ;
+    var num_permis = req.body.num_permis;
+    var date_obtention_permis = req.body.date_obtention_permis ;
+var Ville = req.body.Ville;
     //update the client
             Client.update({
-                email :email,
-                nom :nom,
-                prenom :prenom,
-                numTel1 :numTel1,
+
+                num_tel1 : num_tel1,
+                num_tel2:num_tel2,
+                num_permis:num_permis,
+                date_obtention_permis:date_obtention_permis,
+                Ville:Ville,
+                pays:req.body.pays,
+                Code_Postale:req.body.Code_Postale,
+                Rue:req.body.Rue,
+                Num_Cin:req.body.Num_Cin,
                 adresse :adresse,
-                numPermis :numPermis,
-                datePermis :datePermis,
-                statut :statut,
-                numCin :numCin
+                date_obtention_permis :req.body.date_obtention_permis,
+
 
             }, {
                 where: {
@@ -300,17 +217,8 @@ exports.updateClient = function(req,res)
                     res.json(client);
                 }
 
-            })//end of update method
+            })//end of update method*/
 
 
 }
 
-
-
-
-
-
-exports.historyClient = function(req,res)
-{
-
-}

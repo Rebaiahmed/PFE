@@ -1,0 +1,373 @@
+
+<section class="content animated slideInLeft">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Clients  <i class="material-icons">account_box</i></h3>
+                </div> <!--end of col-s12-->
+
+                <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+                    <a class="btn-floating btn-large red">
+                        <i class="large mdi-navigation-menu"></i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating red" ui-sref=".mail"><i class="material-icons">email</i></a> </li>
+                    </ul>
+                </div><!--end of div---->
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+        <!-----------editer Client---------------------->
+
+
+
+        <div class="row animated bounceInDown" >
+
+            <div class="col s12" ng-show="CLIENT.ClientEdit">
+
+
+             <a ng-click="CLIENT.ClientEdit=!CLIENT.ClientEdit"><i class="material-icons">cached</i>Cacher</a>
+
+
+                <form name="ClientForm" novalidate ng-model="CLIENT.ClientForm" ng-submit="CLIENT.updateClient()">
+
+
+                    <div class="row">
+
+                        <div class="input-field col s4">
+                            <input id="num_cin" type="text" class="validate" name="Num_Cin"
+                                   ng-model="CLIENT.client.numCin" ng-pattern="/^[0-9]{1}[0-9]{7}$/"  required >
+                            <label for="Num_Cin">Num Cin</label>
+
+                           <span ng-show="CLIENT.submitted && CLIENT.ClientForm.Num_Cin.$error.required">
+                            Veuillez  entrez le Num de Cin du client {{ submitted && ClientForm.Num_Cin.$error.required }}
+                           </span>
+
+                           <span ng-show="CLIENT.submitted && CLIENT.ClientForm.Num_Cin.$error.pattern">
+                            Veuillez  entrez un Num de Cin Valide
+                             </span>
+
+
+                        </div><!---end of ocl s4---->
+
+                        <!---------------------->
+                        <div class="input-field col s4">
+                            <input id="nom" type="text" class="validate"
+                                   ng-model="client.nom"   name="nom" required>
+                            <label for="last_name">Nom</label>
+                            <span  ng-show="CLIENT.submitted && CLIENT.ClientForm.nom.$error.required">
+                            Veuillez  entrez le Nom du client
+                             </span>
+                        </div><!---end of col s4---->
+
+                        <div class="input-field col s4">
+                            <input id="prenom" type="text" class="validate"
+                                   ng-model="CLIENT.client.prenom"  name="Prenom" required>
+                            <label for="prenom">Prenom</label>
+
+                                 <span style="color: #d32f2f" ng-show="CLIENT.submitted && CLIENT.ClientForm.Prenom.$error.required">
+                            Veuillez  entrez le Prénom du Client
+                                  </span>
+
+                        </div><!--end of col s4---->
+
+
+
+                        </div><!---end of row--------CLIENT------->
+                        <!------------------------------>
+
+<div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="Num_tel1" type="text" class="validate"
+                                   ng-model="CLIENT.client.numTel1"   name="numTel1" ng-pattern="/^[1-9]{1}[0-9]{7}$/" required>
+                            <label for="Num_tel1">Num tel1</label>
+
+                                 <span  ng-show="CLIENT.submitted && CLIENT.ClientForm.numTel1.$error.required">
+                            Veuillez  indiquer un numéro de télephone
+                                </span>
+
+                             <span  ng-show="CLIENT.submitted && CLIENT.ClientForm.numTel1.$error.pattern">
+                            Veuillez  indiquer votre un numéro de télephone valide
+                             </span>
+
+
+
+                        </div><!---end of col s6---->
+
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="num_tel" type="text" class="validate"
+                                   ng-model="CLIENT.client.numTel2"  name="num_tel2" ng-pattern="/^[1-9]{1}[0-9]{7}$/">
+                            <label for="last_name">Num tel2</label>
+
+                                  <span  ng-show="CLIENT.submitted && CLIENT.ClientForm.num_tel2.$error.pattern">
+                                      Veuillez  indiquer votre un numéro de télephone valide
+                                     </span>
+                        </div><!--end of col s6----->
+
+
+</div><!---------end of row------------->
+
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="num_permis" type="text" class="validate"
+                                   ng-model="CLIENT.client.numPermis"   name="num_permis" ng-pattern="/^[1-9]{1}[0-9]{9}$/">
+                            <label for="last_name">Num Permis</label>
+                                      <span  ng-show="CLIENT.submitted && CLIENT.ClientForm.num_tel2.$error.pattern">
+                            Veuillez  indiquer votre un numéro de Permis Valide
+                        </span>
+
+                        </div><!---end of col s6---->
+
+                        <div class="input-field col s6">
+                            <input id="date" type="date" class="validate"
+                                   ng-model="CLIENT.client.datePermis"   name="num_permis">
+
+                            <label for="date">Date Permis</label>
+                        </div><!--end of col s6------->
+
+
+                    </div><!--end of row ------>
+
+
+
+                    <div class="row">
+
+                        <div class="input-field col s4">
+                            <input id="ville" type="text" class="validate" name="Num_Cin"
+                                   ng-model="CLIENT.client.numCin" required >
+                            <label for="ville">Ville</label>
+
+                           <span ng-show="CLIENT.submitted && CLIENT.ClientForm.Num_Cin.$error.required">
+                            Veuillez  entrez le Num de Cin du client
+                           </span>
+
+
+
+
+                        </div><!---end of ocl s4---->
+
+                        <!---------------------->
+                        <div class="input-field col s4">
+                            <input id="Rue" type="text" class="validate"
+                                   ng-model="CLIENT.client.nom"   name="nom" required>
+                            <label for="Rue">Rue</label>
+                            <span  ng-show="CLIENT.submitted && CLIENT.ClientForm.nom.$error.required">
+                            Veuillez  entrez le Nom du client
+                             </span>
+                        </div><!---end of col s4---->
+
+                        <div class="input-field col s4">
+                            <input id="code_postale" type="text" class="validate"
+                                   ng-model="CLIENT.client.prenom"  name="Prenom" required>
+                            <label for="prenom">Code Postale</label>
+
+                                 <span style="color: #d32f2f" ng-show="CLIENT.submitted && CLIENT.ClientForm.Prenom.$error.required">
+                                      Veuillez  entrez le Prénom du Client
+                                  </span>
+
+                        </div><!--end of col s4---->
+
+
+
+                    </div><!---end of row--------------->
+
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+
+
+
+
+
+
+
+                </form>
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <!--end of col-s12-->
+
+        </div><!--end of row-->
+
+
+
+
+
+
+        <!--------------------------Détails Client------------------------------->
+
+        <div class="card-panel animated bounceInDown" ng-show="CLIENT.ClientDetails">
+
+            <a ng-click="CLIENT.ClientDetails=!CLIENT.ClientDetails"><i class="material-icons">cached</i>Cacher</a>
+            <ul>
+                <li class="collection-item">
+                    <p>Num Cin : {{ CLIENT.client.numCin }} <i class="material-icons">not_interested</i></p>
+                </li>
+                <li class="collection-item">
+                    <p>  <i class="material-icons prefix">account_circle</i>Nom Complet : {{ CLIENT.client.nom + " " + CLIENT.client.prenom }}  </p>
+                    <p> <i class="material-icons">email</i> email :  {{ CLIENT.client.email }} </p>
+
+
+                </li>
+
+                <hr>
+
+                <li class="collection-item">
+                    <p> <i class="material-icons">perm_identity</i> Numéro de permis :  {{ CLIENT.client.numPermis }}</p>
+                    <p> <i class="material-icons">date_range</i> Date d'obtention de permis :  {{ CLIENT.client.datePermis | date:'medium' }} </p>
+
+                </li>
+
+                <hr>
+
+                <li class="collection-item">
+                    <i class="material-icons prefix">phone</i>
+                    <p>Num tel1 :  {{ CLIENT.client.numTel1 }} </p>
+                    <p ng-show="CLIENT.client.numTel2 !=null">Num tel2 : {{ client.numTel2 }}</p>
+
+                </li>
+
+
+                <hr>
+
+                <li class="collection-item">
+                    <i class="material-icons">location_city</i>
+                    <p>Adresse : {{ CLIENT.client.adresse }} </p>
+                    <p ng-show="CLIENT.client.numTel2 !=null">Ville : <i class="material-icons">not_interested</i> </p>
+                    <p ng-show="CLIENT.client.numTel2 !=null">Rue : <i class="material-icons">not_interested</i> </p>
+                    <p ng-show="CLIENT.client.numTel2 !=null">Code postale : <i class="material-icons">not_interested</i> </p>
+
+                </li>
+
+                <hr>
+                <li class="collection-item">
+                    <i class="material-icons">attach_money</i>
+                    <p>Chiffre d'affaire réalisée  :{{ CLIENT.chiffreClient }}</p>
+                    <p>Nombre totale de réservations : {{  CLIENT.client }}:</p>
+
+
+                </li>
+
+                <hr>
+                <li class="collection-item">
+
+                    <p ng-show="CLIENT.client.numTel2 !=null"> Statut {{ CLIENT.client.statut }}</p>
+                    <p ng-show="CLIENT.client.numTel2 !=null">Nom Société </p>
+                    <p ng-show="CLIENT.client.numTel2 !=null">Raison sociale : </p>
+
+                </li>
+            </ul>
+
+
+
+        </div><!---end of card panel---------->
+
+
+
+
+
+
+
+
+
+
+
+<div ui-view></div>
+
+
+
+
+
+
+<div class="row">
+
+
+    <div class="input-field col s6">
+        <input placeholder="Search" id="first_name" type="text" class="validate" ng-model="name">
+
+    </div>
+
+
+        <table class="bordered striped">
+            <thead>
+            <tr>
+
+                <th>
+
+                    <a ng-click="order('email')">Nom Prenom <i class="material-icons">expand_more</i></a>
+                </th>
+                <th>
+                    <a ng-click="order('email')">email<i class="material-icons">expand_more</i></a>
+                </th>
+                <th>
+                    <a ng-click="order('numTel1')">numTel1 <i class="material-icons">expand_more</i></a>
+                </th>
+                <th>
+                    <a ng-click="order('numTel1')">numTel2 <i class="material-icons">expand_more</i></a>
+                </th>
+
+                <th></th>
+                <th></th>
+                <th>Détails</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="cl in CLIENT.clients | filter : name |orderBy:predicate:reverse">
+                <td>{{cl.numCin }}</td>
+                <td>{{ cl.nom + " " + cl.prenom }}</td>
+                <td>{{  cl.email }}</td>
+                <td>{{ cl.numTel1 }}</td>
+
+                <td>{{ cl.numTel2 }}</td>
+
+                <td>
+                    <a class="btn-floating btn waves-effect waves-light " ng-click="CLIENT.editClient(cl.idClient)"> <i class="large material-icons">mode_edit</i></a>
+
+                </td>
+                <td>
+                    <a class="btn-floating  waves-effect waves-light " ng-click="CLIENT.deleteClient(cl.idClient)"><i class="material-icons">delete</i></a>
+                </td>
+                <td><a ui-sref=".details" ng-click="CLIENT.detailsClient(cl.idClient)"> <i class="material-icons">details</i> </a></td>
+            </tr>
+
+            </tbody>
+        </table>
+</div><!--end of row-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->
+<script type="text/javascript">
+
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+</script>
+
+

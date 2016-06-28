@@ -1,0 +1,170 @@
+
+<section class="content animated slideInDown">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                   <h5>Profile Manager
+                       <a class="btn-floating btn-large waves-effect waves-light blue lighten-1 " ng-click="show3=!show3"><i class="material-icons">system_update_alt</i>
+                      </a></h5>
+
+                </div>
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+
+            <div class="row" ng-show="show3">
+
+                <ul class="collection">
+                    <i class="material-icons">account_circle</i>
+                    <li class="collection-item">Nom <a>{{ user.Username }}</a> </li>
+                    <i class="material-icons">email </i>
+                    <li class="collection-item">login <a>{{ user.email }}</a> </li>
+                    <i class="material-icons">security</i>
+                    <li class="collection-item">password <a>************</a> </li>
+
+
+                </ul>
+
+
+
+
+            </div>
+
+
+            <div class="row">
+                <h5 ng-show="!show3">Modifier le profile</h5>
+                <form class="col s12" ng-show="!show3" ng-submit="updateManager()">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input  id="nom" type="text" class="validate" ng-model="user.Username">
+                            <label for="nom">Nom</label>
+                        </div>
+                    </div><!--end of row-->
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="login" type="text" class="validate" ng-model="user.email">
+                            <label for="login">login</label>
+                        </div>
+                    </div><!--end of row-->
+
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate" ng-model="user.password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <button class="waves-effect waves-light btn blue lighten-1">Enregistrer</button>
+
+                </form>
+
+            </div>
+
+
+
+
+
+
+            <div class="row">
+                <h5>Ajouter un Manager</h5>
+                <a class="btn-floating btn-large waves-effect waves-light blue lighten-1 " ng-click="show=!show"><i class="material-icons">add</i></a>
+
+
+                <form class="col s12 animated bounceInDown" ng-show="show" ng-submit="addManager()" name="managerForm">
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input  id="first_name" type="text" class="validate"
+                                    ng-model="newManager.Username" required>
+                            <label for="first_name">UserName</label>
+                        </div>
+
+
+                        <div class="input-field col s4">
+                            <input id="last_name" type="text" class="validate"
+                                    ng-model="newManager.email" required>
+                            <label for="last_name">login</label>
+                        </div>
+
+
+
+
+                        <div class="input-field col s4">
+                            <input id="mot_pase" type="password" class="validate"
+                                    ng-model="newManager.password" required>
+                            <label for="mot_pase">Password</label>
+                        </div>
+
+
+                        <div class="col s4">
+                            <p>
+                                <input ng-model="newManager.role" name="group1" type="radio" id="test1" ng-value="true" />
+                                <label for="test1">Super User</label>
+                            </p>
+                            <p>
+                                <input ng-model="newManager.role" name="group1" type="radio" id="test2" ng-value="false" />
+                                <label for="test2">User</label>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <button class="waves-effect waves-light btn blue lighten-1" ng-disabled="managerForm.$invalid">Enregistrer</button>
+
+                </form>
+            </div><!--end of row---->
+
+
+            <div class="row">
+                <h5>Voire les Adminstrateurs</h5>
+                <a class="btn-floating btn-large waves-effect waves-light blue lighten-1" ng-click="show2=!show2"><i class="material-icons">view_array</i></a>
+
+
+
+                <table ng-show="show2" class="animated bounceInDown">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Nom</th>
+                        <th data-field="name">login</th>
+                        <th data-field="price">password</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="mn in managers track by $index">
+                        <td>{{ mn.Username}}</td>
+                        <td>{{ mn.email }}</td>
+                        <td><a ng-click="deleteManager(mn.idManager)">Delete<i class="material-icons">delete</i></a> </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->

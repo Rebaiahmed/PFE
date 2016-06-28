@@ -1,37 +1,35 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-var moment = require('moment');
-
+  var moment = require('moment');
   return sequelize.define('Reservation', {
-    idReservation: {
+    numReservation: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      autoIncrement :true
-
+      autoIncrement: true
     },
     dateDebut: {
       type: DataTypes.DATE,
-      allowNull: true
-    },
-    heureDebut: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    lieuPrise: {
-      type: DataTypes.STRING,
       allowNull: true
     },
     dateFin: {
       type: DataTypes.DATE,
       allowNull: true
     },
-    heureFin: {
+    lieu_prise: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    lieuRetour: {
+    lieu_retour: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    heure_debut: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    heure_retour: {
       type: DataTypes.STRING,
       allowNull: true
     },
@@ -39,70 +37,88 @@ var moment = require('moment');
       type: DataTypes.STRING,
       allowNull: true
     },
-    PrixTotale:
-    {
-      type:DataTypes.FLOAT,
-
-
-    },
-    cloture: {
-      type: DataTypes.BOOLEAN,
+    PrixTotale: {
+      type: DataTypes.FLOAT,
       allowNull: true
     },
-    Voiture_Modele_idModele: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      references: {
-        model: 'Voiture',
-        key: 'Modele_idModele'
-      }
+    Nbr_Jours: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+
+    etat: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    Chauffeur:{
+      type:DataTypes.BOOLEAN,
+      allowNull: true
+    },
+    chaiseBaBy:{
+      type:DataTypes.BOOLEAN,
+      allowNull: true
     },
     Client_idClient: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'Client',
         key: 'idClient'
       }
     },
     Voiture_idVoiture: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'Voiture',
         key: 'idVoiture'
       }
+    },
+    Voiture_Modele_idModele: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'Voiture',
+        key: 'Modele_idModele'
+      }
     }
-
-
-
   }, {
     tableName: 'Reservation',
     freezeTableName: true,
-    timestamps : false,
+    timestamps : false, // eliminate updateAT and createAt
     instanceMethods: {
 
-      calculPrixTotale :function(prixVoiture)
+      calculPrixTotale :function(idVoiture,Voiture, callback)
       {
+
+        Voiture.findById(idVoiture)
+            .then(function(car){
+
+              var dateA = new moment(this.dateDebut);
+              var dateB = new moment(this.dateFin);
+              var diff = dateB.diff(dateA,'days');
+              this.PrixTotale= diff*car.prix_location;
+              callback();
+                           })
+            .catch(function(err){
+              console.log('err' + err)
+            })
+
+      },
+
+      calculNbrJours  : function(callback){
         var dateA = new moment(this.dateDebut);
         var dateB = new moment(this.dateFin);
-        var diff = dateB.diff(dateA,'days');
-        console.log('the diff is ' + diff);
-       return diff*prixVoiture;
+        this.Nbr_Jours= dateB.diff(dateA,'days');
 
-
+        callback();
       }
 
+
+
     }
-
-
-
-
-
   });
-
-
-
 };
-
-

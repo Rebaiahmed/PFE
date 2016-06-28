@@ -21,22 +21,27 @@ exports.addMaintenance= function(req,res){
     // get the data from the req object
     var  nom = req.body. nom;
     var  type = req.body.type ;
-    var date = req.body.date  ;
+    var date = req.body.date_entretien  ;
+
+    console.log('date' + date);
     var  kilometrage_prevu = req.body. kilometrage_prevu ;
     var Voiture_idVoiture = req.body.Voiture_idVoiture;
+    var Voiture_Modele_idModele = req.body.Voiture_Modele_idModele ;
 
 
     //create it
     Entretient.create({
         nom :nom,
         type:type,
-        date:date,
+        date_entretien:date,
         kilometrage_prevu:kilometrage_prevu,
-        Voiture_idVoiture:Voiture_idVoiture
+        Voiture_idVoiture:Voiture_idVoiture,
+        Voiture_Modele_idModele:Voiture_Modele_idModele
     }).then(function(result){
-        res.json(result)
+
+        res.status(200).json(result)
     }).catch(function(err){
-        res.json(err);
+        res.status(400).json(err);
     })
 
 }
@@ -70,7 +75,7 @@ exports.getEntretients = function(req,res)
 
         })
         .catch(function(err){
-            console.log('err entretients ' + err);
+
             res.json(err);
         })
 
@@ -89,13 +94,19 @@ exports.getEntretients = function(req,res)
 exports.getEntretient = function(req,res)
 {
     // get the id
-    var id = req.params.idEntretient ;
+    var id = req.params.idEntretien ;
 
 
     Entretient.findById(id)
         .then(function(entretient){
 
+            if(!entretient){
+                res.status(404).json('Entretient NOn trouvée !')
+            }else{
                 res.json(entretient);
+            }
+
+
         }).catch(function(err){
             res.json(err);
         })
@@ -117,19 +128,22 @@ exports.getEntretient = function(req,res)
 exports.deleteEntretient= function(req,res)
 {
     // get the id
-    var id = req.params.idEntretient ;
+    var id = req.params.idEntretien ;
+
 
     Entretient.findById(id)
         .then(function(entretient){
 
             Entretient.destroy({
                     where: {
-                        'idEntretient': id
+                        'idEntretien': id
                     }
                 })
 
                 res.json({"message": "entretient deleted  !"})
 
+        }).catch(function(err){
+            res.json(err);
         })
 
 
@@ -156,44 +170,35 @@ exports.deleteEntretient= function(req,res)
 exports.updateEntretient = function(req,res)
 {
 
-    // we must get the new Object
-    var id = req.params.idEntretient;
-
-
 //find it
-    Entretient.findById(id)
+    Entretient.findById(req.params.idEntretien)
         .then(function (entretient) {
 
+            console.log('date' + req.body.date_entretien)
             if (entretient) {
 
 
-                // get the data from the req object
-                var  nom = req.body. nom;
-                var  type = req.body.type ;
-                var date = req.body.date  ;
-                var  kilometrage_prevu = req.body. kilometrage_prevu ;
-                var Voiture_idVoiture = req.body.Voiture_idVoiture;
-
                 //update it !!
                Entretient.update({
-                   nom :nom,
-                   type:type,
-                   date:date,
-                   kilometrage_prevu:kilometrage_prevu,
-                   Voiture_idVoiture:Voiture_idVoiture
+                   nom :req.body. nom,
+                   type:req.body.type,
+                   date_entretien:req.body.date_entretien,
+                   kilometrage_prevu:req.body.kilometrage_prevu,
+                   Voiture_idVoiture:req.body.Voiture_idVoiture,
+                   Voiture_Modele_idModele:req.body.Voiture_Modele_idModele
 
                 }, {
                     where: {
-                        'idEntretient': id
+                        'idEntretien': req.params.idEntretien
                     }
                 }).then(function (entretient, err) {
                     if (err) {
                         console.log(err)
-                        res.json(err);
+                        res.status(400).json(err);
                     }
                     else {
 
-                        res.json(entretient);
+                        res.status(200).json(entretient);
                     }
 
                 })//end of update
@@ -202,7 +207,7 @@ exports.updateEntretient = function(req,res)
             }
 
             else {
-                res.json({'msg': 'Client  Not Found !'});
+                res.status(400).json({'msg': 'Entretient Non Trouvée'});
             }
 
         })//end findById

@@ -1,0 +1,142 @@
+
+<section class="content">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Contrat N° {{ contrat }} {{ location }}
+                        <i class="material-icons">picture_as_pdf</i></h3>
+
+                    <form>
+
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">account_circle</i>informations Client</div>
+                            <div class="collapsible-body">
+                                <p>Nom Prénom : AHMED</p>
+                                <p>Num Cin : cin</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">directions_bus</i>informations Voiture</div>
+                            <div class="collapsible-body">
+                                <p>Modéle Marque Num immatricule</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">date_range</i>
+                                <i class="material-icons">place</i>information Réservation</div>
+                            <div class="collapsible-body">
+                                <p>Date Début :</p>
+                                <p>Date Fin :</p>
+                                <p>lieu de Prise :</p>
+                                <p>lieur de Retour :</p>
+                                <p>Nombre de jours : </p>
+
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">alarm_add</i>Prolongation</div>
+                            <div class="collapsible-body">
+
+                                <div class="row">
+                                    <div class="input-field col s5">
+                                        <input id="dDebut" type="text" class="validate">
+                                        <label for="dFin">Date début de prolongation</label>
+                                    </div>
+
+
+                                    <div class="input-field col s5">
+                                        <input id="datefinProlongation" type="text" class="validate">
+                                        <label for="datefinProlongation">Date de Finde pronlngation</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">payment</i>Payement</div>
+                            <div class="collapsible-body">
+
+
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="dDebut" type="text" class="validate">
+                                        <label for="dFin">Acompte</label>
+                                    </div>
+
+
+                                    <div class="input-field col s4">
+                                        <input id="datefinProlongation" type="text" class="validate">
+                                        <label for="datefinProlongation">Reste</label>
+                                    </div>
+
+
+                                    <div class="input-field col s4">
+                                        <input id="datefinProlongation" type="text" class="validate">
+                                        <label for="datefinProlongation">Mode de payement</label>
+                                    </div>
+
+                                </div>
+
+                                <!------------------------------>
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="dDebut" type="text" class="validate">
+                                        <label for="dFin">Prix Ht</label>
+                                    </div>
+
+
+                                    <div class="input-field col s4">
+                                        <input id="datefinProlongation" type="text" class="validate">
+                                        <label for="datefinProlongation">tva</label>
+                                    </div>
+
+
+                                    <div class="input-field col s4">
+                                        <input id="datefinProlongation" type="text" class="validate">
+                                        <label for="datefinProlongation">Prix TT</label>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                        <button type="submit" class="waves-effect waves-l ight btn"><i class="material-icons">save</i>Save</button>
+</form><!--end of form-->
+
+
+
+
+
+
+
+
+</div><!--end of col s12--->
+
+
+            </div><!--end of row-->
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+            accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+    });
+</script>

@@ -5,8 +5,6 @@ var Reservation = models.Reservation ;
 var Voiture = models.Voiture ;
 var Client = models.Client ;
 var Modele = models.Modele ;
-var PreReservation = models.PreReservation ;
-
 var moment = require('moment');
 
 
@@ -36,7 +34,6 @@ exports.addReservation = function(req,res){
     var idClient = req.body.Client_idClient ;
     var idVoiture = req.body.Voiture_idVoiture ;
 
-    console.log('the date recived are :' + date_debut + ' ' + date_fin)
 
 //create it !
    var reservation =  Reservation.build({
@@ -50,26 +47,32 @@ exports.addReservation = function(req,res){
         description :description,
         Voiture_Modele_idModele :idModele,
         Client_idClient :idClient ,
-        Voiture_idVoiture :idVoiture
-
-
+        Voiture_idVoiture :idVoiture,
+       etat : "Confirmee"
      })
 
-    //calcul Prix Totale
-    Voiture.findById(reservation.Voiture_idVoiture)
-        .then(function(car){
+    //calcul Prix totale
+    reservation.calculPrixTotale(idVoiture,Voiture,function(){
 
-console.log('prix totale est : ' +reservation.calculPrixTotale(car.prixLocation) );
-            reservation.PrixTotale =reservation.calculPrixTotale(car.prixLocation)
-                  reservation.save()
-                      .then(function(ss){
-                          res.json(ss);
-                      })
-                      .error(function(err){
-                          res.json(err);
-                      })
+
+
+        //calcul Nbr jours
+        reservation.calculNbrJours(function(){
+            //save in database
+            reservation.save()
+                .then(function(){
+
+                    //send result
+                    res.status(200).json(reservation)
+
+                }).catch(function(err){
+                    res.status(400).json(err)
+                })
+
         })
 
+
+    })
 
 
 
@@ -92,9 +95,68 @@ console.log('prix totale est : ' +reservation.calculPrixTotale(car.prixLocation)
 exports.findReservations = function(req,res)
 {
 
+    var etat = req.params.etat ;
+
 
     //get AlL TEH RESERVATION include the other models
-    Reservation.findAll(
+    Reservation.findAndCountAll({
+            where :{
+                etat :etat
+            },
+
+    include :[
+        {model :Client},
+        {model:Voiture},
+        {model:Modele}
+
+
+    ]
+
+
+
+    }
+
+
+    )
+        .then(function(locations){
+             res.json(locations)
+
+
+         })
+        .catch(function(err){
+            res.json(err);
+
+
+        })
+
+
+}
+
+
+/*
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ ---------------LES RESERVATIONS EN RETARD---------------------------
+ -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
+ */
+
+
+
+exports.findReservations_Retard = function(req,res)
+{
+
+ //a vérifier pour les reservations en retard !!!
+
+
+    //get AlL TEH RESERVATION include the other models
+    Reservation.findAndCountAll({
+            where :{
+                etat :'En_Cours',
+                'dateFin':{
+                    $lt:new Date()
+                }
+            }
+
+        },
         {
             include :[
                 {model :Client},
@@ -108,26 +170,14 @@ exports.findReservations = function(req,res)
 
     )
         .then(function(locations){
-              if(!locations)
-                 { res.send('error in getting locations !')}
-              else
+            res.json(locations)
 
 
-
-
-{
-
-                       res.json(locations);
-
-
-
-                   }
-
-
-         })
+        })
         .catch(function(err){
-            console.log('error !'+err);
             res.json(err);
+            throw err;
+
 
         })
 
@@ -136,89 +186,12 @@ exports.findReservations = function(req,res)
 
 
 
-/*
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------FIND ALL PRERESERVATIONS---------------------------
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ----------!!PRERESERVATION  IS a reservation maked by a client and not validated by the manager
- */
-
-
-
-
-exports.getPreReservation = function(req,res)
-{
-
-
-    PreReservation.findAndCountAll(  {
-        include :[
-            {model :Client},
-            {model:Voiture},
-            {model:Modele}
-
-        ]
-    }).then(function(result){
-
-        res.json(result.rows);
-
-    })
-
-
-
-}
-
 
 /*
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------DELETE A  PRERESERVATION---------------------------
+ ---------------LES RESERVATIONS EN RETARD---------------------------
  -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
  */
-
-
-
-
-exports.deletePreservation = function(req,res)
-{
-
-
-
-
-    var idPre = req.params.idPreReservation ;
-
-    console.log('the id of preservatons is :' + idPre);
-
-
-    PreReservation.findById(idPre)
-        .then(function(location){
-            if(!location)
-            { res.json({'msg': 'Réservation inconnue !'});}
-
-            // a bien améliorer cette code !
-            PreReservation.destroy({
-                where :{
-                    'idReservation' : idPre
-                }
-            })
-
-            res.json({"message":"Reservation supprimée!"})
-        })
-        .catch(function(){
-            console.log('erreur dans le supprim !')
-        })
-
-
-}
-
-
-
-
-
-/*
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------ADD A PRESERVATION---------------------------
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- */
-
 
 
 exports.addPreReservation = function(req,res)
@@ -230,21 +203,10 @@ exports.addPreReservation = function(req,res)
     //faire appel au socket.io pour notifier l'admi q'un client est inscrit !
     var socketio = req.app.get('socketio');
 
-    console.log('the sokeet is ' + socketio);
-
-
-
-
-
-
-
-
-
-
 
     // we msut get the data
 var newReservation = req.body;
-    console.log('the newReservation is ' + JSON.stringify(newReservation));
+
     var dateDebut  = newReservation.dateDebut;
     var heureDebut = newReservation.heureDebut;
     var lieuPrise  =newReservation.lieuPrise;
@@ -255,18 +217,11 @@ var newReservation = req.body;
         var Voiture_Modele_idModele = newReservation.Voiture_Modele_idModele;
     var Client_idClient = newReservation.Client_idClient;
 
-
-
-    var GPS = newReservation.GPS ;
     var Chauffeur = newReservation.Chauffeur;
     var chaiseBaBy = newReservation.chaiseBaBy
 
 
-    console.log('data recived is :' + dateDebut + ' ' + heureDebut + ' ' + lieuPrise + ' ' + dateFin
-    + ' ' + heureFin + '' + lieuRetour + ' id voiture :' + Voiture_idVoiture + 'id modele ' + Voiture_Modele_idModele + 'id client : ' + Client_idClient
-    + ' GPS' + GPS + 'ch ' + Chauffeur + ' bébé' + chaiseBaBy);
-
-    PreReservation.create({
+    var preservation = Reservation.build({
         dateDebut  : newReservation.dateDebut,
         heureDebut : newReservation.heureDebut,
         lieuPrise :newReservation.lieuPrise,
@@ -276,97 +231,42 @@ var newReservation = req.body;
         Voiture_idVoiture : newReservation.Voiture_idVoiture,
         Voiture_Modele_idModele : newReservation.Voiture_Modele_idModele,
         Client_idClient : newReservation.Client_idClient,
-        GPS:GPS,
         chaiseBaBy:chaiseBaBy,
-        Chauffeur:Chauffeur
+        Chauffeur:Chauffeur,
+        etat : "En_Attente"
+    })
+
+    //calcul Prix totale
+    preservation.calculPrixTotale(Voiture_idVoiture,Voiture,function(){
 
 
 
+        //calcul Nbr jours
+        preservation.calculNbrJours(function(){
+            //save in database
+            preservation.save()
+                .then(function(){
 
-    }).then(function(reservation) {
+                    socketio.sockets.emit('new_reservation');
 
-        if (!reservation) {
-            res.send("erreur dans les données  du Reservation")
-        }
-        else {
+                    res.json({message: 'succes de création de reservation', data: preservation})
 
+                }).catch(function(err){
+                    res.status(400).json(err)
+                })
 
-            socketio.sockets.emit('new_reservation');
-
-            res.json({message: 'succes de création de reservation', data: reservation})
-        }
-
-    })//end of create
-
-
-}
-
-
-
-
-
-
-/*
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- ---------------GET A PRESERVATION---------------------------
- -_-_-__--_-__-_-_-_-_-_-_-_-_-_-__--_-__-_-_-_-__-_-_-_-_-_-
- */
-
-
-
-
-
-exports.saveReservation = function(req,res){
-
-
-    var newReservation = req.body;
-    console.log('the newReservation is ' + JSON.stringify(newReservation));
-    var dateDebut  = newReservation.dateDebut;
-    var heureDebut = newReservation.heureDebut;
-    var lieuPrise  =newReservation.lieuPrise;
-    var dateFin =newReservation.dateFin;
-    var  heureFin = newReservation.heureFin;
-    var lieuRetour = newReservation.lieuRetour;
-    var Voiture_idVoiture = newReservation.Voiture_idVoiture;
-    var Voiture_Modele_idModele = newReservation.Voiture_Modele_idModele;
-    var Client_idClient = newReservation.Client_idClient;
-
-    console.log('data recived is :' + dateDebut + ' ' + heureDebut + ' ' + lieuPrise + ' ' + dateFin
-        + ' ' + heureFin + '' + lieuRetour + ' id voiture :' + Voiture_idVoiture + 'id modele ' + Voiture_Modele_idModele + 'id client : ' + Client_idClient)
-
-
-
-//les attributs
-    Reservation.create({
-
-        dateDebut :dateDebut,
-        dateFin :dateFin,
-        lieuPrise :lieuPrise,
-        lieuRetour :lieuRetour,
-        heureDebut :heureDebut,
-        heureFin :heureFin,
-
-        Voiture_Modele_idModele :Voiture_Modele_idModele,
-        Client_idClient :Client_idClient ,
-        Voiture_idVoiture :Voiture_idVoiture
-
-
-    }).then(function(reservation){
-
-        if(!reservation)
-        {
-            res.send("erreur dans les données  du Reservation")
-        }
-        else{
-            res.json({message :'succes de création de reservation',data :reservation})
-        }
-
+        })
 
 
     })
 
-
 }
+
+
+
+
+
+
 
 
 
@@ -400,13 +300,17 @@ exports.getReservation = function(req,res)
             ]
         })
         .then(function(location){
-        if(!location){res.send('not found')};
+        if(!location){
+            res.status(404).json('location non trouvée')
+        }else{
+            res.json(location);
+        }
 
 
-        res.json(location);
+
        })
         .catch(function(err){
-            console.log('err !'+err);
+           throw err;
         })
 
 
@@ -434,19 +338,24 @@ exports.deleteReservation= function(req,res)
     Reservation.findById(id)
         .then(function(location){
         if(!location)
-        { res.json({'msg': 'Reservation not found !'});}
+        { res.status(404).json({'msg': 'Reservation not found !'});
 
-        // a bien améliorer cette code !
+        }else{
+            // a bien améliorer cette code !
             Reservation.destroy({
-            where :{
-                'idReservation' : id
-            }
-                          })
+                where :{
+                    'numReservation' : id
+                }
+            })
 
-        res.json({"message":"Reservation deleted!"})
+            res.json({"message":"Reservation deleted!"})
+        }
+
+
            })
         .catch(function(err){
-            console.log('err'+err);
+
+            throw err;
         })
 
 
@@ -470,10 +379,11 @@ exports.updateReservation = function(req,res)
 
     // get the id
     var id = req.params.idReservation;
-    console.log('the id send is ' + id);
 
 
-    Reservation.findById(id).then(function (reservation) {
+
+    Reservation.findById(id).
+        then(function (reservation) {
 
         if (reservation) {
 
@@ -489,9 +399,8 @@ exports.updateReservation = function(req,res)
             var idModele = req.body.idModele ;
             var idClient = req.body.Client_idClient ;
             var idVoiture = req.body.Voiture_idVoiture ;
-            var cloture = req.body.cloture ;
 
-            console.log('id voiture' + idVoiture + ' idClient' + idClient);
+
 
 
             Reservation.update({
@@ -510,7 +419,7 @@ exports.updateReservation = function(req,res)
             },
                 {
                 where: {
-                    'idReservation': id
+                    'numReservation': id
                 }
 
             }).then(function (location) {
@@ -520,7 +429,10 @@ exports.updateReservation = function(req,res)
 
         }//end if location
 
-        else { res.json({'msg': 'Reservation non trouvée !'}); }
+        else {
+
+
+            res.status(404).json({'msg': 'Reservation non trouvée !'}); }
 
 
 
@@ -533,3 +445,61 @@ exports.updateReservation = function(req,res)
 
 
 
+
+
+/*
+rendre une Réservation cloturee
+ */
+
+
+exports.Reservation_Cloture = function(req,res){
+
+
+
+    //dans cette méthode on va mettre 'etat de en cours vers cloturee
+
+    //1) récuérer l'Id
+
+    var id = req.params.idReservation;
+
+
+    Reservation.findById(id).
+        then(function (reservation) {
+
+            if (reservation) {
+
+                Reservation.update({
+                       'etat' : 'cloturee'
+                    },
+                    {
+                        where: {
+                            'numReservation': id
+                        }
+
+                    }).then(function (location) {
+                        res.json(true);
+                    })//end of update method*/
+
+
+            }//end if location
+
+            else {
+
+
+                res.status(404).json({'msg': 'Reservation non trouvée !'}); }
+
+
+
+        })//end findByid
+
+
+
+
+
+
+}
+
+
+
+
+//En_Cours

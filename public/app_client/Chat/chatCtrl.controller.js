@@ -28,10 +28,11 @@ $scope.cncte= false;
 
         $scope.currentuser = Authentication.currentUser();
 
-        console.log('' + JSON.stringify( $scope.currentuser));
+        console.log('User' + JSON.stringify( $scope.currentuser));
         Socket.on('client', function(){
             console.log('admin connecte !');
             $scope.cncte = true;
+
             console.log('cncte est ' + $scope.cncte);
             $scope.$watch('cncte', function() {
                $scope.cncte = true;

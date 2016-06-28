@@ -26,15 +26,6 @@ module.exports.signup = function(req,res)
     //faire appel au socket.io pour notifier l'admi q'un client est inscrit !
     var socketio = req.app.get('socketio');
 
-   console.log('the sokeet is ' + socketio);
-
-
-
-
-
-
-
-
 
     //get the data necessary for the signup
     var email = req.body.email ;
@@ -44,7 +35,10 @@ module.exports.signup = function(req,res)
     var adresse = req.body.adresse;
     var numTel1 = req.body.numTel1;
     var statut = req.body.statut;
-var numTel2 = req.body.numTel2;
+    var numTel2 = req.body.numTel2;
+
+
+
     /*
     check if Client saved before in the database
      */
@@ -137,7 +131,7 @@ module.exports.login = function(req,res)
 
             if(client.validPassword(password)!=true)
             {
-                console.log('result is:' + client.validPassword(password));
+
                 console.log('not valid password !');
                 res.status(401).json({
                     "statut" :"401"
@@ -145,15 +139,12 @@ module.exports.login = function(req,res)
 
             }
             else {
-
-                console.log('mrigél :' + client);
-
-                // tout est correcte retourner le manager
-                token = client.generateJwt();  /// ???? i hope the work
-                console.log('token' + JSON.stringify(token));
+                // tout est correcte retourner le client
+                token = client.generateJwt();
                 res.status(200).json({
                     "token": token
                 })
+
 
             }
 

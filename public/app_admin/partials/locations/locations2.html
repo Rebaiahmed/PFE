@@ -1,0 +1,346 @@
+<section class="content animated slideInLeft">
+    <div class="container" style="width: 50%; padding: 0 0.5rem;">
+        <div class="m-box">
+            <div class="row">
+
+                <div class="col s12">
+                    <h3> Locations <i class="material-icons">perm_contact_calendar</i></h3>
+
+
+                    <div class="collection  teal lighten-2">
+                        <a ui-sref="locationsRetard" class="collection-item blue-text text-darken-2 ">
+                            locations en Retard
+                            <i class="material-icons">warning</i>
+                        </a>
+                        <a ui-sref="locationsCloturee" class="collection-item active blue-text text-darken-2">
+                            locations cloturées <i class="material-icons">closed_caption</i>
+                        </a>
+
+                        <a ui-sref="Reservations" class="collection-item blue-text text-darken-2">
+                            Réservations <i class="material-icons">account_circle</i>
+                        </a>
+                    </div>
+
+<!---<p><embed src="/app_admin/services/Activite_API_Local_Storage.pdf" width="800px" height="2100px"></p>-->
+
+
+                    <a class="btn-floating btn-large waves-effect waves-light blue darken-3"
+                            ng-click="addOrEdit =!addOrEdit"><i class="material-icons">add</i></a>
+
+
+
+
+                    <!-------from addd or edit------------------->
+
+
+                    <div class="row animated zoomIn" ng-show="addOrEdit">
+
+                        <div class="col s12">
+
+
+
+
+                            <form ng-submit="addReservation()" name="ResForm" novalidate ng-model="ResForm">
+
+
+                                <div class="row">
+                                    <div class="col s2">
+                                        <p>Date Début</p>
+                                    </div><!--end of col s2---->
+                                    <div class="input-field col s4">
+                                        <input placeholder="" id="first_name" type="date" name="dateDebut"
+                                               class="datepicker" ng-model="newReservation.dateDebut" required>
+
+                                        <p class="red-text" ng-show="submitted && ResForm.dateDebut.$error.required ">
+                                            Vous devez indiquer la deat de Début
+                                        </p>
+
+                                    </div><!--end of col s4--->
+
+                                    <div class="col s2">
+                                        <p>Date Fin</p>
+                                    </div><!--end of col s2--->
+                                    <div class="input-field col s4">
+                                        <input id="Date fin" type="date" class="datepicker" name="dateFin"
+                                               ng-model="newReservation.dateFin" required>
+
+                                        <p class="red-text" ng-show="submitted && ResForm.dateFin.$error.required ">
+                                            Vous devez indiquer la date de Fin
+                                        </p>
+
+                                    </div><!--end of col s4-->
+
+                                    </div><!---------end of row--------->
+
+
+                                    <div class="row">
+                                        <div class="col s2">
+                                            <label>heure debut</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <select class="browser-default">
+                                                <option value="" disabled selected>Choisir heure de debut</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+
+
+                                        </div><!-------end of col s6---->
+
+                                    </div><!----end of row--->
+ <div class="row">
+     <div class="col s2">
+     <label>heure Retour</label>
+ </div>
+                                <div class="input-field col s6">
+                                    <select class="browser-default">
+                                        <option value="" disabled selected>Choisir heure de retour</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+
+
+                                </div><!-------end of col s6---->
+</div><!---end of row---->
+
+<div class="row">
+                                        <div class="col s2">
+                                            <label>lieu Prise</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <select class="browser-default">
+                                                <option value="" disabled selected>Choisir lieu de Prise</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+
+
+                                        </div><!-------end of col s6---->
+</div><!------end of row---->
+
+                                        <div class="row">
+
+                                        <div class="col s2">
+                                            <label>lieu Retour</label>
+                                            </div>
+                                    <div class="input-field col s6">
+                                        <select class="browser-default">
+                                            <option value="" disabled selected>Choisir lieu de Retour</option>
+                                            <option value="1">Option 1</option>
+                                            <option value="2">Option 2</option>
+                                            <option value="3">Option 3</option>
+                                        </select>
+
+
+                                    </div><!-------end of col s6---->
+
+
+                                        </div><!--------end f row------->
+
+                                    <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea" length="120"
+                                          ng-model="newReservation.description"></textarea>
+                                        <label for="textarea1">Description</label>
+                                    </div>
+
+
+<div class="col s6">
+                                    <label><p>Voiture</p></label>
+                                    <select class="browser-default" ng-model="newReservation.Voiture_idVoiture" required >
+
+                                        <option value="{{c.idVoiture }}" ng-repeat="c in cars" ng-selected="c.idVoiture==newReservation.Voiture_idVoiture"
+                                                ng-disabled="!c.disponibilite">
+                                            {{ c.Modele.nom + " " +  c.Modele.marque + " " + c.numImmatricule
+                                            }}
+                                            {{  c.idVoiture==newReservation.Voiture_idVoiture }}
+
+                                        </option>
+
+                                    </select>
+</div><!---end of col s6----->
+
+                                <div class="col s6">
+                                    <label><p>Client </p></label>
+                                    <select class="browser-default" ng-model="newReservation.Client_idClient" required>
+
+                                        <option value="{{cl.idClient}}" ng-repeat="cl in clients"
+                                                ng-selected="cl.idClient==newReservation.Client_idClient">
+                                            {{ cl.nom + " " + cl.prenom + " " + cl.idClient  }}
+                                            {{ cl.idClient==newReservation.Client_idClient }}
+                                        </option>
+
+                                    </select>
+</div><!---end of col s6--->
+
+
+                                    <button class="btn waves-effect waves-effect waves-light blue darken-3" type="submit" name="action"
+                                            >Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+
+                                    <p class="red-text" ng-show="submitted && ResForm.lieuRetour.$error.required ">
+                                        Vous devez indiquer lieur de Retour
+                                    </p>
+
+                                </div>
+
+
+
+
+
+                            </form>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <!--end of col-s12-->
+
+                    </div><!--end of row-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+                <!--end of col-s12-->
+
+            </div><!--end of row-->
+
+
+
+
+
+            <div class="row">
+                <label>Trier Par : </label>
+                <div class="input-field col s12">
+
+                <select class="browser-default" ng-model="date">
+
+                    <option value="dateDebut">Date Début</option>
+                    <option value="dateFin">Date Fin</option>
+                </select>
+
+
+
+            </div>
+                </div>
+            <!----------------------------------->
+
+
+
+
+
+            <div class="row">
+
+
+
+                <div class="col s12">
+
+
+
+
+
+                    <table class="centered highlight">
+                        <thead>
+                        <tr>
+                            <th>N°<i class="material-icons">format_list_numbered</i></th>
+                            <th data-field="id">
+                                <p><i class="small material-icons">perm_identity</i>Nom & Prénom</p>
+                            </th>
+
+                            <th data-field="name">
+                                <p>
+                                <i class="material-icons">drive_eta</i>
+                                    Voiture
+                                </p>
+                            </th>
+                            <th data-field="name">
+                                <p>Dates
+                                </p>
+
+                            </th>
+
+
+
+                            <th data-field="name">
+                                <p>
+                                    Durée
+                                </p>
+                            </th>
+                            <th data-field="name" >
+                                Prix
+                            </th>
+                            <th data-field="name" >
+                              Action
+
+                            </th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="loc in location_encours   ">
+                            <td>{{ loc.numReservation }}</td>
+                          <td> {{ loc.Client.nom + " " + loc.Client.prenom}}  </td>
+                            <td>{{ loc.Modele.nom + " " + loc.Modele.marque + " " + loc.Voiture.numImmatricule   }}</td>
+                            <td>{{ loc.dateDebut | date:'dd/MM/yyyy'  + " " + loc.heureDebut + loc.dateFin  | date:'dd/MM/yyyy' +" " + loc.heureFin   }}h</td>
+
+                            <td>{{ loc.Nbr_Jours }}</td>
+                            <td>{{ loc.PrixTotale }}</td>
+                            <td>
+                                <a ng-click="editlocation(loc.numReservation)">  <i class="material-icons">mode_edit</i></a>
+                                <a ng-click="contrat(loc.numReservation)"> Contrat </a><i class="material-icons">archive</i>
+                                <a ng-click="cloture(loc.numReservation)"> Cloture </a><i class="material-icons">archive</i>
+                            </td>
+
+                        </tr>
+
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </div><!--end of row-->
+
+
+
+
+        </div><!--end of m-box-->
+
+
+
+
+    </div><!--end of container-->
+</section>
+<!--end content-->
+
+

@@ -87,23 +87,6 @@ envoyer Newsltter
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  $scope.submitted = false;
-
-
-
-
         //les lieux
 
         $scope.lieux = [{
@@ -161,16 +144,32 @@ envoyer Newsltter
             console.log('teh current User is :' + JSON.stringify($scope.currentUser));
 
 
-        console.log('' + $scope.newReservation.heureFin );
             /*
              first function
              */
+
+        //variable pour tester si la formulaire est envoyée
+        $scope.submitted = false;
 
           $scope.Create = function () {
 
 
 
               $scope.submitted= true;
+
+  console.log('submitted' +$scope.submitted );
+
+
+              //POur comparer avec les nouveles dates
+              $scope.date = new Date();
+
+              var dDebut =  new Date($scope.newReservation.dateDebut);
+              var dFin=  new Date($scope.newReservation.dateFin);
+
+
+              console.log('compare dates ' + dFin + ' debut' + dDebut + 'compare' + (dFin <dDebut))
+              console.log('typeof ' +  typeof $scope.newReservation.dateFin)
+              console.log('' +( $scope.newReservation.dateFin<$scope.newReservation.dateDebut));
 
 
 

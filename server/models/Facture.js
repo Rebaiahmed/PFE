@@ -6,38 +6,52 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
+    },
+    date_création: {
+      type: DataTypes.DATE,
+      allowNull: true
     },
     tva: {
+      type: DataTypes.FLOAT,
+      allowNull: true
+    },
+     prix_ht: {
+      type: DataTypes.FLOAT,
+      allowNull: true
+    },
+    prix_tt: {
+      type: DataTypes.FLOAT,
+      allowNull: true
+    },
+    Contrat_idContrat: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    prixHt: {
-      type: DataTypes.FLOAT,
-      allowNull: true
-    },
-        prixTT: {
-      type: DataTypes.FLOAT,
-      allowNull: true
-    },
-
-        Contrat_idContrat: {
-          type: DataTypes.INTEGER(11),
-          allowNull: false,
-          references: {
-            model: 'Contrat',
-            key: 'idContrat'
-          }
-        },
-
-  },
-      {
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'Contrat',
+        key: 'idContrat'
+      }
+    }
+  }, {
     tableName: 'Facture',
     freezeTableName: true,
-    timestamps : false
+    timestamps : false, // eliminate updateAT and createAt
+    instanceMethods: {
+
+
+      //calcul tva
+      calcul_tva :function(prixVoiture)
+      {
+        var dateA = new moment(this.dateDebut);
+        var dateB = new moment(this.dateFin);
+        var diff = dateB.diff(dateA,'days');
+        return diff*prixVoiture;
+      },
+    }
+
+
+
+
   });
 };
