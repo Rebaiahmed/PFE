@@ -49,13 +49,13 @@
 
 
 
-        <div class="row " >
-            <div class="col md8">
+        <div class="row" >
+            <div class="col md12 center-align" style="margin-left: 300px">
 
   <div class="card center-align animated bounceInDown" ng-show="showForm">
 
 
-      <form  ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl" ng-model="ReservationForm">
+      <form class="center-align"  ng-submit="Create()" novalidate name="ReservationForm"  ng-controller="homeCtrl" ng-model="ReservationForm">
           <h5 class="blue-text text-darken-2 card-title center-align">Réservez maintenant  </h5>
 
 
@@ -63,15 +63,15 @@
 
 
           <div class="row">
-              <div class="col s6">
+
 
 
                   <div class="col s4">
-                      <label for="date_debut">Date Début</label>
+                      <label >Date Début</label>
                   </div><!--end of col s2--->
 
 
-                  <div class="input-field col s10 validate">
+                  <div class="input-field col s4 validate">
                       <input input-date
                              type="text"
                              name="dateDebut"
@@ -86,70 +86,72 @@
 
                   </div><!--end of col s10-->
 
-              </div><!--end of col s6---->
+
+              <div class="col s2">
+                  <label >Date Fin</label>
+              </div><!--end of col 12-->
 
 
-              <div class="col s6">
+              <div class="input-field col s4 validate">
+                  <input
+                          input-date
+                          name="text"
+                          id="dateFin"
+                          ng-model="newReservation.dateFin"
+                          container="body"
+                          format="dd/mm/yyyy"
+                          months-full="{{ month }}"
+                          months-short="{{ monthShort }}"
+                          weekdays-full="{{ weekdaysFull }}"
+                          required>
+
+              </div><!--end of col s10-->
 
 
-                  <div class="col s4">
-                      <label for="heure_fin">Heure Début</label>
-                  </div><!--end of col s2--->
-                  <div class="input-field col s10">
-                      <input  type="number" class="validate" ng-model="newReservation.heureDebut"
-                              required name="heureDebut">
-
-                  </div><!--end of col s10--->
-
-
-              </div><!--end of col s6--->
 
 
 
 
           </div><!--end of row----->
 
-          <div class="row">
-              <div class="col s6">
-
-                  <div class="col s4">
-                      <label for="date_fin">Date Fin</label>
-                  </div><!--end of col 12-->
 
 
-                  <div class="input-field col s10 validate">
-                      <input
-                              input-date
-                             name="text"
-                             id="dateFin"
-                             ng-model="newReservation.dateFin"
-                             container="body"
-                             format="dd/mm/yyyy"
-                             months-full="{{ month }}"
-                             months-short="{{ monthShort }}"
-                             weekdays-full="{{ weekdaysFull }}"
-                             required>
-
-                  </div><!--end of col s10-->
 
 
-              </div><!--end of col s6---------->
 
-              <div class="col s6">
 
-                  <div class="col s4">
-                      <label for="heure_fin">Heure Fin</label>
-                  </div><!--end of col 2-->
 
-                  <div class="input-field col s10">
-                      <input  type="number" class="validate" id="heure_fin" ng-model="newReservation.heureFin"
-                              required name="heureFin">
 
-                  </div><!--end of col s10--->
+              <div class="row">
+                  <div class="col s2">
+                      <label>heure Retour</label>
+                  </div>
+                  <div class="input-field col s6">
+                      <select class="browser-default">
 
-              </div><!--end of col s6-->
+                      </select>
 
-          </div><!--end of row-->
+
+                  </div><!-------end of col s6---->
+              </div><!---end of row---->
+
+
+
+
+
+
+              <div class="row">
+                  <div class="col s2">
+                      <label>heure Retour</label>
+                  </div>
+                  <div class="input-field col s6">
+                      <select class="browser-default">
+
+                      </select>
+
+
+                  </div><!-------end of col s6---->
+              </div><!---end of row---->
 
 
 
@@ -157,24 +159,13 @@
 
           <div class="row">
 
-              <div class="col s6">
-                  <select  ng-model="newReservation.lieuPrise" material-select required name="lieuPrise" >
-
-
-                      <option class="blue-text text-darken-2" value="" disabled selected>lieur de Prise</option>
-                      <option value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
-                      <option value="Nfidha">Aéroport  de Nfidha</option>
-                      <option value="Mounsatir">Aéroport Mounastir</option>
-                      <option value="Djerba">Aéroport Djerba</option>
-                      <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
-                  </select>
-              </div><!--end of col s6--->
-
-
+              <div class="col s2">
+                  <label>lieu Retour</label>
+              </div>
               <div class="col s6">
 
                   <select  ng-model="newReservation.lieuRetour" material-select required name="lieuRetour">
-                      <option class="blue-text text-darken-2" value="" disabled selected>lieur de Retour</option>
+
                       <option class="blue-text" value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
                       <option value="Nfidha">Aéroport  de Nfidha</option>
                       <option value="Mounsatir">Aéroport Mounastir</option>
@@ -184,7 +175,30 @@
 
               </div><!--end of col s6--->
 
-          </div><!--end of row---->
+          </div><!---end of row---->
+
+
+
+          <div class="row">
+
+                  <div class="col s2">
+                      <label>lieu Retour</label>
+                  </div>
+              <div class="col s6">
+
+                  <select  ng-model="newReservation.lieuRetour" material-select required name="lieuRetour">
+
+                      <option class="blue-text" value="Tunis_Chartage">Aéroport de Tunis de chartage</option>
+                      <option value="Nfidha">Aéroport  de Nfidha</option>
+                      <option value="Mounsatir">Aéroport Mounastir</option>
+                      <option value="Djerba">Aéroport Djerba</option>
+                      <option value="Hammamet_Centre_Ville">Hammamet Centre Ville</option>
+                  </select>
+
+              </div><!--end of col s6--->
+
+              </div><!---end of row---->
+
 
 
           <div class="row" >
